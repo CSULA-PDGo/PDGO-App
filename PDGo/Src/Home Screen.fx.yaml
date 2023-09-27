@@ -1,0 +1,22 @@
+"'Home Screen' As screen":
+
+    Rectangle2 As rectangle:
+        Height: =151
+        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight);
+        Width: =226
+        X: =69
+        Y: =69
+        ZIndex: =1
+
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =139
+        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
+        Size: =21
+        Text: ="Profile"
+        Width: =214
+        X: =81
+        Y: =69
+        ZIndex: =2
+

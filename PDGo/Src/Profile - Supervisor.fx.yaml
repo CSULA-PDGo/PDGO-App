@@ -1,0 +1,101 @@
+"'Profile - Supervisor' As screen":
+
+    "'Background Color_4' As rectangle":
+        BorderStyle: =BorderStyle.None
+        Height: =296
+        Width: =640
+        ZIndex: =1
+
+    "'Back Button_5' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.ArrowLeft
+        OnSelect: =Navigate(Profile, ScreenTransition.Cover)
+        Width: =66
+        X: =23
+        Y: =34
+        ZIndex: =2
+
+    "'User Name_1' As label":
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =51
+        Size: =21
+        Text: |
+            =LookUp(Users, 'Full Name' = _mySupervisor, 'Full Name')
+        Width: =580
+        X: =30
+        Y: =201
+        ZIndex: =4
+
+    "'User Profile Picture_1' As image":
+        Height: =145
+        ImagePosition: =ImagePosition.Fill
+        RadiusBottomLeft: ='User Profile Picture_1'.Height
+        RadiusBottomRight: ='User Profile Picture_1'.Height
+        RadiusTopLeft: ='User Profile Picture_1'.Height
+        RadiusTopRight: ='User Profile Picture_1'.Height
+        Width: =145
+        X: =247
+        Y: =56
+        ZIndex: =5
+
+    "'About Container_1' As groupContainer.manualLayoutContainer":
+        Height: =716
+        Width: =640
+        Y: =296
+        ZIndex: =6
+
+        "'About Me Label_1' As label":
+            Font: =Font.'Lato Black'
+            Height: =44
+            Size: =21
+            Text: ="About Me"
+            Width: =148
+            X: =36
+            Y: =66
+            ZIndex: =1
+
+        "'About Me Description_1' As label":
+            Height: =188
+            Overflow: =Overflow.Scroll
+            Size: =18
+            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'About Me')
+            VerticalAlign: =VerticalAlign.Top
+            Width: =560
+            X: =36
+            Y: =110
+            ZIndex: =2
+
+        Label6_1 As label:
+            Height: =70
+            Size: =21
+            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'Phone Number')
+            Width: =448
+            X: =133
+            Y: =331
+            ZIndex: =3
+
+        Label7_1 As label:
+            Height: =70
+            Size: =21
+            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'Email Address')
+            Width: =449
+            X: =133
+            Y: =434
+            ZIndex: =4
+
+        Icon8_1 As icon.Phone:
+            Height: =50
+            Icon: =Icon.Phone
+            Width: =50
+            X: =56
+            Y: =341
+            ZIndex: =5
+
+        Icon9_1 As icon.Mail:
+            Icon: =Icon.Mail
+            X: =49
+            Y: =440
+            ZIndex: =6
+

@@ -1,0 +1,166 @@
+"'Profile - Edit' As screen":
+
+    "'Profile Edit Background' As rectangle":
+        Fill: ='Background Color'.Fill
+        Width: =638
+        ZIndex: =1
+
+    "'Profile Edit Confirm Button' As icon.Check":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =35
+        Icon: =Icon.Check
+        OnSelect: |-
+            =Patch(Users, LookUp(Users, 'Email Address' = User().Email),{'Full Name': 'Profile Edit Full Name Input'.Text, 'Phone Number': 'Profile Edit Phone Number Input'.Text, 'Profile Picture': AddMediaButton2, 'About Me': 'Profile Edit About Me Input'.Text});
+            
+            Navigate(Profile, ScreenTransition.Cover)
+        Width: =35
+        X: =575
+        Y: =32
+        ZIndex: =3
+
+    "'Profile Edit Label' As label":
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        Height: =70
+        Size: =27
+        Text: ="Edit"
+        Width: =84
+        X: =277
+        Y: =15
+        ZIndex: =4
+
+    "'Profile Edit Exit Button' As icon.Cancel":
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Navigate(Profile, ScreenTransition.Cover)
+        Width: =35
+        X: =32
+        Y: =18
+        ZIndex: =5
+
+    Container3 As groupContainer.manualLayoutContainer:
+        Height: =1036
+        Width: =640
+        Y: =100
+        ZIndex: =6
+
+        Label11 As label:
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            Size: =21
+            Text: |-
+                ="Full Name
+                "
+            Width: =560
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        "'Profile Edit Full Name Input' As text":
+            Default: =User().FullName
+            Font: =Font.Lato
+            Height: =70
+            Size: =21
+            Width: =560
+            X: =40
+            Y: =98
+            ZIndex: =2
+
+        Label11_1 As label:
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            Size: =21
+            Text: |-
+                ="Phone Number
+                "
+            Width: =560
+            X: =40
+            Y: =181
+            ZIndex: =3
+
+        "'Profile Edit Phone Number Input' As text":
+            Default: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
+            Font: =Font.Lato
+            Height: =70
+            Size: =21
+            Width: =560
+            X: =40
+            Y: =239
+            ZIndex: =4
+
+        Label11_2 As label:
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            Size: =21
+            Text: |-
+                ="Profile Picture
+                "
+            Width: =560
+            X: =40
+            Y: =333
+            ZIndex: =6
+
+        AddMediaWithImage2 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =7
+
+            "'Profile Edit Profile Picture Input' As image":
+                BorderThickness: =1
+                Height: =198
+                Image: =If(IsBlank(AddMediaButton2.Media), LookUp(Users, 'Email Address' = User().Email, 'Profile Picture').Medium, AddMediaButton2.Media)
+                ImagePosition: =ImagePosition.Fill
+                Width: =268
+                X: =40
+                Y: =393
+                ZIndex: =8
+
+            AddMediaButton2 As addMedia:
+                BorderThickness: =1
+                Height: =198
+                Size: =25
+                Text: =""
+                Width: =268
+                X: =40
+                Y: =393
+                ZIndex: =9
+
+        Icon2 As icon.Camera:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 0, 0, 1)
+            Height: =35
+            Icon: =Icon.Camera
+            Width: =35
+            X: =285
+            Y: =575
+            ZIndex: =10
+
+        Label11_3 As label:
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Semibold
+            Height: =70
+            Size: =21
+            Text: |-
+                ="About Me
+                "
+            Width: =560
+            X: =40
+            Y: =631
+            ZIndex: =11
+
+        "'Profile Edit About Me Input' As text":
+            Default: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
+            Font: =Font.Lato
+            Height: =178
+            Mode: =TextMode.MultiLine
+            Size: =21
+            Width: =560
+            X: =40
+            Y: =701
+            ZIndex: =12
+
