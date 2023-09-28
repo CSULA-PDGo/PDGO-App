@@ -10,7 +10,11 @@
         Height: =35
         Icon: =Icon.Check
         OnSelect: |-
-            =Patch(Users, LookUp(Users, 'Email Address' = User().Email),{'Full Name': 'Profile Edit Full Name Input'.Text, 'Phone Number': 'Profile Edit Phone Number Input'.Text, 'Profile Picture': AddMediaButton2, 'About Me': 'Profile Edit About Me Input'.Text});
+            =If(Len('Profile Edit Phone Number Input'.Text) = 0, 
+                
+                Patch(Users, LookUp(Users, 'Email Address' = User().Email),{'Full Name': 'Profile Edit Full Name Input'.Text, 'Profile Picture': 'Profile Edit Profile Picture Input'.Image, 'About Me': 'Profile Edit About Me Input'.Text}),
+            
+                Patch(Users, LookUp(Users, 'Email Address' = User().Email),{'Full Name': 'Profile Edit Full Name Input'.Text, 'Phone Number': 'Profile Edit Phone Number Input'.Text, 'Profile Picture': 'Profile Edit Profile Picture Input'.Image, 'About Me': 'Profile Edit About Me Input'.Text}));
             
             Navigate(Profile, ScreenTransition.Cover)
         Width: =35
@@ -38,13 +42,99 @@
         Y: =18
         ZIndex: =5
 
-    Container3 As groupContainer.manualLayoutContainer:
+    "'Profile Edit Container' As groupContainer.manualLayoutContainer":
         Height: =1036
         Width: =640
         Y: =100
         ZIndex: =6
 
-        Label11 As label:
+        "'Profile Edit Phone Number Input Format' As text":
+            Default: |-
+                ="(###) ###-####"
+            Font: =Font.Lato
+            Height: =70
+            Size: =21
+            Visible: =false
+            Width: =560
+            X: =40
+            Y: =243
+            ZIndex: =1
+
+        "'Profile Edit Phone Number Input Slider' As slider":
+            Default: =Len('Profile Edit Phone Number Input'.Text)
+            Height: =70
+            OnChange: |-
+                =Set(
+                    varPhoneNumber,
+                    With(
+                        {
+                            // extracts all numbers from the phone number field
+                            varTextNumbersOnly: Concat(
+                                MatchAll(
+                                    'Profile Edit Phone Number Input'.Text,
+                                    Match.Digit
+                                ),
+                                FullMatch
+                            ),
+                            // builds a table with phone number format at every position
+                            varPhoneNumberFormat: With(
+                                {varTextPhoneNumberFormat: 'Profile Edit Phone Number Input Format'.Text},
+                                With(
+                                    {
+                                        varTablePhoneNumberFormat: ForAll(
+                                            Sequence(Len(varTextPhoneNumberFormat)),
+                                            With(
+                                                {
+                                                    varNumberCurrentLength: Left(
+                                                        varTextPhoneNumberFormat,
+                                                        Value
+                                                    )
+                                                },
+                                                {
+                                                    NumberFormat: varNumberCurrentLength,
+                                                    CountNumbers: CountRows(
+                                                        MatchAll(
+                                                            varNumberCurrentLength,
+                                                            "#"
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        )
+                                    },
+                                    ForAll(
+                                        Sequence(
+                                            Max(
+                                                varTablePhoneNumberFormat,
+                                                CountNumbers
+                                            )
+                                        ),
+                                        LookUp(
+                                            varTablePhoneNumberFormat,
+                                            CountNumbers = Value
+                                        )
+                                    )
+                                )
+                            )
+                        },
+                        Text(
+                            Value(varTextNumbersOnly),
+                            LookUp(
+                                varPhoneNumberFormat,
+                                CountNumbers = Len(varTextNumbersOnly),
+                                NumberFormat
+                            )
+                        )
+                    )
+                );
+                Reset('Profile Edit Phone Number Input');
+            Visible: =false
+            Width: =560
+            X: =40
+            Y: =250
+            ZIndex: =2
+
+        "'Profile Edit Full Name Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
@@ -55,19 +145,20 @@
             Width: =560
             X: =40
             Y: =40
-            ZIndex: =1
+            ZIndex: =3
 
         "'Profile Edit Full Name Input' As text":
             Default: =User().FullName
+            DisplayMode: =DisplayMode.Disabled
             Font: =Font.Lato
             Height: =70
             Size: =21
             Width: =560
             X: =40
             Y: =98
-            ZIndex: =2
+            ZIndex: =4
 
-        Label11_1 As label:
+        "'Profile Edit Phone Number Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
@@ -78,19 +169,9 @@
             Width: =560
             X: =40
             Y: =181
-            ZIndex: =3
+            ZIndex: =5
 
-        "'Profile Edit Phone Number Input' As text":
-            Default: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
-            Font: =Font.Lato
-            Height: =70
-            Size: =21
-            Width: =560
-            X: =40
-            Y: =239
-            ZIndex: =4
-
-        Label11_2 As label:
+        "'Profile Edit Profile Picture Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
@@ -118,7 +199,7 @@
                 Width: =268
                 X: =40
                 Y: =393
-                ZIndex: =8
+                ZIndex: =7
 
             AddMediaButton2 As addMedia:
                 BorderThickness: =1
@@ -128,9 +209,9 @@
                 Width: =268
                 X: =40
                 Y: =393
-                ZIndex: =9
+                ZIndex: =8
 
-        Icon2 As icon.Camera:
+        "'Profile Edit Picture Change Icon' As icon.Camera":
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(0, 0, 0, 1)
             Height: =35
@@ -138,9 +219,9 @@
             Width: =35
             X: =285
             Y: =575
-            ZIndex: =10
+            ZIndex: =9
 
-        Label11_3 As label:
+        "'Profile Edit About Me Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
@@ -151,7 +232,7 @@
             Width: =560
             X: =40
             Y: =631
-            ZIndex: =11
+            ZIndex: =10
 
         "'Profile Edit About Me Input' As text":
             Default: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
@@ -162,5 +243,18 @@
             Width: =560
             X: =40
             Y: =701
+            ZIndex: =11
+
+        "'Profile Edit Phone Number Input' As text":
+            Default: |-
+                =//LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
+                varPhoneNumber
+            Font: =Font.Lato
+            Height: =70
+            MaxLength: =Len('Profile Edit Phone Number Input Format'.Text)
+            Size: =21
+            Width: =560
+            X: =40
+            Y: =240
             ZIndex: =12
 

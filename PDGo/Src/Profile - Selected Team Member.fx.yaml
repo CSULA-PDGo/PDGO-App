@@ -1,53 +1,54 @@
-"'Profile - Supervisor' As screen":
+"'Profile - Selected Team Member' As screen":
 
-    "'Background Color_4' As rectangle":
+    "'Background Color_5' As rectangle":
         BorderStyle: =BorderStyle.None
         Height: =296
         Width: =640
         ZIndex: =1
 
-    "'Back Button_5' As icon.ArrowLeft":
+    "'Profile Selected Team Member Back Button' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft
-        OnSelect: =Navigate(Profile, ScreenTransition.Cover)
+        OnSelect: =Navigate('Profile - Team', ScreenTransition.Cover)
         Width: =66
-        X: =23
-        Y: =34
+        X: =27
+        Y: =30
         ZIndex: =2
 
-    "'User Name_1' As label":
+    "'Profile Selected Team Member Full Name' As label":
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Font: =Font.Lato
         Height: =51
         Size: =26
-        Text: |
-            =LookUp(Users, 'Full Name' = _mySupervisor, 'Full Name')
+        Text: =_selectedTeamMember.'Full Name'
         Width: =580
         X: =30
         Y: =201
-        ZIndex: =4
+        ZIndex: =3
 
-    "'User Profile Picture_1' As image":
+    "'Profile Selected Team Member Profile Picture' As image":
+        ContentLanguage: =
         Height: =145
+        Image: =_selectedTeamMember.'Profile Picture'
         ImagePosition: =ImagePosition.Fill
-        RadiusBottomLeft: ='User Profile Picture_1'.Height
-        RadiusBottomRight: ='User Profile Picture_1'.Height
-        RadiusTopLeft: ='User Profile Picture_1'.Height
-        RadiusTopRight: ='User Profile Picture_1'.Height
+        RadiusBottomLeft: ='Profile Selected Team Member Profile Picture'.Height
+        RadiusBottomRight: ='Profile Selected Team Member Profile Picture'.Height
+        RadiusTopLeft: ='Profile Selected Team Member Profile Picture'.Height
+        RadiusTopRight: ='Profile Selected Team Member Profile Picture'.Height
         Width: =145
         X: =247
         Y: =56
-        ZIndex: =5
+        ZIndex: =4
 
-    "'About Container_1' As groupContainer.manualLayoutContainer":
+    "'Profile Selected Team Member About Container' As groupContainer.manualLayoutContainer":
         Height: =716
         Width: =640
         Y: =296
-        ZIndex: =6
+        ZIndex: =5
 
-        "'About Me Label_1' As label":
+        "'Profile Selected Team Member About Me Label' As label":
             Font: =Font.'Lato Black'
             Height: =44
             Size: =21
@@ -57,36 +58,36 @@
             Y: =66
             ZIndex: =1
 
-        "'About Me Description_1' As label":
+        "'Profile Selected Team Member About Me Description' As label":
             Height: =188
             Overflow: =Overflow.Scroll
             Size: =18
-            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'About Me')
+            Text: =_selectedTeamMember.'About Me'
             VerticalAlign: =VerticalAlign.Top
             Width: =560
             X: =36
             Y: =110
             ZIndex: =2
 
-        Label6_1 As label:
+        "'Profile Selected Team Member Phone Number' As label":
             Height: =70
             Size: =21
-            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'Phone Number')
+            Text: =_selectedTeamMember.'Phone Number'
             Width: =448
             X: =133
             Y: =331
             ZIndex: =3
 
-        Label7_1 As label:
+        "'Profile Selected Team Member Email Address' As label":
             Height: =70
             Size: =21
-            Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'Email Address')
+            Text: =_selectedTeamMember.'Email Address'
             Width: =449
             X: =133
             Y: =434
             ZIndex: =4
 
-        Icon8_1 As icon.Phone:
+        Icon8_2 As icon.Phone:
             Height: =50
             Icon: =Icon.Phone
             Width: =50
@@ -94,7 +95,7 @@
             Y: =341
             ZIndex: =5
 
-        Icon9_1 As icon.Mail:
+        Icon9_2 As icon.Mail:
             Icon: =Icon.Mail
             X: =49
             Y: =440
