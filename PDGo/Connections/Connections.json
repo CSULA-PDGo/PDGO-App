@@ -22,20 +22,6 @@
     "dependents": [],
     "id": "02ceff66-c97d-4d72-8b73-146b70c0bb35"
   },
-  "06121cad-a650-4f18-a936-614a94db8fc5": {
-    "connectionRef": {
-      "displayName": "SharePoint",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "d0ebcfb5-9b4a-49c0-988c-cf3bed01cb7b"
-    ],
-    "id": "06121cad-a650-4f18-a936-614a94db8fc5"
-  },
   "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
     "appActions": [
       "CalendarGetTables",
@@ -56,20 +42,6 @@
     "dependencies": {},
     "dependents": [],
     "id": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-  },
-  "b13dce1e-8779-4e51-853b-275eb96ca5f1": {
-    "connectionRef": {
-      "displayName": "Office 365 Users",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "d0ebcfb5-9b4a-49c0-988c-cf3bed01cb7b"
-    ],
-    "id": "b13dce1e-8779-4e51-853b-275eb96ca5f1"
   },
   "b95cc6fb-c45e-4842-8626-f38dffe0d0c6": {
     "appActions": [
@@ -108,7 +80,21 @@
     "dependents": [],
     "id": "b95cc6fb-c45e-4842-8626-f38dffe0d0c6"
   },
-  "d0ebcfb5-9b4a-49c0-988c-cf3bed01cb7b": {
+  "d74ef993-3ce0-41e0-8fcb-b7075bdb8686": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "f72eba44-526d-4b34-8027-2b2a133021ff"
+    ],
+    "id": "d74ef993-3ce0-41e0-8fcb-b7075bdb8686"
+  },
+  "f72eba44-526d-4b34-8027-2b2a133021ff": {
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
@@ -135,10 +121,24 @@
       "CreateTORequest"
     ],
     "dependencies": {
-      "shared_office365users": "b13dce1e-8779-4e51-853b-275eb96ca5f1",
-      "shared_sharepointonline": "06121cad-a650-4f18-a936-614a94db8fc5"
+      "shared_office365users": "f9edfa54-bae5-4796-917d-ee2ed614fc82",
+      "shared_sharepointonline": "d74ef993-3ce0-41e0-8fcb-b7075bdb8686"
     },
     "dependents": [],
-    "id": "d0ebcfb5-9b4a-49c0-988c-cf3bed01cb7b"
+    "id": "f72eba44-526d-4b34-8027-2b2a133021ff"
+  },
+  "f9edfa54-bae5-4796-917d-ee2ed614fc82": {
+    "connectionRef": {
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3403/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "f72eba44-526d-4b34-8027-2b2a133021ff"
+    ],
+    "id": "f9edfa54-bae5-4796-917d-ee2ed614fc82"
   }
 }

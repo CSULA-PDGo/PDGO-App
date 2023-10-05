@@ -2,11 +2,11 @@
   <doc title="Create TO Request" />
   <grammars>
     <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
-      <string name="ManualTriggerInput_email_def" />
-      <string name="ManualTriggerInput_text_def" />
+      <string name="ManualTriggerInput_text_1_def" />
+      <string name="ManualTriggerInput_text_2_def" />
       <object name="ManualTriggerInput">
-        <property name="email" type="string" />
-        <property name="text" type="string" />
+        <property name="text_1" type="string" />
+        <property name="text_2" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -20,10 +20,10 @@
             <doc title="The api version" />
           </param>
           <representation mediaType="application/json">
-            <param style="plain" name="email" path="/email" type="xs:string" required="true">
-              <doc title="User Email" />
+            <param style="plain" name="text_1" path="/text_1" type="xs:string" required="true">
+              <doc title="User Entra ID" />
             </param>
-            <param style="plain" name="text" path="/text" type="xs:string" required="true">
+            <param style="plain" name="text_2" path="/text_2" type="xs:string" required="true">
               <doc title="RequestJSON" />
             </param>
           </representation>

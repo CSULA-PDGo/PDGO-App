@@ -86,6 +86,15 @@
             ZIndex: =3
 
         "'TO Request Screen Submit Button' As button":
+            OnSelect: |-
+                =CreateTORequest.Run(User().EntraObjectId, JSON({
+                    Reason: 'TO Request Screen Comments Input'.Text,
+                    Dates: RequestDates
+                }, JSONFormat.Compact));
+                Navigate('Success Screen', ScreenTransition.CoverRight, { JSON: JSON({
+                    Reason: 'TO Request Screen Comments Input'.Text,
+                    Dates: RequestDates
+                }, JSONFormat.Compact)});
             Text: ="Submit Request"
             ZIndex: =4
 
