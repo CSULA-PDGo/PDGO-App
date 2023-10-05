@@ -11,7 +11,7 @@
         PaddingLeft: =20
         PaddingRight: =17.99
         PaddingTop: =17.99
-        Width: =Parent.Width
+        Width: =768
         ZIndex: =1
 
         "'Date Container' As groupContainer.verticalAutoLayoutContainer":
@@ -206,7 +206,7 @@
                 LayoutMode: =LayoutMode.Auto
                 PaddingRight: =0.00
                 PaddingTop: =0.00
-                Visible: ='TO Request Date Screen Entire Day Toggle'.Value
+                Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
                 Width: =0.00
                 X: =0.00
                 ZIndex: =8
@@ -272,7 +272,7 @@
                 LayoutMode: =LayoutMode.Auto
                 PaddingRight: =0.00
                 PaddingTop: =0.00
-                Visible: ='TO Request Date Screen Entire Day Toggle'.Value
+                Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
                 Width: =0.00
                 X: =0.00
                 ZIndex: =9
@@ -346,6 +346,7 @@
             HoverFill: =RGBA(212, 212, 212, 1)
             IsSearchable: =false
             Items: =["Other"]
+            LayoutMinHeight: =50
             PaddingBottom: =15
             PaddingLeft: =16
             PaddingRight: =14.40
@@ -393,7 +394,7 @@
 
         "'TO Request Date Screen Error Label' As label":
             Color: =RGBA(168, 0, 0, 1)
-            Text: ="Comments are required for ""Other"" Leave Code"
+            Text: =""
             Visible: =Not(IsBlank(Self.Text))
             ZIndex: =4
 
@@ -410,7 +411,7 @@
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
             Italic: =true
             OnSelect: |-
-                =If(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", Boolean("true")), // Ensure Comments are there for "Other" code
+                =If(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
                     If(IsBlank(Edit), // Check if we are creating a new item or updating an existing one
                         Collect(RequestDates, {
@@ -432,7 +433,9 @@
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         })
                     )
-                )
+                );
+                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
+                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Navigate('TimeOff Request Screen'))
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38

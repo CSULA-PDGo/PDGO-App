@@ -71,7 +71,7 @@
         TabIndex: =0
         Tooltip: ="Reset selected date to today"
         Width: =60
-        X: =Parent.Width - Self.Width - 37
+        X: =708
         Y: =dropdownCalendarSelection3.Y
         ZIndex: =10
 
@@ -345,7 +345,6 @@
         Icon: =Icon.CalendarBlank
         Visible: =IsBlank(_userDomain)
         X: =Parent.Width/2 - Self.Width/2
-        Y: =LblEmptyState3.Y - Self.Height
         ZIndex: =19
 
     LblEmptyState3 As label:

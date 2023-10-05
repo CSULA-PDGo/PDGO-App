@@ -19,7 +19,6 @@ MainScreen As screen:
         Height: =1036
         Item: =Defaults(
         Width: =640
-        Y: =100
         ZIndex: =3
 
         "'Full Name_DataCard5' As typedDataCard.comboBoxEditCard":
@@ -32,7 +31,7 @@ MainScreen As screen:
             Height: =140
             Required: =false
             Update: =DataCardValue32.Selected
-            Width: =640
+            Width: =213
             X: =0
             Y: =0
             ZIndex: =7
@@ -125,9 +124,9 @@ MainScreen As screen:
             MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, "PhoneNumber")
             Required: =false
             Update: =DataCardValue33.Text
-            Width: =640
-            X: =0
-            Y: =1
+            Width: =213
+            X: =1
+            Y: =0
             ZIndex: =7
 
             DataCardKey34 As label:
@@ -197,10 +196,10 @@ MainScreen As screen:
             Height: =388
             Required: =false
             Update: =Image1.Image
-            Width: =640
+            Width: =213
             WidthFit: =false
-            X: =0
-            Y: =2
+            X: =2
+            Y: =0
             ZIndex: =7
 
             DataCardKey36 As label:
@@ -277,9 +276,9 @@ MainScreen As screen:
             MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, "AboutMe")
             Required: =false
             Update: =DataCardValue35.Text
-            Width: =640
+            Width: =213
             X: =0
-            Y: =3
+            Y: =1
             ZIndex: =7
 
             DataCardKey37 As label:
@@ -350,9 +349,9 @@ MainScreen As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue36.Selected
-            Width: =640
-            X: =0
-            Y: =4
+            Width: =213
+            X: =1
+            Y: =1
             ZIndex: =7
 
             ErrorMessage20 As label:

@@ -2,16 +2,15 @@
 
     RectQuickActionBar3 As rectangle:
         Height: =88
-        Width: =Parent.Width
+        Width: =768
         ZIndex: =1
 
     LblAppName3 As label:
         Height: =88
         Size: =27
         Text: ="Calendar"
-        Width: =Parent.Width - Self.X
+        Width: =768
         Wrap: =false
-        X: =32
         ZIndex: =2
 
     LblResetToday3 As label:
@@ -23,7 +22,7 @@
         Size: =15
         Text: =DateDiff(Date(Year(Today()), Month(Today()), 1), Today(), TimeUnit.Days) + 1
         Width: =iconCalendar3.Width
-        X: =iconCalendar3.X
+        X: =708
         Y: =iconCalendar3.Y
         ZIndex: =3
 

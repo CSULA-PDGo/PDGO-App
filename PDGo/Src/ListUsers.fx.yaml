@@ -47,7 +47,7 @@ ListUsers As screen:
 
     "'ListUsers-Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
-        Height: =1036
+        Height: =768
         Items: |
             =If(
                 Dropdown1.Selected.Value = "All",
@@ -59,7 +59,6 @@ ListUsers As screen:
         OnSelect: =Navigate('Profile - user')
         TemplatePadding: =0
         TemplateSize: =104
-        Y: =100
         ZIndex: =7
 
         Title1 As label:
