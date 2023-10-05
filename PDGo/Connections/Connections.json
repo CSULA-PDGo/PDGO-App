@@ -12,11 +12,24 @@
       "parameterHints": {},
       "parameterHintsV2": {}
     },
-    "datasets": {},
+    "datasets": {
+      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
+        "dataSources": {
+          "TimeOffRequestDays": {
+            "tableName": "ccb1c1ca-b402-425b-9030-90826cfc4dd4"
+          },
+          "TimeOffRequests": {
+            "tableName": "4c384f23-2da6-42cb-8590-aaab69ba77b5"
+          }
+        }
+      }
+    },
     "dataSources": [
       "Teams",
       "Users-Teams",
-      "Users"
+      "Users",
+      "TimeOffRequests",
+      "TimeOffRequestDays"
     ],
     "dependencies": {},
     "dependents": [],
@@ -100,6 +113,12 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "d74ef993-3ce0-41e0-8fcb-b7075bdb8686": {
+          "value": "shared_sharepointonline"
+        },
+        "f9edfa54-bae5-4796-917d-ee2ed614fc82": {
+          "value": "shared_office365users"
+        },
         "workflowEntityId": {
           "value": "24c02006-b963-ee11-8def-00224830e66f"
         },
@@ -108,6 +127,12 @@
         }
       },
       "parameterHintsV2": {
+        "shared_office365users": {
+          "value": "f9edfa54-bae5-4796-917d-ee2ed614fc82"
+        },
+        "shared_sharepointonline": {
+          "value": "d74ef993-3ce0-41e0-8fcb-b7075bdb8686"
+        },
         "workflowEntityId": {
           "value": "24c02006-b963-ee11-8def-00224830e66f"
         },
