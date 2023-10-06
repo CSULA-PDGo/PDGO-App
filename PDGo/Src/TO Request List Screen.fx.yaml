@@ -1,7 +1,8 @@
 "'TO Request List Screen' As screen":
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height
+        Height: |
+            =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
@@ -9,11 +10,34 @@
 
         Gallery1 As gallery.galleryVertical:
             DelayItemLoading: =true
+            Height: =Parent.Height
             Items: =TimeOffRequests
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
+            Width: =Parent.Width
             ZIndex: =1
+
+            Container2 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+                Button1 As button:
+                    OnSelect: =Navigate('TO Request Details Screen', ScreenTransition.Cover, ThisItem)
+                    Text: ="Details"
+                    ZIndex: =1
+
+                Label4 As label:
+                    Text: =ThisItem.'Created By'.DisplayName
+                    ZIndex: =2
+
+                Label12 As label:
+                    Text: =JSON(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), JSONFormat.IncludeBinaryData)
+                    ZIndex: =3
 

@@ -1,0 +1,80 @@
+"'TO Request Details Screen' As screen":
+
+    Container3 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container4 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Label13 As label:
+                Text: ="Submitter"
+                ZIndex: =1
+
+            Label14 As label:
+                FillPortions: =1
+                Text: =Author.DisplayName
+                ZIndex: =3
+
+        Container4_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Label13_1 As label:
+                Text: ="Reason"
+                ZIndex: =1
+
+            HtmlText1 As htmlViewer:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
+                HtmlText: =Reason
+                ZIndex: =4
+
+        Gallery1_1 As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =Parent.Height
+            Items: =Filter(TimeOffRequestDays, Request.Id = ID)
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =320
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
+            Width: =Parent.Width
+            ZIndex: =4
+
+            Container2_1 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =Parent.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+                Label18 As label:
+                    Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
+                    ZIndex: =1
+
+                Label19 As label:
+                    Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
+                    ZIndex: =2
+
+                Label20 As label:
+                    Text: =ThisItem.Reason.Value
+                    ZIndex: =3
+
+                HtmlText2 As htmlViewer:
+                    HtmlText: =ThisItem.AdditionalComments
+                    Visible: =Not(IsBlank(Self.HtmlText))
+                    ZIndex: =4
+
