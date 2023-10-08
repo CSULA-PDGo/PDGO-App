@@ -1,6 +1,7 @@
 "'TO Request Date Screen' As screen":
 
     "'TO Request Date Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
+        Fill: =RGBA(175, 191, 224, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
@@ -52,6 +53,7 @@
                     FillPortions: =1
                     FocusedBorderThickness: =4
                     Height: =24
+                    LayoutMinWidth: =100
                     LineHeight: =1
                     PaddingBottom: =15
                     PaddingLeft: =0
@@ -68,7 +70,7 @@
                     BorderColor: =RGBA(166, 166, 166, 1)
                     CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     Color: =RGBA(51, 51, 51, 1)
-                    DefaultDate: =DateTimeValue("05/22/2022")
+                    DefaultDate: =Now()
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     Height: =60
@@ -82,7 +84,7 @@
                     PaddingTop: =9
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
                     Size: =20.24
-                    Width: =290.00
+                    Width: =400
                     X: =145.00
                     ZIndex: =2
 
@@ -124,7 +126,7 @@
                     BorderColor: =RGBA(166, 166, 166, 1)
                     CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     Color: =RGBA(51, 51, 51, 1)
-                    DefaultDate: =DateTimeValue("05/22/2022")
+                    DefaultDate: =Now()
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     Height: =60
