@@ -20,8 +20,43 @@
         PaddingLeft: =20
         PaddingRight: =20
         PaddingTop: =20
-        Width: =768
+        Width: =Parent.Width
         ZIndex: =1
+
+        Header As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(136, 160, 209, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Icon2 As icon.ArrowLeft:
+                Icon: =Icon.ArrowLeft
+                Width: =50
+                ZIndex: =1
+
+            Label11 As label:
+                Align: =Align.Center
+                FillPortions: =1
+                Size: =20
+                Text: ="Text"
+                ZIndex: =2
+
+            Image1 As image:
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Fill
+                LayoutMinHeight: =75
+                ZIndex: =3
+
+            Label21 As label:
+                Size: =15
+                Text: ="Hello, " & User().FullName
+                Visible: ='TimeOff Request Screen'.Size<>1
+                ZIndex: =4
 
         "'TO Request Screen Date List' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -34,7 +69,7 @@
             TemplateSize: =104
             X: =60
             Y: =60
-            ZIndex: =1
+            ZIndex: =2
 
             "'TO Request Screen Date List Container' As groupContainer.horizontalAutoLayoutContainer":
                 Height: =Parent.TemplateHeight
@@ -76,14 +111,14 @@
             Fill: =RGBA(56, 96, 178, .80)
             OnSelect: =Navigate('TO Request Date Screen')
             Text: ="Add Request"
-            ZIndex: =2
+            ZIndex: =3
 
         "'TO Request Screen Comments Input' As text":
             Default: ="Text input"
             FillPortions: =1
             LayoutMinHeight: =200
             Mode: =TextMode.MultiLine
-            ZIndex: =3
+            ZIndex: =4
 
         "'TO Request Screen Submit Button' As button":
             OnSelect: |-
@@ -96,5 +131,5 @@
                     Dates: RequestDates
                 }, JSONFormat.Compact)});
             Text: ="Submit Request"
-            ZIndex: =4
+            ZIndex: =5
 
