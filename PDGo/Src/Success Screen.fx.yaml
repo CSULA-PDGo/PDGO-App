@@ -1,6 +1,7 @@
 "'Success Screen' As screen":
 
     iconCircle1 As circle.Circle:
+        Visible: =false
         X: =Parent.Width/2 - Self.Width/2
         Y: =(Parent.Height/2 - Self.Height/2) * .7
         ZIndex: =1
@@ -12,6 +13,7 @@
         PaddingLeft: =Self.PaddingTop
         PaddingRight: =Self.PaddingTop
         PaddingTop: =18
+        Visible: =false
         Width: =iconCircle1.Width
         X: =Parent.Width/2 - Self.Width/2
         Y: =(Parent.Height/2 - Self.Height/2) * .7
@@ -23,7 +25,46 @@
         Height: =iconCircle1.Height
         Size: =21
         Text: ="This was successfully completed"
+        Visible: |
+            =false
         Width: =768
         Y: =iconCheck1.Y + iconCheck1.Height + 100
         ZIndex: =3
+
+    Container7 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Container8 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            ZIndex: =1
+
+            Icon12 As icon.CheckBadge:
+                FillPortions: =1
+                Icon: =Icon.CheckBadge
+                ZIndex: =1
+
+            LblSuccessMsg1_1 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                AutoHeight: =true
+                FillPortions: =1
+                Height: =iconCircle1.Height
+                LayoutMinWidth: =200
+                PaddingLeft: =10
+                PaddingRight: =10
+                Size: =21
+                Text: ="This was successfully completed"
+                Width: =768
+                Y: =iconCheck1.Y + iconCheck1.Height + 100
+                ZIndex: =2
 
