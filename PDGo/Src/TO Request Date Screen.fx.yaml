@@ -1,7 +1,8 @@
 "'TO Request Date Screen' As screen":
+    Fill: =RGBA(136, 160, 209, 1)
 
     "'TO Request Date Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
-        Fill: =RGBA(175, 191, 224, 1)
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
@@ -33,6 +34,7 @@
 
             "'StartDate Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -78,6 +80,12 @@
                     IconBackground: =RGBA(0, 120, 212, 1)
                     LayoutMinHeight: =15
                     LayoutMinWidth: =100
+                    OnChange: |-
+                        =If(
+                            DateDiff(Today(), 'TO Request Date Screen Start Date Input'.SelectedDate, TimeUnit.Days) < 14,
+                            Notify("Please select a date at least 2 weeks in the future.", NotificationType.Error),
+                           'TO Request Date Screen Start Date Input'.SelectedDate
+                        );
                     PaddingBottom: =10
                     PaddingLeft: =16
                     PaddingRight: =9
@@ -90,6 +98,7 @@
 
             "'End Date Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =RGBA(175, 191, 224, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -145,6 +154,7 @@
 
             "'Entire Day Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMinHeight: =50
@@ -200,6 +210,7 @@
 
             "'Start Time Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =RGBA(175, 191, 224, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -234,35 +245,15 @@
                     Y: =14.5
                     ZIndex: =1
 
-                "'TO Request Date Screen Start Time Input' As text":
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    Color: =RGBA(166, 166, 166, 1)
-                    Default: =
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                "'TO Request Date Screen Start Time Input' As dropdown":
                     FillPortions: =1
-                    Height: =70
-                    HintText: ="Enter text"
-                    HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
-                    HoverColor: =RGBA(51, 51, 51, 1)
-                    HoverFill: =RGBA(255, 255, 255, 1)
-                    LayoutMinWidth: =100
-                    LineHeight: =1.361816
-                    PaddingBottom: =15
+                    Items: |-
+                        =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
                     PaddingLeft: =16
-                    PaddingRight: =14.40
-                    PaddingTop: =13.50
-                    PressedBorderColor: =RGBA(0, 120, 212, 1)
-                    PressedColor: =RGBA(51, 51, 51, 1)
-                    PressedFill: =RGBA(255, 255, 255, 1)
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =20.24
-                    Width: =0.00
-                    X: =0.00
-                    Y: =0.5
-                    ZIndex: =2
+                    PaddingRight: =9
+                    PaddingTop: =9
+                    Size: =20
+                    ZIndex: =3
 
             "'End Time Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -299,71 +290,62 @@
                     Y: =14.5
                     ZIndex: =1
 
-                "'TO Request Date Screen End Time Input' As text":
-                    BorderColor: =RGBA(166, 166, 166, 1)
-                    Color: =RGBA(166, 166, 166, 1)
-                    Default: =
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                "'TO Request Date Screen End Time Input' As dropdown":
                     FillPortions: =1
-                    Height: =70
-                    HintText: ="Enter text"
-                    HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
-                    HoverColor: =RGBA(51, 51, 51, 1)
-                    HoverFill: =RGBA(255, 255, 255, 1)
-                    LayoutMinWidth: =100
-                    LineHeight: =1.361816
-                    PaddingBottom: =15
-                    PaddingLeft: =16
-                    PaddingRight: =14.40
-                    PaddingTop: =13.50
-                    PressedBorderColor: =RGBA(0, 120, 212, 1)
-                    PressedColor: =RGBA(51, 51, 51, 1)
-                    PressedFill: =RGBA(255, 255, 255, 1)
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
-                    Size: =20.24
-                    Width: =0.00
-                    X: =0.00
-                    Y: =0.5
-                    ZIndex: =2
+                    Items: |-
+                        =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
+                    Size: =20
+                    ZIndex: =3
 
-        "'TO Request Date Screen Reason Dropdown' As combobox":
-            BorderColor: =RGBA(166, 166, 166, 1)
-            ChevronBackground: =RGBA(255, 255, 255, 1)
-            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
-            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
-            ChevronFill: =RGBA(51, 51, 51, 1)
-            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
-            ChevronHoverFill: =RGBA(33, 33, 33, 1)
-            Color: =RGBA(166, 166, 166, 1)
-            DefaultSelectedItems: =[]
-            DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            DisplayFields: =["Value"]
-            FillPortions: =1
-            Height: =70
-            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
-            HoverColor: =RGBA(51, 51, 51, 1)
-            HoverFill: =RGBA(212, 212, 212, 1)
-            IsSearchable: =false
-            Items: =Choices([@'TimeOffRequestDays'].Reason)
-            LayoutMinHeight: =50
-            PaddingBottom: =15
-            PaddingLeft: =16
-            PaddingRight: =14.40
-            PaddingTop: =13.50
-            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
-            PressedFill: =RGBA(0, 120, 212, 1)
-            SearchFields: =["Value"]
-            SearchItems: =[]
-            SelectionFill: =RGBA(255, 255, 255, 1)
-            SelectMultiple: =false
-            Size: =20.24
-            Width: =1326.00
-            X: =20.00
-            Y: =380.5
-            ZIndex: =2
+        "'Reason Code Container' As groupContainer.horizontalAutoLayoutContainer":
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            "'Reason Code Label' As label":
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
+                Size: =20
+                Text: ="Reason Code"
+                ZIndex: =1
+
+            "'TO Request Date Screen Reason Dropdown' As combobox":
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(51, 51, 51, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(166, 166, 166, 1)
+                DefaultSelectedItems: =[]
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["Value"]
+                FillPortions: =1
+                Height: ='Reason Code Container'.Height
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsSearchable: =false
+                Items: =Choices([@TimeOffRequestDays].Reason)
+                LayoutMinHeight: =50
+                PaddingBottom: =15
+                PaddingLeft: =16
+                PaddingRight: =14.40
+                PaddingTop: =13.50
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(255, 255, 255, 1)
+                SelectMultiple: =false
+                Size: =20.24
+                Width: =1326.00
+                X: =20.00
+                Y: =380.5
+                ZIndex: =2
 
         "'TO Request Date Screen Comments Input' As text":
             BorderColor: =RGBA(166, 166, 166, 1)
@@ -392,13 +374,13 @@
             Width: =1326.00
             X: =20.00
             Y: =460.5
-            ZIndex: =3
+            ZIndex: =4
 
         "'TO Request Date Screen Error Label' As label":
             Color: =RGBA(168, 0, 0, 1)
             Text: =""
             Visible: =Not(IsBlank(Self.Text))
-            ZIndex: =4
+            ZIndex: =5
 
         "'TO Request Date Screen Add To Request Button' As button":
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -420,8 +402,10 @@
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
                             EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
-                            StartTime: 'TO Request Date Screen Start Time Input'.Text,
-                            EndTime:   'TO Request Date Screen End Time Input'.Text,
+                            //StartTime: 'TO Request Date Screen Start Time Input'.Text,
+                            StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
+                            //EndTime:   'TO Request Date Screen End Time Input'.Text,
+                            EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
                             Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         }),
@@ -429,8 +413,8 @@
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
                             EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
-                            StartTime: 'TO Request Date Screen Start Time Input'.Text,
-                            EndTime:   'TO Request Date Screen End Time Input'.Text,
+                            StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
+                            EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
                             Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         })
@@ -455,5 +439,5 @@
             Width: =1326.00
             X: =20.00
             Y: =841
-            ZIndex: =5
+            ZIndex: =6
 

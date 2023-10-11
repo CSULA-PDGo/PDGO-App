@@ -38,6 +38,13 @@
   "65a4664d-fcd2-41ab-ac21-40e7df349c2c": {
     "connectionRef": {
       "displayName": "Power Apps Notification",
+      "executionRestrictions": {
+        "apiId": "/providers/microsoft.powerapps/apis/shared_powerappsnotification",
+        "appVer": "3.23093.27",
+        "modifiedOn": "2023-10-11 01:26:34",
+        "policy": "{\"type\":\"unused\"}",
+        "version": 1
+      },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3209/powerappsnotification/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_powerappsnotification",
       "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_powerappsnotification/connections/6bd2ede089c24a1bbf553c3b03a20be4"
@@ -107,6 +114,28 @@
     "dependencies": {},
     "dependents": [],
     "id": "b95cc6fb-c45e-4842-8626-f38dffe0d0c6"
+  },
+  "ca756213-8926-4314-a08e-49e13d1929ea": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
+        "dataSources": {
+          "TimeOffRequestDays_1": {
+            "tableName": "ccb1c1ca-b402-425b-9030-90826cfc4dd4"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TimeOffRequestDays_1"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ca756213-8926-4314-a08e-49e13d1929ea"
   },
   "d74ef993-3ce0-41e0-8fcb-b7075bdb8686": {
     "connectionRef": {
