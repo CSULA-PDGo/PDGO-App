@@ -43,7 +43,7 @@
                 Align: =Align.Center
                 FillPortions: =1
                 Size: =20
-                Text: ="Text"
+                Text: ="Requests"
                 ZIndex: =2
 
             Image1 As image:
@@ -58,6 +58,82 @@
                 Visible: ='TimeOff Request Screen'.Size<>1
                 ZIndex: =4
 
+        Container6 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: |+
+                ='TO Request Screen Main Container'.Width*.96
+                
+                
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            "'TO Request Screen Date List_1' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                DelayItemLoading: =true
+                Items: =RequestDates
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =104
+                X: =60
+                Y: =60
+                ZIndex: =1
+
+                "'TO Request Screen Date List Container_1' As groupContainer.horizontalAutoLayoutContainer":
+                    Height: =Parent.TemplateHeight
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    Width: |+
+                        ='TO Request Screen Date List_1'.TemplateWidth
+                        
+                    ZIndex: =8
+
+                    "'TO Date Screen Date List Date Range_1' As label":
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
+                        Width: |
+                            ='TO Request Screen Date List Container_1'.Width * 0.2
+                        ZIndex: =1
+
+                    "'TO Date Screen Date List Leave Reason_1' As label":
+                        Text: =ThisItem.Reason
+                        Width: |
+                            ='TO Request Screen Date List Container_1'.Width * 0.2
+                        ZIndex: =2
+
+                    "'TO Date Screen Date List Time Range_1' As label":
+                        Align: =Align.Center
+                        LayoutMinWidth: =100
+                        Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
+                        Width: |
+                            ='TO Request Screen Date List Container_1'.Width * 0.2
+                        ZIndex: =3
+
+                    "'TO Date Screen Date List Item Edit_1' As button":
+                        Align: =Align.Left
+                        OnSelect: |-
+                            =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
+                        Size: =12
+                        Text: ="Edit"
+                        Width: |
+                            ='TO Request Screen Date List Container_1'.Width * 0.2
+                        ZIndex: =4
+
+                    "'TO Date Screen Date List Item Delete_1' As button":
+                        Align: =Align.Left
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Fill: =RGBA(168, 0, 0, 1)
+                        OnSelect: =Remove(RequestDates, ThisItem)
+                        Size: =10
+                        Text: ="Delete"
+                        Width: |
+                            ='TO Request Screen Date List Container_1'.Width * 0.2
+                        ZIndex: =5
+
         "'TO Request Screen Date List' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
             AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
@@ -67,9 +143,11 @@
             LayoutMinWidth: =320
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =104
+            Visible: |
+                =false
             X: =60
             Y: =60
-            ZIndex: =2
+            ZIndex: =3
 
             "'TO Request Screen Date List Container' As groupContainer.horizontalAutoLayoutContainer":
                 Height: =Parent.TemplateHeight
@@ -77,7 +155,7 @@
                 LayoutGap: =30
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMode: =LayoutMode.Auto
-                Width: =Parent.TemplateWidth
+                Width: ='TimeOff Request Screen'.Width
                 ZIndex: =8
 
                 "'TO Date Screen Date List Date Range' As label":
@@ -96,6 +174,7 @@
                     ZIndex: =3
 
                 "'TO Date Screen Date List Item Edit' As button":
+                    FillPortions: =1
                     OnSelect: |-
                         =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
                     Text: ="Edit"
@@ -103,6 +182,7 @@
 
                 "'TO Date Screen Date List Item Delete' As button":
                     Fill: =RGBA(168, 0, 0, 1)
+                    FillPortions: =1
                     OnSelect: =Remove(RequestDates, ThisItem)
                     Text: ="Delete"
                     ZIndex: =5
@@ -111,14 +191,15 @@
             Fill: =RGBA(56, 96, 178, .80)
             OnSelect: =Navigate('TO Request Date Screen')
             Text: ="Add Request"
-            ZIndex: =3
+            ZIndex: =4
 
         "'TO Request Screen Comments Input' As text":
-            Default: ="Text input"
+            Default: =""
             FillPortions: =1
+            HintText: ="Additional Comments"
             LayoutMinHeight: =200
             Mode: =TextMode.MultiLine
-            ZIndex: =4
+            ZIndex: =5
 
         "'TO Request Screen Submit Button' As button":
             OnSelect: |-
@@ -131,5 +212,5 @@
                     Dates: RequestDates
                 }, JSONFormat.Compact)});
             Text: ="Submit Request"
-            ZIndex: =5
+            ZIndex: =6
 
