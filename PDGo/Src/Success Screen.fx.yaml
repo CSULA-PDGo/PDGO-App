@@ -39,6 +39,15 @@
         Width: =Parent.Width
         ZIndex: =4
 
+        Timer1 As timer:
+            AutoStart: =true
+            Duration: =3000
+            OnTimerEnd: |-
+                =ScreenTransition.Fade;
+                Navigate('Home Screen', ScreenTransition.None)
+            Visible: =false
+            ZIndex: =1
+
         Container8 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.Center
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -47,7 +56,7 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
-            ZIndex: =1
+            ZIndex: =2
 
             Icon12 As icon.CheckBadge:
                 FillPortions: =1

@@ -14,7 +14,9 @@
         OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
         Size: =21
         Text: ="Profile"
-        Width: =768
+        Width: |+
+            ='Home Screen'.Width
+            
         Y: =69
         ZIndex: =2
 
