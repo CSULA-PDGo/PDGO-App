@@ -80,58 +80,6 @@
                 Y: =60
                 ZIndex: =1
 
-                "'TO Request Screen Date List Container' As groupContainer.horizontalAutoLayoutContainer":
-                    Height: =Parent.TemplateHeight
-                    LayoutAlignItems: =LayoutAlignItems.Stretch
-                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                    LayoutMode: =LayoutMode.Auto
-                    LayoutWrap: =true
-                    Width: |+
-                        ='TO Request Screen Date List'.TemplateWidth
-                        
-                    ZIndex: =8
-
-                    "'TO Date Screen Date List Date Range' As label":
-                        Align: =Align.Center
-                        Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
-                        Width: |
-                            ='TO Request Screen Date List Container'.Width * 0.2
-                        ZIndex: =1
-
-                    "'TO Date Screen Date List Leave Reason' As label":
-                        Text: =ThisItem.Reason
-                        Width: |
-                            ='TO Request Screen Date List Container'.Width * 0.2
-                        ZIndex: =2
-
-                    "'TO Date Screen Date List Time Range' As label":
-                        Align: =Align.Center
-                        LayoutMinWidth: =100
-                        Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
-                        Width: |
-                            ='TO Request Screen Date List Container'.Width * 0.2
-                        ZIndex: =3
-
-                    "'TO Date Screen Date List Item Edit' As button":
-                        Align: =Align.Left
-                        OnSelect: |-
-                            =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
-                        Size: =12
-                        Text: ="Edit"
-                        Width: |
-                            ='TO Request Screen Date List Container'.Width * 0.2
-                        ZIndex: =4
-
-                    "'TO Date Screen Date List Item Delete' As button":
-                        Align: =Align.Left
-                        Fill: =RGBA(168, 0, 0, 1)
-                        OnSelect: =Remove(RequestDates, ThisItem)
-                        Size: =10
-                        Text: ="Delete"
-                        Width: |
-                            ='TO Request Screen Date List Container'.Width * 0.2
-                        ZIndex: =5
-
         "'TO Request Screen Add Date Button' As button":
             Fill: =RGBA(56, 96, 178, .80)
             OnSelect: =Navigate('TO Request Date Screen')
