@@ -38,46 +38,6 @@
                 LayoutMinHeight: =75
                 ZIndex: =3
 
-            Label21_4 As label:
-                Size: =15
-                Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =4
-
-        Container3 As groupContainer.verticalAutoLayoutContainer:
-            DropShadow: =DropShadow.Regular
-            FillPortions: =0
-            Height: =50
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            ZIndex: =2
-
-            Rectangle3 As rectangle:
-                BorderColor: =RGBA(0, 0, 0, 0)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =50
-                Width: =160
-                ZIndex: =1
-
-            Label14 As label:
-                FontWeight: =FontWeight.Bold
-                Text: ="Requestor"
-                ZIndex: =2
-
-            Label18 As label:
-                FontWeight: =FontWeight.Bold
-                Text: ="Status"
-                ZIndex: =3
-
-            Label19 As label:
-                FontWeight: =FontWeight.Bold
-                Text: ="Last Updated"
-                Width: =200
-                ZIndex: =4
-
         Gallery1 As gallery.galleryVertical:
             DelayItemLoading: =true
             Height: =Parent.Height
@@ -116,8 +76,4 @@
                     Text: =ThisItem.Modified
                     Width: =200
                     ZIndex: =4
-
-                Label20 As label:
-                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate)
-                    ZIndex: =5
 
