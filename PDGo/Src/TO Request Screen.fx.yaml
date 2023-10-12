@@ -139,6 +139,7 @@
                     Dates: RequestDates
                 }, JSONFormat.Compact));
                 Clear(RequestDates);
+                Reset('TO Request Screen Comments Input');
                 Navigate('Success Screen', ScreenTransition.CoverRight);
             Text: ="Submit Request"
             ZIndex: =5
