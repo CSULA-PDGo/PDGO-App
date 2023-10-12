@@ -1,80 +1,1309 @@
 "'TO Request Details Screen' As screen":
+    OnVisible: |-
+        =UpdateContext({ApproveRecord: Blank()}); UpdateContext({PopUp:false}); UpdateContext({PopUp2:false}); UpdateContext({PopUp3: false}); UpdateContext({PopUpDeny: false}); UpdateContext({PopUpApprove: false}); Set(approvedrecord, Blank())
 
-    Container3 As groupContainer.verticalAutoLayoutContainer:
+    MobilePage_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
+        Visible: |+
+            =//'Open Request page'.Size <=1
+            true
+            
         Width: =Parent.Width
         ZIndex: =1
 
-        Container4 As groupContainer.horizontalAutoLayoutContainer:
+        Container11_2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(56, 96, 178, 1)
             FillPortions: =0
-            Height: =50
-            LayoutAlignItems: =LayoutAlignItems.Center
+            Height: =70
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
             ZIndex: =1
 
-            Label13 As label:
-                Text: ="Submitter"
+            Icon7_5 As icon.ArrowLeft:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =40
+                Icon: =Icon.ArrowLeft
+                Width: =60
+                X: =26
+                Y: =22
                 ZIndex: =1
 
-            Label14 As label:
-                FillPortions: =1
-                Text: =Author.DisplayName
+            Label13_8 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =61
+                Text: ="All PTO"
+                Width: =Parent.Width/1.5
+                X: =177
+                Y: =13
+                ZIndex: =2
+
+        Container1_2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =70
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =2
+
+            Label28_2 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Name"
+                Width: =Parent.Width/5
+                X: =Label29_2.X-Self.Width
+                ZIndex: =1
+
+            Label29_2 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Date Created"
+                Width: =Parent.Width/5
+                X: =Label30_2.X-Self.Width
+                ZIndex: =2
+
+            Label30_2 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Date Start"
+                Width: =Parent.Width/5
+                X: =Label31_2.X-Self.Width
                 ZIndex: =3
 
-        Container4_1 As groupContainer.horizontalAutoLayoutContainer:
+            Label31_2 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Date End"
+                Width: =Parent.Width/5
+                X: =Label33_2.X-Self.Width
+                ZIndex: =4
+
+            Label33_2 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Status"
+                Width: =Parent.Width/5
+                X: =Parent.Width-Self.Width
+                ZIndex: =5
+
+        Container13_2 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =2
-
-            Label13_1 As label:
-                Text: ="Reason"
-                ZIndex: =1
-
-            HtmlText1 As htmlViewer:
-                AlignInContainer: =AlignInContainer.Stretch
-                FillPortions: =1
-                HtmlText: =Reason
-                ZIndex: =4
-
-        Gallery1_1 As gallery.galleryVertical:
-            DelayItemLoading: =true
-            Height: =Parent.Height
-            Items: =Filter(TimeOffRequestDays, Request.Id = ID)
-            Layout: =Layout.Vertical
-            LayoutMinHeight: =287
-            LayoutMinWidth: =320
-            LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
             Width: =Parent.Width
-            ZIndex: =4
+            ZIndex: =3
 
-            Container2_1 As groupContainer.horizontalAutoLayoutContainer:
-                Height: =Parent.TemplateHeight
-                LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.TemplateWidth
+            "Gallery2_3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DelayItemLoading: =true
+                FillPortions: =0
+                Height: =Parent.Height
+                Items: |
+                    =Filter(TimeOffRequest, Status.Value = "Deny" || Status.Value = "Approve")
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =UpdateContext({ApproveRecord: ThisItem}  );
+                    UpdateContext({PopUp:true})
+                TemplatePadding: =0
+                TemplateSize: =100
+                Width: =Parent.Width
+                X: =40
+                Y: =155
                 ZIndex: =1
 
-                Label18 As label:
-                    Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
+                Label19_12 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.StartingDate
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_13.X-Self.Width
                     ZIndex: =1
 
-                Label19 As label:
-                    Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
+                Label20_7 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Date Created'
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_12.X-Self.Width
                     ZIndex: =2
 
-                Label20 As label:
-                    Text: =ThisItem.Reason.Value
+                Label19_13 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.EndDate
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_14.X-Self.Width
                     ZIndex: =3
 
-                HtmlText2 As htmlViewer:
-                    HtmlText: =ThisItem.AdditionalComments
-                    Visible: =Not(IsBlank(Self.HtmlText))
+                Label19_14 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Size: =11
+                    Text: =ThisItem.Status.Value
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Parent.TemplateWidth-Self.Width
+                    ZIndex: =5
+
+                Label20_6 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Name Of User'
+                    Width: =Parent.TemplateWidth/5 
+                    ZIndex: =9
+
+    DetailsPage As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: =PopUp
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Rectangle3_2 As rectangle:
+            Fill: =RGBA(56, 96, 178, .9)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle4_2 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-30
+            Width: =Parent.Width-30
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container2_1 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle4_2.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle4_2.Width
+            X: =Rectangle4_2.X
+            Y: =Rectangle4_2.Y
+            ZIndex: =22
+
+            Container3_1 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label17_2 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Text: ="Time Off Request for " & ApproveRecord.'Name Of User'
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Container14_1 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =2
+
+                Container15_1 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Label22_15 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Size: =16
+                        Text: |-
+                            ="Name:"
+                        X: =101
+                        Y: =114
+                        ZIndex: =1
+
+                    Label22_16 As label:
+                        FillPortions: =3
+                        Size: =16
+                        Text: =ApproveRecord.'Name Of User'
+                        X: =101
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_6 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Label22_17 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Date Created:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_2 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.'Date Created'
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_7 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
                     ZIndex: =4
+
+                    Label22_18 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Start Date."
+                        X: =408
+                        Y: =114
+                        ZIndex: =1
+
+                    Label24_2 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.StartingDate
+                        X: =416
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_8 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =5
+
+                    Label22_19 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="End Date."
+                        X: =542
+                        Y: =114
+                        ZIndex: =1
+
+                    Label25_2 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.EndDate
+                        X: =553
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_9 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =6
+
+                    Label22_20 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Hours:"
+                        X: =695
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_5 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.HoursRequested
+                        Width: =68
+                        X: =715
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_10 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =7
+
+                    Label22_21 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Reason:"
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_6 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.ReasonFor
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_11 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(IsBlank(ApproveRecord.AdditionalComments) , false, true)
+                    ZIndex: =8
+
+                    Label22_22 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Additional Comments:"
+                        VerticalAlign: =VerticalAlign.Top
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_7 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.AdditionalComments
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_13 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =9
+
+                    Label22_24 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Status"
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_9 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.Status.Value
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_12 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(IsBlank(ApproveRecord.'Reason for Deny') , false, true)
+                    ZIndex: =10
+
+                    Label22_23 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Reason For Deny:"
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_8 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Overflow: =Overflow.Scroll
+                        Size: =16
+                        Text: =ApproveRecord.'Reason for Deny'
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container34_1 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    ZIndex: =11
+
+                    Button6_2 As button:
+                        OnSelect: |-
+                            =If(ApproveRecord.Status.Value = "Approve" , UpdateContext({PopUpApprove:true}), UpdateContext({PopUpDeny:true}) )
+                        Text: ="Modify"
+                        X: =225
+                        Y: =549
+                        ZIndex: =1
+
+            Container31_1 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Button7_4 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUp:false}); UpdateContext({ApproveRecord: Blank()}  );
+                    Text: ="Cancel"
+                    X: =983
+                    Y: =549
+                    ZIndex: =1
+
+    ModifyApprove As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |+
+            =PopUpApprove 
+            
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Rectangle2_4 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_4 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_3 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_4.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_4.Width
+            X: =Rectangle5_4.X
+            Y: =Rectangle5_4.Y
+            ZIndex: =5
+
+            Container3_2 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label17_3 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Text: ="Modify the status Request for " & ApproveRecord.'Name Of User'
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Container14_2 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =2
+
+                Label21_2 As label:
+                    Align: =Align.Center
+                    Height: =80
+                    Size: =15
+                    Text: ="Please specify a reason for the change in Status beofore submitting."
+                    Width: =Parent.Width
+                    X: =331
+                    Y: =39
+                    ZIndex: =1
+
+                Container15_2 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Label22_25 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Size: =16
+                        Text: |-
+                            ="Name:"
+                        X: =101
+                        Y: =114
+                        ZIndex: =1
+
+                    Label22_26 As label:
+                        FillPortions: =3
+                        Size: =16
+                        Text: =ApproveRecord.'Name Of User'
+                        X: =101
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_14 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Label22_27 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Date Created:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_3 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.'Date Created'
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_15 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+                    Label22_28 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Start Date."
+                        X: =408
+                        Y: =114
+                        ZIndex: =1
+
+                    Label24_3 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.StartingDate
+                        X: =416
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_16 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =5
+
+                    Label22_29 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="End Date."
+                        X: =542
+                        Y: =114
+                        ZIndex: =1
+
+                    Label25_3 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.EndDate
+                        X: =553
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_17 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =6
+
+                    Label22_30 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Hours:"
+                        X: =695
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_10 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.HoursRequested
+                        Width: =68
+                        X: =715
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_18 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =7
+
+                    Label22_31 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Reason:"
+                        VerticalAlign: =VerticalAlign.Top
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_11 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.ReasonFor
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_19 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(IsBlank(ApproveRecord.AdditionalComments) , false, true)
+                    ZIndex: =8
+
+                    Label22_32 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Additional Comments:"
+                        VerticalAlign: =VerticalAlign.Top
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_12 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.AdditionalComments
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                "'Reason Text_2' As text":
+                    AlignInContainer: =AlignInContainer.Center
+                    Default: =""
+                    Height: =100
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width-30
+                    X: =297
+                    Y: =269
+                    ZIndex: =10
+
+            Container37_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =20
+                PaddingRight: =20
+                ZIndex: =3
+
+                Button9_4 As button:
+                    OnSelect: |-
+                        =If('Reason Text_2'.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_2'), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequest, LookUp(TimeOffRequest, ID = ApproveRecord.ID), {'Last update time': DateValue(Now()), Status: {Value: "Deny"}, ModifiedReason:'Reason Text_2'.Text});   
+                        UpdateContext({ApproveRecord: Blank()});
+                        UpdateContext({PopUp3: true});
+                        UpdateContext({PopUpApprove: false});
+                        Reset('Reason Text_2');
+                        UpdateContext({PopUp: false}))
+                    Size: =12
+                    Text: ="Switch to Deny"
+                    Width: =130
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
+                Button9_6 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUpApprove: false}); UpdateContext({ApproveRecord: Blank()});
+                    Text: ="Cancel"
+                    Width: =130
+                    X: =593
+                    Y: =492
+                    ZIndex: =2
+
+    ModifyDeny As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |+
+            =PopUpDeny
+            
+            
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Rectangle2_8 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_8 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_7 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_8.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_8.Width
+            X: =Rectangle5_8.X
+            Y: =Rectangle5_8.Y
+            ZIndex: =5
+
+            Container3_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label17_4 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Text: ="Modify the status Request for " & ApproveRecord.'Name Of User'
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Container14_3 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =2
+
+                Label21_3 As label:
+                    Align: =Align.Center
+                    Height: =80
+                    Size: =15
+                    Text: ="Please specify a reason for the change in Status beofore submitting."
+                    Width: =Parent.Width
+                    X: =331
+                    Y: =39
+                    ZIndex: =1
+
+                Container15_3 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Label22_34 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Size: =16
+                        Text: |-
+                            ="Name:"
+                        X: =101
+                        Y: =114
+                        ZIndex: =1
+
+                    Label22_35 As label:
+                        FillPortions: =3
+                        Size: =16
+                        Text: =ApproveRecord.'Name Of User'
+                        X: =101
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_21 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Label22_36 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Date Created:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_4 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.'Date Created'
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_22 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+                    Label22_37 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="Start Date."
+                        X: =408
+                        Y: =114
+                        ZIndex: =1
+
+                    Label24_4 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.StartingDate
+                        X: =416
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_23 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =5
+
+                    Label22_38 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: ="End Date."
+                        X: =542
+                        Y: =114
+                        ZIndex: =1
+
+                    Label25_4 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.EndDate
+                        X: =553
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_24 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =6
+
+                    Label22_39 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Hours:"
+                        X: =695
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_14 As label:
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.HoursRequested
+                        Width: =68
+                        X: =715
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_25 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =7
+
+                    Label22_40 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Reason:"
+                        VerticalAlign: =VerticalAlign.Top
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_15 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.ReasonFor
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_20 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =If(IsBlank(ApproveRecord.AdditionalComments) , false, true)
+                    ZIndex: =8
+
+                    Label22_33 As label:
+                        AlignInContainer: =AlignInContainer.Start
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: |-
+                            ="Additional Comments:"
+                        VerticalAlign: =VerticalAlign.Top
+                        X: =783
+                        Y: =114
+                        ZIndex: =1
+
+                    Label26_13 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Size: =16
+                        Text: =ApproveRecord.AdditionalComments
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =316
+                        X: =783
+                        Y: =154
+                        ZIndex: =2
+
+                "'Reason Text_3' As text":
+                    AlignInContainer: =AlignInContainer.Center
+                    Default: =""
+                    Height: =100
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width-30
+                    X: =297
+                    Y: =269
+                    ZIndex: =10
+
+            Container37_7 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =20
+                PaddingRight: =20
+                ZIndex: =3
+
+                Button9_9 As button:
+                    OnSelect: |-
+                        =If('Reason Text_3'.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_3'), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequest, LookUp(TimeOffRequest, ID = ApproveRecord.ID), {'Last update time': DateValue(Now()), Status: {Value: "Approve"}, ModifiedReason:'Reason Text_3'.Text});
+                        UpdateContext({ApproveRecord: Blank()});
+                        UpdateContext({PopUp3: true});
+                        UpdateContext({PopUpDeny: false});
+                        Reset('Reason Text_3');
+                        UpdateContext({PopUp:false}))
+                    Size: =12
+                    Text: ="Switch to Approve"
+                    Width: =130
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
+                Button9_10 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUpDeny: false}); UpdateContext({ApproveRecord: Blank()});
+                    Text: ="Cancel"
+                    Width: =130
+                    X: =593
+                    Y: =492
+                    ZIndex: =2
+
+    "'error page_1' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Visible: =PopUp2
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Rectangle2_6 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_6 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_5 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_6.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_6.Width
+            X: =Rectangle5_6.X
+            Y: =Rectangle5_6.Y
+            ZIndex: =5
+
+            Container36_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =3
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label18_4 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =118
+                    Size: =15
+                    Text: ="Please Specify the reason for denial."
+                    Width: =707
+                    X: =320
+                    Y: =112
+                    ZIndex: =1
+
+            Container37_5 As groupContainer.verticalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                Button9_7 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUp2: false})
+                    Text: ="OK"
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
+    SuccessPopup_2 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: =PopUp3
+        Width: =Parent.Width
+        ZIndex: =6
+
+        Rectangle2_7 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_7 As rectangle:
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_6 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_7.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_7.Width
+            X: =Rectangle5_7.X
+            Y: =Rectangle5_7.Y
+            ZIndex: =5
+
+            Container36_5 As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height-100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label18_6 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Size: =15
+                    Text: ="Success! Your request has been submitted"
+                    Width: =Parent.Width
+                    X: =320
+                    Y: =112
+                    ZIndex: =1
+
+            Container37_6 As groupContainer.verticalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                Button9_8 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUp3: false})
+                    Text: ="OK"
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
 
