@@ -8,19 +8,50 @@
         Width: =Parent.Width
         ZIndex: =1
 
+        Header_2 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(136, 160, 209, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Icon2_2 As icon.ArrowLeft:
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Back(ScreenTransition.UnCoverRight);
+                Width: =50
+                ZIndex: =1
+
+            Label11_2 As label:
+                Align: =Align.Center
+                FillPortions: =1
+                Size: =20
+                Text: ="Requests"
+                ZIndex: =2
+
+            Image1_2 As image:
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Fill
+                LayoutMinHeight: =75
+                ZIndex: =3
+
         Gallery1 As gallery.galleryVertical:
             DelayItemLoading: =true
             Height: =Parent.Height
-            Items: =TimeOffRequests
+            Items: =Filter(TimeOffRequests, And(Or(Status.Value = "Pending", Status.Value = "Denied"), Author.Email = User().Email))
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
             Width: =Parent.Width
-            ZIndex: =1
+            ZIndex: =3
 
             Container2 As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =RGBA(0,0,0,0)
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -38,6 +69,11 @@
                     ZIndex: =2
 
                 Label12 As label:
-                    Text: =JSON(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), JSONFormat.IncludeBinaryData)
+                    Text: =ThisItem.Status.Value
                     ZIndex: =3
+
+                Label13 As label:
+                    Text: =ThisItem.Modified
+                    Width: =200
+                    ZIndex: =4
 
