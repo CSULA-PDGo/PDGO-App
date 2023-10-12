@@ -36,6 +36,9 @@
 
             Icon2 As icon.ArrowLeft:
                 Icon: =Icon.ArrowLeft
+                OnSelect: |-
+                    =Clear(RequestDates);
+                    Back(ScreenTransition.Cover);
                 Width: =50
                 ZIndex: =1
 

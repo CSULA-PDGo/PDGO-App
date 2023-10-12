@@ -460,7 +460,7 @@
                     )
                 );
                 If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Navigate('TO Request Screen'))
+                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Back(ScreenTransition.UnCoverRight)
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38
