@@ -16,6 +16,42 @@
         Width: =Parent.Width
         ZIndex: =1
 
+        Header_1 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(136, 160, 209, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Icon2_1 As icon.ArrowLeft:
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Navigate('TO Request Screen')
+                Width: =50
+                ZIndex: =1
+
+            Label11_1 As label:
+                Align: =Align.Center
+                FillPortions: =1
+                Size: =20
+                Text: ="Requests"
+                ZIndex: =2
+
+            Image1_1 As image:
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Fill
+                LayoutMinHeight: =75
+                ZIndex: =3
+
+            Label21_1 As label:
+                Size: =15
+                Text: ="Hello, " & User().FullName
+                Visible: ='TO Request Screen'.Size<>1
+                ZIndex: =4
+
         "'Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =6
@@ -30,7 +66,7 @@
             PaddingTop: =0.00
             Width: =1326.00
             X: =20.00
-            ZIndex: =1
+            ZIndex: =2
 
             "'StartDate Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -191,6 +227,7 @@
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(177, 177, 177, 1)
+                    Default: =true
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FalseFill: =RGBA(102, 102, 102, 1)
                     FalseHoverFill: =RGBA(33, 33, 33, 1)
@@ -423,7 +460,7 @@
                     )
                 );
                 If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Navigate('TimeOff Request Screen'))
+                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Navigate('TO Request Screen'))
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38

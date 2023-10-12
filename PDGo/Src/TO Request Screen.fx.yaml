@@ -1,4 +1,4 @@
-"'TimeOff Request Screen' As screen":
+"'TO Request Screen' As screen":
     OnVisible: |-
         =If(IsBlankOrError(RequestDates),ClearCollect(RequestDates, {
             StartDate: Today(),
@@ -55,7 +55,7 @@
             Label21 As label:
                 Size: =15
                 Text: ="Hello, " & User().FullName
-                Visible: ='TimeOff Request Screen'.Size<>1
+                Visible: ='TO Request Screen'.Size<>1
                 ZIndex: =4
 
         "'Dates Gallery' As gallery.galleryVertical":
@@ -135,10 +135,8 @@
                     Reason: 'TO Request Screen Comments Input'.Text,
                     Dates: RequestDates
                 }, JSONFormat.Compact));
-                Navigate('Success Screen', ScreenTransition.CoverRight, { JSON: JSON({
-                    Reason: 'TO Request Screen Comments Input'.Text,
-                    Dates: RequestDates
-                }, JSONFormat.Compact)});
+                Clear(RequestDates);
+                Navigate('Success Screen', ScreenTransition.CoverRight);
             Text: ="Submit Request"
             ZIndex: =5
 
