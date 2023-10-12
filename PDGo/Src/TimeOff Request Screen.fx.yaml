@@ -66,41 +66,61 @@
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(50, Self.Height - 60))
             Width: =Parent.Width
             ZIndex: =2
 
             Container2_2 As groupContainer.horizontalAutoLayoutContainer:
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =If(App.Width > ScreenSize.Small, LayoutDirection.Horizontal, LayoutDirection.Vertical)
+                LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.TemplateWidth
                 ZIndex: =1
 
                 Label4_1 As label:
+                    FillPortions: =1
+                    LayoutMinWidth: =110
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     ZIndex: =1
 
                 Label12_1 As label:
-                    Text: =ThisItem.StartTime & "-" & ThisItem.EndDate
+                    FillPortions: =1
+                    Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
+                    Width: =50
                     ZIndex: =2
 
                 Label22 As label:
-                    Text: =ThisItem.Reason & "(" & ThisItem.Comments & ")"
+                    FillPortions: =1
+                    LayoutMinWidth: =50
+                    Text: |
+                        =ThisItem.Reason
                     ZIndex: =3
 
+                Label13 As label:
+                    FillPortions: =1
+                    LayoutMinWidth: =50
+                    Text: =ThisItem.Comments
+                    Visible: =Not(IsBlank(ThisItem.Comments))
+                    ZIndex: =4
+
                 Button1_1 As button:
+                    FillPortions: =1
+                    LayoutMinWidth: =50
                     OnSelect: |-
                         =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
                     Text: ="Edit"
-                    ZIndex: =4
+                    ZIndex: =5
 
                 Button2 As button:
                     Fill: =RGBA(151, 0, 0, 1)
+                    FillPortions: =1
+                    LayoutMinWidth: =50
                     OnSelect: =Remove(RequestDates, ThisItem)
                     Text: ="Delete"
-                    ZIndex: =5
+                    ZIndex: =6
 
         "'TO Request Screen Add Date Button' As button":
             Fill: =RGBA(56, 96, 178, .80)
