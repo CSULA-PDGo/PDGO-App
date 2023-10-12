@@ -77,3 +77,7 @@
                     Width: =200
                     ZIndex: =4
 
+                Label14 As label:
+                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    ZIndex: =5
+
