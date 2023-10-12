@@ -29,7 +29,7 @@
 
             Icon2_1 As icon.ArrowLeft:
                 Icon: =Icon.ArrowLeft
-                OnSelect: =Navigate('TO Request Screen')
+                OnSelect: =Back(ScreenTransition.UnCoverRight);
                 Width: =50
                 ZIndex: =1
 
@@ -460,7 +460,7 @@
                     )
                 );
                 If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Back(ScreenTransition.UnCoverRight)
+                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Back(ScreenTransition.UnCoverRight));
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38
