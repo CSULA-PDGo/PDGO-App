@@ -73,11 +73,11 @@
             Container2_2 As groupContainer.horizontalAutoLayoutContainer:
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutDirection: =If(App.Width > ScreenSize.Small, LayoutDirection.Horizontal, LayoutDirection.Vertical)
+                LayoutDirection: =If(App.Width > ScreenSize.Medium, LayoutDirection.Horizontal, LayoutDirection.Vertical)
                 LayoutGap: =20
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMode: =LayoutMode.Auto
-                Width: =Parent.TemplateWidth
+                Width: =Min(Parent.TemplateWidth, App.Width)
                 ZIndex: =1
 
                 Label4_1 As label:
