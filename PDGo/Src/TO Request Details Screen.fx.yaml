@@ -953,31 +953,6 @@
                     FillPortions: =1
                     ZIndex: =4
 
-                Button9_9 As button:
-                    Height: =60
-                    OnSelect: |-
-                        =If( IsMatch('ReasonText'.Text, "\s*" ), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Approved"}, Comments:"Switched to approve: " & 'ReasonText'.Text & " Previous comment: " & ApproveRecord.Comments});
-                        UpdateContext({ApproveRecord: Blank()});
-                        UpdateContext({PopUp3: true});
-                        UpdateContext({PopUpDeny: false});
-                        Reset('ReasonText');
-                        UpdateContext({PopUp:false}))
-                    Size: =12
-                    Text: ="Switch to Approve"
-                    X: =593
-                    Y: =492
-                    ZIndex: =5
-
-                Button9_10 As button:
-                    Height: =60
-                    OnSelect: |-
-                        =UpdateContext({PopUpDeny: false}); UpdateContext({ApproveRecord: Blank()});
-                    Text: ="Cancel"
-                    X: =593
-                    Y: =492
-                    ZIndex: =6
-
     "'error page_1' As groupContainer.manualLayoutContainer":
         Height: =Parent.Height
         Visible: =PopUp2
