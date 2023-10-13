@@ -306,14 +306,14 @@
                         FillPortions: =1
                         Height: =Parent.Height
                         Size: =16
-                        Text: =ApproveRecord.'Created'
+                        Text: =ApproveRecord.Created
                         X: =285
                         Y: =154
                         ZIndex: =2
 
                 Container29_7 As groupContainer.horizontalAutoLayoutContainer:
                     FillPortions: =0
-                    Height: =50
+                    Height: =Max(HtmlText2.Height, 200)
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -330,14 +330,12 @@
                         Y: =114
                         ZIndex: =1
 
-                    Label24_2 As label:
+                    HtmlText2 As htmlViewer:
+                        AlignInContainer: =AlignInContainer.Center
+                        AutoHeight: =true
                         FillPortions: =1
-                        Height: =Parent.Height
-                        Size: =16
-                        Text: =ApproveRecord.Reason
-                        X: =416
-                        Y: =154
-                        ZIndex: =2
+                        HtmlText: =ApproveRecord.Reason
+                        ZIndex: =3
 
                 Container29_8 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(215, 223, 240, 1)
