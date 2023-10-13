@@ -599,6 +599,7 @@
             ZIndex: =5
 
             Container3_3 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(215, 223, 240, 1)
                 Height: =70
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
@@ -638,7 +639,7 @@
                     ZIndex: =3
 
                 Rectangle3 As rectangle:
-                    Fill: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(215, 223, 240, 1)
                     FillPortions: =1
                     ZIndex: =4
 
@@ -700,6 +701,7 @@
             ZIndex: =5
 
             Container3_5 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(215, 223, 240, 1)
                 Height: =70
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
@@ -739,7 +741,8 @@
                     ZIndex: =3
 
                 Rectangle3_3 As rectangle:
-                    Fill: =RGBA(255, 255, 255, 1)
+                    BorderColor: =RGBA(215, 223, 240, 1)
+                    Fill: =RGBA(215, 223, 240, 1)
                     FillPortions: =1
                     ZIndex: =4
 
@@ -819,6 +822,8 @@
                     ZIndex: =1
 
             Container37_6 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =120
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -828,6 +833,7 @@
                 ZIndex: =2
 
                 Button9_8 As button:
+                    Height: =60
                     OnSelect: |-
                         =UpdateContext({PopUp3: false})
                     Text: ="OK"
@@ -856,6 +862,7 @@
             ZIndex: =2
 
         Container35_5 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(215, 223, 240, 1)
             Height: =Rectangle5_6.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
@@ -878,14 +885,16 @@
                     Align: =Align.Center
                     FontWeight: =FontWeight.Semibold
                     Height: =118
-                    Size: =15
+                    Size: =17
                     Text: ="Please Specify the reason for denial."
-                    Width: =707
+                    Width: =Parent.Width - 30
                     X: =320
                     Y: =112
                     ZIndex: =1
 
             Container37_5 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =100
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutJustifyContent: =LayoutJustifyContent.Center
@@ -895,6 +904,7 @@
                 ZIndex: =2
 
                 Button9_7 As button:
+                    Height: =60
                     OnSelect: |-
                         =UpdateContext({PopUp2: false})
                     Text: ="OK"
