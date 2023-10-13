@@ -1,14 +1,16 @@
 "'TO Request List Screen' As screen":
 
-    Container1 As groupContainer.verticalAutoLayoutContainer:
+    "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
         Height: |
             =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
-        Header_2 As groupContainer.horizontalAutoLayoutContainer:
+        "'TO Request List Screen Header' As groupContainer.horizontalAutoLayoutContainer":
+            AlignInContainer: =AlignInContainer.SetByContainer
             Fill: =RGBA(136, 160, 209, 1)
             FillPortions: =0
             Height: =75
@@ -19,26 +21,27 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-            Icon2_2 As icon.ArrowLeft:
+            "'TO Request List Screen Header Back' As icon.ArrowLeft":
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back(ScreenTransition.UnCoverRight);
                 Width: =50
                 ZIndex: =1
 
-            Label11_2 As label:
+            "'TO Request List Screen Header Text' As label":
                 Align: =Align.Center
                 FillPortions: =1
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
 
-            Image1_2 As image:
+            "'TO Request List Screen Header Profile' As image":
                 Image: =User().Image
                 ImagePosition: =ImagePosition.Fill
                 LayoutMinHeight: =75
                 ZIndex: =3
 
-        Container4 As groupContainer.horizontalAutoLayoutContainer:
+        "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":
+            AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Regular
             Fill: =RGBA(175, 191, 224, 1)
             FillPortions: =0
@@ -50,25 +53,26 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-            Label18 As label:
+            "'TO Request List Screen Requestor Column Label' As label":
                 Text: ="Requestor"
                 ZIndex: =1
 
-            Label19 As label:
+            "'TO Request List Screen Status Column Label' As label":
                 Text: ="Status"
                 ZIndex: =2
 
-            Label23 As label:
+            "'TO Request List Screen Last Modified Column Label' As label":
                 Text: ="Last Modified"
                 Width: =200
                 ZIndex: =3
 
-            Label24 As label:
+            "'TO Request List Screen Date Range Column Label' As label":
                 Text: ="Date Range"
                 Width: =200
                 ZIndex: =4
 
-        Gallery1 As gallery.galleryVertical:
+        "'TO Request List Screen Gallery' As gallery.galleryVertical":
+            AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
             Height: =Parent.Height
             Items: =Filter(TimeOffRequests, And(Or(Status.Value = "Pending", Status.Value = "Denied"), Author.Email = User().Email))
@@ -80,7 +84,7 @@
             Width: =Parent.Width
             ZIndex: =3
 
-            Container2 As groupContainer.horizontalAutoLayoutContainer:
+            "'TO Request List Screen Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 Fill: =RGBA(0,0,0,0)
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -89,22 +93,22 @@
                 Width: =Parent.TemplateWidth
                 ZIndex: =1
 
-                Label4 As label:
+                "'TO Request List Screen Requestor Column' As label":
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Text: =ThisItem.'Created By'.DisplayName
                     ZIndex: =2
 
-                Label12 As label:
+                "'TO Request List Screen Status Column' As label":
                     Text: =ThisItem.Status.Value
                     ZIndex: =3
 
-                Label13 As label:
+                "'TO Request List Screen Last Modified Column' As label":
                     Text: =ThisItem.Modified
                     Width: =200
                     ZIndex: =4
 
-                Label14 As label:
+                "'TO Request List Screen Date Range Column' As label":
                     Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
                     Width: =200
                     ZIndex: =5
