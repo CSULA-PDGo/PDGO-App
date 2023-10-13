@@ -16,7 +16,7 @@
         Width: =Parent.Width
         ZIndex: =1
 
-        Header_1 As groupContainer.horizontalAutoLayoutContainer:
+        "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(136, 160, 209, 1)
             FillPortions: =0
             Height: =75
@@ -26,31 +26,6 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
-
-            Icon2_1 As icon.ArrowLeft:
-                Icon: =Icon.ArrowLeft
-                OnSelect: =Back(ScreenTransition.UnCoverRight);
-                Width: =50
-                ZIndex: =1
-
-            Label11_1 As label:
-                Align: =Align.Center
-                FillPortions: =1
-                Size: =20
-                Text: ="Requests"
-                ZIndex: =2
-
-            Image1_1 As image:
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
-
-            Label21_1 As label:
-                Size: =15
-                Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =4
 
         "'Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -108,8 +83,9 @@
                     BorderColor: =RGBA(166, 166, 166, 1)
                     CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     Color: =RGBA(51, 51, 51, 1)
-                    DefaultDate: =Now()
+                    DefaultDate: =If(IsBlankOrError(Edit), DateAdd(Today(), 14, TimeUnit.Days), Edit.StartDate)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    EndYear: =Year(Today()) + 2
                     FillPortions: =1
                     Height: =60
                     HoverDateFill: =RGBA(200, 200, 200, 1)
@@ -128,6 +104,7 @@
                     PaddingTop: =9
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
                     Size: =20.24
+                    StartYear: =Year(Today())
                     Width: =400
                     X: =145.00
                     ZIndex: =2
@@ -171,7 +148,7 @@
                     BorderColor: =RGBA(166, 166, 166, 1)
                     CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     Color: =RGBA(51, 51, 51, 1)
-                    DefaultDate: ='TO Request Date Screen Start Date Input'.SelectedDate
+                    DefaultDate: =If(IsBlankOrError(Edit), 'TO Request Date Screen Start Date Input'.SelectedDate, Edit.StartDate)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     Height: =60
@@ -433,10 +410,10 @@
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
             Italic: =true
-            OnSelect: |-
+            OnSelect: |
                 =If(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
-                    If(IsBlank(Edit), // Check if we are creating a new item or updating an existing one
+                    If(IsBlankOrError(Edit),
                         Collect(RequestDates, {
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
@@ -452,15 +429,25 @@
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
                             EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
+                            //StartTime: 'TO Request Date Screen Start Time Input'.Text,
                             StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
+                            //EndTime:   'TO Request Date Screen End Time Input'.Text,
                             EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
                             Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         })
-                    )
+                    );
+                    'TO Request Date Screen Error Label'.Text = "";
+                    Reset('TO Request Date Screen Start Date Input');
+                    Reset('TO Request Date Screen End Date Input');
+                    Reset('TO Request Date Screen Entire Day Toggle');
+                    Reset('TO Request Date Screen Start Time Input');
+                    Reset('TO Request Date Screen End Time Input');
+                    Reset('TO Request Date Screen Reason Dropdown');
+                    Reset('TO Request Date Screen Comments Input');
+                    
+                    If(!Back(), Navigate('TO Request Screen'));
                 );
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Back(ScreenTransition.UnCoverRight));
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38
