@@ -52,7 +52,7 @@
                 Visible: ='TO Request Screen'.Size<>1
                 ZIndex: =4
 
-        "'Date Container' As groupContainer.verticalAutoLayoutContainer":
+        "'TO Request Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =6
             Height: =0
@@ -83,7 +83,7 @@
                 X: =0.00
                 ZIndex: =1
 
-                msft_Label As label:
+                "'TO Request Date Screen Start Date Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(51, 51, 51, 1)
@@ -149,7 +149,7 @@
                 X: =445.00
                 ZIndex: =6
 
-                msft_Label_1 As label:
+                "'TO Request Date Screen End Date Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(51, 51, 51, 1)
@@ -205,7 +205,7 @@
                 X: =891.00
                 ZIndex: =7
 
-                msft_Label_2 As label:
+                "'TO Request Date Screen Entire Day Toggle Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(51, 51, 51, 1)
@@ -264,7 +264,7 @@
                 X: =0.00
                 ZIndex: =8
 
-                msft_Label_3 As label:
+                "'TO Request Date Screen Start Time Label' As label":
                     AutoHeight: =true
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
@@ -310,7 +310,7 @@
                 X: =0.00
                 ZIndex: =9
 
-                msft_Label_4 As label:
+                "'TO Request Date Screen End Time Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(51, 51, 51, 1)
@@ -338,15 +338,14 @@
                     Size: =20
                     ZIndex: =3
 
-        "'Reason Code Container' As groupContainer.horizontalAutoLayoutContainer":
+        "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(175, 191, 224, 1)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
 
-            "'Reason Code Label' As label":
-                AlignInContainer: =AlignInContainer.Stretch
+            "'TO Request Date Screen Reason Label' As label":
                 FillPortions: =1
                 Size: =20
                 Text: ="Reason Code"
@@ -365,7 +364,7 @@
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayFields: =["Value"]
                 FillPortions: =1
-                Height: ='Reason Code Container'.Height
+                Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 HoverColor: =RGBA(51, 51, 51, 1)
                 HoverFill: =RGBA(212, 212, 212, 1)
