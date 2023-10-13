@@ -1,4 +1,13 @@
 "'TO Request Details Screen' As screen":
+    OnHidden: |-
+        =UpdateContext({
+            ApproveRecord: Blank(),
+            PopUp: false,
+            PopUp2: false,
+            PopUp3: false,
+            PopUpDeny: false,
+            PopUpApprove: false
+        });
     OnVisible: |-
         =If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
         If(IsBlankOrError(PopUp), UpdateContext({PopUp: false}));
@@ -918,14 +927,6 @@
                     Width: =Parent.Width
                     ZIndex: =1
 
-                Label4 As label:
-                    Align: =Align.Center
-                    Height: =90
-                    Text: |-
-                        ="Reason for change:"
-                    Width: =Parent.Width -30
-                    ZIndex: =2
-
                 ReasonText As text:
                     Default: =""
                     Height: =200
@@ -938,33 +939,6 @@
                     Fill: =RGBA(255, 255, 255, 1)
                     FillPortions: =1
                     ZIndex: =4
-
-                Button9_9 As button:
-                    Height: |
-                        =60
-                    OnSelect: |-
-                        =If(ReasonText.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_3'), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Modified: DateValue(Now()), Status: {Value: "Approve"}, ModifiedReason:'Reason Text_3'.Text});
-                        UpdateContext({ApproveRecord: Blank()});
-                        UpdateContext({PopUp3: true});
-                        UpdateContext({PopUpDeny: false});
-                        Reset('Reason Text_3');
-                        UpdateContext({PopUp:false}))
-                    Size: =12
-                    Text: ="Switch to Approve"
-                    X: =593
-                    Y: =492
-                    ZIndex: =5
-
-                Button9_10 As button:
-                    Height: |
-                        =60
-                    OnSelect: |-
-                        =UpdateContext({PopUpDeny: false}); UpdateContext({ApproveRecord: Blank()});
-                    Text: ="Cancel"
-                    X: =593
-                    Y: =492
-                    ZIndex: =6
 
     "'error page_1' As groupContainer.manualLayoutContainer":
         Height: =Parent.Height

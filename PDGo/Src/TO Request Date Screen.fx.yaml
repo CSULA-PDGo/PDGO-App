@@ -27,7 +27,7 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-        "'Date Container' As groupContainer.verticalAutoLayoutContainer":
+        "'TO Request Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =6
             Height: =0
@@ -43,8 +43,9 @@
             X: =20.00
             ZIndex: =2
 
-        "'Reason Code Container' As groupContainer.horizontalAutoLayoutContainer":
+        "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(175, 191, 224, 1)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -56,6 +57,7 @@
             Default: =
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             FillPortions: =3
+            Font: =Font.Lato
             Height: =370.5
             HintText: ="Enter comments"
             HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
@@ -92,6 +94,7 @@
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(0, 120, 212, 1)
             FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =71
             HoverBorderColor: =RGBA(0, 0, 0, 0)

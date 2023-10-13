@@ -34,6 +34,7 @@
             "'TO Request List Screen Header Text' As label":
                 Align: =Align.Center
                 FillPortions: =1
+                Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
@@ -65,23 +66,27 @@
 
             "'TO Request List Screen Requestor Column Label' As label":
                 FillPortions: =2
+                Font: =Font.Lato
                 LayoutMinWidth: =120
                 Text: ="Requestor"
                 ZIndex: =1
 
             "'TO Request List Screen Status Column Label' As label":
+                Font: =Font.Lato
                 Text: ="Status"
                 Width: =80
                 ZIndex: =2
 
             "'TO Request List Screen Date Range Column Label' As label":
                 FillPortions: =2
+                Font: =Font.Lato
                 Text: ="Date Range"
                 Width: =200
                 ZIndex: =3
 
             "'TO Request List Screen Last Modified Column Label' As label":
                 FillPortions: =1
+                Font: =Font.Lato
                 Text: ="Last Modified"
                 Visible: ='TO Request List Screen'.Size > ScreenSize.Small
                 ZIndex: =4
@@ -112,6 +117,7 @@
 
                 "'TO Request List Screen Requestor Column' As label":
                     FillPortions: =2
+                    Font: =Font.Lato
                     LayoutMinWidth: =120
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
@@ -119,6 +125,7 @@
                     ZIndex: =1
 
                 "'TO Request List Screen Status Column' As label":
+                    Font: =Font.Lato
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Text: =ThisItem.Status.Value
@@ -127,6 +134,7 @@
 
                 "'TO Request List Screen Date Range Column' As label":
                     FillPortions: =2
+                    Font: =Font.Lato
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
@@ -135,6 +143,7 @@
 
                 "'TO Request List Screen Last Modified Column' As label":
                     FillPortions: =1
+                    Font: =Font.Lato
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Text: =Text(ThisItem.Modified, DateTimeFormat.ShortDate)
