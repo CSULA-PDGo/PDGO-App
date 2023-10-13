@@ -433,34 +433,23 @@
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
             Italic: =true
-            OnSelect: |-
+            OnSelect: |
                 =If(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
-                    If(IsBlank(Edit), // Check if we are creating a new item or updating an existing one
-                        Collect(RequestDates, {
-                            StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
-                            EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
-                            EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
-                            //StartTime: 'TO Request Date Screen Start Time Input'.Text,
-                            StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
-                            //EndTime:   'TO Request Date Screen End Time Input'.Text,
-                            EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
-                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
-                            Comments:  'TO Request Date Screen Comments Input'.Text
-                        }),
-                        Update(RequestDates, Edit, {
-                            StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
-                            EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
-                            EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
-                            StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
-                            EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
-                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
-                            Comments:  'TO Request Date Screen Comments Input'.Text
-                        })
-                    )
+                    Patch(If(IsBlankOrError(Edit), Defaults(RequestDates), Edit), {
+                        StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
+                        EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
+                        EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
+                        //StartTime: 'TO Request Date Screen Start Time Input'.Text,
+                        StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
+                        //EndTime:   'TO Request Date Screen End Time Input'.Text,
+                        EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
+                        Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
+                        Comments:  'TO Request Date Screen Comments Input'.Text
+                    });
+                    'TO Request Date Screen Error Label'.Text = "";
+                    Back();
                 );
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), 'TO Request Date Screen Error Label'.Text = "");
-                If(Not(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = "")), Back(ScreenTransition.UnCoverRight));
             PaddingBottom: =12
             PaddingLeft: =56
             PaddingRight: =50.38
