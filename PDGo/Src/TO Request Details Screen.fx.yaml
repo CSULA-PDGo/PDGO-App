@@ -74,7 +74,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 Size: =12
-                Text: ="Name"
+                Text: ="Date Created"
                 Width: =Parent.Width/5
                 X: =Label29_2.X-Self.Width
                 ZIndex: =1
@@ -85,7 +85,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 Size: =12
-                Text: ="Date Created"
+                Text: ="Name"
                 Width: =Parent.Width/5
                 X: =Label30_2.X-Self.Width
                 ZIndex: =2
@@ -96,7 +96,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 Size: =12
-                Text: ="Date Start"
+                Text: ="Additional comments"
                 Width: =Parent.Width/5
                 X: =Label31_2.X-Self.Width
                 ZIndex: =3
@@ -107,7 +107,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 Size: =12
-                Text: ="Date End"
+                Text: ="Status"
                 Width: =Parent.Width/5
                 X: =Label33_2.X-Self.Width
                 ZIndex: =4
@@ -118,7 +118,7 @@
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
                 Size: =12
-                Text: ="Status"
+                Text: ="Last Updated"
                 Width: =Parent.Width/5
                 X: =Parent.Width-Self.Width
                 ZIndex: =5
@@ -909,56 +909,45 @@
                 Height: =70
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
-                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutGap: =20
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =30
+                PaddingTop: =30
                 ZIndex: =1
 
                 Label17_4 As label:
                     Align: =Align.Center
                     FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName
+                    Height: =100
+                    Size: =16
+                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName & "?"
+                    VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Container37_7 As groupContainer.verticalAutoLayoutContainer:
-                FillPortions: =0
-                Height: =70
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                PaddingLeft: =20
-                PaddingRight: =20
-                ZIndex: =3
-
-                Button9_9 As button:
-                    OnSelect: |-
-                        =If('Reason Text_3'.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_3'), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequest, LookUp(TimeOffRequest, ID = ApproveRecord.ID), {'Last update time': DateValue(Now()), Status: {Value: "Approve"}, ModifiedReason:'Reason Text_3'.Text});
-                        UpdateContext({ApproveRecord: Blank()});
-                        UpdateContext({PopUp3: true});
-                        UpdateContext({PopUpDeny: false});
-                        Reset('Reason Text_3');
-                        UpdateContext({PopUp:false}))
-                    Size: =12
-                    Text: ="Switch to Approve"
-                    Width: =130
-                    X: =593
-                    Y: =492
-                    ZIndex: =1
-
-                Button9_10 As button:
-                    OnSelect: |-
-                        =UpdateContext({PopUpDeny: false}); UpdateContext({ApproveRecord: Blank()});
-                    Text: ="Cancel"
-                    Width: =130
-                    X: =593
-                    Y: =492
+                Label4 As label:
+                    Font: =Font.Lato
+                    Height: =60
+                    Size: =16
+                    Text: |-
+                        ="Reason for change:"
+                    Width: =Parent.Width -30
                     ZIndex: =2
+
+                ReasonText As text:
+                    Default: =""
+                    Height: =200
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width - 30
+                    ZIndex: =3
+
+                Rectangle3 As rectangle:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =1
+                    ZIndex: =4
 
     "'error page_1' As groupContainer.manualLayoutContainer":
         Height: =Parent.Height
