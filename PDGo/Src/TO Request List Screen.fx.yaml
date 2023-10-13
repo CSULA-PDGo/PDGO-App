@@ -38,6 +38,36 @@
                 LayoutMinHeight: =75
                 ZIndex: =3
 
+        Container4 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Label18 As label:
+                Text: ="Requestor"
+                ZIndex: =1
+
+            Label19 As label:
+                Text: ="Status"
+                ZIndex: =2
+
+            Label23 As label:
+                Text: ="Last Modified"
+                Width: =200
+                ZIndex: =3
+
+            Label24 As label:
+                Text: ="Date Range"
+                Width: =200
+                ZIndex: =4
+
         Gallery1 As gallery.galleryVertical:
             DelayItemLoading: =true
             Height: =Parent.Height
@@ -59,12 +89,9 @@
                 Width: =Parent.TemplateWidth
                 ZIndex: =1
 
-                Button1 As button:
-                    OnSelect: =Navigate('TO Request Details Screen', ScreenTransition.Cover, ThisItem)
-                    Text: ="Details"
-                    ZIndex: =1
-
                 Label4 As label:
+                    OnSelect: |-
+                        =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Text: =ThisItem.'Created By'.DisplayName
                     ZIndex: =2
 
@@ -79,5 +106,6 @@
 
                 Label14 As label:
                     Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    Width: =200
                     ZIndex: =5
 
