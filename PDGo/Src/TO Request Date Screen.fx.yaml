@@ -461,6 +461,14 @@
                         })
                     );
                     'TO Request Date Screen Error Label'.Text = "";
+                    Reset('TO Request Date Screen Start Date Input');
+                    Reset('TO Request Date Screen End Date Input');
+                    Reset('TO Request Date Screen Entire Day Toggle');
+                    Reset('TO Request Date Screen Start Time Input');
+                    Reset('TO Request Date Screen End Time Input');
+                    Reset('TO Request Date Screen Reason Dropdown');
+                    Reset('TO Request Date Screen Comments Input');
+                    
                     Back();
                 );
             PaddingBottom: =12
