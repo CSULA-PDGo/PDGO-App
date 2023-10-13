@@ -313,7 +313,7 @@
 
                 Container29_7 As groupContainer.horizontalAutoLayoutContainer:
                     FillPortions: =0
-                    Height: =Max(HtmlText2.Height, 200)
+                    Height: =Max(HtmlText2.Height, 50)
                     LayoutMinHeight: =100
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
@@ -393,7 +393,6 @@
 
                 "'Dates Gallery_1' As gallery.galleryVertical":
                     DelayItemLoading: =true
-                    FillPortions: =0
                     Height: =400
                     Items: =Filter(TimeOffRequestDays, Request.Id = ApproveRecord.ID)
                     Layout: =Layout.Vertical
@@ -442,6 +441,7 @@
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
                             LayoutMode: =LayoutMode.Auto
+                            Visible: =Not(ThisItem.EntireDay)
                             ZIndex: =6
 
                             Label14_2 As label:
