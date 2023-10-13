@@ -1,6 +1,11 @@
 "'TO Request Details Screen' As screen":
     OnVisible: |-
-        =UpdateContext({ApproveRecord: Blank()}); UpdateContext({PopUp:false}); UpdateContext({PopUp2:false}); UpdateContext({PopUp3: false}); UpdateContext({PopUpDeny: false}); UpdateContext({PopUpApprove: false}); Set(approvedrecord, Blank())
+        =If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
+        If(IsBlankOrError(PopUp), UpdateContext({PopUp: false}));
+        If(IsBlankOrError(PopUp2), UpdateContext({PopUp2: false}));
+        If(IsBlankOrError(PopUp3), UpdateContext({PopUp3: false}));
+        If(IsBlankOrError(PopUpDeny), UpdateContext({PopUpDeny: false}));
+        If(IsBlankOrError(PopUpApprove), UpdateContext({PopUpApprove: false}));
 
     MobilePage_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
