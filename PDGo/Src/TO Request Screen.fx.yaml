@@ -23,7 +23,7 @@
         Width: =Parent.Width
         ZIndex: =1
 
-        Header As groupContainer.horizontalAutoLayoutContainer:
+        "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(136, 160, 209, 1)
             FillPortions: =0
             Height: =75
@@ -61,7 +61,7 @@
                 Visible: ='TO Request Screen'.Size<>1
                 ZIndex: =4
 
-        "'Dates Gallery' As gallery.galleryVertical":
+        "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
             Height: =Parent.Height
             Items: =RequestDates
@@ -73,7 +73,7 @@
             Width: =Parent.Width
             ZIndex: =2
 
-            Container2_2 As groupContainer.horizontalAutoLayoutContainer:
+            "'TO Request Screen Dates Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =If(App.Width > ScreenSize.Medium, LayoutDirection.Horizontal, LayoutDirection.Vertical)
@@ -83,26 +83,26 @@
                 Width: =Min(Parent.TemplateWidth, App.Width)
                 ZIndex: =1
 
-                Label4_1 As label:
+                "'TO Request Screen Dates Date Range' As label":
                     FillPortions: =1
                     LayoutMinWidth: =110
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     ZIndex: =1
 
-                Label12_1 As label:
+                "'TO Request Screen Dates Time Range' As label":
                     FillPortions: =1
                     Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
                     Width: =50
                     ZIndex: =2
 
-                Label22 As label:
+                "'TO Request Screen Dates Reason' As label":
                     FillPortions: =1
                     LayoutMinWidth: =50
                     Text: |
                         =ThisItem.Reason
                     ZIndex: =3
 
-                Button1_1 As button:
+                "'TO Request Screen Dates Edit Button' As button":
                     FillPortions: =1
                     LayoutMinWidth: =50
                     OnSelect: |-
@@ -110,7 +110,7 @@
                     Text: ="Edit"
                     ZIndex: =5
 
-                Button2 As button:
+                "'TO Request Screen Dates Delete Button' As button":
                     Fill: =RGBA(151, 0, 0, 1)
                     FillPortions: =1
                     LayoutMinWidth: =50
