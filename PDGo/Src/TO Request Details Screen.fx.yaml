@@ -276,7 +276,8 @@
 
                     Label22_16 As label:
                         FillPortions: =3
-                        Size: =16
+                        Font: =Font.Lato
+                        Size: =14
                         Text: =ApproveRecord.'Created By'.DisplayName
                         X: =101
                         Y: =154
@@ -304,8 +305,9 @@
 
                     Label23_2 As label:
                         FillPortions: =1
+                        Font: =Font.Lato
                         Height: =Parent.Height
-                        Size: =16
+                        Size: =14
                         Text: =ApproveRecord.Created
                         X: =285
                         Y: =154
@@ -334,7 +336,9 @@
                         AlignInContainer: =AlignInContainer.Center
                         AutoHeight: =true
                         FillPortions: =1
+                        Font: =Font.Lato
                         HtmlText: =ApproveRecord.Reason
+                        Size: =14
                         ZIndex: =3
 
                 Container29_8 As groupContainer.horizontalAutoLayoutContainer:
@@ -358,8 +362,9 @@
 
                     Label25_2 As label:
                         FillPortions: =1
+                        Font: =Font.Lato
                         Height: =Parent.Height
-                        Size: =16
+                        Size: =14
                         Text: =ApproveRecord.Status.Value
                         X: =553
                         Y: =154
@@ -389,6 +394,7 @@
                         FillPortions: =1
                         Height: =
                         HtmlText: =ApproveRecord.Comments
+                        Size: =14
                         ZIndex: =3
 
                 "'Dates Gallery_1' As gallery.galleryVertical":
@@ -432,7 +438,8 @@
                                 FillPortions: =1
                                 Height: =Parent.Height
                                 LayoutMinWidth: =110
-                                Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
+                                Size: =14
+                                Text: =ThisItem.StartDate & " - " & ThisItem.EndDate
                                 ZIndex: =2
 
                         Container6_1 As groupContainer.horizontalAutoLayoutContainer:
