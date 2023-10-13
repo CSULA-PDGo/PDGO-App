@@ -179,6 +179,7 @@
                     Height: =60
                     HoverDateFill: =RGBA(200, 200, 200, 1)
                     IconBackground: =RGBA(0, 120, 212, 1)
+                    LayoutMinHeight: =0
                     LayoutMinWidth: =100
                     OnChange: =If('TO Request Date Screen End Date Input'.SelectedDate < 'TO Request Date Screen Start Date Input'.SelectedDate, Notify("End date cannot be earlier than the start date", NotificationType.Error), "")
                     PaddingBottom: =10
@@ -340,6 +341,7 @@
 
         "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(175, 191, 224, 1)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
