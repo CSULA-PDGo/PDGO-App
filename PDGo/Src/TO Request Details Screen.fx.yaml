@@ -956,12 +956,12 @@
                 Button9_9 As button:
                     Height: =60
                     OnSelect: |-
-                        =If( IsMatch('ReasonText'.Text, "\s*" ), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Approved"}, Comments:"Switched to approve: " & 'ReasonText'.Text & " Previous comment: " & ApproveRecord.Comments});
+                        =If( IsMatch(ReasonText.Text, "\s*" ), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Approved"}, Comments:"Switched to approve: " & ReasonText.Text & " Previous comment: " & ApproveRecord.Comments});
                         UpdateContext({ApproveRecord: Blank()});
                         UpdateContext({PopUp3: true});
                         UpdateContext({PopUpDeny: false});
-                        Reset('ReasonText');
+                        Reset(ReasonText);
                         UpdateContext({PopUp:false}))
                     Size: =12
                     Text: ="Switch to Approve"
