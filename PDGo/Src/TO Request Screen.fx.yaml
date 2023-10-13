@@ -142,10 +142,25 @@
             Font: =Font.Lato
             Height: =80
             OnSelect: |-
-                =CreateTORequest.Run(User().EntraObjectId, JSON({
-                    Reason: 'TO Request Screen Comments Input'.Text,
-                    Dates: RequestDates
-                }, JSONFormat.Compact));
+                =UpdateContext({
+                    Id: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
+                        Reason: 'TO Request Screen Comments Input'.Text,
+                        Requestor: {Id: LookUp(Users, Office365 = User().EntraObjectId).ID},
+                        Status: {Value: "Pending"},
+                        Comments: ""
+                    })
+                });
+                ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
+                    Request: Id,
+                    StartDate: StartDate,
+                    EndDate: EndDate,
+                    EntireDay: EntireDay,
+                    StartTime: StartTime,
+                    EndTime: EndTime,
+                    Reason: {Value: Reason},
+                    AdditionalComments: Comments
+                });
+                
                 Clear(RequestDates);
                 Reset('TO Request Screen Comments Input');
                 Navigate('Success Screen', ScreenTransition.CoverRight);
