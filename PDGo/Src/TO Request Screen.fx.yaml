@@ -15,11 +15,7 @@
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
         LayoutMode: =LayoutMode.Auto
-        LayoutOverflowY: =LayoutOverflow.Scroll
-        PaddingBottom: =20
-        PaddingLeft: =20
-        PaddingRight: =20
-        PaddingTop: =20
+        PaddingBottom: =1
         Width: =Parent.Width
         ZIndex: =1
 
@@ -32,6 +28,10 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             ZIndex: =1
 
             "'TO Request Screen Header Back' As icon.ArrowLeft":
@@ -126,11 +126,12 @@
             Default: =""
             FillPortions: =1
             HintText: ="Additional Comments"
-            LayoutMinHeight: =200
+            LayoutMinHeight: =150
             Mode: =TextMode.MultiLine
             ZIndex: =5
 
         "'TO Request Screen Submit Button' As button":
+            Height: =80
             OnSelect: |-
                 =CreateTORequest.Run(User().EntraObjectId, JSON({
                     Reason: 'TO Request Screen Comments Input'.Text,
