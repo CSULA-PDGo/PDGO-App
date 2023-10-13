@@ -1,4 +1,13 @@
 "'TO Request Details Screen' As screen":
+    OnHidden: |-
+        =UpdateContext({
+            ApproveRecord: Blank(),
+            PopUp: false,
+            PopUp2: false,
+            PopUp3: false,
+            PopUpDeny: false,
+            PopUpApprove: false
+        });
     OnVisible: |-
         =If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
         If(IsBlankOrError(PopUp), UpdateContext({PopUp: false}));
