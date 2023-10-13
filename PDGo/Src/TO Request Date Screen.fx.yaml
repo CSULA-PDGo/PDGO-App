@@ -27,7 +27,7 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-        "'TO Request Date Container' As groupContainer.verticalAutoLayoutContainer":
+        "'Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =6
             Height: =0
@@ -43,18 +43,12 @@
             X: =20.00
             ZIndex: =2
 
-        "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
+        "'Reason Code Container' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(175, 191, 224, 1)
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             ZIndex: =3
-
-            "'TO Request Date Screen Reason Label' As label":
-                FillPortions: =1
-                Size: =20
-                Text: ="Reason Code"
-                ZIndex: =1
 
         "'TO Request Date Screen Comments Input' As text":
             BorderColor: =RGBA(166, 166, 166, 1)
