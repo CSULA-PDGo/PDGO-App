@@ -34,33 +34,6 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-            Icon2 As icon.ArrowLeft:
-                Icon: =Icon.ArrowLeft
-                OnSelect: |-
-                    =Clear(RequestDates);
-                    Back(ScreenTransition.Cover);
-                Width: =50
-                ZIndex: =1
-
-            Label11 As label:
-                Align: =Align.Center
-                FillPortions: =1
-                Size: =20
-                Text: ="Requests"
-                ZIndex: =2
-
-            Image1 As image:
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
-
-            Label21 As label:
-                Size: =15
-                Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =4
-
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
             Height: =Parent.Height
