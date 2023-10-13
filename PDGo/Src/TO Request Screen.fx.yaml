@@ -43,6 +43,7 @@
             "'TO Request Screen Header Text' As label":
                 Align: =Align.Center
                 FillPortions: =1
+                Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
@@ -54,6 +55,7 @@
                 ZIndex: =3
 
             "'TO Request Screen Header Name' As label":
+                Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
                 Visible: ='TO Request Screen'.Size<>1
@@ -83,12 +85,14 @@
 
                 "'TO Request Screen Dates Date Range' As label":
                     FillPortions: =1
+                    Font: =Font.Lato
                     LayoutMinWidth: =110
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     ZIndex: =1
 
                 "'TO Request Screen Dates Time Range' As label":
                     FillPortions: =1
+                    Font: =Font.Lato
                     Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
                     Width: =50
                     ZIndex: =2
@@ -102,6 +106,7 @@
 
                 "'TO Request Screen Dates Edit Button' As button":
                     FillPortions: =1
+                    Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: |-
                         =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
@@ -111,6 +116,7 @@
                 "'TO Request Screen Dates Delete Button' As button":
                     Fill: =RGBA(151, 0, 0, 1)
                     FillPortions: =1
+                    Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: =Remove(RequestDates, ThisItem)
                     Text: ="Delete"
@@ -118,6 +124,7 @@
 
         "'TO Request Screen Add Date Button' As button":
             Fill: =RGBA(56, 96, 178, .80)
+            Font: =Font.Lato
             OnSelect: =Navigate('TO Request Date Screen')
             Text: ="Add Request"
             ZIndex: =4
@@ -125,12 +132,14 @@
         "'TO Request Screen Comments Input' As text":
             Default: =""
             FillPortions: =1
+            Font: =Font.Lato
             HintText: ="Additional Comments"
             LayoutMinHeight: =150
             Mode: =TextMode.MultiLine
             ZIndex: =5
 
         "'TO Request Screen Submit Button' As button":
+            Font: =Font.Lato
             Height: =80
             OnSelect: |-
                 =CreateTORequest.Run(User().EntraObjectId, JSON({
