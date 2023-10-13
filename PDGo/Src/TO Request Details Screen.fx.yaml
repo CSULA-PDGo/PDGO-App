@@ -900,36 +900,51 @@
                 Height: =70
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
-                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutGap: =20
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =30
+                PaddingTop: =30
                 ZIndex: =1
 
                 Label17_4 As label:
                     Align: =Align.Center
                     FontWeight: =FontWeight.Semibold
-                    Height: =Parent.Height
-                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName
+                    Height: =100
+                    Size: =16
+                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName & "?"
+                    VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.Width
                     ZIndex: =1
 
-            Container37_7 As groupContainer.verticalAutoLayoutContainer:
-                FillPortions: =0
-                Height: =70
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                PaddingLeft: =20
-                PaddingRight: =20
-                ZIndex: =3
+                Label4 As label:
+                    Align: =Align.Center
+                    Height: =90
+                    Text: |-
+                        ="Reason for change:"
+                    Width: =Parent.Width -30
+                    ZIndex: =2
+
+                ReasonText As text:
+                    Default: =""
+                    Height: =200
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width - 30
+                    ZIndex: =3
+
+                Rectangle3 As rectangle:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =1
+                    ZIndex: =4
 
                 Button9_9 As button:
+                    Height: |
+                        =60
                     OnSelect: |-
-                        =If('Reason Text_3'.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_3'), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequest, LookUp(TimeOffRequest, ID = ApproveRecord.ID), {'Last update time': DateValue(Now()), Status: {Value: "Approve"}, ModifiedReason:'Reason Text_3'.Text});
+                        =If(ReasonText.Text = "" || " " || "  " || "   " || "    " || IsBlank('Reason Text_3'), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Modified: DateValue(Now()), Status: {Value: "Approve"}, ModifiedReason:'Reason Text_3'.Text});
                         UpdateContext({ApproveRecord: Blank()});
                         UpdateContext({PopUp3: true});
                         UpdateContext({PopUpDeny: false});
@@ -937,19 +952,19 @@
                         UpdateContext({PopUp:false}))
                     Size: =12
                     Text: ="Switch to Approve"
-                    Width: =130
                     X: =593
                     Y: =492
-                    ZIndex: =1
+                    ZIndex: =5
 
                 Button9_10 As button:
+                    Height: |
+                        =60
                     OnSelect: |-
                         =UpdateContext({PopUpDeny: false}); UpdateContext({ApproveRecord: Blank()});
                     Text: ="Cancel"
-                    Width: =130
                     X: =593
                     Y: =492
-                    ZIndex: =2
+                    ZIndex: =6
 
     "'error page_1' As groupContainer.manualLayoutContainer":
         Height: =Parent.Height
