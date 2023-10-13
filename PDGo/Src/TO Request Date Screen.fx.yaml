@@ -29,7 +29,17 @@
 
             Icon2_1 As icon.ArrowLeft:
                 Icon: =Icon.ArrowLeft
-                OnSelect: =Back(ScreenTransition.UnCoverRight);
+                OnSelect: |-
+                    =Reset('TO Request Date Screen Start Date Input');
+                    Reset('TO Request Date Screen End Date Input');
+                    Reset('TO Request Date Screen Entire Day Toggle');
+                    Reset('TO Request Date Screen Start Time Input');
+                    Reset('TO Request Date Screen End Time Input');
+                    Reset('TO Request Date Screen Reason Dropdown');
+                    Reset('TO Request Date Screen Comments Input');
+                    UpdateContext({Edit: Blank()});
+                    
+                    Back();
                 Width: =50
                 ZIndex: =1
 
@@ -236,7 +246,7 @@
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(177, 177, 177, 1)
-                    Default: =true
+                    Default: =If(IsBlankOrError(Edit), true, Edit.EntireDay)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FalseFill: =RGBA(102, 102, 102, 1)
                     FalseHoverFill: =RGBA(33, 33, 33, 1)
@@ -293,6 +303,7 @@
                     ZIndex: =1
 
                 "'TO Request Date Screen Start Time Input' As dropdown":
+                    Default: =If(IsBlankOrError(Edit), "1", Edit.StartTime)
                     FillPortions: =1
                     Items: |-
                         =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
@@ -338,6 +349,7 @@
                     ZIndex: =1
 
                 "'TO Request Date Screen End Time Input' As dropdown":
+                    Default: =If(IsBlankOrError(Edit), "2", Edit.EndTime)
                     FillPortions: =1
                     Items: |-
                         =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
@@ -369,6 +381,7 @@
                 ChevronHoverBackground: =RGBA(212, 212, 212, 1)
                 ChevronHoverFill: =RGBA(33, 33, 33, 1)
                 Color: =RGBA(166, 166, 166, 1)
+                Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayFields: =["Value"]
@@ -400,7 +413,7 @@
         "'TO Request Date Screen Comments Input' As text":
             BorderColor: =RGBA(166, 166, 166, 1)
             Color: =RGBA(166, 166, 166, 1)
-            Default: =
+            Default: =If(IsBlankOrError(Edit), "", Edit.Comments)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             FillPortions: =3
             Font: =Font.Lato
@@ -481,6 +494,7 @@
                     Reset('TO Request Date Screen End Time Input');
                     Reset('TO Request Date Screen Reason Dropdown');
                     Reset('TO Request Date Screen Comments Input');
+                    UpdateContext({Edit: Blank()});
                     
                     If(!Back(), Navigate('TO Request Screen'));
                 );
