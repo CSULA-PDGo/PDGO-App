@@ -424,7 +424,7 @@
                     ZIndex: =6
 
                     Container2_4 As groupContainer.horizontalAutoLayoutContainer:
-                        Height: =Container6.Height + Container6_1.Height + Container6_2.Height + Container6_3.Height
+                        Height: =Container6.Height + Container6_1.Height + Container6_2.Height + Container6_3.Height + Container6_4.Height 
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -527,6 +527,29 @@
                                 LayoutMinWidth: =110
                                 Text: =ThisItem.Reason.Value
                                 ZIndex: =2
+
+                        Container6_4 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =Max(HtmlText3.Height, 50)
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            ZIndex: =9
+
+                            Label14_5 As label:
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                Size: =14
+                                Text: |-
+                                    ="User Comments:"
+                                ZIndex: =1
+
+                            HtmlText3 As htmlViewer:
+                                AlignInContainer: =AlignInContainer.Center
+                                AutoHeight: =true
+                                HtmlText: =ThisItem.AdditionalComments
+                                Size: =14
+                                ZIndex: =3
 
                 Container34_1 As groupContainer.horizontalAutoLayoutContainer:
                     FillPortions: =0
