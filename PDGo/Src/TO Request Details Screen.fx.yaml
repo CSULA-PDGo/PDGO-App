@@ -774,7 +774,7 @@
                     Height: =60
                     OnSelect: |-
                         =If( IsMatch(ReasonText_2.Text, "\s*" ), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments:"Switched to approve: " & ReasonText_2.Text & " Previous comment: " & ApproveRecord.Comments});
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments:"Switched to deny: " & ReasonText_2.Text & " Previous comment: " & ApproveRecord.Comments});
                         UpdateContext({ApproveRecord: Blank()});
                         UpdateContext({PopUp3: true});
                         UpdateContext({PopUpApprove: false});
