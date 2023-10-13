@@ -36,6 +36,7 @@
             Label11_1 As label:
                 Align: =Align.Center
                 FillPortions: =1
+                Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
@@ -47,6 +48,7 @@
                 ZIndex: =3
 
             Label21_1 As label:
+                Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
                 Visible: ='TO Request Screen'.Size<>1
@@ -90,6 +92,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
+                    Font: =Font.Lato
                     Height: =24
                     LayoutMinWidth: =100
                     LineHeight: =1
@@ -112,6 +115,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     EndYear: =Year(Today()) + 2
                     FillPortions: =1
+                    Font: =Font.Lato
                     Height: =60
                     HoverDateFill: =RGBA(200, 200, 200, 1)
                     IconBackground: =RGBA(0, 120, 212, 1)
@@ -156,6 +160,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
+                    Font: =Font.Lato
                     Height: =24
                     LineHeight: =0.8
                     PaddingBottom: =15
@@ -176,6 +181,7 @@
                     DefaultDate: =If(IsBlankOrError(Edit), 'TO Request Date Screen Start Date Input'.SelectedDate, Edit.StartDate)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
+                    Font: =Font.Lato
                     Height: =60
                     HoverDateFill: =RGBA(200, 200, 200, 1)
                     IconBackground: =RGBA(0, 120, 212, 1)
@@ -349,6 +355,7 @@
 
             "'TO Request Date Screen Reason Label' As label":
                 FillPortions: =1
+                Font: =Font.Lato
                 Size: =20
                 Text: ="Reason Code"
                 ZIndex: =1
@@ -366,6 +373,7 @@
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayFields: =["Value"]
                 FillPortions: =1
+                Font: =Font.Lato
                 Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 HoverColor: =RGBA(51, 51, 51, 1)
@@ -395,6 +403,7 @@
             Default: =
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             FillPortions: =3
+            Font: =Font.Lato
             Height: =370.5
             HintText: ="Enter comments"
             HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
@@ -431,6 +440,7 @@
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(0, 120, 212, 1)
             FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =71
             HoverBorderColor: =RGBA(0, 0, 0, 0)
