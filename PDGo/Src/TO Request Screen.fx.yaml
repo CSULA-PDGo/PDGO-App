@@ -142,24 +142,26 @@
             Font: =Font.Lato
             Height: =80
             OnSelect: |-
-                =UpdateContext({
-                    Id: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
+                =With(Patch(TimeOffRequests, Defaults(TimeOffRequests), {
                         Reason: 'TO Request Screen Comments Input'.Text,
-                        Requestor: {Id: LookUp(Users, Office365 = User().EntraObjectId).ID},
+                        Requestor: {
+                            Id: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID,
+                            Value: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID
+                        },
                         Status: {Value: "Pending"},
                         Comments: ""
-                    })
-                });
-                ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
-                    Request: Id,
-                    StartDate: StartDate,
-                    EndDate: EndDate,
-                    EntireDay: EntireDay,
-                    StartTime: StartTime,
-                    EndTime: EndTime,
-                    Reason: {Value: Reason},
-                    AdditionalComments: Comments
-                });
+                    }),
+                    ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
+                        Request: {Id: ID, Value: ID},
+                        StartDate: StartDate,
+                        EndDate: EndDate,
+                        EntireDay: EntireDay,
+                        StartTime: StartTime,
+                        EndTime: EndTime,
+                        Reason: {Value: Reason},
+                        AdditionalComments: Comments
+                    }));
+                );
                 
                 Clear(RequestDates);
                 Reset('TO Request Screen Comments Input');
