@@ -625,7 +625,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Entire Day Container",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2259,7 +2259,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Start Time Container",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3433,13 +3433,27 @@
           "NameMapSourceSchema": "?"
         },
         "Mode",
-        "Format",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Format",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "VirtualKeyboardMode",
         "Clear",
         "EnableSpellCheck",
         "Reset",
         "LineHeight",
-        "HintText",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "mySolution23a",
+          "InvariantPropertyName": "HintText",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "MaxLength",
         "DelayOutput",
         "AccessibleLabel",
@@ -7059,7 +7073,14 @@
         "MoreItemsButtonColor",
         "DisplayFields",
         "SearchFields",
-        "Items",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "Choices([@TimeOffRequestDays].Reason)",
+          "InvariantPropertyName": "Items",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "NoSelectionText",
         "SelectMultiple",
         {
@@ -7087,7 +7108,14 @@
         "SelectionTagColor",
         "MultiValueDelimiter",
         "AccessibleLabel",
-        "Tooltip",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\"\"",
+          "InvariantPropertyName": "Tooltip",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ContentLanguage",
         "Color",
         "HoverColor",
@@ -7122,8 +7150,22 @@
         "Visible",
         "TabIndex",
         "DisplayMode",
-        "OnSelect",
-        "OnChange",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "minimumWidth",
         "minimumHeight",
         "maximumWidth",
