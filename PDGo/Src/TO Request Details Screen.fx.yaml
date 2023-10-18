@@ -94,9 +94,11 @@
             Label30_2 As label:
                 Align: =Align.Center
                 Fill: =RGBA(241, 244, 249, 1)
-                FontWeight: =FontWeight.Semibold
+                FontWeight: =FontWeight.Bold
                 Height: =Parent.Height
-                Size: =10
+                Size: |-
+                    =
+                    If('TO Request Details Screen'.Size=1,8,10)
                 Text: ="Additional comments"
                 Width: =Parent.Width/5
                 X: =Label31_2.X-Self.Width
@@ -118,7 +120,7 @@
                 Fill: =RGBA(241, 244, 249, 1)
                 FontWeight: =FontWeight.Semibold
                 Height: =Parent.Height
-                Size: =12
+                Size: =If('TO Request Details Screen'.Size=1,10,12)
                 Text: ="Last Updated"
                 Width: =Parent.Width/5
                 X: =Parent.Width-Self.Width
