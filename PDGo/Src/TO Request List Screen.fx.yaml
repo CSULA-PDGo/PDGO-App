@@ -45,6 +45,13 @@
                 LayoutMinHeight: =75
                 ZIndex: =3
 
+            Label21_2 As label:
+                Font: =Font.Lato
+                Size: =15
+                Text: ="Hello, " & User().FullName
+                Visible: ='TO Request Screen'.Size<>1
+                ZIndex: =4
+
         "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Regular

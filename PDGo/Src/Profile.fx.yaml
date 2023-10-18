@@ -9,9 +9,10 @@ Profile As screen:
         Set(_calendarVisible, true);
 
     "'About Container' As groupContainer.manualLayoutContainer":
-        Height: =716
-        Width: =640
-        Y: =52
+        Height: =736
+        Visible: =false
+        Width: =Parent.Width
+        Y: =428
         ZIndex: =27
 
         "'About Me Label' As label":
@@ -69,12 +70,13 @@ Profile As screen:
 
     "'User Banner Container' As groupContainer.manualLayoutContainer":
         DropShadow: =DropShadow.Semibold
-        Height: =420
+        Height: =Parent.Height
         RadiusBottomLeft: =0
         RadiusBottomRight: =0
         RadiusTopLeft: =0
         RadiusTopRight: =0
-        Width: =640
+        Visible: =false
+        Width: =Parent.Width
         ZIndex: =28
 
         "'Background Color' As rectangle":
@@ -376,4 +378,387 @@ Profile As screen:
                 X: =378
                 Y: =367
                 ZIndex: =17
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =29
+
+        "'User Banner Container_1' As groupContainer.manualLayoutContainer":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Semibold
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            ZIndex: =1
+
+            "'Background Color_6' As rectangle":
+                BorderStyle: =BorderStyle.None
+                Height: =683
+                Width: =768
+                ZIndex: =1
+
+            "'Back Button_6' As icon.ArrowLeft":
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =43
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
+                Width: =40
+                X: =30
+                Y: =30
+                ZIndex: =2
+
+            "'Edit Button_1' As icon.Edit":
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =40
+                Icon: =Icon.Edit
+                OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)
+                Width: =40
+                X: =570
+                Y: =30
+                ZIndex: =3
+
+            "'User Name_2' As label":
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =51
+                Size: =26
+                Text: |
+                    =User().FullName
+                Width: =580
+                X: =30
+                Y: =201
+                ZIndex: =4
+
+            "'User Profile Picture_2' As image":
+                Height: =145
+                Image: =LookUp(Users, 'Email Address' = User().Email, 'Profile Picture')
+                ImagePosition: =ImagePosition.Fill
+                RadiusBottomLeft: ='User Profile Picture_2'.Height
+                RadiusBottomRight: ='User Profile Picture_2'.Height
+                RadiusTopLeft: ='User Profile Picture_2'.Height
+                RadiusTopRight: ='User Profile Picture_2'.Height
+                Width: =145
+                X: =247
+                Y: =56
+                ZIndex: =5
+
+            "Gallery3_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+                DelayItemLoading: =true
+                Height: =376
+                Items: =["Team Button", "Contact Button", "Office Button", "Schedule Button", "Supervisor Button"]
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =110
+                Visible: =false
+                Width: =706
+                X: =30
+                Y: =161
+                ZIndex: =21
+
+                Circle2_7 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: |
+                        =false
+                    Width: =80
+                    X: =26
+                    Y: =40
+                    ZIndex: =4
+
+                Icon3_2 As icon.People:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.People
+                    OnSelect: |
+                        =false
+                    Width: =30
+                    X: =51
+                    Y: =65
+                    ZIndex: =5
+
+                Label3_7 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: |
+                        =false
+                    Size: =14
+                    Text: ="Team"
+                    Width: =80
+                    X: =26
+                    Y: =120
+                    ZIndex: =6
+
+            "'Team Button_1' As group":
+                Height: =5
+                Width: =5
+                X: =-5
+                Y: =-252
+                ZIndex: =21
+
+                Circle2_1 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: =Navigate('Profile - Team', ScreenTransition.CoverRight)
+                    Width: =80
+                    X: =48
+                    Y: =285
+                    ZIndex: =6
+
+                Icon3_3 As icon.People:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.People
+                    OnSelect: =Navigate('Profile - Team', ScreenTransition.CoverRight)
+                    Width: =30
+                    X: =73
+                    Y: =312
+                    ZIndex: =10
+
+                Label3_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: =Navigate('Profile - Team', ScreenTransition.CoverRight)
+                    Size: =14
+                    Text: ="Team"
+                    Width: =80
+                    X: =48
+                    Y: =366
+                    ZIndex: =14
+
+            "'Office Button_1' As group":
+                Height: =5
+                Width: =5
+                X: =-5
+                Y: =-252
+                ZIndex: =23
+
+                Circle2_10 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
+                    Width: =80
+                    X: =163
+                    Y: =287
+                    ZIndex: =7
+
+                Icon5_1 As icon.OfficeBuilding:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.OfficeBuilding
+                    OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
+                    Width: =30
+                    X: =188
+                    Y: =312
+                    ZIndex: =11
+
+                Label3_9 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
+                    Size: =14
+                    Text: ="Office"
+                    Width: =80
+                    X: =163
+                    Y: =367
+                    ZIndex: =15
+
+            "'Calendar Button_1' As group":
+                Height: =5
+                Width: =5
+                X: =-5
+                Y: =-252
+                ZIndex: =24
+
+                Circle2_8 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
+                    Width: =80
+                    X: =279
+                    Y: =286
+                    ZIndex: =8
+
+                Icon6_1 As icon.CalendarBlank:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.CalendarBlank
+                    OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
+                    Width: =30
+                    X: =304
+                    Y: =311
+                    ZIndex: =12
+
+                Label3_8 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
+                    Size: =14
+                    Text: ="Calendar"
+                    Width: =94
+                    X: =272
+                    Y: =366
+                    ZIndex: =16
+
+            "'Settings Button_1' As group":
+                Height: =5
+                Width: =5
+                X: =-356
+                Y: =-190
+                ZIndex: =25
+
+                Circle2_11 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                    Width: =80
+                    X: =508
+                    Y: =287
+                    ZIndex: =18
+
+                Icon7_3 As icon.Person:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.Settings
+                    OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                    Width: =30
+                    X: =533
+                    Y: =313
+                    ZIndex: =19
+
+                Label3_11 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                    Size: =14
+                    Text: |-
+                        ="Settings
+                        "
+                    Width: =111
+                    X: =492
+                    Y: =368
+                    ZIndex: =20
+
+            "'Supervisor Button_1' As group":
+                Height: =5
+                Width: =5
+                X: =-5
+                Y: =-252
+                ZIndex: =25
+
+                Circle2_9 As circle:
+                    Fill: =RGBA(136, 160, 209, 1)
+                    Height: =80
+                    OnSelect: |-
+                        =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
+                        
+                        Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
+                    Width: =80
+                    X: =394
+                    Y: =286
+                    ZIndex: =9
+
+                Icon7_2 As icon.Person:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Icon: =Icon.Person
+                    OnSelect: |-
+                        =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
+                        
+                        Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
+                    Width: =30
+                    X: =419
+                    Y: =312
+                    ZIndex: =13
+
+                Label3_10 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =26
+                    OnSelect: |-
+                        =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
+                        
+                        Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
+                    Size: =14
+                    Text: ="Supervisor"
+                    Width: =111
+                    X: =378
+                    Y: =367
+                    ZIndex: =17
+
+        "'About Container_2' As groupContainer.manualLayoutContainer":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =736
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            Y: =428
+            ZIndex: =2
+
+            "'About Me Label_2' As label":
+                Font: =Font.'Lato Black'
+                Height: =44
+                Size: =21
+                Text: ="About Me"
+                Width: =148
+                X: =36
+                Y: =66
+                ZIndex: =1
+
+            "'About Me Description_2' As label":
+                Height: =188
+                Overflow: =Overflow.Scroll
+                Size: =18
+                Text: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
+                VerticalAlign: =VerticalAlign.Top
+                Width: =560
+                X: =36
+                Y: =110
+                ZIndex: =2
+
+            Label6_2 As label:
+                Height: =70
+                Size: =21
+                Text: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
+                Width: =448
+                X: =133
+                Y: =331
+                ZIndex: =3
+
+            Label7_2 As label:
+                Height: =70
+                Size: =21
+                Text: =User().Email
+                Width: =449
+                X: =133
+                Y: =434
+                ZIndex: =4
+
+            Icon8_3 As icon.Phone:
+                Height: =50
+                Icon: =Icon.Phone
+                Width: =50
+                X: =56
+                Y: =341
+                ZIndex: =5
+
+            Icon9_3 As icon.Mail:
+                Icon: =Icon.Mail
+                X: =49
+                Y: =440
+                ZIndex: =6
 
