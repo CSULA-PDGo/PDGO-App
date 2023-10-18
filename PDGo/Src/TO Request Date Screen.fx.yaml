@@ -366,10 +366,10 @@
             ZIndex: =3
 
             "'TO Request Date Screen Reason Label' As label":
-                FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
                 Text: ="Reason Code"
+                Width: =Parent.Width*.30
                 ZIndex: =1
 
             "'TO Request Date Screen Reason Dropdown' As combobox":
@@ -385,7 +385,6 @@
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayFields: =["Value"]
-                FillPortions: =1
                 Font: =Font.Lato
                 Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
@@ -395,14 +394,13 @@
                 Items: |
                     =Choices([@TimeOffRequestDays].Reason)
                 LayoutMinHeight: =50
-                OnChange: |+
+                OnChange: =
+                OnSelect: |-
                     =ClearCollect(ReasonCodeInfo, {Code: "ALN",Name:"Authorized Leave w/o Pay"}, {Code: "VAC", Name: "Vacation"}, {Code: "TRNG", Name: "Out of office training"}, {Code: "ESK", Name: "Extra Help-Sick"}, {Code: "JUR", Name: "Jury Duty"}, {Code: "HLB", Name: "Holiday Leave Balance"}, {Code: "SCK", Name: "Sick(Employee) or appt (Medical/ Dental) Employee"}, {Code: "PSL", Name: "Personal Sick Leave"}, {Code:"OLV", Name: "Other Leave Paid (Explain)"}, {Code: "OTT", Name: "Accrued OverTime Taken"});
                     Set(
                         codeSelected,
                         LookUp(ReasonCodeInfo, Code = 'TO Request Date Screen Reason Dropdown'.Selected.Value).Name
                     );
-                    
-                OnSelect: =
                 PaddingBottom: =15
                 PaddingLeft: =16
                 PaddingRight: =14.40
@@ -414,20 +412,29 @@
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
                 Size: =20.24
-                Tooltip: =codeSelected
-                Width: =1326.00
+                Tooltip: =
+                Width: =Parent.Width*.55
                 X: =20.00
                 Y: =380.5
                 ZIndex: =2
+
+            Icon2 As icon.Information:
+                AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
+                HoverColor: =ColorFade(Self.Color, 30%)
+                Icon: =Icon.Information
+                OnSelect: =
+                Tooltip: =codeSelected
+                ZIndex: =3
 
         "'TO Request Date Screen Comments Input' As text":
             BorderColor: =RGBA(166, 166, 166, 1)
             Color: =RGBA(166, 166, 166, 1)
             Default: =If(IsBlankOrError(Edit), "", Edit.Comments)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            FillPortions: =3
+            FillPortions: =
             Font: =Font.Lato
-            Height: =370.5
+            Height: =Parent.Height*.30
             HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
             HoverColor: =RGBA(51, 51, 51, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
