@@ -2,7 +2,7 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |-
         =Set(User, LookUp(Users, Office365 = Text(User().EntraObjectId)));
-        Set(UserID, Text(User().EntraObjectId);
+        Set(UserID, Text(User().EntraObjectId));
         'Home Screen';
         
         
