@@ -3,9 +3,11 @@
         =Clear(Subordinates);
         
         ForAll(Filter('Users-Teams', UserID = UserRecord.ID),
-            With({Supervisor: LookUp(Teams, ThisRecord.ID = TeamID).Supervisor}, Collect(Subordinates, {
-                ID: ThisRecord.Supervisor.Id
-            }))
+            With({Sup: LookUp(Teams, ThisRecord.ID = TeamID).Supervisor}, Collect(Subordinates, LookUp(Users, Office365 =
+                Office365Users.UserProfile(
+                    Last(Split(Last(Sup.Claims).Claims, "|")).Value
+                ).Id)
+            ))
         );
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
@@ -111,7 +113,12 @@
             AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
             Height: =Parent.Height
-            Items: =Filter(TimeOffRequests, And(Status.Value <> "Cancelled", Author.Email = User().Email))
+            Items: |-
+                =With({
+                    SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
+                },
+                    Filter(TimeOffRequests, Status.Value = "Pending", Requestor.Id in SubordinateIDs)
+                )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =Parent.Width

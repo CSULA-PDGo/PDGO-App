@@ -84,8 +84,9 @@
                 ZIndex: =1
 
                 "'TO Request Screen Dates Date Range' As label":
+                    FillPortions: =1
                     Font: =Font.Lato
-                    LayoutMinWidth: =110
+                    LayoutMinWidth: =60
                     Size: =If('TO Request Screen'.Size=1,7,12)
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     Width: |
@@ -94,14 +95,17 @@
                     ZIndex: =1
 
                 "'TO Request Screen Dates Time Range' As label":
+                    FillPortions: =1
                     Font: =Font.Lato
+                    LayoutMinWidth: =60
                     Size: =If('TO Request Screen'.Size=1,7,12)
                     Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
                     Width: =Parent.Width*.20
                     ZIndex: =2
 
                 "'TO Request Screen Dates Reason' As label":
-                    LayoutMinWidth: =50
+                    FillPortions: =1
+                    LayoutMinWidth: =40
                     Size: =If('TO Request Screen'.Size=1,7,12)
                     Text: |
                         =ThisItem.Reason
@@ -109,7 +113,7 @@
                     ZIndex: =3
 
                 "'TO Request Screen Dates Edit Button' As button":
-                    FillPortions: =1
+                    FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: |-
@@ -123,7 +127,7 @@
                     Fill: =RGBA(151, 0, 0, 1)
                     FillPortions: =1
                     Font: =Font.Lato
-                    LayoutMinWidth: =50
+                    LayoutMinWidth: =60
                     OnSelect: =Remove(RequestDates, ThisItem)
                     Size: =10
                     Text: ="Delete"

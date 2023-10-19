@@ -390,7 +390,6 @@
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 HoverColor: =RGBA(51, 51, 51, 1)
                 HoverFill: =RGBA(212, 212, 212, 1)
-                IsSearchable: =false
                 Items: =RequestCodes
                 LayoutMinHeight: =50
                 OnChange: =
@@ -407,7 +406,7 @@
                 PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 PressedFill: =RGBA(0, 120, 212, 1)
                 SearchFields: =["Title", "Description"]
-                SearchItems: =[]
+                SearchItems: =Search(RequestCodes,'TO Request Date Screen Reason Dropdown'.SearchText,"Title","Description")
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
                 Size: =20.24
@@ -476,7 +475,7 @@
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
             Italic: =true
             OnSelect: |
-                =If(And('TO Request Date Screen Reason Dropdown'.Selected.Value = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
+                =If(And('TO Request Date Screen Reason Dropdown'.Selected.Title = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
                     If(IsBlankOrError(Edit),
                         Collect(RequestDates, {
