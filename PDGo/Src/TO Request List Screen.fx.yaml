@@ -1,5 +1,12 @@
 "'TO Request List Screen' As screen":
-    OnVisible: =ClearCollect(Subordinates, ForAll(Filter('Users-Teams', UserID = User().EntraObjectId
+    OnVisible: |-
+        =Clear(Subordinates);
+        
+        ForAll(Filter('Users-Teams', UserID = UserRecord.ID),
+            With({Supervisor: LookUp(Teams, ThisRecord.ID = TeamID).Supervisor}, Collect(Subordinates, {
+                ID: ThisRecord.Supervisor.Id
+            }))
+        );
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
         Height: |
@@ -104,7 +111,7 @@
             AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
             Height: =Parent.Height
-            Items: =Filter(TimeOffRequests, And(Or(Status.Value = "Pending", Status.Value = "Denied"), Author.Email = User().Email))
+            Items: =Filter(TimeOffRequests, And(Status.Value <> "Cancelled", Author.Email = User().Email))
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =Parent.Width

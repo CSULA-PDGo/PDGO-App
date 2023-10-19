@@ -384,15 +384,14 @@
                 Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisplayFields: =["Value"]
+                DisplayFields: =["Description"]
                 Font: =Font.Lato
                 Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 HoverColor: =RGBA(51, 51, 51, 1)
                 HoverFill: =RGBA(212, 212, 212, 1)
                 IsSearchable: =false
-                Items: |
-                    =Choices([@TimeOffRequestDays].Reason)
+                Items: =RequestCodes
                 LayoutMinHeight: =50
                 OnChange: =
                 OnSelect: |-
@@ -407,7 +406,7 @@
                 PaddingTop: =13.50
                 PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 PressedFill: =RGBA(0, 120, 212, 1)
-                SearchFields: =["Value"]
+                SearchFields: =["Title", "Description"]
                 SearchItems: =[]
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
@@ -488,7 +487,7 @@
                             StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
                             //EndTime:   'TO Request Date Screen End Time Input'.Text,
                             EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
-                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
+                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Title,
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         }),
                         Update(RequestDates, Edit, {
@@ -499,7 +498,7 @@
                             StartTime: 'TO Request Date Screen Start Time Input'.Selected.Value,
                             //EndTime:   'TO Request Date Screen End Time Input'.Text,
                             EndTime:   'TO Request Date Screen End Time Input'.Selected.Value,
-                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Value,
+                            Reason:    'TO Request Date Screen Reason Dropdown'.Selected.Title,
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         })
                     );
