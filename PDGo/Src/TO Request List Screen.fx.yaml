@@ -1,4 +1,5 @@
 "'TO Request List Screen' As screen":
+    OnVisible: =ClearCollect(Subordinates, ForAll(Filter('Users-Teams', UserID = User().EntraObjectId
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
         Height: |
