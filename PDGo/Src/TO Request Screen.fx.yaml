@@ -169,6 +169,7 @@
             OnSelect: |-
                 =With({
                     Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
+                        ID: If(IsBlank(Edit), Blank(), Edit.ID),
                         Reason: 'TO Request Screen Comments Input'.Text,
                         Requestor: UserRecord.ID,
                         Status: {Value: "Pending"},
