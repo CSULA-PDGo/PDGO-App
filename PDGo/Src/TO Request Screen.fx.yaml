@@ -12,6 +12,7 @@
         If(Not(IsBlankOrError(Edit)),
             Clear(RequestDates);
             ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID));
+            UpdateContext({EditArchive: Edit, Edit: Blank()});
             ForAll(EditDays, Collect(RequestDates, {
                 ID: ID,
                 StartDate: StartDate,
