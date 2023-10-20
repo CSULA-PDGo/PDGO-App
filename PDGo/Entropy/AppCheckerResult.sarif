@@ -652,82 +652,80 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'.OnSelect"
+                  "fullyQualifiedName": "'TO Request Screen'.OnVisible"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'.OnSelect",
+                  "fullyQualifiedName": "'TO Request Screen'.OnVisible",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 354,
-                  "charOffset": 5,
+                  "charLength": 3,
+                  "charOffset": 337,
                   "snippet": {
-                    "text": "Patch(TimeOffRequests, Defaults(TimeOffRequests), {\n        Reason: 'TO Request Screen Comments Input'.Text,\n        Requestor: {\n            Id: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID,\n            Value: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID\n        },\n        Status: {Value: \"Pending\"},\n        Comments: \"\"\n    })"
+                    "text": ".Id"
                   }
                 }
               },
               "properties": {
-                "member": "OnSelect",
+                "member": "OnVisible",
                 "module": "TO Request Screen",
-                "type": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'"
+                "type": "'TO Request Screen'"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Patch"
+              "Request.Id"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "High"
+            "level": "Medium"
           },
-          "ruleId": "app-ErrInvalidArgs-Func",
-          "ruleIndex": 3
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 5
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'.OnSelect"
+                  "fullyQualifiedName": "'TO Request Screen'.OnVisible"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'.OnSelect",
+                  "fullyQualifiedName": "'TO Request Screen'.OnVisible",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 303,
-                  "charOffset": 55,
+                  "charLength": 1,
+                  "charOffset": 341,
                   "snippet": {
-                    "text": "{\n        Reason: 'TO Request Screen Comments Input'.Text,\n        Requestor: {\n            Id: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID,\n            Value: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID\n        },\n        Status: {Value: \"Pending\"},\n        Comments: \"\"\n    }"
+                    "text": "="
                   }
                 }
               },
               "properties": {
-                "member": "OnSelect",
+                "member": "OnVisible",
                 "module": "TO Request Screen",
-                "type": "'TO Request Screen'.'TO Request Screen Main Container'.'TO Request Screen Submit Button'"
+                "type": "'TO Request Screen'"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Requestor",
-              "Number",
-              "Record"
+              "LookUp"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "High"
+            "level": "Medium"
           },
-          "ruleId": "app-ErrTypeError-Arg-Expected-Found",
-          "ruleIndex": 7
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -744,7 +742,7 @@
                 },
                 "region": {
                   "charLength": 314,
-                  "charOffset": 386,
+                  "charOffset": 246,
                   "snippet": {
                     "text": "Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {\n        Request: {Id: ID, Value: ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    })"
                   }
@@ -784,7 +782,7 @@
                 },
                 "region": {
                   "charLength": 257,
-                  "charOffset": 442,
+                  "charOffset": 302,
                   "snippet": {
                     "text": "{\n        Request: {Id: ID, Value: ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    }"
                   }
@@ -807,7 +805,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrBadSchema-ExpectedType",
-          "ruleIndex": 8
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -824,7 +822,7 @@
                 },
                 "region": {
                   "charLength": 257,
-                  "charOffset": 442,
+                  "charOffset": 302,
                   "snippet": {
                     "text": "{\n        Request: {Id: ID, Value: ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    }"
                   }
@@ -848,7 +846,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrColumnMissing-ColName-ExpectedType",
-          "ruleIndex": 9
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -885,7 +883,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -962,7 +960,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -1009,6 +1007,274 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 235,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "If(\n    Dropdown1.Selected.Value = \"All\",\n    Filter(Users, StartsWith('Full Name'.DisplayName, TextInput1.Text)),\n    Filter(Users, StartsWith('Full Name'.DisplayName, TextInput1.Text) And 'Team ID'.Value = Dropdown1.Selected.Value)\n)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrTypeError",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Rectangle5.Visible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Rectangle5.Visible",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Visible",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Rectangle5"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Rectangle5.Visible"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Rectangle5.Visible",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 11,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".IsSelected"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Visible",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Rectangle5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Image2.Image"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Image2.Image",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Image",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Image2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Image2.Image"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Image2.Image",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Profile Picture'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Image",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Image2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.FullName"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 12,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Full Name'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.FullName"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.Text"
                 }
               ],
@@ -1039,7 +1305,432 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 3,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.FullName"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 11,
+                  "charOffset": 11,
+                  "snippet": {
+                    "text": ".IsSelected"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.FullName"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.FullName.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 63,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.FullName"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "If"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Label8"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 10,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Team ID'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Label8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Label8.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 6,
+                  "charOffset": 18,
+                  "snippet": {
+                    "text": ".Value"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Label8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Title1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 16,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Email Address'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Title1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 3,
+                  "snippet": {
+                    "text": "ThisItem"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Title1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "ThisItem"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 11,
+                  "charOffset": 11,
+                  "snippet": {
+                    "text": ".IsSelected"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Title1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidDot",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListUsers.'ListUsers-Gallery'.Title1.FontWeight",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 63,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "FontWeight",
+                "module": "ListUsers",
+                "type": "ListUsers.'ListUsers-Gallery'.Title1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "If"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidArgs-Func",
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -1312,7 +2003,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -1389,7 +2080,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -1466,7 +2157,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -1543,7 +2234,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2537,7 +3228,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2614,7 +3305,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2691,7 +3382,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2768,7 +3459,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2845,7 +3536,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -2999,7 +3690,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3076,7 +3767,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3153,7 +3844,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3230,7 +3921,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3307,7 +3998,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3384,7 +4075,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -3461,7 +4152,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrInvalidDot",
-          "ruleIndex": 10
+          "ruleIndex": 9
         },
         {
           "locations": [
@@ -8616,6 +9307,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 19
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Open Request Screen'.ModifyDeny_1.Container35_8.Container3_4.ReasonText_1.AccessibleLabel"
                 }
               ],
@@ -8659,36 +9380,6 @@
                 "member": "AccessibleLabel",
                 "module": "Open Request Screen",
                 "type": "'Open Request Screen'.ModifyApprove_2.Container35_11.Container3_7.ReasonText_3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 19
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Open Request Screen",
-                "type": "'Open Request Screen'.DecidePage.Container35_14.Container3_8.ReasonText_4"
               }
             }
           ],
@@ -10058,20 +10749,6 @@
               }
             },
             {
-              "id": "app-ErrTypeError-Arg-Expected-Found",
-              "messageStrings": {
-                "issue": {
-                  "text": "The type of this argument '{0}' does not match the expected type '{1}'. Found type '{2}'."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "level": "High",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
               "id": "app-ErrBadSchema-ExpectedType",
               "messageStrings": {
                 "issue": {
@@ -10111,6 +10788,23 @@
               },
               "properties": {
                 "componentType": "app",
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
+              "id": "app-ErrTypeError",
+              "messageStrings": {
+                "issue": {
+                  "text": "Incompatible type. We can't evaluate your formula because of a type error."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Check the types of the values involved in the formula and ensure the types match."
+                ],
                 "level": "High",
                 "primaryCategory": "formula",
                 "whyFix": ""
