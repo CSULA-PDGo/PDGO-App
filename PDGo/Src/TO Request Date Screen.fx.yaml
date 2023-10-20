@@ -386,7 +386,7 @@
                 Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisplayFields: =["Description"]
+                DisplayFields: =["Title","Description"]
                 Font: =Font.Lato
                 Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
@@ -396,11 +396,9 @@
                 LayoutMinHeight: =50
                 OnChange: =
                 OnSelect: |-
-                    =ClearCollect(ReasonCodeInfo, {Code: "ALN",Name:"Authorized Leave w/o Pay"}, {Code: "VAC", Name: "Vacation"}, {Code: "TRNG", Name: "Out of office training"}, {Code: "ESK", Name: "Extra Help-Sick"}, {Code: "JUR", Name: "Jury Duty"}, {Code: "HLB", Name: "Holiday Leave Balance"}, {Code: "SCK", Name: "Sick(Employee) or appt (Medical/ Dental) Employee"}, {Code: "PSL", Name: "Personal Sick Leave"}, {Code:"OLV", Name: "Other Leave Paid (Explain)"}, {Code: "OTT", Name: "Accrued OverTime Taken"});
-                    Set(
-                        codeSelected,
-                        LookUp(ReasonCodeInfo, Code = 'TO Request Date Screen Reason Dropdown'.Selected.Value).Name
-                    );
+                    =UpdateContext({
+                        codeSelected: 'TO Request Date Screen Reason Dropdown'.Selected.Title
+                    });
                 PaddingBottom: =15
                 PaddingLeft: =16
                 PaddingRight: =14.40
@@ -412,6 +410,7 @@
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
                 Size: =20.24
+                Template: =ListItemTemplate.Double
                 Tooltip: =
                 Width: =Parent.Width*.55
                 X: =20.00
