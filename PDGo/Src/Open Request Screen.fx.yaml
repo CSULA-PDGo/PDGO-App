@@ -361,8 +361,10 @@
                             =If(Text(ApproveRecord.Requestor) = Text(UserRecord.ID), Navigate('TO Request Screen'),
                                 If(ApproveRecord.StatusCode = "Approved",
                                     UpdateContext({PopUpApprove:true}),
-                                      If(ApproveRecord.StatusCode = "Denied" ,UpdateContext({PopUpDeny:true}),
-                                       If(ApproveRecord.StatusCode = "Pending",UpdateContext({PopDecide:true})
+                                If(ApproveRecord.StatusCode = "Denied",
+                                    UpdateContext({PopUpDeny:true}),
+                                If(ApproveRecord.StatusCode = "Pending",
+                                    UpdateContext({PopDecide:true})
                                 )
                             );
                         Text: ="Modify"
@@ -738,8 +740,8 @@
     DecidePage As groupContainer.manualLayoutContainer:
         Height: =Parent.Height
         Visible: |+
-            =//PopUpDecide
-            true
+            =PopUpDecide
+            
             
             
         Width: =Parent.Width
@@ -770,7 +772,7 @@
 
             Container3_8 As groupContainer.verticalAutoLayoutContainer:
                 Fill: =RGBA(215, 223, 240, 1)
-                Height: =70
+                Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutGap: =20
@@ -779,6 +781,7 @@
                 LayoutMode: =LayoutMode.Auto
                 PaddingBottom: =30
                 PaddingTop: =30
+                Width: =Parent.Width
                 ZIndex: =1
 
                 Label17_11 As label:
@@ -819,24 +822,40 @@
                     Height: =60
                     OnSelect: |-
                         =If( IsMatch(ReasonText_4.Text, "\s*" ), UpdateContext({PopUp2: true}), 
-                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments:"Switched to deny: " & ReasonText_4.Text & " Previous comment: " & ApproveRecord.Comments});
-                        UpdateContext({ApproveRecord: Blank()});
-                        UpdateContext({PopUp3: true});
-                        UpdateContext({PopUpApprove: false});
-                        Reset(ReasonText_4);
-                        UpdateContext({PopUp:false}))
+                            Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments: ReasonText_4.Text});
+                            UpdateContext({ApproveRecord: Blank()});
+                            Reset(ReasonText_4);   
+                            UpdateContext({PopUp3: true});
+                            UpdateContext({PopUpDecide: false});
+                        )
                     Size: =12
-                    Text: ="Switch to Deny"
+                    Text: ="Deny Request"
                     X: =593
                     Y: =492
                     ZIndex: =5
 
-                Button9_21 As button:
+                Button9_22 As button:
                     Height: =60
                     OnSelect: |-
-                        =UpdateContext({PopUpApprove: false});
-                    Text: ="Cancel"
+                        =If( IsMatch(ReasonText_4.Text, "\s*" ), UpdateContext({PopUp2: true}), 
+                            Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Approved"}, Comments: ReasonText_4.Text});
+                            UpdateContext({ApproveRecord: Blank()});
+                            Reset(ReasonText_4);   
+                            UpdateContext({PopUp3: true});
+                            UpdateContext({PopUpDecide: false});
+                        )
+                    Size: =12
+                    Text: ="Approve Request"
                     X: =593
                     Y: =492
                     ZIndex: =6
+
+                Button9_21 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUpDecide: false});
+                    Text: ="Cancel"
+                    X: =593
+                    Y: =492
+                    ZIndex: =7
 
