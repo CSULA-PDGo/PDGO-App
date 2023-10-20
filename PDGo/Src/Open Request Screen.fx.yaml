@@ -1,4 +1,10 @@
 "'Open Request Screen' As screen":
+    OnVisible: |-
+        =If(IsBlankOrError(PopUpDecide), UpdateContext({PopUpDecide: false}));
+        If(IsBlankOrError(PopUp2), UpdateContext({PopUp2: false}));
+        If(IsBlankOrError(PopUp3), UpdateContext({PopUp3: false}));
+        If(IsBlankOrError(PopUpDeny), UpdateContext({PopUpDeny: false}));
+        If(IsBlankOrError(PopUpApprove), UpdateContext({PopUpApprove: false}));
 
     DetailsPage_1 As groupContainer.manualLayoutContainer:
         Height: =Parent.Height
@@ -203,15 +209,15 @@
                     Height: =400
                     Items: =Filter(TimeOffRequestDays, Request.Id = ApproveRecord.ID)
                     Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
+                    LayoutMinHeight: =400
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
-                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(150, Self.Height - 60))
+                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(300, Self.Height - 60))
                     Width: =Parent.Width
                     ZIndex: =6
 
                     Container2_6 As groupContainer.horizontalAutoLayoutContainer:
-                        Height: =1
+                        Height: =Parent.TemplateHeight
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
                         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -355,7 +361,8 @@
                             =If(Text(ApproveRecord.Requestor) = Text(UserRecord.ID), Navigate('TO Request Screen'),
                                 If(ApproveRecord.StatusCode = "Approved",
                                     UpdateContext({PopUpApprove:true}),
-                                    UpdateContext({PopUpDeny:true})
+                                      If(ApproveRecord.StatusCode = "Denied" ,UpdateContext({PopUpDeny:true}),
+                                       If(ApproveRecord.StatusCode = "Pending",UpdateContext({PopDecide:true})
                                 )
                             );
                         Text: ="Modify"
@@ -381,4 +388,455 @@
                     X: =983
                     Y: =549
                     ZIndex: =1
+
+    ModifyDeny_1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |+
+            =PopUpDeny
+            
+            
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Rectangle2_9 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_9 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_8 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_9.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_9.Width
+            X: =Rectangle5_9.X
+            Y: =Rectangle5_9.Y
+            ZIndex: =5
+
+            Container3_4 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(215, 223, 240, 1)
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =20
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =30
+                PaddingTop: =30
+                ZIndex: =1
+
+                Label17_9 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =100
+                    Size: =16
+                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName & "?"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                Label4_1 As label:
+                    Font: =Font.Lato
+                    Height: =60
+                    Size: =16
+                    Text: |-
+                        ="Reason for change:"
+                    Width: =Parent.Width -30
+                    ZIndex: =2
+
+                ReasonText_1 As text:
+                    Default: =""
+                    Height: =200
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width - 30
+                    ZIndex: =3
+
+                Rectangle3_1 As rectangle:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =1
+                    ZIndex: =4
+
+                Button9_11 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =If( IsMatch(ReasonText_1.Text, "\s*" ), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Approved"}, Comments:"Switched to approve: " & ReasonText_1.Text & " Previous comment: " & ApproveRecord.Comments});
+                        UpdateContext({ApproveRecord: Blank()});
+                        UpdateContext({PopUp3: true});
+                        UpdateContext({PopUpDeny: false});
+                        Reset(ReasonText_1);
+                        UpdateContext({PopUp:false}))
+                    Size: =12
+                    Text: ="Switch to Approve"
+                    X: =593
+                    Y: =492
+                    ZIndex: =5
+
+                Button9_12 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUpDeny: false}); 
+                    Text: ="Cancel"
+                    X: =593
+                    Y: =492
+                    ZIndex: =6
+
+    ModifyApprove_2 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |+
+            =PopUpApprove
+            
+            
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Rectangle2_12 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_12 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_11 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_12.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_12.Width
+            X: =Rectangle5_12.X
+            Y: =Rectangle5_12.Y
+            ZIndex: =5
+
+            Container3_7 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(215, 223, 240, 1)
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =20
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =30
+                PaddingTop: =30
+                ZIndex: =1
+
+                Label17_10 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =100
+                    Size: =16
+                    Text: ="Modify the status Request for " & ApproveRecord.'Created By'.DisplayName & "?"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                Label4_11 As label:
+                    Font: =Font.Lato
+                    Height: =60
+                    Size: =16
+                    Text: |-
+                        ="Reason for change:"
+                    Width: =Parent.Width -30
+                    ZIndex: =2
+
+                ReasonText_3 As text:
+                    Default: =""
+                    Height: =200
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width - 30
+                    ZIndex: =3
+
+                Rectangle3_5 As rectangle:
+                    BorderColor: =RGBA(215, 223, 240, 1)
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =1
+                    ZIndex: =4
+
+                Button9_15 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =If( IsMatch(ReasonText_3.Text, "\s*" ), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments:"Switched to deny: " & ReasonText_3.Text & " Previous comment: " & ApproveRecord.Comments});
+                        UpdateContext({ApproveRecord: Blank()});
+                        UpdateContext({PopUp3: true});
+                        UpdateContext({PopUpApprove: false});
+                        Reset(ReasonText_3);
+                        UpdateContext({PopUp:false}))
+                    Size: =12
+                    Text: ="Switch to Deny"
+                    X: =593
+                    Y: =492
+                    ZIndex: =5
+
+                Button9_17 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUpApprove: false});
+                    Text: ="Cancel"
+                    X: =593
+                    Y: =492
+                    ZIndex: =6
+
+    SuccessPopup_3 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: =PopUp3
+        Width: =Parent.Width
+        ZIndex: =4
+
+        Rectangle2_13 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_13 As rectangle:
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_12 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_13.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_13.Width
+            X: =Rectangle5_13.X
+            Y: =Rectangle5_13.Y
+            ZIndex: =5
+
+            Container36_6 As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height-100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label18_7 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Size: =15
+                    Text: ="Success! Your request has been submitted"
+                    Width: =Parent.Width
+                    X: =320
+                    Y: =112
+                    ZIndex: =1
+
+            Container37_7 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =120
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                Button9_18 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUp3: false})
+                    Text: ="OK"
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
+    "'error page_2' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Visible: =PopUp2
+        Width: =Parent.Width
+        ZIndex: =5
+
+        Rectangle2_14 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_14 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_13 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =Rectangle5_14.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_14.Width
+            X: =Rectangle5_14.X
+            Y: =Rectangle5_14.Y
+            ZIndex: =5
+
+            Container36_4 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =3
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label18_5 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =118
+                    Size: =17
+                    Text: ="Please Specify the reason for denial."
+                    Width: =Parent.Width - 30
+                    X: =320
+                    Y: =112
+                    ZIndex: =1
+
+            Container37_8 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                Button9_19 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUp2: false})
+                    Text: ="OK"
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
+    DecidePage As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: |+
+            =//PopUpDecide
+            true
+            
+            
+        Width: =Parent.Width
+        ZIndex: =6
+
+        Rectangle2_15 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_15 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_14 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_15.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_15.Width
+            X: =Rectangle5_15.X
+            Y: =Rectangle5_15.Y
+            ZIndex: =5
+
+            Container3_8 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(215, 223, 240, 1)
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =20
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =30
+                PaddingTop: =30
+                ZIndex: =1
+
+                Label17_11 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =100
+                    Size: =16
+                    Text: ="Decide to Approve or Deny for " & ApproveRecord.'Created By'.DisplayName & "?"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                Label4_12 As label:
+                    Font: =Font.Lato
+                    Height: =60
+                    Size: =16
+                    Text: |-
+                        ="Supervisor comment:"
+                    Width: =Parent.Width -30
+                    ZIndex: =2
+
+                ReasonText_4 As text:
+                    Default: =""
+                    Height: =200
+                    HintText: ="Enter Reason Here."
+                    Mode: =TextMode.MultiLine
+                    Width: =Parent.Width - 30
+                    ZIndex: =3
+
+                Rectangle3_6 As rectangle:
+                    BorderColor: =RGBA(215, 223, 240, 1)
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =1
+                    Height: =
+                    ZIndex: =4
+
+                Button9_20 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =If( IsMatch(ReasonText_4.Text, "\s*" ), UpdateContext({PopUp2: true}), 
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = ApproveRecord.ID), {Status: {Value: "Denied"}, Comments:"Switched to deny: " & ReasonText_4.Text & " Previous comment: " & ApproveRecord.Comments});
+                        UpdateContext({ApproveRecord: Blank()});
+                        UpdateContext({PopUp3: true});
+                        UpdateContext({PopUpApprove: false});
+                        Reset(ReasonText_4);
+                        UpdateContext({PopUp:false}))
+                    Size: =12
+                    Text: ="Switch to Deny"
+                    X: =593
+                    Y: =492
+                    ZIndex: =5
+
+                Button9_21 As button:
+                    Height: =60
+                    OnSelect: |-
+                        =UpdateContext({PopUpApprove: false});
+                    Text: ="Cancel"
+                    X: =593
+                    Y: =492
+                    ZIndex: =6
 
