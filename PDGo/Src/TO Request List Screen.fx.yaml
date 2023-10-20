@@ -144,7 +144,8 @@
                 "'TO Request List Screen Requestor Column' As label":
                     Font: =Font.Lato
                     LayoutMinWidth: =120
-                    OnSelect: =
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.'Created By'.DisplayName
                     Width: =Parent.Width*.20
@@ -152,7 +153,8 @@
 
                 "'TO Request List Screen Status Column' As label":
                     Font: =Font.Lato
-                    OnSelect: =
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.Status.Value
                     Width: =Parent.Width*.20
@@ -163,14 +165,15 @@
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
-                    Text: =ThisItem
+                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
                     Width: =Parent.Width*.20
                     ZIndex: =3
 
                 "'TO Request List Screen Last Modified Column' As label":
                     Font: =Font.Lato
                     LayoutMinWidth: =Parent.Width*.20
-                    OnSelect: =
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
                     Text: =Text(ThisItem.Modified, DateTimeFormat.ShortDate)
                     Width: =Parent.Width*.20
