@@ -125,6 +125,8 @@
             LayoutMinHeight: =287
             LayoutMinWidth: =Parent.Width
             LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
             TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
             Width: =Parent.Width
             ZIndex: =3
@@ -142,8 +144,7 @@
                 "'TO Request List Screen Requestor Column' As label":
                     Font: =Font.Lato
                     LayoutMinWidth: =120
-                    OnSelect: |-
-                        =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                    OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.'Created By'.DisplayName
                     Width: =Parent.Width*.20
@@ -151,8 +152,7 @@
 
                 "'TO Request List Screen Status Column' As label":
                     Font: =Font.Lato
-                    OnSelect: |-
-                        =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                    OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.Status.Value
                     Width: =Parent.Width*.20
@@ -163,15 +163,14 @@
                     OnSelect: |-
                         =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
-                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    Text: =ThisItem
                     Width: =Parent.Width*.20
                     ZIndex: =3
 
                 "'TO Request List Screen Last Modified Column' As label":
                     Font: =Font.Lato
                     LayoutMinWidth: =Parent.Width*.20
-                    OnSelect: |-
-                        =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                    OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
                     Text: =Text(ThisItem.Modified, DateTimeFormat.ShortDate)
                     Width: =Parent.Width*.20

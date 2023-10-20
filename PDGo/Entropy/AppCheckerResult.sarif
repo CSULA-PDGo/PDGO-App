@@ -2876,10 +2876,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 3,
-                  "charOffset": 38,
+                  "charLength": 8,
+                  "charOffset": 0,
                   "snippet": {
-                    "text": ".Id"
+                    "text": "ThisItem"
                   }
                 }
               },
@@ -2892,135 +2892,16 @@
           ],
           "message": {
             "arguments": [
-              "Request.Id"
+              "Text",
+              "Record"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 42,
-                  "snippet": {
-                    "text": "="
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 3,
-                  "charOffset": 115,
-                  "snippet": {
-                    "text": ".Id"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Request.Id"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 1,
-                  "charOffset": 119,
-                  "snippet": {
-                    "text": "="
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Filter"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 3
+          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+          "ruleIndex": 14
         },
         {
           "locations": [
@@ -3102,7 +2983,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrTypeError-Arg-Expected-Found",
-          "ruleIndex": 14
+          "ruleIndex": 15
         },
         {
           "locations": [
@@ -3182,7 +3063,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrBadSchema-ExpectedType",
-          "ruleIndex": 15
+          "ruleIndex": 16
         },
         {
           "locations": [
@@ -3223,7 +3104,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrColumnMissing-ColName-ExpectedType",
-          "ruleIndex": 16
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -3384,7 +3265,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrBadTypeExpectedCompatibleWith-PropertyName",
-          "ruleIndex": 17
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -3425,7 +3306,7 @@
             "level": "High"
           },
           "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
-          "ruleIndex": 18
+          "ruleIndex": 14
         },
         {
           "locations": [
@@ -3503,6 +3384,86 @@
           },
           "ruleId": "app-ErrInvalidArgs-Func",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 34,
+                  "snippet": {
+                    "text": ".Id"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Request.Id"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 38,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 3
         },
         {
           "locations": [
@@ -7829,126 +7790,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 21
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Requestor Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 20
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 21
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Status Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 20
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'.FocusedBorderThickness"
                 }
               ],
@@ -7992,66 +7833,6 @@
                 "member": "TabIndex",
                 "module": "TO Request List Screen",
                 "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Date Range Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 20
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 21
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TO Request List Screen",
-                "type": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Gallery'.'TO Request List Screen Gallery Columns'.'TO Request List Screen Last Modified Column'"
               }
             }
           ],
@@ -9417,6 +9198,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 19
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'.DetailsPage_1.Container2_5.Container14_2.'Dates Gallery_2'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 20
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.varImage"
                 }
               ],
@@ -9471,6 +9312,96 @@
           },
           "ruleId": "app-InefficientDelayLoading",
           "ruleIndex": 25
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUp"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUp",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "PopUp",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 24
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUpApprove"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUpApprove",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "PopUpApprove",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 24
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUpDeny"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Open Request Screen'.PopUpDeny",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "PopUpDeny",
+                "module": "Open Request Screen",
+                "type": "'Open Request Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 24
         },
         {
           "locations": [
@@ -10043,6 +9974,23 @@
               }
             },
             {
+              "id": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+              "messageStrings": {
+                "issue": {
+                  "text": "Expected {0} value."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Change the rule to produce a {0} value."
+                ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
               "id": "app-ErrTypeError-Arg-Expected-Found",
               "messageStrings": {
                 "issue": {
@@ -10096,23 +10044,6 @@
               },
               "properties": {
                 "componentType": "app",
-                "level": "High",
-                "primaryCategory": "formula",
-                "whyFix": ""
-              }
-            },
-            {
-              "id": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
-              "messageStrings": {
-                "issue": {
-                  "text": "Expected {0} value."
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Change the rule to produce a {0} value."
-                ],
                 "level": "High",
                 "primaryCategory": "formula",
                 "whyFix": ""
