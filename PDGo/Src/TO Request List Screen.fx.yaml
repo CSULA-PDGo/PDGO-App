@@ -9,6 +9,8 @@
                 ).Id)
             ))
         );
+        
+        Collect(Subordinates, UserRecord); // Add self as subordinate
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
         Height: |
