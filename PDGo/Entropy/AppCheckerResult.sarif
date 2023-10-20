@@ -742,7 +742,7 @@
                 },
                 "region": {
                   "charLength": 346,
-                  "charOffset": 304,
+                  "charOffset": 311,
                   "snippet": {
                     "text": "Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {\n        ID: ID,\n        Request: {Id: Request.ID, Value: Request.ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    })"
                   }
@@ -782,7 +782,7 @@
                 },
                 "region": {
                   "charLength": 289,
-                  "charOffset": 360,
+                  "charOffset": 367,
                   "snippet": {
                     "text": "{\n        ID: ID,\n        Request: {Id: Request.ID, Value: Request.ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    }"
                   }
@@ -822,7 +822,7 @@
                 },
                 "region": {
                   "charLength": 289,
-                  "charOffset": 360,
+                  "charOffset": 367,
                   "snippet": {
                     "text": "{\n        ID: ID,\n        Request: {Id: Request.ID, Value: Request.ID},\n        StartDate: StartDate,\n        EndDate: EndDate,\n        EntireDay: EntireDay,\n        StartTime: StartTime,\n        EndTime: EndTime,\n        Reason: {Value: Reason},\n        AdditionalComments: Comments\n    }"
                   }
@@ -9808,36 +9808,6 @@
           },
           "ruleId": "app-InefficientDelayLoading",
           "ruleIndex": 24
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'TO Request Screen'.EditArchive"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'TO Request Screen'.EditArchive",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "EditArchive",
-                "module": "TO Request Screen",
-                "type": "'TO Request Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 23
         },
         {
           "locations": [
