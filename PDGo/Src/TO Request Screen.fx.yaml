@@ -12,6 +12,7 @@
         If(Not(IsBlankOrError(Edit)),
             Clear(RequestDates);
             ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID))
+            ForAll(Temp, Patch(
         );
 
     "'TO Request Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
