@@ -383,7 +383,8 @@
 
                 Button7_5 As button:
                     OnSelect: |-
-                        =UpdateContext({PopUp:false}); UpdateContext({ApproveRecord: Blank()}  );
+                        =UpdateContext({ApproveRecord: Blank()});
+                        Back();
                     Text: ="Cancel"
                     X: =983
                     Y: =549
