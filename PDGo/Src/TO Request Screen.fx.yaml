@@ -12,6 +12,7 @@
         If(Not(IsBlankOrError(Edit)),
             Clear(RequestDates);
             ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID));
+            UpdateContext({EditArchive: Edit, Edit: Blank()});
             ForAll(EditDays, Collect(RequestDates, {
                 ID: ID,
                 StartDate: StartDate,
@@ -169,6 +170,7 @@
             OnSelect: |-
                 =With({
                     Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
+                        ID: If(IsBlank(EditArchive), Blank(), Edit.ID),
                         Reason: 'TO Request Screen Comments Input'.Text,
                         Requestor: UserRecord.ID,
                         Status: {Value: "Pending"},
