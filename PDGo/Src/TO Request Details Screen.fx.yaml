@@ -9,7 +9,7 @@
             PopUpApprove: false
         });
     OnVisible: |-
-        =//If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
+        =If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
         If(IsBlankOrError(PopUp), UpdateContext({PopUp: false}));
         If(IsBlankOrError(PopUp2), UpdateContext({PopUp2: false}));
         If(IsBlankOrError(PopUp3), UpdateContext({PopUp3: false}));
