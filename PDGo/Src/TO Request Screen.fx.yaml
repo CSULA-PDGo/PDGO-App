@@ -11,8 +11,15 @@
         
         If(Not(IsBlankOrError(Edit)),
             Clear(RequestDates);
-            ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID))
-            ForAll(Temp, Patch(
+            ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID));
+            ForAll(EditDays, Collect(RequestDates, {
+                ID: ID,
+                StartDate: StartDate,
+                EndDate: EndDate,
+                Reason: Reason.Value,
+                StartTime: StartTime,
+                EndTime: EndTime
+            }));
         );
 
     "'TO Request Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
@@ -148,7 +155,7 @@
             ZIndex: =4
 
         "'TO Request Screen Comments Input' As text":
-            Default: =""
+            Default: =If(IsBlank(Edit), "", Edit.Comments)
             FillPortions: =1
             Font: =Font.Lato
             HintText: ="Additional Comments"
@@ -160,15 +167,17 @@
             Font: =Font.Lato
             Height: =80
             OnSelect: |-
-                =With(Patch(TimeOffRequests, Defaults(TimeOffRequests), {
+                =With({
+                    Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
                         Reason: 'TO Request Screen Comments Input'.Text,
                         Requestor: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
-                    }),
-                    ID;
+                    })
+                },
                     ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
-                        Request: {Id: ID, Value: ID},
+                        ID: ID,
+                        Request: {Id: Request.ID, Value: Request.ID},
                         StartDate: StartDate,
                         EndDate: EndDate,
                         EntireDay: EntireDay,

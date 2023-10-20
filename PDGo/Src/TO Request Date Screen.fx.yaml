@@ -481,6 +481,7 @@
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
                     If(IsBlankOrError(Edit),
                         Collect(RequestDates, {
+                            ID: Blank(),
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
                             EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
@@ -492,6 +493,7 @@
                             Comments:  'TO Request Date Screen Comments Input'.Text
                         }),
                         Update(RequestDates, Edit, {
+                            ID: Edit.ID,
                             StartDate: 'TO Request Date Screen Start Date Input'.SelectedDate,
                             EndDate:   'TO Request Date Screen End Date Input'.SelectedDate,
                             EntireDay: 'TO Request Date Screen Entire Day Toggle'.Value,
