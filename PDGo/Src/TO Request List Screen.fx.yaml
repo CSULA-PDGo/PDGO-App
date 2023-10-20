@@ -117,7 +117,7 @@
                 =With({
                     SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
                 },
-                    Filter(TimeOffRequests, Status.Value = "Pending", Requestor.Id in SubordinateIDs)
+                    Filter(TimeOffRequests, Status.Value = "Pending", Requestor in SubordinateIDs)
                 )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287

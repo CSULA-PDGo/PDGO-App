@@ -9,7 +9,7 @@
             PopUpApprove: false
         });
     OnVisible: |-
-        =If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
+        =//If(IsBlankOrError(ApproveRecord), UpdateContext({ApproveRecord: Blank()}));
         If(IsBlankOrError(PopUp), UpdateContext({PopUp: false}));
         If(IsBlankOrError(PopUp2), UpdateContext({PopUp2: false}));
         If(IsBlankOrError(PopUp3), UpdateContext({PopUp3: false}));
@@ -146,7 +146,7 @@
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 OnSelect: |-
-                    =UpdateContext({ApproveRecord: ThisItem}  );
+                    =UpdateContext({ApproveRecord: ThisItem});
                     UpdateContext({PopUp:true})
                 TemplatePadding: =0
                 TemplateSize: =100
@@ -567,8 +567,8 @@
 
                     Button6_2 As button:
                         OnSelect: |-
-                            =If(ApproveRecord.Requestor = Text(UserRecord.ID), Navigate('TO Request Screen'),
-                                If(ApproveRecord.Status.Value = "Approved",
+                            =If(Text(ApproveRecord.Requestor) = Text(UserRecord.ID), Navigate('TO Request Screen'),
+                                If(ApproveRecord.StatusCode = "Approved",
                                     UpdateContext({PopUpApprove:true}),
                                     UpdateContext({PopUpDeny:true})
                                 )
