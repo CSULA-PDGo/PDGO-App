@@ -567,7 +567,7 @@
 
                     Button6_2 As button:
                         OnSelect: |-
-                            =If(ApproveRecord.Requestor.Value = Text(UserRecord.ID), Navigate('TO Request Screen'),
+                            =If(ApproveRecord.Requestor = Text(UserRecord.ID), Navigate('TO Request Screen'),
                                 If(ApproveRecord.Status.Value = "Approved",
                                     UpdateContext({PopUpApprove:true}),
                                     UpdateContext({PopUpDeny:true})
