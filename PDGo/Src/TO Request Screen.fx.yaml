@@ -7,7 +7,12 @@
             EntireDay: true,
             StartTime: "9:00", // 9-5, because why not
             EndTime: "17:00"
-        }))
+        }));
+        
+        If(Not(IsBlankOrError(Edit)),
+            Clear(RequestDates);
+            ClearCollect(EditDays, LookUp(TimeOffRequestDays, Request.Id = Edit.ID))
+        );
 
     "'TO Request Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
         Height: =Parent.Height
@@ -156,13 +161,11 @@
             OnSelect: |-
                 =With(Patch(TimeOffRequests, Defaults(TimeOffRequests), {
                         Reason: 'TO Request Screen Comments Input'.Text,
-                        Requestor: {
-                            Id: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID,
-                            Value: LookUp(Users, Office365 = Text(User().EntraObjectId)).ID
-                        },
+                        Requestor: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
                     }),
+                    ID;
                     ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
                         Request: {Id: ID, Value: ID},
                         StartDate: StartDate,

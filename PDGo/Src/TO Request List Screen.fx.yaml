@@ -186,7 +186,7 @@
                 "'TO Request List Screen Date Range Column' As label":
                     Font: =Font.Lato
                     OnSelect: |-
-                        =Navigate('TO Request Details Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
                     Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
                     Width: =Parent.Width*.20
