@@ -169,25 +169,31 @@
             Height: =80
             OnSelect: |-
                 =With({
-                    Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
-                        ID: If(IsBlank(EditArchive), Blank(), Edit.ID),
+                    Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
                         Reason: 'TO Request Screen Comments Input'.Text,
                         Requestor: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
                     })
                 },
-                    ForAll(RequestDates, Patch(TimeOffRequestDays, Defaults(TimeOffRequestDays), {
-                        ID: ID,
-                        Request: {Id: Request.ID, Value: Request.ID},
-                        StartDate: StartDate,
-                        EndDate: EndDate,
-                        EntireDay: EntireDay,
-                        StartTime: StartTime,
-                        EndTime: EndTime,
-                        Reason: { Id: LookUp(RequestCodes, Title = Reason).ID, Value: Reason },
-                        AdditionalComments: Comments
-                    }));
+                    ForAll(RequestDates, With({Date: ThisRecord},
+                            Patch(TimeOffRequestDays,
+                                If(IsBlankOrError(ID),
+                                    Defaults(TimeOffRequestDays),
+                                    LookUp(TimeOffRequestDays, ID = Date.ID)
+                                ),
+                                {
+                                ID: ID,
+                                Request: {Id: Request.ID, Value: Request.ID},
+                                StartDate: StartDate,
+                                EndDate: EndDate,
+                                EntireDay: EntireDay,
+                                StartTime: StartTime,
+                                EndTime: EndTime,
+                                Reason: { Id: LookUp(RequestCodes, Title = Reason).ID, Value: Reason },
+                                AdditionalComments: Comments
+                            }));
+                    );
                 );
                 
                 Clear(RequestDates);
