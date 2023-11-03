@@ -183,16 +183,18 @@
                                     LookUp(TimeOffRequestDays, ID = Date.ID)
                                 ),
                                 {
-                                ID: ID,
-                                Request: {Id: Request.ID, Value: Request.ID},
-                                StartDate: StartDate,
-                                EndDate: EndDate,
-                                EntireDay: EntireDay,
-                                StartTime: StartTime,
-                                EndTime: EndTime,
-                                Reason: { Id: LookUp(RequestCodes, Title = Reason).ID, Value: Reason },
-                                AdditionalComments: Comments
-                            }));
+                                    Request: {Id: Request.ID, Value: Request.ID},
+                                    StartDate: Date.StartDate,
+                                    EndDate: Date.EndDate,
+                                    EntireDay: Date.EntireDay,
+                                    StartTime: Date.StartTime,
+                                    EndTime: Date.EndTime,
+                                    Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },
+                                    AdditionalComments: Date.Comments,
+                                    ITEquipment: Date.ITEquipment
+                                }
+                            )
+                        );
                     );
                 );
                 
