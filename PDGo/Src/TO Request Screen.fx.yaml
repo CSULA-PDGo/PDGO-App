@@ -185,7 +185,7 @@
                         EntireDay: EntireDay,
                         StartTime: StartTime,
                         EndTime: EndTime,
-                        Reason: {Value: Reason},
+                        Reason: { Id: LookUp(RequestCodes, Title = Reason).ID, Value: Reason },
                         AdditionalComments: Comments
                     }));
                 );

@@ -13,7 +13,7 @@
           //  ))
         //);
         
-        ForAll(Filter('Users-Teams', UserID = UserRecord.ID),
+        ForAll(Filter('Users-Teams', 'User ID' = UserRecord.ID),
             With({
                 Team: LookUp(Teams, ID = 'Team ID')
             },
