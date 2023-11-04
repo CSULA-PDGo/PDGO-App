@@ -255,7 +255,7 @@ FacilityRequest As screen:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 Default: =Parent.Default
                 DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: =DisplayMode.View
                 Height: =70
                 MaxLength: =Parent.MaxLength
                 PaddingLeft: =5
