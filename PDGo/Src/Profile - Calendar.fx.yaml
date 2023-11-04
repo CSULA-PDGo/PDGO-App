@@ -2,6 +2,7 @@
 
     "'Background Color_1' As rectangle":
         BorderStyle: =BorderStyle.None
+        Fill: =RGBA(25, 53, 110, 100)
         Height: =111
         Width: =640
         ZIndex: =6
@@ -356,8 +357,8 @@
         Text: ="Select a calendar from the drop down to begin"
         Visible: =IsBlank(_userDomain)
         Width: =450
-        X: =Parent.Width / 2 - Self.Width / 2
-        Y: =Parent.Height / 2 - Self.Height / 2
+        X: =81
+        Y: =467
         ZIndex: =20
 
     LblNoEvents3 As label:

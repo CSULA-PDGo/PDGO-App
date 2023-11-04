@@ -139,7 +139,7 @@ Profile As screen:
             TemplateSize: =110
             Visible: =false
             Width: =580
-            X: =30
+            X: =29
             Y: =252
             ZIndex: =21
 
@@ -155,13 +155,12 @@ Profile As screen:
 
             Icon3_1 As icon.People:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =82
                 Icon: =Icon.People
                 OnSelect: |
                     =false
-                Width: =53
-                X: =35
-                Y: =50
+                Width: =65
+                X: =26
+                Y: =40
                 ZIndex: =5
 
             Label3_5 As label:
@@ -233,12 +232,12 @@ Profile As screen:
 
             Icon5 As icon.OfficeBuilding:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =30
+                Height: =42
                 Icon: =Icon.OfficeBuilding
                 OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
-                Width: =30
-                X: =188
-                Y: =312
+                Width: =73
+                X: =167
+                Y: =306
                 ZIndex: =11
 
             Label3_2 As label:
@@ -271,12 +270,12 @@ Profile As screen:
 
             Icon6 As icon.CalendarBlank:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =30
+                Height: =37
                 Icon: =Icon.CalendarBlank
                 OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
-                Width: =30
-                X: =304
-                Y: =311
+                Width: =52
+                X: =293
+                Y: =306
                 ZIndex: =12
 
             Label3_3 As label:
@@ -309,12 +308,12 @@ Profile As screen:
 
             Icon7_1 As icon.Person:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =30
+                Height: =46
                 Icon: =Icon.Settings
                 OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                Width: =30
-                X: =533
-                Y: =313
+                Width: =43
+                X: =527
+                Y: =306
                 ZIndex: =19
 
             Label3_6 As label:
@@ -352,15 +351,15 @@ Profile As screen:
 
             Icon7 As icon.Person:
                 Color: =RGBA(255, 255, 255, 1)
-                Height: =30
+                Height: =46
                 Icon: =Icon.Person
                 OnSelect: |-
                     =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
                     
                     Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
-                Width: =30
-                X: =419
-                Y: =312
+                Width: =40
+                X: =414
+                Y: =306
                 ZIndex: =13
 
             Label3_4 As label:
