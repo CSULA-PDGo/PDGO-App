@@ -328,7 +328,7 @@ FacilityRequest As screen:
         OnSelect: |-
             =Set(varSubmitClicked, true);
             If(IsBlank(DataCardValue2.Text) || IsBlank(DataCardValue3.Selected.Value), DisplayMode.Disabled, 
-            Patch('Facility Request_1', Defaults('Facility Request_1'),{'Requester Name': DataCardValue1.Text, Description: DataCardValue2.Text, Email:DataCardValue4.Text, Priority: DataCardValue3.Selected, Date: Now()});Navigate('Success Screen', ScreenTransition.CoverRight);
+            Patch('Facility Request_1', Defaults('Facility Request_1'),{'Requester Name': DataCardValue1.Text, Description: DataCardValue2.Text, Email:DataCardValue4.Text, Priority: DataCardValue3.Selected, Date: Now()});Navigate('Success Screen', ScreenTransition.CoverRight)
         Size: =24
         Text: ="Submit"
         Width: =178
