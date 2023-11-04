@@ -314,8 +314,9 @@ FacilityRequest As screen:
 
     Button1 As button:
         Height: =58
+        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
         Size: =24
-        Text: ="Button"
+        Text: ="Cancel"
         Width: =178
         X: =40
         Y: =1020
