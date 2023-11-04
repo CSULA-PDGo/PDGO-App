@@ -81,7 +81,7 @@ FacilityRequest As screen:
                 ZIndex: =4
 
         Description_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =If(IsBlank(DataCardValue2.Text), Color.Red, RGBA(0, 18, 107, 1))
+            BorderColor: =If(IsBlank(DataCardValue2.Text), Color.Red, RGBA(25, 53, 110, 100))
             BorderStyle: =BorderStyle.Solid
             DataField: ="Description"
             Default: =ThisItem.Description
