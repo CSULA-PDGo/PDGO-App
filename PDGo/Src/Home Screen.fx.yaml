@@ -1,6 +1,6 @@
 "'Home Screen' As screen":
     OnVisible: |-
-        =Set(IsSidebarOpen, false );
+        =Set(IsSidebarOpen, false);
         Set(var1,GetMods.Run());
         
         Set(UserData, LookUp(Users, 'Email Address' = User().Email));
