@@ -113,6 +113,7 @@ FacilityRequest As screen:
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
                 Height: =308
+                HintText: ="Fill Out the Description Before Submitting"
                 MaxLength: =Parent.MaxLength
                 Mode: =TextMode.MultiLine
                 PaddingLeft: =5
@@ -187,6 +188,7 @@ FacilityRequest As screen:
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
+                InputTextPlaceholder: =""
                 Items: =Choices([@'Facility Request_1'].Status)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
