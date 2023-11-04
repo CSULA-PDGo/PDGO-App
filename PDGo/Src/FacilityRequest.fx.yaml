@@ -7,6 +7,79 @@ FacilityRequest As screen:
         Y: =111
         ZIndex: =1
 
+        Status_DataCard1 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Status0"
+            Default: =ThisItem.Status
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Status0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue5.Selected
+            Visible: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: |-
+                    ={Value: "Opened"}
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Facility Request_1'].Status0)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Facility Request_1'.Status0,DataCardValue5.SearchText)
+                SelectMultiple: =false
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                ZIndex: =2
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5.Y + DataCardValue5.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5.Y
+                ZIndex: =4
+
         "'Requester Name_DataCard1' As typedDataCard.textualEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="Title"
@@ -192,10 +265,10 @@ FacilityRequest As screen:
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
                 InputTextPlaceholder: =""
-                Items: =Choices([@'Facility Request_1'].Status)
+                Items: =Choices([@'Facility Request_1'].Priority)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices('Facility Request_1'.Status,DataCardValue3.SearchText)
+                SearchItems: =Choices('Facility Request_1'.Priority,DataCardValue3.SearchText)
                 SelectionFill: =RGBA(25, 53, 110, 1)
                 SelectMultiple: =false
                 Size: =21
@@ -347,10 +420,10 @@ FacilityRequest As screen:
                     Defaults('Facility Request_1'),
                     {
                         'Requester Name': DataCardValue1.Text,
-                        'Description': DataCardValue2.Text,
-                        'Email': DataCardValue4.Text,
-                        'Priority': DataCardValue3.Selected,
-                        'Date': Now()
+                        Description: DataCardValue2.Text,
+                        Email: DataCardValue4.Text,
+                        Priority: DataCardValue3.Selected,
+                        Date: Now()
                     }
                 );  
                 Navigate('Success Screen', ScreenTransition.CoverRight);
