@@ -1,12 +1,37 @@
 "'Home Screen' As screen":
-
-    Rectangle2 As rectangle:
-        Height: =481
-        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight);
-        Width: =516
-        X: =69
-        Y: =69
-        ZIndex: =1
+    OnVisible: |-
+        =Set(IsSidebarOpen, false );
+        Set(var1,GetMods.Run());
+        
+        Set(UserData, LookUp(Users, 'Email Address' = User().Email));
+        
+        UpdateContext({items:var1});
+        ClearCollect(Columns,{var:"aa", Bool: false, int:1 });
+        ClearCollect(af1,{ uID:"1", id:false, title:false,Fname:false,PhoneN:false,EA:false,AM:false, Tid:false, Sup:false,UType:false,Author:false});
+        ClearCollect(af2, { FullN:"aa", varName:"aa"});
+        
+        Clear(af2);
+        Clear(af1);
+        
+        ForAll(Filter(Split(" {" & items.jsonstrings, "{"), Boolean( ParseJSON("{"" "": true }").bool ) in Value) As af,
+        
+         If("true" in af.Value ,
+         
+          Patch(af1, Defaults(af1), 
+        
+         {uID: Value(ParseJSON("{" & af.Value).UserID), id:Boolean(ParseJSON("{" & af.Value).ID), title:Boolean(ParseJSON("{" & af.Value).Title),Fname:Boolean(ParseJSON("{" & af.Value).'Full Name'),PhoneN:Boolean(ParseJSON("{" & af.Value).'Phone Number'),EA:Boolean(ParseJSON("{" & af.Value).'Email Address'), AM:Boolean(ParseJSON("{" & af.Value).'About Me'), Tid:Boolean(ParseJSON("{" & af.Value).'Team ID'), Sup:Boolean(ParseJSON("{" & af.Value).Supervisor),UType:Boolean(ParseJSON("{" & af.Value).'User Type'),Author:Boolean(ParseJSON("{" & af.Value).Author)} ) ));
+        
+         ForAll(af1,
+         If( id = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "id"}));  
+         If( title = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "title"})); 
+         If( Fname = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Full Name"})); 
+        If( PhoneN = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Phone Number"})); 
+        If( EA = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Email Address"}));     
+        If( AM = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "About Me"})); 
+        If( Tid = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Tid"}));
+        If( Sup = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Supervisor"}));  
+        If( UType = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "User Type"}));  
+        If( Author = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Author"}));         );
 
     Label1 As label:
         Align: =Align.Center
@@ -18,5 +43,217 @@
         Width: =516
         X: =69
         Y: =69
+        ZIndex: =1
+
+    bannerContainerHomeScreen As groupContainer.manualLayoutContainer:
+        Height: =433
+        Width: =Parent.Width
         ZIndex: =2
+
+        BannerLogoHomeScreen As image:
+            Height: =434
+            Image: =PDGoLogo
+            ImagePosition: =ImagePosition.Fill
+            Width: =640
+            ZIndex: =1
+
+        ProNavFrmHomePage As icon.Person:
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Person
+            OnSelect: |+
+                =Navigate(Profile, ScreenTransition.CoverRight);
+                
+                
+            X: =556
+            Y: =370
+            ZIndex: =2
+
+    Container1 As groupContainer.manualLayoutContainer:
+        BorderThickness: =2.5
+        ContentLanguage: =
+        Height: =703
+        Width: =640
+        Y: =433
+        ZIndex: =3
+
+        "Gallery2 As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
+            DelayItemLoading: =true
+            Fill: =RGBA(241, 244, 249, 1)
+            FocusedBorderThickness: =0
+            Height: =698
+            Items: =af2
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =Min(220, Self.Height - 60)
+            ZIndex: =1
+
+            Body1 As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =148
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =23
+                Text: =ThisItem.FullN & " has Updated their " & ThisItem.varName
+                VerticalAlign: =VerticalAlign.Top
+                Width: =464
+                X: =172
+                Y: =38
+                ZIndex: =2
+
+            Image1 As image:
+                Height: =160
+                Image: =LookUp(Users, 'Full Name' =  ThisItem.FullN, 'Profile Picture')
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Width: =160
+                Y: =32
+                ZIndex: =3
+
+            Separator1 As rectangle:
+                Fill: =RGBA(219, 219, 219, 1)
+                Height: =5
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =215
+                ZIndex: =4
+
+        SeparatorTop As rectangle:
+            BorderColor: =RGBA(149, 149, 149, 1)
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =5
+            OnSelect: =
+            Width: =640
+            ZIndex: =4
+
+    SideBarContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(25, 53, 110, 1)
+        Height: =Parent.Height
+        Visible: =IsSidebarOpen
+        Width: =320
+        ZIndex: =4
+
+        ProfileButtonHome As button:
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(Profile, ScreenTransition.CoverRight);
+                
+                
+            Size: =24
+            Text: ="My Profile"
+            Width: =320
+            Y: =356
+            ZIndex: =1
+
+        RTOHome As button:
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(RequestTimeOff, ScreenTransition.CoverRight);
+                
+                
+            Size: =22
+            Text: ="Request Time Off"
+            Width: =307
+            Y: =426
+            ZIndex: =2
+
+        TrainingHome As button:
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(MCLETrainings, ScreenTransition.CoverRight);
+                
+                
+            Size: =26
+            Text: ="MCLE Training"
+            Width: =307
+            Y: =496
+            ZIndex: =3
+
+        ProNavFrmHomePage_1 As icon.Person:
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Person
+            OnSelect: =
+            Y: =356
+            ZIndex: =4
+
+        Icon4 As icon.DocumentwithContent:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =70
+            Icon: =Icon.DocumentWithContent
+            Y: =426
+            ZIndex: =5
+
+        Icon12 As icon.Notebook:
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Notebook
+            Y: =502
+            ZIndex: =6
+
+    Timer1 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        DisplayMode: =DisplayMode.View
+        Duration: =30000
+        Height: =70
+        OnTimerEnd: |
+            =UpdateContext({items:GetMods.Run()});
+            
+            Clear(af2);
+            Clear(af1);
+            
+            ForAll(Filter(Split(" {" & items.jsonstrings, "{"), Boolean( ParseJSON("{"" "": true }").bool ) in Value) As af,
+            
+             If("true" in af.Value ,
+             
+              Patch(af1, Defaults(af1), 
+            
+             {uID: Value(ParseJSON("{" & af.Value).UserID), id:Boolean(ParseJSON("{" & af.Value).ID), title:Boolean(ParseJSON("{" & af.Value).Title),Fname:Boolean(ParseJSON("{" & af.Value).'Full Name'),PhoneN:Boolean(ParseJSON("{" & af.Value).'Phone Number'),EA:Boolean(ParseJSON("{" & af.Value).'Email Address'), AM:Boolean(ParseJSON("{" & af.Value).'About Me'), Tid:Boolean(ParseJSON("{" & af.Value).'Team ID'), Sup:Boolean(ParseJSON("{" & af.Value).Supervisor),UType:Boolean(ParseJSON("{" & af.Value).'User Type'),Author:Boolean(ParseJSON("{" & af.Value).Author)} ) ));
+            
+             ForAll(af1,
+             If( id = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "id"}));  
+             If( title = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "title"})); 
+             If( Fname = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Full Name"})); 
+            If( PhoneN = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Phone Number"})); 
+            If( EA = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Email Address"}));     
+            If( AM = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "About Me"})); 
+            If( Tid = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Tid"}));
+            If( Sup = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Supervisor"}));  
+            If( UType = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "User Type"}));  
+            If( Author = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Author"}));         );
+        Repeat: =true
+        Visible: =false
+        Width: =280
+        X: =360
+        Y: =493
+        ZIndex: =5
+
+    OpenSideBar As icon.Hamburger:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =75
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+        Visible: =!IsSidebarOpen
+        Width: =100
+        ZIndex: =6
+
+    CloseSideBar As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+        Visible: =IsSidebarOpen
+        X: =18
+        Y: =11
+        ZIndex: =7
 
