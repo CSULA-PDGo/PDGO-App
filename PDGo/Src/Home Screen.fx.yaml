@@ -201,6 +201,21 @@
             Y: =502
             ZIndex: =6
 
+        "'Facility Request' As button":
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(MCLETrainings, ScreenTransition.CoverRight);
+                
+                
+            Size: =26
+            Text: ="Facility Request"
+            Width: =285
+            X: =21
+            Y: =566
+            ZIndex: =7
+
     Timer1 As timer:
         AutoPause: =false
         AutoStart: =true
