@@ -36,7 +36,8 @@ FacilityRequest As screen:
 
             DataCardValue5 As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                DefaultSelectedItems: =Parent.de
+                DefaultSelectedItems: |-
+                    =If('facility-form'.Mode = FormMode.New, {Value: "Open"}, Parent.Default)
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
