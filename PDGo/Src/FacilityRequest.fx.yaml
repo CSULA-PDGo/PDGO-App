@@ -327,7 +327,6 @@ FacilityRequest As screen:
         Height: =58
         OnSelect: |-
             =Set(varSubmitClicked, true);
-            
             If(
                 IsBlank(DataCardValue2.Text) || IsBlank(DataCardValue3.Selected.Value),
                 DisplayMode.Disabled,
@@ -341,7 +340,7 @@ FacilityRequest As screen:
                         'Priority': DataCardValue3.Selected,
                         'Date': Now()
                     }
-                );  // End of Patch function
+                );  
                 Navigate('Success Screen', ScreenTransition.CoverRight);
                 ResetForm('facility-form');
             );
