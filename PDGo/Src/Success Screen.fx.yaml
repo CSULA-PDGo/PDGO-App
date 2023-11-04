@@ -28,3 +28,15 @@
         Y: =iconCheck1.Y + iconCheck1.Height + 100
         ZIndex: =3
 
+    Rectangle4_2 As rectangle:
+        Width: =640
+        ZIndex: =4
+
+    Icon1 As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate('Home Screen')
+        X: =30
+        Y: =18
+        ZIndex: =5
+
