@@ -10,7 +10,7 @@ FacilityRequest As screen:
         Status_DataCard1 As typedDataCard.comboBoxEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Status0"
-            Default: =ThisItem.Status
+            Default: =ThisItem.Priority
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Status0")
             Fill: =RGBA(0, 0, 0, 0)
@@ -40,10 +40,10 @@ FacilityRequest As screen:
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
-                Items: =Choices([@'Facility Request_1'].Status0)
+                Items: =Choices([@'Facility Request_1'].'Status (Status0)')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices('Facility Request_1'.Status0,DataCardValue5.SearchText)
+                SearchItems: =Choices('Facility Request_1'.'Status (Status0)',DataCardValue5.SearchText)
                 SelectMultiple: =false
                 Size: =21
                 Tooltip: =Parent.DisplayName
@@ -398,7 +398,7 @@ FacilityRequest As screen:
     Button1 As button:
         Fill: =RGBA(25, 53, 110, 1)
         Height: =58
-        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); ResetForm('facility-form')
+        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); ResetForm('facility-form'); Set(IsSidebarOpen, !IsSidebarOpen)
         Size: =24
         Text: ="Cancel"
         Width: =178
