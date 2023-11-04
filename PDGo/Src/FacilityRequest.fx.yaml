@@ -81,6 +81,7 @@ FacilityRequest As screen:
                 ZIndex: =4
 
         Description_DataCard1 As typedDataCard.textualEditCard:
+            BorderColor: =If(IsBlank(DataCardValue2.Text), Color.Red, RGBA(0, 18, 107, 1))
             BorderStyle: =BorderStyle.Solid
             DataField: ="Description"
             Default: =ThisItem.Description
@@ -184,6 +185,7 @@ FacilityRequest As screen:
 
             DataCardValue3 As combobox:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(25, 53, 110, 1)
                 DefaultSelectedItems: =Parent.Default
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
@@ -193,6 +195,7 @@ FacilityRequest As screen:
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
                 SearchItems: =Choices('Facility Request_1'.Status,DataCardValue3.SearchText)
+                SelectionFill: =RGBA(25, 53, 110, 1)
                 SelectMultiple: =false
                 Size: =21
                 Tooltip: =Parent.DisplayName
@@ -303,6 +306,7 @@ FacilityRequest As screen:
 
     "'Background Color_6' As rectangle":
         BorderStyle: =BorderStyle.None
+        Fill: =RGBA(25, 53, 110, 1)
         Height: =111
         Width: =640
         ZIndex: =2
@@ -319,6 +323,7 @@ FacilityRequest As screen:
         ZIndex: =3
 
     Button1 As button:
+        Fill: =RGBA(25, 53, 110, 1)
         Height: =58
         OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); ResetForm('facility-form')
         Size: =24
@@ -329,6 +334,7 @@ FacilityRequest As screen:
         ZIndex: =4
 
     Button2 As button:
+        Fill: =RGBA(25, 53, 110, 1)
         Height: =58
         OnSelect: |-
             =Set(varSubmitClicked, true);
