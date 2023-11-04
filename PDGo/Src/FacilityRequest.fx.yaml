@@ -35,7 +35,7 @@ FacilityRequest As screen:
 
             DataCardValue1 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =ThisItem.'Requester Name'
+                Default: =
                 DelayOutput: =true
                 DisplayMode: =DisplayMode.View
                 Height: =58
@@ -86,7 +86,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Description")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =319
+            Height: =393
             MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, "Description")
             Required: =false
             Update: =DataCardValue2.Text
@@ -111,7 +111,7 @@ FacilityRequest As screen:
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
-                Height: =246
+                Height: =308
                 MaxLength: =Parent.MaxLength
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
@@ -159,7 +159,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Status")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
+            Height: =151
             Required: =false
             Update: =DataCardValue3.Selected
             Width: =640
@@ -172,10 +172,10 @@ FacilityRequest As screen:
                 Height: =48
                 Size: =21
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =188
                 Wrap: =false
-                X: =30
-                Y: =10
+                X: =44
+                Y: =38
                 ZIndex: =1
 
             DataCardValue3 As combobox:
@@ -191,9 +191,9 @@ FacilityRequest As screen:
                 SelectMultiple: =false
                 Size: =21
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                Width: =238
+                X: =246
+                Y: =27
                 ZIndex: =2
 
             ErrorMessage3 As label:
@@ -230,7 +230,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Email")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
+            Height: =163
             MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, "Email")
             Required: =false
             Update: =DataCardValue4.Text
@@ -240,14 +240,13 @@ FacilityRequest As screen:
             ZIndex: =2
 
             DataCardKey4 As label:
-                AutoHeight: =true
-                Height: =48
+                Height: =73
                 Size: =21
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =170
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =30
                 ZIndex: =1
 
             DataCardValue4 As text:
@@ -255,7 +254,7 @@ FacilityRequest As screen:
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =DisplayMode.View
-                Height: =70
+                Height: =68
                 MaxLength: =Parent.MaxLength
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
@@ -264,9 +263,9 @@ FacilityRequest As screen:
                 RadiusTopRight: =0
                 Size: =21
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =73
+                Width: =464
+                X: =160
+                Y: =45
                 ZIndex: =2
 
             ErrorMessage4 As label:
@@ -312,4 +311,13 @@ FacilityRequest As screen:
         X: =40
         Y: =20
         ZIndex: =3
+
+    Button1 As button:
+        Height: =58
+        Size: =24
+        Text: ="Button"
+        Width: =178
+        X: =40
+        Y: =1020
+        ZIndex: =4
 
