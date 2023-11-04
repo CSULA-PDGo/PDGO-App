@@ -314,7 +314,7 @@ FacilityRequest As screen:
 
     Button1 As button:
         Height: =58
-        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
+        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); ResetForm('facility-form')
         Size: =24
         Text: ="Cancel"
         Width: =178
