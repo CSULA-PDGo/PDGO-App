@@ -322,7 +322,7 @@ FacilityRequest As screen:
         Size: =24
         Text: ="Cancel"
         Width: =178
-        X: =40
+        X: =52
         Y: =992
         ZIndex: =4
 
@@ -364,10 +364,6 @@ FacilityRequest As screen:
               If(
                 IsBlank(DataCardValue2.Text) && IsBlank(DataCardValue3.Selected.Value),
                 "Please fill out the Description and select a Priority.",
-                IsBlank(DataCardValue2.Text),
-                "Please fill out the Description.",
-                IsBlank(DataCardValue3.Selected.Value),
-                "Please select a Priority.",
                 ""
               ),
               ""
