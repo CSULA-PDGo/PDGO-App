@@ -1,8 +1,24 @@
 FacilityRequest As screen:
 
-    Form2 As form:
+    "'facility-form' As form":
         Height: =1034
         Width: =640
         Y: =102
         ZIndex: =1
+
+    "'Background Color_6' As rectangle":
+        BorderStyle: =BorderStyle.None
+        Height: =111
+        Width: =640
+        ZIndex: =2
+
+    Label4 As label:
+        Align: =Align.Center
+        Height: =70
+        Size: =26
+        Text: ="Facility Request Form"
+        Width: =560
+        X: =40
+        Y: =20
+        ZIndex: =3
 
