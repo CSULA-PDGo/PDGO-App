@@ -360,13 +360,17 @@ FacilityRequest As screen:
         Size: =21
         Text: |-
             =If(
-              varSubmitClicked,
-              If(
-                IsBlank(DataCardValue2.Text), "Please fill out the Description",
-                IsBlank(DataCardValue3.Selected), "Please select a priority",
+                varSubmitClicked,
+                If(
+                    IsBlank(DataCardValue2.Text) && IsBlank(DataCardValue3.Selected.Value),
+                    "Please fill out the Description and select a Priority.",
+                    IsBlank(DataCardValue2.Text),
+                    "Please fill out the Description.",
+                    IsBlank(DataCardValue3.Selected.Value),
+                    "Please select a Priority.",
+                    ""
+                ),
                 ""
-              ),
-              ""
             )
         Width: =560
         X: =40
