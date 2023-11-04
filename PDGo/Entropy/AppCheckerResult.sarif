@@ -6138,6 +6138,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App._selectedTeamMember"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App._selectedTeamMember",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "_selectedTeamMember",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 16
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.varPhoneNumber"
                 }
               ],
@@ -6181,6 +6211,36 @@
                 "member": "Image",
                 "module": "Profile - Selected Team Member",
                 "type": "'Profile - Selected Team Member'.'Profile Selected Team Member Profile Picture'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 17
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Profile - Selected Team Member'.'Profile Selected Team Member Full Name'.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Profile - Selected Team Member'.'Profile Selected Team Member Full Name'.Text",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Profile - Selected Team Member",
+                "type": "'Profile - Selected Team Member'.'Profile Selected Team Member Full Name'"
               }
             }
           ],
