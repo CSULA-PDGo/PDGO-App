@@ -157,6 +157,7 @@ FacilityRequest As screen:
                 ZIndex: =4
 
         Priority_DataCard1 As typedDataCard.comboBoxEditCard:
+            BorderColor: =If(IsBlank(DataCardValue3.Selected), Color.Red, RGBA(0, 18, 107, 1))
             BorderStyle: =BorderStyle.Solid
             DataField: ="Status"
             Default: =ThisItem.Priority
