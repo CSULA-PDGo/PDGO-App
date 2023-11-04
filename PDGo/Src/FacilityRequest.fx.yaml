@@ -35,7 +35,7 @@ FacilityRequest As screen:
 
             DataCardValue1 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =
+                Default: =User().FullName
                 DelayOutput: =true
                 DisplayMode: =DisplayMode.View
                 Height: =58
@@ -191,9 +191,9 @@ FacilityRequest As screen:
                 SelectMultiple: =false
                 Size: =21
                 Tooltip: =Parent.DisplayName
-                Width: =238
-                X: =246
-                Y: =27
+                Width: =216
+                X: =188
+                Y: =37
                 ZIndex: =2
 
             ErrorMessage3 As label:
@@ -325,7 +325,7 @@ FacilityRequest As screen:
     Button2 As button:
         Height: =58
         Size: =24
-        Text: ="Button"
+        Text: ="Submit"
         Width: =178
         X: =410
         Y: =1020
