@@ -325,6 +325,7 @@ FacilityRequest As screen:
 
     Button2 As button:
         Height: =58
+        OnSelect: =Navigate('Success Screen', ScreenTransition.CoverRight)
         Size: =24
         Text: ="Submit"
         Width: =178
