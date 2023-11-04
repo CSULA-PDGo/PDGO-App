@@ -362,7 +362,7 @@ FacilityRequest As screen:
             =If(
               varSubmitClicked,
               If(
-                IsBlank(DataCardValue2.Text) && IsBlank(DataCardValue3.Selected.Value),
+                IsBlank(DataCardValue2.Text) || IsBlank(DataCardValue3.Selected.Value),
                 "Please fill out the Description and select a Priority.",
                 ""
               ),
