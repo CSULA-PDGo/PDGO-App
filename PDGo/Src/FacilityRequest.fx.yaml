@@ -251,7 +251,7 @@ FacilityRequest As screen:
 
             DataCardValue4 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
+                Default: =User().Email
                 DelayOutput: =true
                 DisplayMode: =DisplayMode.View
                 Height: =68
