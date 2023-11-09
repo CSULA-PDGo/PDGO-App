@@ -490,7 +490,7 @@ FacilityRequest As screen:
         OnSelect: |-
             =Set(varSubmitClicked, true);
             If(
-                IsBlank(DataCardValue2.Text) || IsBlank(DataCardValue3.Selected.Value),
+                IsBlank(DataCardValue2.Text) || IsBlank(DataCardValue3.Selected.Value) || IsBlank(DataCardValue6.Text),
                 DisplayMode.Disabled,
                 Patch(
                     'Facility Request_1',
