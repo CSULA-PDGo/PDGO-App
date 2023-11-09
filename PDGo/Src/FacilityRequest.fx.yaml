@@ -8,6 +8,7 @@ FacilityRequest As screen:
         ZIndex: =1
 
         "'Request Title_DataCard1' As typedDataCard.textualEditCard":
+            BorderColor: =If(IsBlank(DataCardValue6.Text), Color.DarkRed, RGBA(25, 53, 110, 100))
             BorderStyle: =BorderStyle.Solid
             DataField: ="RequestTitle"
             Default: =ThisItem.'Request Title'
@@ -530,7 +531,8 @@ FacilityRequest As screen:
                 ),
                 ""
             )
-        Width: =640
+        Width: =600
+        X: =21
         Y: =944
         ZIndex: =6
 
