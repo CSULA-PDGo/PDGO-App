@@ -476,7 +476,7 @@ FacilityRequest As screen:
     Button1 As button:
         Fill: =RGBA(25, 53, 110, 1)
         Height: =58
-        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); ResetForm('facility-form'); Set(IsSidebarOpen, !IsSidebarOpen)
+        OnSelect: =ResetForm('facility-form'); Navigate('Home Screen', ScreenTransition.CoverRight); Set(IsSidebarOpen, !IsSidebarOpen)
         Size: =24
         Text: ="Cancel"
         Width: =178
