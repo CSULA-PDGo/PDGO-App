@@ -86,7 +86,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Title")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =116
+            Height: =88
             MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, "Title")
             Required: =false
             Update: =DataCardValue1.Text
@@ -160,7 +160,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Description")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =393
+            Height: =513
             MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, "Description")
             Required: =false
             Update: =DataCardValue2.Text
@@ -177,7 +177,7 @@ FacilityRequest As screen:
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =70
                 ZIndex: =1
 
             DataCardValue2 As text:
@@ -185,7 +185,7 @@ FacilityRequest As screen:
                 Default: =Parent.Default
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
-                Height: =308
+                Height: =334
                 HintText: ="Fill Out the Description Before Submitting"
                 MaxLength: =Parent.MaxLength
                 Mode: =TextMode.MultiLine
@@ -198,7 +198,7 @@ FacilityRequest As screen:
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                Y: =149
                 ZIndex: =2
 
             ErrorMessage2 As label:
@@ -236,7 +236,7 @@ FacilityRequest As screen:
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Status")
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =133
+            Height: =145
             Required: =false
             Update: =DataCardValue3.Selected
             Width: =640
@@ -315,6 +315,7 @@ FacilityRequest As screen:
             MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, "Email")
             Required: =false
             Update: =DataCardValue4.Text
+            Visible: =false
             Width: =640
             X: =0
             Y: =3
