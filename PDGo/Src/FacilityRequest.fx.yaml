@@ -523,7 +523,7 @@ FacilityRequest As screen:
                 varSubmitClicked,
                 If(
                     IsBlank(DataCardValue2.Text) && IsBlank(DataCardValue3.Selected.Value) && IsBlank(DataCardValue6.Text),
-                    "Please fill out the Description, title and select a Priority.",
+                    "Please fill out the Description, Title and select a Priority.",
                     IsBlank(DataCardValue2.Text),
                     "Please fill out the Description.",
                     IsBlank(DataCardValue3.Selected.Value),
