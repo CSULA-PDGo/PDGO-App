@@ -10,7 +10,7 @@ Profile As screen:
 
     "'About Container' As groupContainer.manualLayoutContainer":
         Height: =716
-        Width: =640
+        Width: =Parent.Width
         Y: =420
         ZIndex: =27
 
@@ -67,21 +67,21 @@ Profile As screen:
             Y: =440
             ZIndex: =6
 
-    "'User Banner Container' As groupContainer.manualLayoutContainer":
+    "'Profile User Banner Container' As groupContainer.manualLayoutContainer":
         DropShadow: =DropShadow.Semibold
         Height: =420
         RadiusBottomLeft: =0
         RadiusBottomRight: =0
         RadiusTopLeft: =0
         RadiusTopRight: =0
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =28
 
         "'Background Color' As rectangle":
             BorderStyle: =BorderStyle.None
             Fill: =RGBA(25, 53, 110, 1)
             Height: =420
-            Width: =640
+            Width: =Parent.Width
             ZIndex: =1
 
         "'Back Button' As icon.ArrowLeft":
@@ -130,7 +130,7 @@ Profile As screen:
             Y: =56
             ZIndex: =5
 
-        "Gallery3 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+        "'Profile User Banner Buttons Gallery' As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
             DelayItemLoading: =true
             Height: =160
             Items: =["Team Button", "Contact Button", "Office Button", "Schedule Button", "Supervisor Button"]
@@ -143,7 +143,7 @@ Profile As screen:
             Y: =252
             ZIndex: =21
 
-            Circle2_5 As circle:
+            "'Profile User Banner Button Background' As circle":
                 Fill: =RGBA(136, 160, 209, 1)
                 Height: =80
                 OnSelect: |
@@ -153,7 +153,7 @@ Profile As screen:
                 Y: =40
                 ZIndex: =4
 
-            Icon3_1 As icon.People:
+            "'Profile User Banner Button Icon' As icon.People":
                 Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.People
                 OnSelect: |
@@ -163,7 +163,7 @@ Profile As screen:
                 Y: =40
                 ZIndex: =5
 
-            Label3_5 As label:
+            "'Profile User Banner Button Label' As label":
                 Align: =Align.Center
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =26
@@ -176,7 +176,7 @@ Profile As screen:
                 Y: =120
                 ZIndex: =6
 
-            Container5 As groupContainer.manualLayoutContainer:
+            "'Profile User Banner Button Container' As groupContainer.manualLayoutContainer":
                 Height: =225
                 X: =40
                 Y: =40

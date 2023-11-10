@@ -129,7 +129,7 @@
         LayoutJustifyContent: =LayoutJustifyContent.Center
         LayoutMode: =LayoutMode.Auto
         Visible: =IsSidebarOpen
-        Width: =Parent.Width / 2
+        Width: =Max(Min(Parent.Width / 2, 500), 250)
         ZIndex: =3
 
         "'Home Screen Sidebar Profile' As groupContainer.manualLayoutContainer":
@@ -140,6 +140,7 @@
             ZIndex: =9
 
             "'Home Screen Sidebar Profile Button' As button":
+                Align: =Align.Left
                 Fill: =RGBA(27, 49, 89, 1)
                 Height: =70
                 OnSelect: |+
@@ -148,13 +149,14 @@
                     
                 Size: =24
                 Text: ="My Profile"
-                Width: =Parent.Width
+                Width: =Parent.Width - Self.X
+                X: =64
                 ZIndex: =1
 
             "'Home Screen Sidebar Profile Icon' As icon.Person":
                 Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.Person
-                OnSelect: =
+                OnSelect: =Select('Home Screen Sidebar Profile Button')
                 Y: =6
                 ZIndex: =2
 
@@ -166,7 +168,7 @@
             ZIndex: =10
 
             "'Home Screen Sidebar MCLE Button' As button":
-                Align: =Align.Right
+                Align: =Align.Left
                 Fill: =RGBA(27, 49, 89, 1)
                 Height: =70
                 OnSelect: |+
@@ -175,13 +177,15 @@
                     
                 Size: =26
                 Text: ="MCLE Training"
-                Width: =Parent.Width
+                Width: =Parent.Width - Self.X
+                X: =64
                 ZIndex: =1
 
             "'Home Screen Sidebar MCLE Icon' As icon.DocumentwithContent":
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =70
                 Icon: =Icon.DocumentWithContent
+                OnSelect: =Select('Home Screen Sidebar MCLE Button')
                 ZIndex: =2
 
         "'Home Screen Sidebar Time Off' As groupContainer.manualLayoutContainer":
@@ -192,7 +196,7 @@
             ZIndex: =11
 
             "'Home Screen Sidebar Time Off Button' As button":
-                Align: =Align.Right
+                Align: =Align.Left
                 Fill: =RGBA(27, 49, 89, 1)
                 Height: =70
                 OnSelect: |+
@@ -201,13 +205,15 @@
                     
                 Size: =22
                 Text: ="Request Time Off"
-                Width: =Parent.Width
+                Width: =Parent.Width - Self.X
+                X: =64
                 ZIndex: =1
 
             "'Home Screen Sidebar Time Off Icon' As icon.DocumentwithContent":
                 Color: =RGBA(255, 255, 255, 1)
                 Height: =70
                 Icon: =Icon.DocumentWithContent
+                OnSelect: =Select('Home Screen Sidebar Time Off Button')
                 ZIndex: =2
 
         "'Home Screen Sidebar Facilities' As groupContainer.manualLayoutContainer":
@@ -218,7 +224,7 @@
             ZIndex: =12
 
             "'Home Screen Sidebar Facilities Button' As button":
-                Align: =Align.Right
+                Align: =Align.Left
                 Fill: =RGBA(27, 49, 89, 1)
                 Height: =68
                 OnSelect: |+
@@ -227,12 +233,14 @@
                     
                 Size: =22
                 Text: ="Facility Request"
-                Width: =Parent.Width
+                Width: =Parent.Width - Self.X
+                X: =64
                 ZIndex: =1
 
             "'Home Screen Sidebar Facilities Icon' As icon.Notebook":
                 Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.Notebook
+                OnSelect: =Select('Home Screen Sidebar Facilities Button')
                 Y: =6
                 ZIndex: =2
 
