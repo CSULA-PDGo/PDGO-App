@@ -4,7 +4,7 @@
         BorderStyle: =BorderStyle.None
         Fill: =RGBA(25, 53, 110, 1)
         Height: =296
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
     "'Profile Selected Team Member Back Button' As icon.ArrowLeft":
@@ -25,7 +25,7 @@
         Size: =26
         Text: ='Profile - Team Member Gallery'.Selected.'Full Name'
         Width: =580
-        X: =30
+        X: =(Parent.Width - Self.Width)/2
         Y: =201
         ZIndex: =3
 
@@ -39,13 +39,14 @@
         RadiusTopLeft: ='Profile Selected Team Member Profile Picture'.Height
         RadiusTopRight: ='Profile Selected Team Member Profile Picture'.Height
         Width: =145
-        X: =247
+        X: =(Parent.Width - Self.Width)/2
         Y: =56
         ZIndex: =4
 
     "'Profile Selected Team Member About Container' As groupContainer.manualLayoutContainer":
-        Height: =716
+        Height: =Parent.Height - 'Profile Selected Team Member Background'.Height
         Width: =640
+        X: =(Parent.Width - Self.Width)/2
         Y: =296
         ZIndex: =5
 

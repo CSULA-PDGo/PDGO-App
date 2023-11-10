@@ -2,6 +2,7 @@
 
     "'Profile - Team Member Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
+        Height: =Parent.Height - 'Profile - Team Navbar Background'.Height
         Items: =Filter(Users, 'Team ID'.Value = LookUp(Users, 'Email Address' = User().Email, 'Team ID').Value)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -10,7 +11,9 @@
             Navigate('Profile - Selected Team Member', ScreenTransition.CoverRight)
         TemplatePadding: =0
         TemplateSize: =177
-        Y: =100
+        Width: =Min(640, Parent.Width)
+        X: =(Parent.Width - Self.Width)/2
+        Y: ='Profile - Team Navbar Background'.Height
         ZIndex: =1
 
         "'Profile - Team Member Profile Image' As image":
@@ -105,9 +108,9 @@
             Y: =102
             ZIndex: =7
 
-    "'Profile - Navbar Background' As rectangle":
+    "'Profile - Team Navbar Background' As rectangle":
         Fill: =RGBA(25, 53, 110, 1)
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =2
 
     "'Profile - Team Navbar Title' As label":
@@ -117,8 +120,7 @@
         Height: =70
         Size: =25
         Text: ="Team"
-        Width: =560
-        X: =40
+        Width: =Parent.Width
         Y: =15
         ZIndex: =3
 
