@@ -1,6 +1,6 @@
 "'Profile - Selected Team Member' As screen":
 
-    "'Background Color_5' As rectangle":
+    "'Profile Selected Team Member Background' As rectangle":
         BorderStyle: =BorderStyle.None
         Fill: =RGBA(25, 53, 110, 1)
         Height: =296
@@ -23,7 +23,7 @@
         Font: =Font.Lato
         Height: =51
         Size: =26
-        Text: =Gallery4.Selected.'Full Name'
+        Text: ='Profile - Team Member Gallery'.Selected.'Full Name'
         Width: =580
         X: =30
         Y: =201
@@ -32,7 +32,7 @@
     "'Profile Selected Team Member Profile Picture' As image":
         ContentLanguage: =
         Height: =145
-        Image: =Gallery4.Selected.'Profile Picture'
+        Image: ='Profile - Team Member Gallery'.Selected.'Profile Picture'
         ImagePosition: =ImagePosition.Fill
         RadiusBottomLeft: ='Profile Selected Team Member Profile Picture'.Height
         RadiusBottomRight: ='Profile Selected Team Member Profile Picture'.Height
@@ -63,7 +63,7 @@
             Height: =188
             Overflow: =Overflow.Scroll
             Size: =18
-            Text: =Gallery4.Selected.'About Me'
+            Text: ='Profile - Team Member Gallery'.Selected.'About Me'
             VerticalAlign: =VerticalAlign.Top
             Width: =560
             X: =36
@@ -73,7 +73,7 @@
         "'Profile Selected Team Member Phone Number' As label":
             Height: =70
             Size: =21
-            Text: =Gallery4.Selected.'Phone Number'
+            Text: ='Profile - Team Member Gallery'.Selected.'Phone Number'
             Width: =448
             X: =133
             Y: =331
@@ -82,13 +82,13 @@
         "'Profile Selected Team Member Email Address' As label":
             Height: =70
             Size: =21
-            Text: =Gallery4.Selected.'Email Address'
+            Text: ='Profile - Team Member Gallery'.Selected.'Email Address'
             Width: =449
             X: =133
             Y: =434
             ZIndex: =4
 
-        Icon8_2 As icon.Phone:
+        "'Profile Selected Team Member About Phone Icon' As icon.Phone":
             Height: =50
             Icon: =Icon.Phone
             Width: =50
@@ -96,7 +96,7 @@
             Y: =341
             ZIndex: =5
 
-        Icon9_2 As icon.Mail:
+        "'Profile Selected Team Member About EMail Icon' As icon.Mail":
             Icon: =Icon.Mail
             X: =49
             Y: =440
