@@ -33,59 +33,26 @@
         If( UType = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "User Type"}));  
         If( Author = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Author"}));         );
 
-    Label1 As label:
-        Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =481
-        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
-        Size: =21
-        Text: ="Profile"
-        Width: =516
-        X: =69
-        Y: =69
-        ZIndex: =1
-
-    bannerContainerHomeScreen As groupContainer.manualLayoutContainer:
-        Height: =433
-        Width: =Parent.Width
-        ZIndex: =2
-
-        BannerLogoHomeScreen As image:
-            Height: =434
-            Image: =PDGoLogo
-            ImagePosition: =ImagePosition.Fill
-            Width: =640
-            ZIndex: =1
-
-        ProNavFrmHomePage As icon.Person:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Person
-            OnSelect: |+
-                =Navigate(Profile, ScreenTransition.CoverRight);
-                
-                
-            X: =556
-            Y: =370
-            ZIndex: =2
-
-    Container1 As groupContainer.manualLayoutContainer:
+    "'Home Screen Updates' As groupContainer.manualLayoutContainer":
         BorderThickness: =2.5
         ContentLanguage: =
-        Height: =703
-        Width: =640
-        Y: =433
-        ZIndex: =3
+        Height: =2*Parent.Height / 3
+        Width: =Parent.Width
+        Y: =Parent.Height / 3
+        ZIndex: =1
 
-        "Gallery2 As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
+        "'Home Screen Updates Gallery' As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
             DelayItemLoading: =true
             Fill: =RGBA(241, 244, 249, 1)
             FocusedBorderThickness: =0
-            Height: =698
+            Height: =Parent.Height - 'Home Screen Updates Seperator'.Height
             Items: =af2
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
             TemplateSize: =Min(220, Self.Height - 60)
+            Width: =Parent.Width
+            Y: ='Home Screen Updates Seperator'.Height
             ZIndex: =1
 
             Body1 As label:
@@ -116,7 +83,7 @@
                 Y: =32
                 ZIndex: =3
 
-            Separator1 As rectangle:
+            "'Home Screen Updates Gallery Seperator' As rectangle":
                 Fill: =RGBA(219, 219, 219, 1)
                 Height: =5
                 OnSelect: =Select(Parent)
@@ -124,105 +91,152 @@
                 Y: =215
                 ZIndex: =4
 
-        SeparatorTop As rectangle:
+        "'Home Screen Updates Seperator' As rectangle":
             BorderColor: =RGBA(149, 149, 149, 1)
             Fill: =RGBA(219, 219, 219, 1)
             Height: =5
             OnSelect: =
-            Width: =640
+            Width: =Parent.Height
             ZIndex: =4
 
-    SideBarContainer As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Bold
-        Fill: =RGBA(25, 53, 110, 1)
-        Height: =Parent.Height
-        Visible: =IsSidebarOpen
-        Width: =320
-        ZIndex: =4
+    "'Home Screen Banner' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height / 3
+        Width: =Parent.Width
+        ZIndex: =2
 
-        ProfileButtonHome As button:
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =70
+        "'Home Screen Banner Logo' As image":
+            Height: =Parent.Height
+            Image: =PDGoLogo
+            ImagePosition: =ImagePosition.Fill
+            Width: =Parent.Width
+            ZIndex: =1
+
+        "'Home Screen Banner Profile' As icon.Person":
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Person
             OnSelect: |+
                 =Navigate(Profile, ScreenTransition.CoverRight);
                 
                 
-            Size: =24
-            Text: ="My Profile"
-            Width: =320
-            Y: =356
-            ZIndex: =1
-
-        RTOHome As button:
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =70
-            OnSelect: |+
-                =Navigate(RequestTimeOff, ScreenTransition.CoverRight);
-                
-                
-            Size: =22
-            Text: ="Request Time Off"
-            Width: =307
-            Y: =426
+            X: =Parent.Width - Self.Width
+            Y: =Parent.Height - Self.Height
             ZIndex: =2
 
-        TrainingHome As button:
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
+    "'Home Screen SideBar Container' As groupContainer.verticalAutoLayoutContainer":
+        Fill: =RGBA(25, 53, 110, 1)
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Visible: =IsSidebarOpen
+        Width: =Parent.Width / 2
+        ZIndex: =3
+
+        "'Home Screen Sidebar Profile' As groupContainer.manualLayoutContainer":
+            FillPortions: =0
             Height: =70
-            OnSelect: |+
-                =Navigate(MCLETrainings, ScreenTransition.CoverRight);
-                
-                
-            Size: =26
-            Text: ="MCLE Training"
-            Width: =307
-            Y: =496
-            ZIndex: =3
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            ZIndex: =9
 
-        ProNavFrmHomePage_1 As icon.Person:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Person
-            OnSelect: =
-            Y: =356
-            ZIndex: =4
+            "'Home Screen Sidebar Profile Button' As button":
+                Fill: =RGBA(27, 49, 89, 1)
+                Height: =70
+                OnSelect: |+
+                    =Navigate(Profile, ScreenTransition.CoverRight);
+                    
+                    
+                Size: =24
+                Text: ="My Profile"
+                Width: =Parent.Width
+                ZIndex: =1
 
-        Icon4 As icon.DocumentwithContent:
-            Color: =RGBA(255, 255, 255, 1)
+            "'Home Screen Sidebar Profile Icon' As icon.Person":
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Person
+                OnSelect: =
+                Y: =6
+                ZIndex: =2
+
+        "'Home Screen Sidebar MCLE' As groupContainer.manualLayoutContainer":
+            FillPortions: =0
             Height: =70
-            Icon: =Icon.DocumentWithContent
-            Y: =426
-            ZIndex: =5
+            LayoutMinHeight: =70
+            LayoutMinWidth: =250
+            ZIndex: =10
 
-        Icon12 As icon.Notebook:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Notebook
-            Y: =502
-            ZIndex: =6
+            "'Home Screen Sidebar MCLE Button' As button":
+                Align: =Align.Right
+                Fill: =RGBA(27, 49, 89, 1)
+                Height: =70
+                OnSelect: |+
+                    =Navigate(MCLETrainings, ScreenTransition.CoverRight);
+                    
+                    
+                Size: =26
+                Text: ="MCLE Training"
+                Width: =Parent.Width
+                ZIndex: =1
 
-        "'Facility Request' As button":
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =68
-            OnSelect: |+
-                =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
-                
-                
-            Size: =22
-            Text: ="Facility Request"
-            Width: =306
-            Y: =566
-            ZIndex: =7
+            "'Home Screen Sidebar MCLE Icon' As icon.DocumentwithContent":
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =70
+                Icon: =Icon.DocumentWithContent
+                ZIndex: =2
 
-        Icon4_1 As icon.DocumentwithContent:
-            Color: =RGBA(255, 255, 255, 1)
+        "'Home Screen Sidebar Time Off' As groupContainer.manualLayoutContainer":
+            FillPortions: =0
             Height: =70
-            Icon: =Icon.DocumentWithContent
-            Y: =564
-            ZIndex: =8
+            LayoutMinHeight: =70
+            LayoutMinWidth: =250
+            ZIndex: =11
 
-    Timer1 As timer:
+            "'Home Screen Sidebar Time Off Button' As button":
+                Align: =Align.Right
+                Fill: =RGBA(27, 49, 89, 1)
+                Height: =70
+                OnSelect: |+
+                    =Navigate(RequestTimeOff, ScreenTransition.CoverRight);
+                    
+                    
+                Size: =22
+                Text: ="Request Time Off"
+                Width: =Parent.Width
+                ZIndex: =1
+
+            "'Home Screen Sidebar Time Off Icon' As icon.DocumentwithContent":
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =70
+                Icon: =Icon.DocumentWithContent
+                ZIndex: =2
+
+        "'Home Screen Sidebar Facilities' As groupContainer.manualLayoutContainer":
+            FillPortions: =0
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =250
+            ZIndex: =12
+
+            "'Home Screen Sidebar Facilities Button' As button":
+                Align: =Align.Right
+                Fill: =RGBA(27, 49, 89, 1)
+                Height: =68
+                OnSelect: |+
+                    =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
+                    
+                    
+                Size: =22
+                Text: ="Facility Request"
+                Width: =Parent.Width
+                ZIndex: =1
+
+            "'Home Screen Sidebar Facilities Icon' As icon.Notebook":
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Notebook
+                Y: =6
+                ZIndex: =2
+
+    "'Home Screen Timer' As timer":
         AutoPause: =false
         AutoStart: =true
         DisplayMode: =DisplayMode.View
@@ -258,23 +272,23 @@
         Width: =280
         X: =360
         Y: =493
-        ZIndex: =5
+        ZIndex: =4
 
-    OpenSideBar As icon.Hamburger:
+    "'Home Screen OpenSideBar' As icon.Hamburger":
         Color: =RGBA(255, 255, 255, 1)
         Height: =75
         Icon: =Icon.Hamburger
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
         Visible: =!IsSidebarOpen
         Width: =100
-        ZIndex: =6
+        ZIndex: =5
 
-    CloseSideBar As icon.Cancel:
+    "'Home Screen CloseSideBar' As icon.Cancel":
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Cancel
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
         Visible: =IsSidebarOpen
         X: =18
         Y: =11
-        ZIndex: =7
+        ZIndex: =6
 
