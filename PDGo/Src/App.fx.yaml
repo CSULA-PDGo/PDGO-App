@@ -1,5 +1,12 @@
 App As appinfo:
     BackEnabled: =false
+    Formulas: |-
+        =fxTheme = {
+            Header: {
+                BGColor: RGBA(25, 53, 110, 1),
+                TextColor: Color.White
+            }
+        };
     OnStart: |-
         =Set(UserRecord, LookUp(Users, Office365 = Text(User().EntraObjectId)));
         'Home Screen'

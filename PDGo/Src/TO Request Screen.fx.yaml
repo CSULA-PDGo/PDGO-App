@@ -8,7 +8,7 @@
         LayoutMode: =LayoutMode.Auto
         PaddingBottom: =20
         Width: =Min(Last(App.SizeBreakpoints).Value, Parent.Width)
-        X: =(Parent.Width - Self.Width) / 2
+        X: =(Parent.Width - Self.Width)/2
         ZIndex: =1
 
         "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":

@@ -9,15 +9,13 @@
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =20
-        PaddingLeft: =20
-        PaddingRight: =20
-        PaddingTop: =20
+        Visible: =!PopUp
         Width: =Min(Last(App.SizeBreakpoints).Value, Parent.Width)
         X: =(Parent.Width - Self.Width)/2
         ZIndex: =1
 
         "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -28,6 +26,7 @@
             ZIndex: =1
 
             Icon2_1 As icon.ArrowLeft:
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: |-
                     =Reset('TO Request Date Screen Start Date Input');
@@ -45,6 +44,7 @@
 
             Label11_1 As label:
                 Align: =Align.Center
+                Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
@@ -58,6 +58,7 @@
                 ZIndex: =3
 
             Label21_1 As label:
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
@@ -75,6 +76,7 @@
             LayoutMinHeight: =120
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             Width: =435.00
@@ -144,6 +146,7 @@
             LayoutMinHeight: =120
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             Width: =435.00
@@ -204,6 +207,7 @@
             LayoutMinHeight: =120
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             Width: =800
@@ -264,6 +268,7 @@
             LayoutMinHeight: =120
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
@@ -315,6 +320,7 @@
             LayoutMinHeight: =120
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             PaddingRight: =0.00
             PaddingTop: =0.00
             Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
@@ -362,6 +368,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             ZIndex: =8
 
             "'TO Request Date Screen Reason Label' As label":
@@ -426,6 +433,7 @@
                 ZIndex: =3
 
             "'TO Request Date Screen Reason Code Info Icon' As icon.Information":
+                AccessibleLabel: ="Reason Code Listing"
                 AlignInContainer: =AlignInContainer.Stretch
                 HoverColor: =ColorFade(Self.Color, 30%)
                 Icon: =Icon.Information
@@ -433,7 +441,8 @@
                     =UpdateContext({PopUp: true})
                 PaddingLeft: =10
                 PaddingRight: =10
-                Tooltip: =codeSelected
+                TabIndex: =0
+                Tooltip: ="Reason Code Listing"
                 Width: =90
                 ZIndex: =4
 
@@ -445,6 +454,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
             ZIndex: =9
 
             "'TO Request Date Screen Equipment Label' As label":
@@ -476,7 +486,7 @@
             LineHeight: =1.361816
             Mode: =TextMode.MultiLine
             PaddingBottom: =15
-            PaddingLeft: =16
+            PaddingLeft: =20
             PaddingRight: =14.40
             PaddingTop: =13.50
             PressedBorderColor: =RGBA(0, 120, 212, 1)
@@ -494,6 +504,7 @@
 
         "'TO Request Date Screen Error Label' As label":
             Color: =RGBA(168, 0, 0, 1)
+            PaddingLeft: =20
             Text: =""
             Visible: =Not(IsBlank(Self.Text))
             ZIndex: =11
@@ -558,7 +569,7 @@
                     If(!Back(), Navigate('TO Request Screen'));
                 );
             PaddingBottom: =12
-            PaddingLeft: =56
+            PaddingLeft: =20
             PaddingRight: =50.38
             PaddingTop: =9.90
             PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
@@ -683,9 +694,11 @@
                         ZIndex: =5
 
                 Button9_16 As button:
+                    FocusedBorderColor: =Color.Black
                     Height: =60
                     OnSelect: |-
                         =UpdateContext({PopUp: false});
+                    TabIndex: =1
                     Text: ="Cancel"
                     X: =593
                     Y: =492

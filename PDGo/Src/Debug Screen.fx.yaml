@@ -3,7 +3,7 @@
     Button3 As button:
         Height: =112
         OnSelect: |-
-            =UpdateContext({AppContext: App.SizeBreakpoints})
+            =UpdateContext({AppContext: Min(Last(App.SizeBreakpoints).Value, Parent.Width)})
         Size: =24
         Text: ="Set Context Variable to App"
         Width: =280
