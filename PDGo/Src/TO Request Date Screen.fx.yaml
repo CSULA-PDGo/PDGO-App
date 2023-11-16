@@ -97,6 +97,7 @@
                 PaddingTop: =13.50
                 Size: =20
                 Text: ="Start Date"
+                Width: =170
                 X: =0.00
                 Y: =18
                 ZIndex: =1
@@ -164,6 +165,7 @@
                 PaddingTop: =13.50
                 Size: =20.24
                 Text: ="End Date"
+                Width: =170
                 X: =0.00
                 Y: =18
                 ZIndex: =1
@@ -204,7 +206,7 @@
             LayoutMode: =LayoutMode.Auto
             PaddingRight: =0.00
             PaddingTop: =0.00
-            Width: =435.00
+            Width: =800
             X: =891
             ZIndex: =4
 
@@ -222,7 +224,7 @@
                 PaddingTop: =13.50
                 Size: =20.24
                 Text: ="Entire Day"
-                Width: =133.16
+                Width: =170
                 X: =0.00
                 Y: =4
                 ZIndex: =1
@@ -270,12 +272,11 @@
             ZIndex: =5
 
             "'TO Request Date Screen Start Time Label' As label":
-                AutoHeight: =true
+                AlignInContainer: =AlignInContainer.Stretch
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 Color: =RGBA(51, 51, 51, 1)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                FillPortions: =1
                 FocusedBorderThickness: =4
                 Height: =41
                 LineHeight: =1.361816
@@ -285,7 +286,7 @@
                 PaddingTop: =13.50
                 Size: =20.24
                 Text: ="Start Time"
-                Width: =138.55
+                Width: =170
                 X: =0.00
                 Y: =14.5
                 ZIndex: =1
@@ -297,6 +298,7 @@
                 FlyoutMaximumHeight: =400
                 Items: |-
                     =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
+                LayoutMinWidth: =350
                 PaddingLeft: =16
                 PaddingRight: =9
                 PaddingTop: =9
@@ -321,11 +323,11 @@
             ZIndex: =6
 
             "'TO Request Date Screen End Time Label' As label":
+                AlignInContainer: =AlignInContainer.Stretch
                 BorderColor: =RGBA(0, 0, 0, 0)
                 BorderStyle: =BorderStyle.None
                 Color: =RGBA(51, 51, 51, 1)
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                FillPortions: =1
                 FocusedBorderThickness: =4
                 Height: =41
                 LineHeight: =1.361816
@@ -335,7 +337,7 @@
                 PaddingTop: =13.50
                 Size: =20.24
                 Text: ="End Time"
-                Width: =138.55
+                Width: =170
                 X: =0.00
                 Y: =14.5
                 ZIndex: =1
@@ -347,6 +349,7 @@
                 FlyoutMaximumHeight: =400
                 Items: |-
                     =["8:00 am", "9:00 am", "10:00 am", "11:00 am","12:00 pm", "1:00 pm","2:00 pm", "3:00 pm","4:00 pm", "5:00 pm"]
+                LayoutMinWidth: =350
                 OnChange: =
                 Size: =20
                 ZIndex: =3
@@ -365,7 +368,7 @@
                 Font: =Font.Lato
                 Size: =20
                 Text: ="Reason Code"
-                Width: =Parent.Width*.30
+                Width: =170
                 ZIndex: =1
 
             Rectangle1 As rectangle:
@@ -373,6 +376,7 @@
                 Fill: =RGBA(0, 0, 0, 0)
                 FillPortions: =1
                 LayoutMinWidth: =0
+                Visible: =false
                 ZIndex: =2
 
             "'TO Request Date Screen Reason Dropdown' As combobox":
@@ -399,6 +403,7 @@
                 IsSearchable: =false
                 Items: =RequestCodes
                 LayoutMinHeight: =50
+                LayoutMinWidth: =400 - 'TO Request Date Screen Reason Code Info Icon'.Width
                 OnChange: =
                 OnSelect: |-
                     =UpdateContext({
@@ -418,7 +423,7 @@
                 Template: =ListItemTemplate.Double
                 Tooltip: =
                 UsePhoneLayout: =false
-                Width: =300
+                Width: =400 - 'TO Request Date Screen Reason Code Info Icon'.Width
                 X: =20.00
                 Y: =380.5
                 ZIndex: =3
@@ -429,6 +434,8 @@
                 Icon: =Icon.Information
                 OnSelect: |-
                     =UpdateContext({PopUp: true})
+                PaddingLeft: =10
+                PaddingRight: =10
                 Tooltip: =codeSelected
                 Width: =90
                 ZIndex: =4
