@@ -12,11 +12,24 @@
       "parameterHints": {},
       "parameterHintsV2": {}
     },
-    "datasets": {},
+    "datasets": {
+      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
+        "dataSources": {
+          "MCLETrainingAttendance": {
+            "tableName": "ad9258cb-7085-4a45-b859-15d0cbc3c569"
+          },
+          "MCLETrainings": {
+            "tableName": "c711c28f-ed07-432e-92ee-38efdaedffed"
+          }
+        }
+      }
+    },
     "dataSources": [
       "Teams",
       "Users-Teams",
-      "Users"
+      "Users",
+      "MCLETrainingAttendance",
+      "MCLETrainings"
     ],
     "dependencies": {},
     "dependents": [],
