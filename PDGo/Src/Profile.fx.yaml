@@ -7,6 +7,12 @@ Profile As screen:
         Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
         Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days));
         Set(_calendarVisible, true);
+        
+        UpdateContext({
+            Office365Profile: Office365Users.UserProfileV2(Profile.Office365, {
+                '$select': "mobilePhone, mail, aboutMe, displayName, preferredName, businessPhones"
+            })
+        });
 
     "'Profile About Container' As groupContainer.manualLayoutContainer":
         Height: =716
@@ -28,7 +34,7 @@ Profile As screen:
             Height: =188
             Overflow: =Overflow.Scroll
             Size: =18
-            Text: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
+            Text: =Office365Profile.aboutMe
             VerticalAlign: =VerticalAlign.Top
             Width: =560
             X: =36
@@ -37,8 +43,14 @@ Profile As screen:
 
         "'Profile About Phone Label' As label":
             Height: =70
+            OnSelect: |-
+                =Launch(Concatenate("tel:", Self.Text))
             Size: =21
-            Text: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
+            Text: |-
+                =If(IsBlank(Office365Profile.mobilePhone),
+                    LookUp(Users, 'Email Address' = User().Email, 'Phone Number'),
+                    Office365Profile.mobilePhone
+                )
             Width: =448
             X: =133
             Y: =331
@@ -46,8 +58,10 @@ Profile As screen:
 
         "'Profile About EMail Label' As label":
             Height: =70
+            OnSelect: |-
+                =Launch(Concatenate("mailto:", Self.Text))
             Size: =21
-            Text: =User().Email
+            Text: =Office365Profile.mail
             Width: =449
             X: =133
             Y: =434
@@ -75,13 +89,17 @@ Profile As screen:
         LayoutGap: =10
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
+        PaddingTop: =30
         Width: =Parent.Width
         ZIndex: =2
 
         "'Profile User Banner Profile Picture' As image":
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(186, 202, 226, 1)
+            BorderThickness: =2
             FillPortions: =1
             Height: =145
-            Image: =Office365Users.UserProfile(Profile.Office365).
+            Image: =Office365Users.UserPhotoV2(Profile.Office365)
             ImagePosition: =ImagePosition.Fill
             LayoutMinHeight: =64
             LayoutMinWidth: =64
@@ -89,7 +107,7 @@ Profile As screen:
             RadiusBottomRight: ='Profile User Banner Profile Picture'.Height
             RadiusTopLeft: ='Profile User Banner Profile Picture'.Height
             RadiusTopRight: ='Profile User Banner Profile Picture'.Height
-            Width: =145
+            Width: =Self.Height
             X: =247
             Y: =56
             ZIndex: =1
@@ -102,7 +120,7 @@ Profile As screen:
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =26
-            Text: =Office365Users.UserProfile(Profile.Office365).DisplayName
+            Text: =Office365Profile.displayName
             Width: =Parent.Width - 2*Self.X
             X: =40
             Y: =145

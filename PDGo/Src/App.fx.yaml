@@ -1,7 +1,14 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =Set(UserRecord, LookUp(Users, Office365 = Text(User().EntraObjectId)));
+        =Set(UserRecord, With({
+            InternalRecord: LookUp(Users, Office365 = Text(User().EntraObjectId))
+        },
+            If(IsBlankOrError(InternalRecord),
+                {Office365: User().EntraObjectId},
+                InternalRecord
+            )
+        ));
         'Home Screen'
     StartScreen: ='Home Screen'
     Theme: =PowerAppsTheme

@@ -1,4 +1,58 @@
 {
+  "7d21d3ce-7d8d-4e35-a680-00edd5f607f8": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
+        "dataSources": {
+          "Facility Request": {
+            "tableName": "1fab6ee3-06cc-4e77-aafc-51ed8bde461d"
+          },
+          "MCLETrainingAttendance": {
+            "tableName": "ad9258cb-7085-4a45-b859-15d0cbc3c569"
+          },
+          "MCLETrainings_1": {
+            "tableName": "c711c28f-ed07-432e-92ee-38efdaedffed"
+          },
+          "RequestCodes": {
+            "tableName": "f5b7d729-f486-4acf-ab83-0b66fc47e516"
+          },
+          "Teams": {
+            "tableName": "6c5b363b-0b4f-4ae4-9cb3-7aa5294a4fdc"
+          },
+          "TimeOffRequestDays": {
+            "tableName": "ccb1c1ca-b402-425b-9030-90826cfc4dd4"
+          },
+          "TimeOffRequests": {
+            "tableName": "4c384f23-2da6-42cb-8590-aaab69ba77b5"
+          },
+          "Users": {
+            "tableName": "9108f1e8-ec56-4214-8f95-31fd20749383"
+          },
+          "Users-Teams": {
+            "tableName": "4b7d4783-60f7-4be3-ac8e-935869776f42"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Facility Request",
+      "MCLETrainingAttendance",
+      "MCLETrainings_1",
+      "RequestCodes",
+      "Teams",
+      "TimeOffRequestDays",
+      "TimeOffRequests",
+      "Users",
+      "Users-Teams"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "7d21d3ce-7d8d-4e35-a680-00edd5f607f8"
+  },
   "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
     "appActions": [
       "CalendarGetTables",
