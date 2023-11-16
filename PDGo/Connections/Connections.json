@@ -1,36 +1,4 @@
 {
-  "02ceff66-c97d-4d72-8b73-146b70c0bb35": {
-    "appActions": [
-      "providers/PowerPlatform.Governance/Operations/Read",
-      "providers/PowerPlatform.Governance/Operations/Write"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "SharePoint",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {
-      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
-        "dataSources": {
-          "Facility Request_1": {
-            "tableName": "1fab6ee3-06cc-4e77-aafc-51ed8bde461d"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "Teams",
-      "Users-Teams",
-      "Users",
-      "Facility Request_1"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "02ceff66-c97d-4d72-8b73-146b70c0bb35"
-  },
   "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
     "appActions": [
       "CalendarGetTables",
@@ -65,42 +33,5 @@
     "dependencies": {},
     "dependents": [],
     "id": "b6a72349-a83a-4e3b-a5f8-703f84b7b3b6"
-  },
-  "b95cc6fb-c45e-4842-8626-f38dffe0d0c6": {
-    "appActions": [
-      "providers/PowerPlatform.Governance/Operations/Read",
-      "providers/PowerPlatform.Governance/Operations/Write"
-    ],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "SharePoint",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3432/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {
-      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
-        "dataSources": {
-          "Teams": {
-            "tableName": "6c5b363b-0b4f-4ae4-9cb3-7aa5294a4fdc"
-          },
-          "Users": {
-            "tableName": "9108f1e8-ec56-4214-8f95-31fd20749383"
-          },
-          "Users-Teams": {
-            "tableName": "4b7d4783-60f7-4be3-ac8e-935869776f42"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "Teams",
-      "Users-Teams",
-      "Users"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "b95cc6fb-c45e-4842-8626-f38dffe0d0c6"
   }
 }
