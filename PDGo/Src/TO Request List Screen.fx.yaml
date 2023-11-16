@@ -1,0 +1,169 @@
+"'TO Request List Screen' As screen":
+
+    "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
+        Height: |
+            =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        "'TO Request List Screen Header' As groupContainer.horizontalAutoLayoutContainer":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(136, 160, 209, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            ZIndex: =1
+
+            "'TO Request List Screen Header Back' As icon.ArrowLeft":
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Back(ScreenTransition.UnCoverRight);
+                Width: =50
+                ZIndex: =1
+
+            "'TO Request List Screen Header Text' As label":
+                Align: =Align.Center
+                FillPortions: =1
+                Font: =Font.Lato
+                Size: =20
+                Text: ="Requests"
+                ZIndex: =2
+
+            "'TO Request List Screen Header Profile' As image":
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Fill
+                LayoutMinHeight: =75
+                ZIndex: =3
+
+            Label21_2 As label:
+                Font: =Font.Lato
+                Size: =15
+                Text: ="Hello, " & User().FullName
+                Visible: ='TO Request Screen'.Size<>1
+                ZIndex: =4
+
+        "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =Parent.Width
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            ZIndex: =2
+
+            "'TO Request List Screen Requestor Column Label' As label":
+                Font: =Font.Lato
+                LayoutMinWidth: =120
+                Size: |
+                    =If('TO Request List Screen'.Size=1,10.24,13)
+                Text: ="Requestor"
+                Width: =Parent.Width*.20
+                ZIndex: =1
+
+            "'TO Request List Screen Status Column Label' As label":
+                Font: =Font.Lato
+                Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                Text: ="Status"
+                Width: =Parent.Width*.20
+                ZIndex: =2
+
+            "'TO Request List Screen Date Range Column Label' As label":
+                Font: =Font.Lato
+                Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                Text: ="Date Range"
+                Width: =Parent.Width*.20
+                ZIndex: =3
+
+            "'TO Request List Screen Last Modified Column Label' As label":
+                Font: =Font.Lato
+                Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                Text: ="Last Modified"
+                Width: =Parent.Width*.20
+                ZIndex: =4
+
+        "'TO Request List Screen Gallery' As gallery.galleryVertical":
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DelayItemLoading: =true
+            Height: =Parent.Height
+            Items: |-
+                =With({
+                    SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
+                },
+                    Filter(TimeOffRequests, Status.Value = "Pending", Requestor in SubordinateIDs)
+                )
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =287
+            LayoutMinWidth: =Parent.Width
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
+            Width: =Parent.Width
+            ZIndex: =3
+
+            "'TO Request List Screen Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
+                Fill: =RGBA(0,0,0,0)
+                Height: =Parent.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =5
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+                "'TO Request List Screen Requestor Column' As label":
+                    Font: =Font.Lato
+                    LayoutMinWidth: =120
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                    Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                    Text: =ThisItem.'Created By'.DisplayName
+                    Width: =Parent.Width*.20
+                    ZIndex: =1
+
+                "'TO Request List Screen Status Column' As label":
+                    Font: =Font.Lato
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                    Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                    Text: =ThisItem.Status.Value
+                    Width: =Parent.Width*.20
+                    ZIndex: =2
+
+                "'TO Request List Screen Date Range Column' As label":
+                    Font: =Font.Lato
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                    Size: =If('TO Request List Screen'.Size=1,8.24,13)
+                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    Width: =Parent.Width*.20
+                    ZIndex: =3
+
+                "'TO Request List Screen Last Modified Column' As label":
+                    Font: =Font.Lato
+                    LayoutMinWidth: =Parent.Width*.20
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                    Size: =If('TO Request List Screen'.Size=1,8.24,13)
+                    Text: =Text(ThisItem.Modified, DateTimeFormat.ShortDate)
+                    Width: =Parent.Width*.20
+                    ZIndex: =4
+
