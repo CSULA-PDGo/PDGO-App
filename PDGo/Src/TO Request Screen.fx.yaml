@@ -153,11 +153,11 @@
                         Comments: ""
                     })
                 },
-                    ForAll(RequestDates, With({Date: ThisRecord},
+                    ForAll(RequestDates, With({DateID: ThisRecord.ID, DateReason: ThisRecord.Reason, Date: ThisRecord},
                             Patch(TimeOffRequestDays,
                                 If(IsBlankOrError(ID),
                                     Defaults(TimeOffRequestDays),
-                                    LookUp(TimeOffRequestDays, ID = Date.ID)
+                                    LookUp(TimeOffRequestDays, ID = DateID)
                                 ),
                                 {
                                     Request: {Id: Request.ID, Value: Request.ID},
@@ -166,7 +166,7 @@
                                     EntireDay: Date.EntireDay,
                                     StartTime: Date.StartTime,
                                     EndTime: Date.EndTime,
-                                    Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },
+                                    Reason: { Id: LookUp(RequestCodes, Title = DateReason).ID, Value: Date.Reason },
                                     AdditionalComments: Date.Comments//,
                                     //ITEquipment: Date.ITEquipment
                                 }
