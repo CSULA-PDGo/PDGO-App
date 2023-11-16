@@ -167,8 +167,8 @@
                                     StartTime: Date.StartTime,
                                     EndTime: Date.EndTime,
                                     Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },
-                                    AdditionalComments: Date.Comments,
-                                    ITEquipment: Date.ITEquipment
+                                    AdditionalComments: Date.Comments//,
+                                    //ITEquipment: Date.ITEquipment
                                 }
                             )
                         );
