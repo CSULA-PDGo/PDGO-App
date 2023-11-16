@@ -1,0 +1,13 @@
+"'Debug Screen' As screen":
+
+    Button3 As button:
+        Height: =112
+        OnSelect: |-
+            =UpdateContext({AppContext: App.SizeBreakpoints})
+        Size: =24
+        Text: ="Set Context Variable to App"
+        Width: =280
+        X: =40
+        Y: =40
+        ZIndex: =1
+
