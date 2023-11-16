@@ -383,7 +383,7 @@ FacilityRequest As screen:
         Email_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Email"
-            Default: =ThisItem.Email
+            Default: =ThisItem.'Requester Email'
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,"Email")
             Fill: =RGBA(0, 0, 0, 0)
@@ -497,7 +497,7 @@ FacilityRequest As screen:
                     {
                         'Requester Name': DataCardValue1.Text,
                         Description: DataCardValue2.Text,
-                        Email: DataCardValue4.Text,
+                        'Requester Email': DataCardValue4.Text,
                         Priority: DataCardValue3.Selected,
                         'Request Title': DataCardValue6.Text,
                         Date: Now()

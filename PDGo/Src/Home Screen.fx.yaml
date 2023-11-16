@@ -1,37 +1,279 @@
 "'Home Screen' As screen":
-    OnVisible: |-
-        =Set(IsSidebarOpen, false);
-        Set(var1,GetMods.Run());
+    OnVisible: |+
+        =Set(
+            IsSidebarOpen,
+            false
+        );
         
-        Set(UserData, LookUp(Users, 'Email Address' = User().Email));
-        
-        UpdateContext({items:var1});
-        ClearCollect(Columns,{var:"aa", Bool: false, int:1 });
-        ClearCollect(af1,{ uID:"1", id:false, title:false,Fname:false,PhoneN:false,EA:false,AM:false, Tid:false, Sup:false,UType:false,Author:false});
-        ClearCollect(af2, { FullN:"aa", varName:"aa"});
-        
+         Set(IsSidebarNotOpen, If(Home.Width < 600, 100, 20));
+           
+        Set(
+            var1,
+            GetMods.Run()
+        );
+        Set(
+            UserData,
+            LookUp(
+                Users,
+                'Email Address' = User().Email
+            )
+        );
+        UpdateContext({items: var1});
+        ClearCollect(
+            Columns,
+            {
+                var: "aa",
+                Bool: false,
+                int: 1
+            }
+        );
+        ClearCollect(
+            af1,
+            {
+                uID: "1",
+                id: false,
+                title: false,
+                Fname: false,
+                PhoneN: false,
+                EA: false,
+                AM: false,
+                Tid: false,
+                Sup: false,
+                UType: false,
+                Author: false
+            }
+        );
+        ClearCollect(
+            af2,
+            {
+                FullN: "aa",
+                varName: "aa",
+                id: 1
+            }
+        );
         Clear(af2);
         Clear(af1);
+        ForAll(
+            Filter(
+                Split(
+                    " {" & items.jsonstrings,
+                    "{"
+                ),
+                Boolean(ParseJSON("{"" "": true }").bool) in Value
+            ) As af,
+            If(
+                "true" in af.Value,
+                Patch(
+                    af1,
+                    Defaults(af1),
+                    {
+                        uID: Value(ParseJSON("{" & af.Value).UserID),
+                        id: Boolean(ParseJSON("{" & af.Value).ID),
+                        title: Boolean(ParseJSON("{" & af.Value).Title),
+                        Fname: Boolean(ParseJSON("{" & af.Value).'Full Name'),
+                        PhoneN: Boolean(ParseJSON("{" & af.Value).'Phone Number'),
+                        EA: Boolean(ParseJSON("{" & af.Value).'Email Address'),
+                        AM: Boolean(ParseJSON("{" & af.Value).'About Me'),
+                        Tid: Boolean(ParseJSON("{" & af.Value).'Team ID'),
+                        Sup: Boolean(ParseJSON("{" & af.Value).Supervisor),
+                        UType: Boolean(ParseJSON("{" & af.Value).'User Type'),
+                        Author: Boolean(ParseJSON("{" & af.Value).Author)
+                    }
+                )
+            )
+        );
+        ForAll(
+            af1,
+            If(
+                id = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "id"
+                    }
+                )
+            );
+            If(
+                title = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "title"
+                    }
+                )
+            );
+            If(
+                Fname = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Full Name"
+                    }
+                )
+            );
+            If(
+                PhoneN = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Phone Number"
+                    }
+                )
+            );
+            If(
+                EA = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Email Address"
+                    }
+                )
+            );
+            If(
+                AM = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "About Me"
+                    }
+                )
+            );
+            If(
+                Tid = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Tid"
+                    }
+                )
+            );
+            If(
+                Sup = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Supervisor"
+                    }
+                )
+            );
+            If(
+                UType = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "User Type"
+                    }
+                )
+            );
+            If(
+                Author = true,
+                Collect(
+                    af2,
+                    {
+                        FullN: LookUp(
+                            Users,
+                            ID = uID,
+                            'Full Name'
+                        ),
+                        varName: "Author"
+                    }
+                )
+            );
+            
+        );
+        ClearCollect(
+            JoinTime,
+            ForAll(
+                TimeOffRequestDays,
+                {
+                    StartDates: StartDate,
+                    EndDates: EndDate,
+                    Status: LookUp(
+                        TimeOffRequests,
+                        "Status" = "Status",
+                        Status
+                    ).Value,
+                    ReqID: LookUp(
+                        TimeOffRequests,
+                        "Requestor" = "Requestor",
+                        Requestor
+                    ),
+                    IDs: LookUp(
+                        Users,
+                        "ID" = "ID",
+                        ID
+                    )
+                }
+            )
+        );
+        ClearCollect(
+            JoinFacNUsr,
+            ForAll(
+                'Facility Request_1',
+                {
+                    ReqName: 'Requester Name',
+                    Status1: 'Status (Status0)'.Value,
+                    Email: 'Requester Email',
+                    'Request Title': 'Request Title',
+                    FullN: LookUp(
+                        Users,
+                        "Full Name" = "Full Name",
+                        'Full Name'
+                    ),
+                    ProPic: LookUp(
+                        Users,
+                        "Profile Picture" = "Profile Picture",
+                        'Profile Picture'
+                    )
+                }
+            )
+        );
         
-        ForAll(Filter(Split(" {" & items.jsonstrings, "{"), Boolean( ParseJSON("{"" "": true }").bool ) in Value) As af,
-        
-         If("true" in af.Value ,
-         
-          Patch(af1, Defaults(af1), 
-        
-         {uID: Value(ParseJSON("{" & af.Value).UserID), id:Boolean(ParseJSON("{" & af.Value).ID), title:Boolean(ParseJSON("{" & af.Value).Title),Fname:Boolean(ParseJSON("{" & af.Value).'Full Name'),PhoneN:Boolean(ParseJSON("{" & af.Value).'Phone Number'),EA:Boolean(ParseJSON("{" & af.Value).'Email Address'), AM:Boolean(ParseJSON("{" & af.Value).'About Me'), Tid:Boolean(ParseJSON("{" & af.Value).'Team ID'), Sup:Boolean(ParseJSON("{" & af.Value).Supervisor),UType:Boolean(ParseJSON("{" & af.Value).'User Type'),Author:Boolean(ParseJSON("{" & af.Value).Author)} ) ));
-        
-         ForAll(af1,
-         If( id = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "id"}));  
-         If( title = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "title"})); 
-         If( Fname = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Full Name"})); 
-        If( PhoneN = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Phone Number"})); 
-        If( EA = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Email Address"}));     
-        If( AM = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "About Me"})); 
-        If( Tid = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Tid"}));
-        If( Sup = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Supervisor"}));  
-        If( UType = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "User Type"}));  
-        If( Author = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Author"}));         );
 
     Label1 As label:
         Align: =Align.Center
@@ -67,70 +309,6 @@
             X: =556
             Y: =370
             ZIndex: =2
-
-    Container1 As groupContainer.manualLayoutContainer:
-        BorderThickness: =2.5
-        ContentLanguage: =
-        Height: =703
-        Width: =640
-        Y: =433
-        ZIndex: =3
-
-        "Gallery2 As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
-            DelayItemLoading: =true
-            Fill: =RGBA(241, 244, 249, 1)
-            FocusedBorderThickness: =0
-            Height: =698
-            Items: =af2
-            Layout: =Layout.Vertical
-            LoadingSpinner: =LoadingSpinner.Data
-            TemplatePadding: =0
-            TemplateSize: =Min(220, Self.Height - 60)
-            ZIndex: =1
-
-            Body1 As label:
-                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                Height: =148
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =23
-                Text: =ThisItem.FullN & " has Updated their " & ThisItem.varName
-                VerticalAlign: =VerticalAlign.Top
-                Width: =464
-                X: =172
-                Y: =38
-                ZIndex: =2
-
-            Image1 As image:
-                Height: =160
-                Image: =LookUp(Users, 'Full Name' =  ThisItem.FullN, 'Profile Picture')
-                OnSelect: =Select(Parent)
-                RadiusBottomLeft: =8
-                RadiusBottomRight: =8
-                RadiusTopLeft: =8
-                RadiusTopRight: =8
-                Width: =160
-                Y: =32
-                ZIndex: =3
-
-            Separator1 As rectangle:
-                Fill: =RGBA(219, 219, 219, 1)
-                Height: =5
-                OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth
-                Y: =215
-                ZIndex: =4
-
-        SeparatorTop As rectangle:
-            BorderColor: =RGBA(149, 149, 149, 1)
-            Fill: =RGBA(219, 219, 219, 1)
-            Height: =5
-            OnSelect: =
-            Width: =640
-            ZIndex: =4
 
     SideBarContainer As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Bold
@@ -222,6 +400,362 @@
             Y: =564
             ZIndex: =8
 
+    UpcomingFeed As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height/3
+        Width: =Parent.Width 
+        Y: =BannerLogoHomeScreen.Height
+        ZIndex: =5
+
+        BkGrnd4Upcoming As button:
+            BorderColor: =RGBA(221, 224, 227, 1)
+            Color: =RGBA(255,255,255,1)
+            DisabledBorderColor: =ColorFade(BkGrnd4Upcoming.BorderColor, 70%)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =BkGrnd4Upcoming.BorderColor
+            FocusedBorderThickness: =0
+            Height: =378.6666666666667
+            HoverBorderColor: =ColorFade(BkGrnd4Upcoming.BorderColor, 20%)
+            HoverColor: =BkGrnd4Upcoming.Color
+            HoverFill: =ColorFade(BkGrnd4Upcoming.Fill, 20%)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =BkGrnd4Upcoming.Fill
+            PressedColor: =BkGrnd4Upcoming.Fill
+            PressedFill: =BkGrnd4Upcoming.Color
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: =""
+            Width: =UpcomingFeed.Width
+            ZIndex: =1
+
+        FeedFooter As button:
+            BorderColor: =ColorFade(FeedFooter.Fill, -15%)
+            Color: =RGBA(255,255,255,1)
+            DisabledBorderColor: =ColorFade(FeedFooter.BorderColor, 70%)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(245, 247, 249, 1)
+            FocusedBorderColor: =FeedFooter.BorderColor
+            FocusedBorderThickness: =0
+            Height: =73
+            HoverBorderColor: =ColorFade(FeedFooter.BorderColor, 20%)
+            HoverColor: =FeedFooter.Color
+            HoverFill: =ColorFade(FeedFooter.Fill, 20%)
+            PressedBorderColor: =FeedFooter.Fill
+            PressedColor: =FeedFooter.Fill
+            PressedFill: =FeedFooter.Color
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: =""
+            Width: =UpcomingFeed.Width
+            Y: =305.6666666666667
+            ZIndex: =2
+
+        Rectangle2_4 As rectangle:
+            BorderColor: =RGBA(101, 128, 187, 1)
+            DisabledFill: =Rectangle2_4.Fill
+            Fill: =RGBA(221, 224, 227, 1)
+            FocusedBorderColor: =Rectangle2_4.BorderColor
+            FocusedBorderThickness: =0
+            Height: =1
+            HoverFill: =Rectangle2_4.Fill
+            PressedFill: =Rectangle2_4.Fill
+            Width: =544
+            X: =48
+            Y: =66
+            ZIndex: =3
+
+        FeedHeader As button:
+            BorderColor: =ColorFade(FeedHeader.Fill, -15%)
+            Color: =RGBA(255,255,255,1)
+            DisabledBorderColor: =ColorFade(FeedHeader.BorderColor, 70%)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(245, 247, 249, 1)
+            FocusedBorderColor: =FeedHeader.BorderColor
+            FocusedBorderThickness: =0
+            Height: =66
+            HoverBorderColor: =ColorFade(FeedHeader.BorderColor, 20%)
+            HoverColor: =FeedHeader.Color
+            HoverFill: =ColorFade(FeedHeader.Fill, 20%)
+            PressedBorderColor: =FeedHeader.Fill
+            PressedColor: =FeedHeader.Fill
+            PressedFill: =FeedHeader.Color
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: =""
+            Width: =Parent.Width
+            Y: =
+            ZIndex: =4
+
+        Cont4Feeds As groupContainer.horizontalAutoLayoutContainer:
+            Height: =311
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            LayoutWrap: =true
+            Width: =640
+            Y: =67
+            ZIndex: =5
+
+            "Feed As gallery.'BrowseLayout_Vertical_TwoTextOneImageTwoColumnOverlayVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(202, 202, 202, 1)
+                BorderThickness: =5
+                DelayItemLoading: =true
+                Height: =500
+                Items: =FirstN(MCLETrainings_1,4)
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =4
+                TemplateSize: =Min(320, Self.Height - 60)
+                Width: =500
+                WrapCount: =2
+                ZIndex: =1
+
+                Image7 As image:
+                    DisplayMode: =DisplayMode.View
+                    Height: =Parent.TemplateHeight
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                Overlay2 As rectangle:
+                    Height: =135
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =115
+                    ZIndex: =2
+
+                NameofVid As label:
+                    Height: =60
+                    OnSelect: =Select(Parent)
+                    Overflow: =Overflow.Scroll
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =12
+                    Text: =ThisItem.Training
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =244
+                    Y: =115
+                    ZIndex: =3
+
+                TypeOfVid As label:
+                    Height: =34
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.'Training Type'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =244
+                    Y: =160
+                    ZIndex: =4
+
+                TimesOfVid As label:
+                    Height: =57
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.TrainingStartDate & " - " & ThisItem.TrainingEndDay
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =244
+                    Y: =194
+                    ZIndex: =5
+
+            "TO As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(202, 202, 202, 1)
+                BorderThickness: =5
+                DelayItemLoading: =true
+                DisplayMode: =DisplayMode.View
+                Fill: =Color.WhiteSmoke
+                Height: =500
+                Items: =Filter(JoinTime,ReqID=IDs)
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: =true
+                TemplatePadding: =0
+                TemplateSize: =92
+                Transition: =Transition.Push
+                Width: =500
+                X: =317
+                ZIndex: =2
+
+                TORequests As label:
+                    Align: =Align.Center
+                    DisplayMode: =DisplayMode.View
+                    FontWeight: =FontWeight.Bold
+                    Height: =92
+                    OnSelect: =Select(Parent)
+                    Overflow: =Overflow.Scroll
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =16
+                    Text: |-
+                        =If(
+                            //change this to say if the list does not contain this users id then blah blah..
+                            IsBlank(  If(
+                                ThisItem.ReqID = ThisItem.IDs,
+                                "Your time off request for " & ThisItem.StartDates & " - " & ThisItem.EndDates & " is " & ThisItem.Status,
+                                "You have no time off requests"
+                            )
+                        )//generate blank record for properties if something show up if nothing do not shw up
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =358
+                    X: =92
+                    ZIndex: =2
+
+                NextArrow2 As icon.ChevronRight:
+                    AccessibleLabel: =Self.Tooltip
+                    Color: =RGBA(166, 166, 166, 1)
+                    Height: =50
+                    Icon: =Icon.ChevronRight
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =16
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    PaddingTop: =16
+                    Tooltip: ="View item details"
+                    Width: =50
+                    X: =450
+                    Y: =22
+                    ZIndex: =3
+
+                Separator2 As rectangle:
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =4
+
+                Rectangle2 As rectangle:
+                    Height: =Parent.TemplateHeight - Separator2.Height
+                    OnSelect: =Select(Parent)
+                    Visible: =ThisItem.IsSelected
+                    Width: =4
+                    ZIndex: =5
+
+                Icon4_2 As icon.DocumentwithContent:
+                    Height: =84
+                    Icon: =Icon.DocumentWithContent
+                    OnSelect: =Select(Parent)
+                    Width: =108
+                    ZIndex: =6
+
+            "Changes As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderColor: =RGBA(202, 202, 202, 1)
+                DelayItemLoading: =true
+                Fill: =Color.WhiteSmoke
+                Height: =500
+                Items: |-
+                    =Filter(
+                        JoinFacNUsr,
+                        ReqName = User().FullName
+                    )
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =500
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =Min(220, Self.Height - 60)
+                Width: =500
+                ZIndex: =4
+
+                Separator3 As rectangle:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =5
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                Title2 As label:
+                    Align: =Align.Center
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =69
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =16
+                    Text: |+
+                        =If(
+                            IsBlank(
+                                If(
+                                    ThisItem.ReqName = User().FullName,
+                                    "Your Facility request for your " & ThisItem.'Request Title' & " is "  & ThisItem.Status1,
+                                    ""
+                                )
+                            ),
+                            "You have no Facility Requesets",
+                            "Your Facility request for your " & ThisItem.'Request Title' & " is "  & ThisItem.Status1
+                        )
+                        
+                        
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =351
+                    X: =113
+                    ZIndex: =2
+
+                Icon12_1 As icon.Bug:
+                    Height: =69
+                    Icon: =Icon.Bug
+                    OnSelect: =Select(Parent)
+                    Width: =89
+                    X: =24
+                    ZIndex: =3
+
+        FeedTitle As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(101, 128, 187, 1)
+            Color: =RGBA(41, 40, 55, 1)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            FocusedBorderColor: =FeedTitle.BorderColor
+            Height: =38
+            HoverBorderColor: =FeedTitle.BorderColor
+            HoverColor: =FeedTitle.Color
+            HoverFill: =FeedTitle.Fill
+            PressedBorderColor: =FeedTitle.BorderColor
+            PressedColor: =FeedTitle.Color
+            PressedFill: =FeedTitle.Fill
+            Size: =18
+            Text: ="Upcoming!"
+            Width: =UpcomingFeed.Width
+            Y: =15
+            ZIndex: =6
+
     Timer1 As timer:
         AutoPause: =false
         AutoStart: =true
@@ -258,7 +792,7 @@
         Width: =280
         X: =360
         Y: =493
-        ZIndex: =5
+        ZIndex: =6
 
     OpenSideBar As icon.Hamburger:
         Color: =RGBA(255, 255, 255, 1)
@@ -267,7 +801,7 @@
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
         Visible: =!IsSidebarOpen
         Width: =100
-        ZIndex: =6
+        ZIndex: =7
 
     CloseSideBar As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
@@ -276,5 +810,5 @@
         Visible: =IsSidebarOpen
         X: =18
         Y: =11
-        ZIndex: =7
+        ZIndex: =8
 
