@@ -1,4 +1,39 @@
 "'TO Request List Screen' As screen":
+    OnVisible: |-
+        =Clear(Subordinates);
+        
+        //ForAll(Filter('Users-Teams', UserID = UserRecord.ID),
+         //   With({Sup: LookUp(Teams, ThisRecord.ID = TeamID).Supervisor, Team: TeamID}, With({SupervisorUser: LookUp(Users, Office365 =
+         //       Office365Users.UserProfile(
+         //           Last(Split(Last(Sup.Claims).Claims, "|")).Value
+         //       ).Id)},
+          //      If(SupervisorUser.ID = UserRecord.ID, ForAll(Filter('Users-Teams', TeamID = Team),
+          //          Collect(Subordinates, LookUp(Users, ID = UserID))
+          //      ))
+          //  ))
+        //);
+        
+        ForAll(Filter('Users-Teams', 'User ID' = UserRecord.ID),
+            With({
+                Team: LookUp(Teams, ID = 'Team ID')
+            },
+                With({
+                    Supervisor: LookUp(Users, Office365 = Office365Users.UserProfile(
+                        Last(Split(Last(Team.Supervisor.Claims).Claims, "|")).Value
+                    ).Id)
+                }, If(Supervisor.ID = UserRecord.ID,
+                    ForAll(Filter('Users-Teams', 'Team ID' = Team.ID),
+                        Collect(Subordinates, LookUp(Users, ID = 'User ID'));
+                    )
+                ))
+            );
+        );
+        Collect(Subordinates, UserRecord); // Add self as subordinate
+        UpdateContext({SubIDs: With({
+            SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
+        },
+            Filter(TimeOffRequests, Status.Value = "Pending", Requestor in SubordinateIDs)
+        )});
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
         Height: |
