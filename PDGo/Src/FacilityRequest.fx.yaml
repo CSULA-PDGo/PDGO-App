@@ -116,10 +116,11 @@ FacilityRequest As screen:
                 DisplayFields: =["Value"]
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
+                IsSearchable: =false
                 Items: =Choices([@'Facility Request_1'].'Status (Status0)')
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices('Facility Request_1'.'Status (Status0)',DataCardValue5.SearchText)
+                SearchItems: =[]
                 SelectMultiple: =false
                 Size: =21
                 Tooltip: =Parent.DisplayName
@@ -341,10 +342,11 @@ FacilityRequest As screen:
                 DisplayMode: =Parent.DisplayMode
                 Height: =70
                 InputTextPlaceholder: ="--Select--"
+                IsSearchable: =false
                 Items: =Choices([@'Facility Request_1'].Priority)
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 SearchFields: =["Value"]
-                SearchItems: =Choices('Facility Request_1'.Priority,DataCardValue3.SearchText)
+                SearchItems: =[]
                 SelectionFill: =RGBA(25, 53, 110, 1)
                 SelectMultiple: =false
                 Size: =21
