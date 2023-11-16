@@ -7,10 +7,6 @@ Profile As screen:
         Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
         Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days));
         Set(_calendarVisible, true);
-        
-        
-        UpdateContext({
-            user
 
     "'Profile About Container' As groupContainer.manualLayoutContainer":
         Height: =716
@@ -72,7 +68,7 @@ Profile As screen:
             ZIndex: =6
 
     "'Profile User Banner Container 2' As groupContainer.verticalAutoLayoutContainer":
-        Fill: =RGBA(25, 53, 110, 1)
+        Fill: =App.Theme.Colors.Primary
         Height: =Parent.Height / 3
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
@@ -85,7 +81,7 @@ Profile As screen:
         "'Profile User Banner Profile Picture' As image":
             FillPortions: =1
             Height: =145
-            Image: =LookUp(Users, 'Email Address' = User().Email, 'Profile Picture')
+            Image: =Office365Users.UserProfile(Profile.Office365).
             ImagePosition: =ImagePosition.Fill
             LayoutMinHeight: =64
             LayoutMinWidth: =64
@@ -106,8 +102,7 @@ Profile As screen:
             LayoutMinHeight: =70
             LayoutMinWidth: =560
             Size: =26
-            Text: |
-                =User().FullName
+            Text: =Office365Users.UserProfile(Profile.Office365).DisplayName
             Width: =Parent.Width - 2*Self.X
             X: =40
             Y: =145
@@ -349,6 +344,7 @@ Profile As screen:
         Height: =40
         Icon: =Icon.Edit
         OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)
+        Visible: =UserRecord.Office365 = Profile.Office365
         Width: =40
         X: =Parent.Width - Self.Width - 20
         Y: =24
