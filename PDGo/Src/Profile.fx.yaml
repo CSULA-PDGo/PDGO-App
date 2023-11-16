@@ -7,11 +7,15 @@ Profile As screen:
         Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
         Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days));
         Set(_calendarVisible, true);
+        
+        
+        UpdateContext({
+            user
 
     "'Profile About Container' As groupContainer.manualLayoutContainer":
         Height: =716
         Width: =Parent.Width
-        Y: =420
+        Y: =Parent.Height - Self.Height
         ZIndex: =1
 
         "'Profile About Me Label' As label":
