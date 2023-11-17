@@ -1,4 +1,6 @@
 Screen4 As screen:
+    OnVisible: |-
+        =ClearCollect(barCodes, {Value: Blank(), Type: Blank()  }); Clear(barCodes)
 
     RectQuickActionBar7 As rectangle:
         Height: =88
@@ -73,7 +75,8 @@ Screen4 As screen:
             =If(IsBlank(LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID)),
              
                 Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Attendee: Last(BarcodeReader1.Barcodes).Value, Time: DateTimeValue(Now()),    Attended: true, TrainingID: MeetingID}),
-                Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID), {Attended: true} ))
+                Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID), {Attended: true} ));
+                Patch(barCodes, Defaults(barCodes), { Type: Last(BarcodeReader1.Barcodes).Type, Value: Last(BarcodeReader1.Barcodes).Value  })
             
         PressedBorderColor: =RGBA(56, 96, 178, 1)
         PressedContentColor: =RGBA(56, 96, 178, 1)
@@ -84,4 +87,30 @@ Screen4 As screen:
         X: =94
         Y: =434
         ZIndex: =5
+
+    Gallery1 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Items: =barCodes
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+        Y: =561
+        ZIndex: =6
+
+        Label5 As label:
+            Height: =70
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.Value
+            Width: =320
+            Y: =40
+            ZIndex: =1
+
+        Label8 As label:
+            Height: =70
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.Type
+            Width: =320
+            Y: =148
+            ZIndex: =2
 
