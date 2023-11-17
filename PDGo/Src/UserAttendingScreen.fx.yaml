@@ -1,0 +1,30 @@
+UserAttendingScreen As screen:
+
+    Gallery2 As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Height: =766
+        Items: =Filter(MCLETrainingAttendance, Attendee = User().FullName)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+        Y: =370
+        ZIndex: =1
+
+        Label4 As label:
+            Height: =84
+            OnSelect: =
+            Size: =21
+            Text: =LookUp(MCLETrainings, ID = ThisItem.TrainingID).Training
+            Width: =329
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+    Image2 As image:
+        Height: =320
+        Image: |-
+            ="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=" & User().FullName
+        Width: =320
+        X: =160
+        ZIndex: =2
+
