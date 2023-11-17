@@ -5,7 +5,7 @@
             false
         );
         
-         Set(IsSidebarNotOpen, If(Home.Width < 600, 100, 20));
+         Set(IsSidebarNotOpen, If('Home Screen'.Width < 600, 100, 20));
            
         Set(
             var1,

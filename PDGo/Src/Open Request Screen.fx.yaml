@@ -214,7 +214,6 @@
                         Height: =Parent.TemplateHeight
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
-                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                         LayoutMode: =LayoutMode.Auto
                         Width: =Min(Parent.TemplateWidth, App.Width)
                         ZIndex: =1
@@ -289,7 +288,7 @@
                                 FillPortions: =1
                                 Height: =Parent.Height
                                 LayoutMinWidth: =110
-                                Text: =ThisItem.EntireDay
+                                Text: =If(ThisItem.EntireDay, "Yes", "No")
                                 ZIndex: =2
 
                         Container6_8 As groupContainer.horizontalAutoLayoutContainer:
@@ -357,7 +356,7 @@
                             HtmlText3_2 As htmlViewer:
                                 AlignInContainer: =AlignInContainer.Center
                                 AutoHeight: =true
-                                HtmlText: =ThisItem.ITEquipment
+                                HtmlText: =If(ThisItem.ITEquipment, "Yes", "No")
                                 Size: =14
                                 ZIndex: =3
 
