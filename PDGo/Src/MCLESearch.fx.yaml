@@ -501,7 +501,7 @@ MCLESearch As screen:
                     Button6_3 As button:
                         OnSelect: |+
                             =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), 
-                                {Time: DateValue(Now()), RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (varUserCalendarId, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); 
+                                {Time: DateValue(Now()), RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (LookUp(Office365Outlook.CalendarGetTablesV2().value, name="Calendar").id, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); 
                                 , Notify("You're already enrolled in this course."))
                             
                             

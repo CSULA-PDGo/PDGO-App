@@ -9,9 +9,7 @@ UserAttendingScreen As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
-        Visible: |-
-            =//!isAdmin
-            true
+        Visible: =!isAdmin
         Y: =370
         ZIndex: =1
 
@@ -42,7 +40,7 @@ UserAttendingScreen As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =225
-        Visible: =//isAdmin
+        Visible: =isAdmin
         Y: =370
         ZIndex: =3
 
