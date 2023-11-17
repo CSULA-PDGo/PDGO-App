@@ -138,18 +138,6 @@
                 Y: =155
                 ZIndex: =1
 
-                Label19_12 As label:
-                    Align: =Align.Center
-                    Fill: =RGBA(255, 255, 255, 1)
-                    FontWeight: =FontWeight.Semibold
-                    Height: =Parent.TemplateHeight
-                    OnSelect: =Select(Parent)
-                    Size: =9
-                    Text: =ThisItem.Reason
-                    Width: =Parent.TemplateWidth/5 
-                    X: =Label19_13.X-Self.Width
-                    ZIndex: =1
-
                 Label20_7 As label:
                     Align: =Align.Center
                     Fill: =RGBA(215, 223, 240, 1)
@@ -159,7 +147,7 @@
                     Size: =9
                     Text: =ThisItem.'Created By'.DisplayName
                     Width: =Parent.TemplateWidth/5 
-                    X: =Label19_12.X-Self.Width
+                    X: ='TO Request Details Screen Additional Comments'.X-Self.Width
                     ZIndex: =2
 
                 Label19_13 As label:
@@ -196,4 +184,13 @@
                     Text: =ThisItem.Created
                     Width: =Parent.TemplateWidth/5 
                     ZIndex: =9
+
+                "'TO Request Details Screen Additional Comments' As htmlViewer":
+                    Font: =Font.Lato
+                    Height: =Parent.TemplateHeight
+                    HtmlText: =ThisItem.Reason
+                    Size: =9
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_13.X-Self.Width
+                    ZIndex: =10
 
