@@ -207,7 +207,11 @@
                     Width: =Parent.Width*.20
                     ZIndex: =4
 
-            Rectangle1_2 As rectangle:
+            "'TO Request List Screen Gallery Touch' As rectangle":
                 Fill: =RGBA(0, 0, 0, 0)
-                ZIndex: =5
+                Height: =Parent.TemplateHeight
+                OnSelect: |-
+                    =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                Width: =Parent.Width
+                ZIndex: =2
 
