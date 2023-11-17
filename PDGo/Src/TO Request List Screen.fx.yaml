@@ -32,7 +32,7 @@
         UpdateContext({SubIDs: With({
             SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
         },
-            Filter(TimeOffRequests, Status.Value = "Pending", Requestor in SubordinateIDs)
+            Filter(TimeOffRequests, Status.Value = "Pending", Requester in SubordinateIDs)
         )});
 
     "'TO Request List Screen Main' As groupContainer.verticalAutoLayoutContainer":
@@ -147,7 +147,7 @@
                 =With({
                     SubordinateIDs: ForAll(Subordinates, ThisRecord.ID)
                 },
-                    Filter(TimeOffRequests, Status.Value = "Pending", Requestor in SubordinateIDs)
+                    Filter(TimeOffRequests, Status.Value = "Pending", Requester in SubordinateIDs)
                 )
             Layout: =Layout.Vertical
             LayoutMinHeight: =287

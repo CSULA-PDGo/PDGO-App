@@ -241,7 +241,7 @@
                     ReqID: LookUp(
                         TimeOffRequests,
                         "Requestor" = "Requestor",
-                        Requestor
+                        Requester
                     ),
                     IDs: LookUp(
                         Users,
@@ -310,101 +310,11 @@
             Y: =370
             ZIndex: =2
 
-    SideBarContainer As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Bold
-        Fill: =RGBA(25, 53, 110, 1)
-        Height: =Parent.Height
-        Visible: =IsSidebarOpen
-        Width: =320
-        ZIndex: =4
-
-        ProfileButtonHome As button:
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =70
-            OnSelect: |+
-                =Navigate(Profile, ScreenTransition.CoverRight);
-                
-                
-            Size: =24
-            Text: ="My Profile"
-            Width: =320
-            Y: =356
-            ZIndex: =1
-
-        RTOHome As button:
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =70
-            OnSelect: |+
-                =Navigate(RequestTimeOff, ScreenTransition.CoverRight);
-                
-                
-            Size: =22
-            Text: ="Request Time Off"
-            Width: =307
-            Y: =426
-            ZIndex: =2
-
-        TrainingHome As button:
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =70
-            OnSelect: |+
-                =Navigate(MCLETrainings, ScreenTransition.CoverRight);
-                
-                
-            Size: =26
-            Text: ="MCLE Training"
-            Width: =307
-            Y: =496
-            ZIndex: =3
-
-        ProNavFrmHomePage_1 As icon.Person:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Person
-            OnSelect: =
-            Y: =356
-            ZIndex: =4
-
-        Icon4 As icon.DocumentwithContent:
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =70
-            Icon: =Icon.DocumentWithContent
-            Y: =426
-            ZIndex: =5
-
-        Icon12 As icon.Notebook:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Notebook
-            Y: =502
-            ZIndex: =6
-
-        "'Facility Request' As button":
-            Align: =Align.Right
-            Fill: =RGBA(27, 49, 89, 1)
-            Height: =68
-            OnSelect: |+
-                =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
-                
-                
-            Size: =22
-            Text: ="Facility Request"
-            Width: =306
-            Y: =566
-            ZIndex: =7
-
-        Icon4_1 As icon.DocumentwithContent:
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =70
-            Icon: =Icon.DocumentWithContent
-            Y: =564
-            ZIndex: =8
-
     UpcomingFeed As groupContainer.manualLayoutContainer:
         Height: =Parent.Height/3
         Width: =Parent.Width 
         Y: =BannerLogoHomeScreen.Height
-        ZIndex: =5
+        ZIndex: =3
 
         BkGrnd4Upcoming As button:
             BorderColor: =RGBA(221, 224, 227, 1)
@@ -756,6 +666,120 @@
             Y: =15
             ZIndex: =6
 
+    SideBarContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(25, 53, 110, 1)
+        Height: =Parent.Height
+        Visible: =IsSidebarOpen
+        Width: =320
+        ZIndex: =4
+
+        ProfileButtonHome As button:
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(Profile, ScreenTransition.CoverRight);
+                
+                
+            Size: =24
+            Text: ="My Profile"
+            Width: =320
+            Y: =356
+            ZIndex: =1
+
+        RTOHome As button:
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate('TO Request Screen', ScreenTransition.CoverRight);
+                
+                
+            Size: =22
+            Text: ="Request Time Off"
+            Width: =307
+            Y: =426
+            ZIndex: =2
+
+        TrainingHome As button:
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =70
+            OnSelect: |+
+                =Navigate(MCLETrainings, ScreenTransition.CoverRight);
+                
+                
+            Size: =26
+            Text: ="MCLE Training"
+            Width: =307
+            Y: =496
+            ZIndex: =3
+
+        ProNavFrmHomePage_1 As icon.Person:
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Person
+            OnSelect: =
+            Y: =356
+            ZIndex: =4
+
+        Icon4 As icon.DocumentwithContent:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =70
+            Icon: =Icon.DocumentWithContent
+            Y: =426
+            ZIndex: =5
+
+        Icon12 As icon.Notebook:
+            Color: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.Notebook
+            Y: =502
+            ZIndex: =6
+
+        "'Facility Request' As button":
+            Align: =Align.Right
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =68
+            OnSelect: |+
+                =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
+                
+                
+            Size: =22
+            Text: ="Facility Request"
+            Width: =306
+            Y: =566
+            ZIndex: =7
+
+        Icon4_1 As icon.DocumentwithContent:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =70
+            Icon: =Icon.DocumentWithContent
+            Y: =564
+            ZIndex: =8
+
+        "'Time Off Requests Button' As button":
+            Align: =Align.Left
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =68
+            OnSelect: |+
+                =Navigate('TO Request List Screen', ScreenTransition.CoverRight);
+                
+                
+            Size: =22
+            Text: ="        TO Requests"
+            Width: =305
+            X: =5
+            Y: =636
+            ZIndex: =9
+
+        "'Time Off Requests Icon' As icon.DocumentwithContent":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =70
+            Icon: =Icon.DocumentWithContent
+            Width: =63
+            X: =1
+            Y: =634
+            ZIndex: =10
+
     Timer1 As timer:
         AutoPause: =false
         AutoStart: =true
@@ -792,7 +816,7 @@
         Width: =280
         X: =360
         Y: =493
-        ZIndex: =6
+        ZIndex: =5
 
     OpenSideBar As icon.Hamburger:
         Color: =RGBA(255, 255, 255, 1)
@@ -801,7 +825,7 @@
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
         Visible: =!IsSidebarOpen
         Width: =100
-        ZIndex: =7
+        ZIndex: =6
 
     CloseSideBar As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
@@ -810,5 +834,5 @@
         Visible: =IsSidebarOpen
         X: =18
         Y: =11
-        ZIndex: =8
+        ZIndex: =7
 

@@ -134,7 +134,7 @@
             Font: =Font.Lato
             Height: =80
             OnSelect: =Navigate('TO Request Date Screen')
-            Size: =If('TO Request Screen'.Size=1,15,22)
+            Size: =If('TO Request Screen'.Size=1,19,22)
             Text: ="Add Request"
             ZIndex: =4
 
@@ -155,7 +155,7 @@
                 =With({
                     Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
                         Reason: 'TO Request Screen Comments Input'.Text,
-                        Requestor: UserRecord.ID,
+                        Requester: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
                     })
@@ -174,8 +174,8 @@
                                     StartTime: Date.StartTime,
                                     EndTime: Date.EndTime,
                                     Reason: { Id: LookUp(RequestCodes, Title = DateReason).ID, Value: Date.Reason },
-                                    AdditionalComments: Date.Comments//,
-                                    //ITEquipment: Date.ITEquipment
+                                    AdditionalComments: Date.Comments,
+                                    ITEquipment: Date.ITEquipment
                                 }
                             )
                         );
@@ -185,7 +185,7 @@
                 Clear(RequestDates);
                 Reset('TO Request Screen Comments Input');
                 Navigate('Success Screen', ScreenTransition.CoverRight);
-            Size: =If('TO Request Screen'.Size=1,15,22)
+            Size: =If('TO Request Screen'.Size=1,18,22)
             Text: ="Submit Request"
             ZIndex: =6
 
