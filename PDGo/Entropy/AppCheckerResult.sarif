@@ -5674,19 +5674,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.isAdmin"
+                  "fullyQualifiedName": "UserAttendingScreen.Gallery2_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.isAdmin",
+                  "fullyQualifiedName": "UserAttendingScreen.Gallery2_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "isAdmin",
-                "module": "App",
-                "type": "App"
+                "member": "AccessibleLabel",
+                "module": "UserAttendingScreen",
+                "type": "UserAttendingScreen.Gallery2_1"
               }
             }
           ],
@@ -5696,8 +5696,38 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 19
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 15
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "UserAttendingScreen.Gallery2_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "UserAttendingScreen.Gallery2_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "UserAttendingScreen",
+                "type": "UserAttendingScreen.Gallery2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 16
         },
         {
           "locations": [

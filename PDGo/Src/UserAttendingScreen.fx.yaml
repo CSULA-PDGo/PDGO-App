@@ -7,6 +7,7 @@ UserAttendingScreen As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+        Visible: =!isAdmin
         Y: =370
         ZIndex: =1
 
@@ -27,4 +28,25 @@ UserAttendingScreen As screen:
         Width: =320
         X: =160
         ZIndex: =2
+
+    Gallery2_1 As gallery.galleryVertical:
+        DelayItemLoading: =true
+        Height: =766
+        Items: =Filter(MCLETrainings, TrainingSupervisor = User().FullName)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+        Visible: =isAdmin
+        Y: =370
+        ZIndex: =3
+
+        Label4_1 As label:
+            Height: =84
+            OnSelect: =
+            Size: =21
+            Text: =ThisItem.Training
+            Width: =329
+            X: =40
+            Y: =40
+            ZIndex: =1
 
