@@ -55,6 +55,7 @@
                 Image: =User().Image
                 ImagePosition: =ImagePosition.Fill
                 LayoutMinHeight: =75
+                Visible: =false
                 ZIndex: =3
 
             Label21_1 As label:
@@ -62,7 +63,7 @@
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
+                Visible: =false
                 ZIndex: =4
 
         "'StartDate Container' As groupContainer.horizontalAutoLayoutContainer":

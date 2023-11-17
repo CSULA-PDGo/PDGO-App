@@ -46,7 +46,7 @@
 
         "'TO Request List Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -61,6 +61,7 @@
             ZIndex: =1
 
             "'TO Request List Screen Header Back' As icon.ArrowLeft":
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back(ScreenTransition.UnCoverRight);
                 Width: =50
@@ -68,6 +69,7 @@
 
             "'TO Request List Screen Header Text' As label":
                 Align: =Align.Center
+                Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
@@ -78,13 +80,16 @@
                 Image: =User().Image
                 ImagePosition: =ImagePosition.Fill
                 LayoutMinHeight: =75
+                Visible: |
+                    =false
                 ZIndex: =3
 
             Label21_2 As label:
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
+                Visible: |
+                    =false
                 ZIndex: =4
 
         "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":

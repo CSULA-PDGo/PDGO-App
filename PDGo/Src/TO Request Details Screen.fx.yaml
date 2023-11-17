@@ -13,7 +13,7 @@
 
         Container11_2 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(56, 96, 178, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =70
             LayoutMinHeight: =100
@@ -24,6 +24,7 @@
 
             Icon7_5 As icon.ArrowLeft:
                 AlignInContainer: =AlignInContainer.Center
+                Color: =fxTheme.Header.TextColor
                 Height: =40
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back()
@@ -35,7 +36,8 @@
             Label13_8 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Stretch
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
+                FillPortions: =1
                 FontWeight: =FontWeight.Semibold
                 Height: =61
                 Text: ="All PTO"
