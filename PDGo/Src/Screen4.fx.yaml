@@ -72,7 +72,7 @@ Screen4 As screen:
         OnScan: |+
             =If(IsBlank(LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID)),
              
-                Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Attendee: Last(BarcodeReader1.Barcodes).Value, Time: DateTime(Now()),    Attended: true, TrainingID: MeetingID}),
+                Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Attendee: Last(BarcodeReader1.Barcodes).Value, Time: DateTimeValue(Now()),    Attended: true, TrainingID: MeetingID}),
                 Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID), {Attended: true} ))
             
         PressedBorderColor: =RGBA(56, 96, 178, 1)
