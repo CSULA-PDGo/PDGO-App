@@ -497,9 +497,11 @@ MCLESearch As screen:
                     ZIndex: =9
 
                     Button6_3 As button:
-                        OnSelect: |
-                            =If( Filter(MCLETrainingAttendance, Attendee = User().FullName).TrainingID = MeetingRecord.ID, UpdateContext({ErrorPopUp: true}), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP: {Value: yes}, Attendee: User(), TrainingID: MeetingRecord.ID, Title: MeetingRecord.Training, Attended: {no} }));
-                            LookUp(MCLETrainingAttendance, Attendee = User(Attendee)).TrainingID
+                        OnSelect: |+
+                            =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }
+                            ), Notify("You're already enrolled in this course."))
+                            //Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP: {Value: yes}, Attendee: User(), TrainingID: MeetingRecord.ID, Title: MeetingRecord.Training, Attended: {no} }));
+                            
                         Text: ="Enroll"
                         X: =225
                         Y: =549
