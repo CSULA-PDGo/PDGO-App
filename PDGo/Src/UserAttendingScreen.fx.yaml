@@ -157,7 +157,7 @@ UserAttendingScreen As screen:
                         FillPortions: =3
                         Font: =Font.Lato
                         Size: =14
-                        Text: =MeetingRecord.TrainingSupervisor
+                        Text: =DetailsInfo.TrainingSupervisor
                         X: =101
                         Y: =154
                         ZIndex: =2
@@ -402,8 +402,8 @@ UserAttendingScreen As screen:
 
                 Button7_6 As button:
                     OnSelect: |+
-                        =UpdateContext({MeetingRecord: Blank()});
-                        UpdateContext({mclePopUp:false})
+                        =UpdateContext({DetailsInfo: Blank()});
+                        UpdateContext({DetailsPopUp:false})
                         
                     Text: ="Close"
                     X: =983

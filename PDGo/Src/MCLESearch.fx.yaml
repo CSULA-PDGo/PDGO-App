@@ -481,7 +481,7 @@ MCLESearch As screen:
                         Font: =Font.Lato
                         Height: =Parent.Height
                         Size: =14
-                        Text: =MeetingRecord.TrainingStatus
+                        Text: =MeetingRecord.TrainingStatus.Value
                         X: =285
                         Y: =154
                         ZIndex: =2
@@ -500,9 +500,10 @@ MCLESearch As screen:
 
                     Button6_3 As button:
                         OnSelect: |+
-                            =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }
-                            ), Notify("You're already enrolled in this course."))
-                            //Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP: {Value: yes}, Attendee: User(), TrainingID: MeetingRecord.ID, Title: MeetingRecord.Training, Attended: {no} }));
+                            =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), 
+                                {Time: DateValue(Now()), RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (varUserCalendarId, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); 
+                                , Notify("You're already enrolled in this course."))
+                            
                             
                         Text: ="Enroll"
                         X: =225
