@@ -420,7 +420,7 @@ MCLESearch As screen:
                         Font: =Font.Lato
                         Height: =Parent.Height
                         Size: =14
-                        Text: =MeetingRecord.TrainingHost
+                        Text: =MeetingRecord.'Training Host'
                         X: =285
                         Y: =154
                         ZIndex: =2
@@ -497,8 +497,9 @@ MCLESearch As screen:
                     ZIndex: =9
 
                     Button6_3 As button:
-                        OnSelect: |-
-                            =If( LookUp(MCLETrainingAttendance, Attendee = User(Now())).TrainingID = MeetingRecord.ID, UpdateContext({ErrorPopUp: true}), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP: {Value: yes}, Attendee: User(), TrainingID: MeetingRecord.ID, Title: MeetingRecord.Training, Attended: {no} }))
+                        OnSelect: |
+                            =If( Filter(MCLETrainingAttendance, Attendee = User().FullName).TrainingID = MeetingRecord.ID, UpdateContext({ErrorPopUp: true}), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Time: DateValue(Now()), RSVP: {Value: yes}, Attendee: User(), TrainingID: MeetingRecord.ID, Title: MeetingRecord.Training, Attended: {no} }));
+                            LookUp(MCLETrainingAttendance, Attendee = User(Attendee)).TrainingID
                         Text: ="Enroll"
                         X: =225
                         Y: =549
