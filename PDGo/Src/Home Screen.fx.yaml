@@ -1,4 +1,5 @@
 "'Home Screen' As screen":
+    OnVisible: =Set(isAdmin, LookUp(Users, User().FullName = 'Full Name', UserType).Value = "Admin")
 
     Rectangle2 As rectangle:
         Height: =560
