@@ -42,7 +42,8 @@ UserAttendingScreen As screen:
 
         Label4_1 As label:
             Height: =84
-            OnSelect: =
+            OnSelect: |-
+                =Navigate(Screen4, ScreenTransition.CoverRight, {MeetingID: ThisItem.ID} )
             Size: =21
             Text: =ThisItem.Training
             Width: =329
