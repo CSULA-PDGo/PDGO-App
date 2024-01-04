@@ -71,6 +71,7 @@ Screen4 As screen:
         HoverBorderColor: =RGBA(88, 115, 171, 1)
         HoverContentColor: =RGBA(255, 255, 255, 1)
         HoverFillColor: =RGBA(47, 81, 151, 1)
+        OnCancel: =false
         OnScan: |+
             =If(IsBlank(LookUp(MCLETrainingAttendance, Attendee = Last(BarcodeReader1.Barcodes).Value && MeetingID = TrainingID)),
              
