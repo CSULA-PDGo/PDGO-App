@@ -171,7 +171,7 @@
                 =With({
                     Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
                         Reason: 'TO Request Screen Comments Input'.Text,
-                        Requestor: UserRecord.ID,
+                        Requester: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
                     })
