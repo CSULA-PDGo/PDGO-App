@@ -27,38 +27,50 @@
         Width: =Parent.Width
         ZIndex: =1
 
-        Container11_2 As groupContainer.horizontalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(56, 96, 178, 1)
+        "'TO Request List Screen Header_1' As groupContainer.horizontalAutoLayoutContainer":
+            AlignInContainer: =AlignInContainer.Start
+            ContentLanguage: =Parent.Width
+            Fill: =RGBA(136, 160, 209, 1)
             FillPortions: =0
-            Height: =70
+            Height: =75
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =Parent.Width
             ZIndex: =1
 
-            Icon7_5 As icon.ArrowLeft:
-                AlignInContainer: =AlignInContainer.Center
-                Height: =40
+            "'TO Request List Screen Header Back_1' As icon.ArrowLeft":
                 Icon: =Icon.ArrowLeft
-                OnSelect: =Back()
-                Width: =60
-                X: =26
-                Y: =22
+                OnSelect: =Back(ScreenTransition.UnCoverRight);
+                Width: =50
                 ZIndex: =1
 
-            Label13_8 As label:
+            "'TO Request List Screen Header Text_1' As label":
                 Align: =Align.Center
-                AlignInContainer: =AlignInContainer.Stretch
-                Color: =RGBA(255, 255, 255, 1)
-                FontWeight: =FontWeight.Semibold
-                Height: =61
+                FillPortions: =1
+                Font: =Font.Lato
+                Size: =20
                 Text: ="All PTO"
-                Width: =Parent.Width/1.5
-                X: =177
-                Y: =13
                 ZIndex: =2
+
+            "'TO Request List Screen Header Profile_1' As image":
+                Image: =User().Image
+                ImagePosition: =ImagePosition.Fill
+                LayoutMinHeight: =75
+                ZIndex: =3
+
+            Label21_3 As label:
+                Font: =Font.Lato
+                Size: =15
+                Text: ="Hello, " & User().FullName
+                Visible: ='TO Request Screen'.Size<>1
+                ZIndex: =4
 
         Container1_2 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -67,7 +79,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =2
+            ZIndex: =3
 
             Label28_2 As label:
                 Align: =Align.Center
@@ -132,7 +144,7 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =4
 
             "Gallery2_3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                 AlignInContainer: =AlignInContainer.SetByContainer
