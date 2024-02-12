@@ -46,7 +46,7 @@
 
         "'TO Request List Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -68,28 +68,34 @@
 
             "'TO Request List Screen Header Text' As label":
                 Align: =Align.Center
+                Color: =RGBA(255,255,255, 1)
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
 
-            "'TO Request List Screen Header Profile' As image":
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
+            filter_icon As icon.Filter:
+                Color: =RGBA(241, 244, 249, 1)
+                Fill: =RGBA(39, 67, 125, 1)
+                Icon: =Icon.Filter
+                OnSelect: =Set(filter_var,!filter_var)
+                ZIndex: =4
 
             Label21_2 As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(255,255,255, 1)
+                DisabledColor: =RGBA(153, 207, 236, 1)
+                Fill: =RGBA(39, 67, 125, 1)
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
                 Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =4
+                ZIndex: =5
 
         "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":
             DropShadow: =DropShadow.Regular
-            Fill: =RGBA(175, 191, 224, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
             Height: =50
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -105,6 +111,7 @@
             ZIndex: =2
 
             "'TO Request List Screen Requestor Column Label' As label":
+                Color: =RGBA(241, 244, 249, 1)
                 Font: =Font.Lato
                 LayoutMinWidth: =120
                 Size: |
@@ -114,13 +121,16 @@
                 ZIndex: =1
 
             "'TO Request List Screen Status Column Label' As label":
+                Color: =RGBA(241, 244, 249, 1)
                 Font: =Font.Lato
+                HoverFill: =RGBA(214, 223, 238, 1)
                 Size: =If('TO Request List Screen'.Size=1,10.24,13)
                 Text: ="Status"
                 Width: =Parent.Width*.20
                 ZIndex: =2
 
             "'TO Request List Screen Date Range Column Label' As label":
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =If('TO Request List Screen'.Size=1,10.24,13)
                 Text: ="Date Range"
@@ -128,11 +138,46 @@
                 ZIndex: =3
 
             "'TO Request List Screen Last Modified Column Label' As label":
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =If('TO Request List Screen'.Size=1,10.24,13)
                 Text: ="Last Modified"
                 Width: =Parent.Width*.20
                 ZIndex: =4
+
+        filter_container As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(136, 160, 209, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =filter_var
+            ZIndex: =3
+
+            search_Container As groupContainer.horizontalAutoLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                ZIndex: =1
+
+                search_icon As icon.Search:
+                    Height: =45
+                    Icon: =Icon.Search
+                    OnSelect: =
+                    ZIndex: =1
+
+                search_input As text:
+                    Default: =""
+                    HintText: ="Search"
+                    HoverFill: =RGBA(149, 149, 149, 1)
+                    Width: |
+                        =(Parent.Width-search_icon.Width)-4
+                    ZIndex: =2
+
+                Status_Label_1 As label:
+                    Text: ="Text"
+                    ZIndex: =3
 
         "'TO Request List Screen Gallery' As gallery.galleryVertical":
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -152,7 +197,7 @@
                 =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
             TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(140, Self.Height - 60))
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =4
 
             "'TO Request List Screen Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 Fill: =RGBA(0,0,0,0)
