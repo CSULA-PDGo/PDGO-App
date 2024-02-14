@@ -1,0 +1,31 @@
+"'MCLE Cert Debug' As screen":
+
+    "'MCLE Cert Debug Viewer' As pdfViewer":
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Document: =MCLE_Cert
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =1195
+        Width: =Parent.Width
+        Y: =170
+        ZIndex: =2
+
+    Button2 As button:
+        OnSelect: |-
+            =Office365Outlook.SendEmailV2( 
+               User().Email,
+                "New MCLE Certificate",
+                "A MCLE Certificate has been generated for your review. Please see attached.", 
+                { 
+                    Attachments: Table( 
+                         { 
+                             Name: "MCLE_Certificate.pdf", 
+                             ContentBytes: PDF(MCLE_Cert) 
+                         } 
+                     ) 
+                } 
+             );
+        Text: ="Button"
+        X: =304
+        Y: =53
+        ZIndex: =3
+

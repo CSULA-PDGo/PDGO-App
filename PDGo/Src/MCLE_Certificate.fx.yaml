@@ -1,6 +1,6 @@
 MCLE_Certificate As screen:
     Height: =96 * 8.5
-    OnVisible: |
+    OnVisible: |-
         =UpdateContext({
             Credits: [
                 {Title: "General MCLE", Hours: 32},
@@ -193,4 +193,15 @@ MCLE_Certificate As screen:
         X: =715
         Y: =155
         ZIndex: =14
+
+    Timer2 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =1
+        OnTimerEnd: |-
+            =Navigate('MCLE Cert Debug', ScreenTransition.None, {MCLE_Cert: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})})
+        Visible: =false
+        X: =763
+        Y: =458
+        ZIndex: =15
 
