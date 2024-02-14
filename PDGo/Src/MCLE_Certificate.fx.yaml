@@ -64,7 +64,7 @@ MCLE_Certificate As screen:
             ="<table style='table-layout: fixed;width: 100%;border-collapse: collapse;' border>"&
             "<thead style='color: #169; font-size: 1.2em'><th style='width: 70%;'>Credit Type</th><th>Credit Hours</th></thead>"&
             "<tbody>"&
-            Concat(Credits, "<tr><td style='text-align: right;padding:5px;'>"&Title&"</td><td style='padding:5px;'>"&Hours&"</td></tr>", "")&
+            Concat(Credits, "<tr><td style='text-align: right;padding:5px;'>"&Title&"</td><td style='padding:5px;text-align:center;'>"&Hours&"</td></tr>", "")&
             "</tbody><tfoot>"&
             "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&Sum(Credits, Hours)&"</td></tr>"&
             "</tfoot></table>"
@@ -78,7 +78,8 @@ MCLE_Certificate As screen:
         AutoHeight: =true
         Font: =Font.Georgia
         Height: =294
-        HtmlText: ="<center>California MCLE Certificate of <font color=blue>Attendance</font></center>"
+        HtmlText: |-
+            ="<center>California MCLE Certificate of <font color='#169'>Attendance</font></center>"
         Size: =32
         Width: =531
         X: =263
