@@ -780,6 +780,27 @@
             Y: =634
             ZIndex: =10
 
+        "'Time Off Requests Button_1' As button":
+            Fill: =RGBA(27, 49, 89, 1)
+            Height: =68
+            OnSelect: |+
+                =Navigate(Trainings, ScreenTransition.CoverRight);
+                
+                
+            Size: =22
+            Text: ="Trainings"
+            Width: =305
+            X: =5
+            Y: =704
+            ZIndex: =11
+
+        Icon10 As icon.Folder:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =91
+            Icon: =Icon.Folder
+            Y: =691
+            ZIndex: =12
+
     Timer1 As timer:
         AutoPause: =false
         AutoStart: =true
