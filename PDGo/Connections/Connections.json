@@ -110,6 +110,40 @@
     "dependents": [],
     "id": "4e34b6c9-6b53-4553-a47d-09bfd95626ad"
   },
+  "55160e39-3d12-4f38-9a9d-c6381a1f9e83": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "RSVPEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83b83384-5b2d-4222-957d-8710794359fb"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "RSVPEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83b83384-5b2d-4222-957d-8710794359fb"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "RSVPEvent"
+    ],
+    "dependencies": {
+      "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
+    },
+    "dependents": [],
+    "id": "55160e39-3d12-4f38-9a9d-c6381a1f9e83"
+  },
   "94904251-1cb1-4cda-89a3-a0b768efe8bb": {
     "connectionRef": {
       "displayName": "Office 365 Users",
@@ -143,7 +177,8 @@
     ],
     "dependencies": {},
     "dependents": [
-      "372f75a7-e175-4b8f-8c1c-6c3bea5684bb"
+      "372f75a7-e175-4b8f-8c1c-6c3bea5684bb",
+      "55160e39-3d12-4f38-9a9d-c6381a1f9e83"
     ],
     "id": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
   },
