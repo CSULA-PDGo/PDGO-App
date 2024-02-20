@@ -136,29 +136,21 @@ Trainings As screen:
 
         "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
             DelayItemLoading: =true
-            Height: =762
+            DisplayMode: =DisplayMode.View
+            Height: =829
             Items: =MCLETrainings_1
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
+            ShowNavigation: =true
             TemplatePadding: =0
-            TemplateSize: =104
+            TemplateSize: =106
+            Transition: =Transition.Push
             Y: =40
             ZIndex: =1
 
-            Image1 As image:
-                Height: =72
-                Image: =ThisItem.VideoIcon
-                OnSelect: =Select(Parent)
-                RadiusBottomLeft: =8
-                RadiusBottomRight: =8
-                RadiusTopLeft: =8
-                RadiusTopRight: =8
-                Width: =72
-                X: =16
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                ZIndex: =1
-
             eDate As label:
+                Align: =Align.Center
+                AutoHeight: =true
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =22
                 OnSelect: =Select(Parent)
@@ -174,6 +166,8 @@ Trainings As screen:
                 ZIndex: =2
 
             sDate As label:
+                Align: =Align.Center
+                AutoHeight: =true
                 FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
                 Height: =Self.Size * 1.8
                 OnSelect: =Select(Parent)
@@ -213,8 +207,12 @@ Trainings As screen:
                 ZIndex: =7
 
             Subject As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.View
                 Height: =37
                 OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
                 Size: =21
                 Text: =ThisItem.Training
                 Width: =406
