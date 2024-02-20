@@ -425,7 +425,7 @@
 
         RSVP As button:
             Height: =57
-            OnSelect: =If(RSVPEvent.Run(Subject), Set(varShowSuccess, true))
+            OnSelect: =If(RSVPEvent.Run(Subject), Set(varShowSuccess, true));Set(IsSidebarOpen, !IsSidebarOpen)
             Size: =24
             Text: ="RSVP"
             X: =273
@@ -464,7 +464,7 @@
 
         Icon11_1 As icon.Cancel:
             Icon: =Icon.Cancel
-            OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+            OnSelect: =Set(varShowSuccess, !varShowSuccess);
             X: =410
             Y: =2
             ZIndex: =5
