@@ -34,7 +34,7 @@
         ZIndex: =1
 
         "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -49,6 +49,7 @@
             ZIndex: =1
 
             "'TO Request Screen Header Back' As icon.ArrowLeft":
+                Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back();
                 Width: =50
@@ -56,24 +57,20 @@
 
             "'TO Request Screen Header Text' As label":
                 Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
 
-            "'TO Request Screen Header Profile' As image":
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
-
             "'TO Request Screen Header Name' As label":
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
                 Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =4
+                ZIndex: =5
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
@@ -127,6 +124,7 @@
                     ZIndex: =3
 
                 "'TO Request Screen Dates Edit Button' As button":
+                    Fill: =RGBA(39, 67, 125, 1)
                     FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =50
@@ -149,7 +147,7 @@
                     ZIndex: =6
 
         "'TO Request Screen Add Date Button' As button":
-            Fill: =RGBA(56, 96, 178, .80)
+            Fill: =RGBA(39, 67, 125, 1)
             Font: =Font.Lato
             OnSelect: =Navigate('TO Request Date Screen')
             Text: ="Add Request"

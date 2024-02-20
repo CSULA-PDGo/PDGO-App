@@ -30,7 +30,7 @@
         "'TO Request Details Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.Start
             ContentLanguage: =Parent.Width
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -46,6 +46,7 @@
             ZIndex: =1
 
             "'TO Request List Screen Header Back_1' As icon.ArrowLeft":
+                Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back(ScreenTransition.UnCoverRight);
                 Width: =50
@@ -53,19 +54,15 @@
 
             "'TO Request List Screen Header Text_1' As label":
                 Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
                 Text: ="All PTO"
                 ZIndex: =2
 
-            "'TO Request List Screen Header Profile_1' As image":
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
-
             Label21_3 As label:
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName

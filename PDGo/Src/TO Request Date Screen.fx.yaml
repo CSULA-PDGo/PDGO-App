@@ -19,7 +19,7 @@
         ZIndex: =1
 
         "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -31,6 +31,7 @@
             ZIndex: =1
 
             Icon2_1 As icon.ArrowLeft:
+                Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.ArrowLeft
                 OnSelect: |-
                     =Reset('TO Request Date Screen Start Date Input');
@@ -48,19 +49,15 @@
 
             Label11_1 As label:
                 Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
                 Text: ="Requests"
                 ZIndex: =2
 
-            Image1_1 As image:
-                Image: =User().Image
-                ImagePosition: =ImagePosition.Fill
-                LayoutMinHeight: =75
-                ZIndex: =3
-
             Label21_1 As label:
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
@@ -153,7 +150,7 @@
 
             "'End Date Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
-                Fill: =RGBA(175, 191, 224, 1)
+                Fill: =RGBA(39, 67, 125, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -169,7 +166,7 @@
                 "'TO Request Date Screen End Date Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
-                    Color: =RGBA(51, 51, 51, 1)
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
@@ -260,7 +257,7 @@
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     ShowLabel: =false
                     Size: =20.24
-                    TrueFill: =RGBA(0, 120, 212, 1)
+                    TrueFill: =RGBA(39, 67, 125, 1)
                     TrueHoverFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     TrueText: ="On"
                     Width: =89.97
@@ -361,7 +358,7 @@
                     ZIndex: =3
 
         "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(175, 191, 224, 1)
+            Fill: =RGBA(39, 67, 125, 1)
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -369,6 +366,7 @@
             ZIndex: =3
 
             "'TO Request Date Screen Reason Label' As label":
+                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =18
                 Text: ="Reason Code"
@@ -492,7 +490,7 @@
             BorderStyle: =BorderStyle.None
             BorderThickness: =0
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            Fill: =RGBA(0, 120, 212, 1)
+            Fill: =RGBA(9, 33, 98, 1)
             FocusedBorderColor: =ColorFade(Self.Fill, -75%)
             Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
