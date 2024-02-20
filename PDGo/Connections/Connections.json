@@ -88,7 +88,29 @@
     "dependents": [],
     "id": "2dc43a9f-400a-4621-bee4-53937e0d937d"
   },
-  "46683805-83dc-4876-8bed-57aa98daf9c7": {
+  "4e34b6c9-6b53-4553-a47d-09bfd95626ad": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
+        "dataSources": {
+          "RequestCodes": {
+            "tableName": "f5b7d729-f486-4acf-ab83-0b66fc47e516"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "RequestCodes"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "4e34b6c9-6b53-4553-a47d-09bfd95626ad"
+  },
+  "6ddcc47b-4d3c-4b0e-a3bf-296168720dc6": {
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
@@ -126,29 +148,7 @@
       "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
     },
     "dependents": [],
-    "id": "46683805-83dc-4876-8bed-57aa98daf9c7"
-  },
-  "4e34b6c9-6b53-4553-a47d-09bfd95626ad": {
-    "connectionRef": {
-      "displayName": "SharePoint",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
-    },
-    "datasets": {
-      "https://csula.sharepoint.com/sites/2023-2024SBPDGoDevelopment": {
-        "dataSources": {
-          "RequestCodes": {
-            "tableName": "f5b7d729-f486-4acf-ab83-0b66fc47e516"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "RequestCodes"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "4e34b6c9-6b53-4553-a47d-09bfd95626ad"
+    "id": "6ddcc47b-4d3c-4b0e-a3bf-296168720dc6"
   },
   "94904251-1cb1-4cda-89a3-a0b768efe8bb": {
     "connectionRef": {
@@ -184,7 +184,7 @@
     "dependencies": {},
     "dependents": [
       "2dc43a9f-400a-4621-bee4-53937e0d937d",
-      "46683805-83dc-4876-8bed-57aa98daf9c7"
+      "6ddcc47b-4d3c-4b0e-a3bf-296168720dc6"
     ],
     "id": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
   },

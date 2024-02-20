@@ -24,7 +24,11 @@
         ChevronBackground: =RGBA(25, 53, 110, 1)
         Default: =_myCalendar.DisplayName
         Height: =80
-        Items: =Office365Outlook.CalendarGetTables().value
+        Items: |-
+            =Filter(
+                Office365Outlook.CalendarGetTables().value,
+                Name = "Calendar" 
+            )
         OnChange: =Select(dropdownCalendarSelection3_1)
         OnSelect: |-
             =/*retrieves calendar events for all days in current month view and selected calendar 
@@ -402,7 +406,7 @@
         RadiusBottomRight: =8
         RadiusTopLeft: =8
         RadiusTopRight: =8
-        Visible: =IsSidebarOpen
+        Visible: =!IsSidebarOpen
         Width: =485
         X: =82
         Y: =379
