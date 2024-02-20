@@ -61,6 +61,12 @@
                 Text: ="All PTO"
                 ZIndex: =2
 
+            filter_details As icon.Filter:
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Filter
+                OnSelect: =Set(filter2,!filter)
+                ZIndex: =3
+
             Label21_3 As label:
                 Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
@@ -68,6 +74,13 @@
                 Text: ="Hello, " & User().FullName
                 Visible: ='TO Request Screen'.Size<>1
                 ZIndex: =4
+
+        Container2 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(136, 160, 209, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
 
         Container1_2 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
