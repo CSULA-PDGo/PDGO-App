@@ -176,9 +176,7 @@
                     Color.Green,
                     If(
                         EndsWith(Subject, "MCLE"),
-                        Color.Blue,
-                        
-                        Color.Black
+                        Color.Red, Color.OrangeRed
                     )
                 )
             Height: =Self.Width
