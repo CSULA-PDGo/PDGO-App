@@ -195,7 +195,7 @@ Trainings As screen:
 
             Button4 As button:
                 Height: =55
-                OnSelect: =SendEmailAddEvent.Run(ThisItem.'Training Host', User().Email, ThisItem.TrainingEndDay, ThisItem.Training,ThisItem.TrainingStartDate, ThisItem.TrainingType,ThisItem.Location);
+                OnSelect: =SendEmailAddEvent.Run(ThisItem.TrainingStartDate, ThisItem.TrainingEndDay, User().Email, ThisItem.Training, ThisItem.TrainingType, ThisItem.'Training Host', ThisItem.Location);
                 Size: =22
                 Text: ="Add Event"
                 Width: =153
