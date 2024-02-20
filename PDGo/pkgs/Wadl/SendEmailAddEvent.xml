@@ -7,12 +7,16 @@
       <string name="ManualTriggerInput_Email_Inputs_def" />
       <string name="ManualTriggerInput_id_Inputs_def" />
       <string name="ManualTriggerInput_TypeOfTrain_Inputs_def" />
+      <string name="ManualTriggerInput_Host_Inputs_def" />
+      <string name="ManualTriggerInput_location_Inputs_def" />
       <object name="ManualTriggerInput">
         <property name="StartDate_Inputs" type="string" />
         <property name="EndDate_Inputs" type="string" />
         <property name="Email_Inputs" type="string" />
         <property name="id_Inputs" type="string" />
         <property name="TypeOfTrain_Inputs" type="string" />
+        <property name="Host_Inputs" type="string" />
+        <property name="location_Inputs" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -31,6 +35,8 @@
             <param style="plain" name="Email_Inputs" path="/Email_Inputs" type="xs:string" required="true" />
             <param style="plain" name="id_Inputs" path="/id_Inputs" type="xs:string" required="true" />
             <param style="plain" name="TypeOfTrain_Inputs" path="/TypeOfTrain_Inputs" type="xs:string" required="true" />
+            <param style="plain" name="Host_Inputs" path="/Host_Inputs" type="xs:string" required="true" />
+            <param style="plain" name="location_Inputs" path="/location_Inputs" type="xs:string" required="true" />
           </representation>
         </request>
       </method>
