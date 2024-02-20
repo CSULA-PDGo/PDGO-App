@@ -1,12 +1,5 @@
 "'Training - Calendar' As screen":
-    OnVisible: |-
-        =SortByColumns(
-            Filter(
-                MyCalendarEvents, 
-                Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate) && StartsWith( Subject , "TRAINING")
-            ), 
-            "Start"
-        )
+    OnVisible: =
 
     "'Background Color_9' As rectangle":
         BorderStyle: =BorderStyle.None
@@ -228,7 +221,7 @@
             OnSelect: =Set(_dateSelected, DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days))
             Size: =17 * MonthDayGallery3_1.TemplateWidth / 91
             TabIndex: =0
-            Text: =Day(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days))
+            Text: =ThisItem.Value
             Visible: |-
                 =/*This item is in a row containing no days of the visible month. It is in the row after the row where the last day of the month occurs*/ 
                  !(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) - Weekday(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days)) + 1 > _lastDayOfMonth)
