@@ -170,15 +170,7 @@
         ZIndex: =9
 
         Circle4_1 As circle:
-            Fill: |-
-                =If(
-                    EndsWith(Subject, "Y"),
-                    Color.Green,
-                    If(
-                        EndsWith(Subject, "E"),
-                        Color.Blue
-                    )
-                )
+            Fill: =
             Height: =Self.Width
             OnSelect: =Select(Parent)
             Visible: |-
@@ -196,15 +188,7 @@
             ZIndex: =1
 
         Subcircle3_1 As circle:
-            Fill: |-
-                =If(
-                    EndsWith(Subject, "Y"),
-                    Color.Green,
-                    If(
-                        EndsWith(Subject, "E"),
-                        Color.Blue
-                    )
-                )
+            Fill: =
             Height: =3 * Title9_1.Size
             OnSelect: =Select(Parent)
             Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_1.Visible)
