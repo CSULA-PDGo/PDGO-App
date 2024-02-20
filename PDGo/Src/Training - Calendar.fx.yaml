@@ -1,4 +1,12 @@
 "'Training - Calendar' As screen":
+    OnVisible: |-
+        =SortByColumns(
+            Filter(
+                MyCalendarEvents, 
+                Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate) && StartsWith( Subject , "TRAINING")
+            ), 
+            "Start"
+        )
 
     "'Background Color_9' As rectangle":
         BorderStyle: =BorderStyle.None
