@@ -172,7 +172,7 @@
         Circle4_1 As circle:
             Fill: |-
                 =If(
-                    EndsWith(Subject, " SAFTEY"),
+                    EndsWith(Subject, "SAFTEY"),
                     Color.Green,
                     If(
                         EndsWith(Subject, "MCLE"),
@@ -184,8 +184,14 @@
             Height: =Self.Width
             OnSelect: =Select(Parent)
             Visible: |-
-                =/*Visible if calendar events are found on this day*/               
-                CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days))) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
+                =/*Visible if calendar events are found on this day and subject starts with "TRAINING"*/               
+                CountRows(
+                    Filter(
+                        MyCalendarEvents, 
+                        DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days),
+                        StartsWith(Subject, "TRAINING")
+                    )
+                ) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
             Width: =6.5
             X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
             Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
