@@ -302,9 +302,7 @@
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =66
-            OnSelect: |-
-                =Navigate('Training-CalRSVP', ScreenTransition.Cover);
-                Set(selectedEvent, ThisItem)
+            OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
             Size: =19 * CalendarEventsGallery3_1.TemplateHeight / 105
             TabIndex: =0
             Text: =ThisItem.Subject
@@ -401,4 +399,51 @@
         X: =27
         Y: =32
         ZIndex: =16
+
+    RSVPPopUpContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(245, 246, 247, 1)
+        Height: =362
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =IsSidebarOpen
+        Width: =485
+        X: =82
+        Y: =379
+        ZIndex: =17
+
+        CancelRSVP As button:
+            Height: =57
+            OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+            Size: =24
+            Text: ="Cancel"
+            X: =50
+            Y: =268
+            ZIndex: =2
+
+        RSVP As button:
+            Height: =57
+            Size: =24
+            Text: ="RSVP"
+            X: =273
+            Y: =268
+            ZIndex: =3
+
+        CancelTopRight As label:
+            Align: =Align.Center
+            Height: =192
+            Size: =24
+            Text: ="Would you like to RSVP for this event?"
+            Width: =485
+            Y: =54
+            ZIndex: =4
+
+        Icon11 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+            X: =410
+            Y: =2
+            ZIndex: =5
 

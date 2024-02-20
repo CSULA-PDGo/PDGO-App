@@ -1,101 +1,5 @@
 Trainings As screen:
 
-    Container2 As groupContainer.manualLayoutContainer:
-        Height: =940
-        Width: =Parent.Width
-        Y: =196
-        ZIndex: =1
-
-        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
-            DelayItemLoading: =true
-            Height: =762
-            Items: =MCLETrainings_1
-            Layout: =Layout.Vertical
-            LoadingSpinner: =LoadingSpinner.Data
-            TemplatePadding: =0
-            TemplateSize: =104
-            Y: =40
-            ZIndex: =1
-
-            Image1 As image:
-                Height: =72
-                Image: =ThisItem.VideoIcon
-                OnSelect: =Select(Parent)
-                RadiusBottomLeft: =8
-                RadiusBottomRight: =8
-                RadiusTopLeft: =8
-                RadiusTopRight: =8
-                Width: =72
-                X: =16
-                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                ZIndex: =1
-
-            eDate As label:
-                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                Height: =38
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =18
-                Text: =ThisItem.TrainingEndDay
-                VerticalAlign: =VerticalAlign.Top
-                Width: =424
-                X: =88
-                Y: =66
-                ZIndex: =2
-
-            sDate As label:
-                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                Height: =Self.Size * 1.8
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =18
-                Text: =ThisItem.TrainingStartDate & " - "
-                VerticalAlign: =VerticalAlign.Top
-                Width: =eDate.Width
-                X: =88
-                Y: =37
-                ZIndex: =3
-
-            Separator5 As rectangle:
-                Height: =8
-                OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth
-                Y: =Parent.TemplateHeight - Self.Height
-                ZIndex: =5
-
-            Rectangle2_1 As rectangle:
-                Height: =Parent.TemplateHeight - Separator5.Height
-                OnSelect: =Select(Parent)
-                Visible: =ThisItem.IsSelected
-                Width: =4
-                ZIndex: =6
-
-            Button4 As button:
-                Fill: =RGBA(25, 53, 110, 1)
-                Height: =54
-                OnSelect: =SendEmailAddEvent.Run(ThisItem.TrainingStartDate, ThisItem.TrainingEndDay, User().Email, ThisItem.Training,ThisItem.TrainingType);
-                Size: =24
-                Text: ="Button"
-                Width: =123
-                X: =467
-                Y: =20
-                ZIndex: =7
-
-            Subject As label:
-                Height: =37
-                OnSelect: =Select(Parent)
-                Size: =21
-                Text: =ThisItem.Training
-                Width: =406
-                X: =117
-                ZIndex: =8
-
     RectQuickActionBar2_1 As rectangle:
         Fill: =RGBA(25, 53, 110, 1)
         Height: =88
@@ -223,4 +127,97 @@ Trainings As screen:
         X: =570
         Y: =113
         ZIndex: =11
+
+    Container2 As groupContainer.manualLayoutContainer:
+        Height: =964
+        Width: =Parent.Width
+        Y: =172
+        ZIndex: =12
+
+        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            DelayItemLoading: =true
+            Height: =762
+            Items: =MCLETrainings_1
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =104
+            Y: =40
+            ZIndex: =1
+
+            Image1 As image:
+                Height: =72
+                Image: =ThisItem.VideoIcon
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Width: =72
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            eDate As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =22
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.TrainingEndDay
+                VerticalAlign: =VerticalAlign.Top
+                Width: =424
+                X: =23
+                Y: =58
+                ZIndex: =2
+
+            sDate As label:
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.TrainingStartDate & " - "
+                VerticalAlign: =VerticalAlign.Top
+                Width: =eDate.Width
+                X: =23
+                Y: =37
+                ZIndex: =3
+
+            Separator5 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =5
+
+            Rectangle2_1 As rectangle:
+                Height: =Parent.TemplateHeight - Separator5.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =6
+
+            Button4 As button:
+                Height: =55
+                OnSelect: =SendEmailAddEvent.Run(ThisItem.TrainingStartDate, ThisItem.TrainingEndDay, User().Email, ThisItem.Training,ThisItem.TrainingType);
+                Size: =22
+                Text: ="Add Event"
+                Width: =153
+                X: =447
+                Y: =25
+                ZIndex: =7
+
+            Subject As label:
+                Height: =37
+                OnSelect: =Select(Parent)
+                Size: =21
+                Text: =ThisItem.Training
+                Width: =406
+                X: =16
+                ZIndex: =8
 
