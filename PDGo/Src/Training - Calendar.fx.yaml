@@ -425,7 +425,7 @@
 
         RSVP As button:
             Height: =57
-            OnSelect: =RSVPEvent.Run();
+            OnSelect: =If(RSVPEvent.Run(Subject), Set(varShowSuccess, true))
             Size: =24
             Text: ="RSVP"
             X: =273
@@ -447,4 +447,52 @@
             X: =410
             Y: =2
             ZIndex: =5
+
+    RSVPPopUpConfirmation As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(245, 246, 247, 1)
+        Height: =362
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =varShowSuccess
+        Width: =485
+        X: =82
+        Y: =379
+        ZIndex: =18
+
+        Icon11_1 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+            X: =410
+            Y: =2
+            ZIndex: =5
+
+        iconCircle1_2 As circle.Circle:
+            Fill: =RGBA(25, 53, 110, 1)
+            X: =194
+            Y: =40
+            ZIndex: =6
+
+        iconCheck1_2 As icon.Check:
+            Height: =iconCircle1_2.Height
+            Icon: =Icon.Check
+            PaddingBottom: =Self.PaddingTop
+            PaddingLeft: =Self.PaddingTop
+            PaddingRight: =Self.PaddingTop
+            PaddingTop: =18
+            Width: =iconCircle1_2.Width
+            X: =194
+            Y: =40
+            ZIndex: =7
+
+        LblSuccessMsg1_2 As label:
+            Align: =Align.Center
+            Height: =111
+            Size: =21
+            Text: ="You have successfully RSVP'd to this event"
+            Width: =485
+            Y: =154
+            ZIndex: =8
 

@@ -2,7 +2,10 @@
   <doc title="RSVPEvent" />
   <grammars>
     <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
-      <object name="ManualTriggerInput" />
+      <string name="ManualTriggerInput_GetEvent_Inputs_def" />
+      <object name="ManualTriggerInput">
+        <property name="GetEvent_Inputs" type="string" />
+      </object>
     </jsonTypes>
   </grammars>
   <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/logicflows">
@@ -14,7 +17,9 @@
           <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
             <doc title="The api version" />
           </param>
-          <representation mediaType="application/json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="GetEvent_Inputs" path="/GetEvent_Inputs" type="xs:string" required="true" />
+          </representation>
         </request>
       </method>
     </resource>
