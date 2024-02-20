@@ -172,7 +172,7 @@
         Circle4_1 As circle:
             Fill: |-
                 =If(
-                    EndsWith(Subject, "SAFTEY"),
+                    EndsWith(Subject, ":SAFTEY"),
                     Color.Green,
                     If(
                         EndsWith(Subject, "MCLE"),
