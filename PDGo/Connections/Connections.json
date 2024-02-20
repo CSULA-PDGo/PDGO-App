@@ -48,6 +48,40 @@
     "dependents": [],
     "id": "02ceff66-c97d-4d72-8b73-146b70c0bb35"
   },
+  "2dc43a9f-400a-4621-bee4-53937e0d937d": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "RSVPEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83b83384-5b2d-4222-957d-8710794359fb"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "RSVPEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "83b83384-5b2d-4222-957d-8710794359fb"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "RSVPEvent"
+    ],
+    "dependencies": {
+      "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
+    },
+    "dependents": [],
+    "id": "2dc43a9f-400a-4621-bee4-53937e0d937d"
+  },
   "4e34b6c9-6b53-4553-a47d-09bfd95626ad": {
     "connectionRef": {
       "displayName": "SharePoint",
@@ -103,50 +137,10 @@
     ],
     "dependencies": {},
     "dependents": [
-      "a2c82abb-d2bd-44a8-83eb-596e0eefe394",
-      "c6977cd7-e33a-45a4-b9de-70cdaa00c57b"
+      "c6977cd7-e33a-45a4-b9de-70cdaa00c57b",
+      "2dc43a9f-400a-4621-bee4-53937e0d937d"
     ],
     "id": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-  },
-  "a2c82abb-d2bd-44a8-83eb-596e0eefe394": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
-          "value": "shared_office365"
-        },
-        "workflowDisplayName": {
-          "value": "RSVPEvent"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "83b83384-5b2d-4222-957d-8710794359fb"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_office365": {
-          "value": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-        },
-        "workflowDisplayName": {
-          "value": "RSVPEvent"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "83b83384-5b2d-4222-957d-8710794359fb"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "RSVPEvent"
-    ],
-    "dependencies": {
-      "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-    },
-    "dependents": [],
-    "id": "a2c82abb-d2bd-44a8-83eb-596e0eefe394"
   },
   "b95cc6fb-c45e-4842-8626-f38dffe0d0c6": {
     "appActions": [
@@ -191,6 +185,9 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
+          "value": "shared_office365"
+        },
         "workflowDisplayName": {
           "value": "SendEmailAddEvent"
         },
@@ -200,6 +197,9 @@
         }
       },
       "parameterHintsV2": {
+        "shared_office365": {
+          "value": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
+        },
         "workflowDisplayName": {
           "value": "SendEmailAddEvent"
         },
