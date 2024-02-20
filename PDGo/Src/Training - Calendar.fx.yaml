@@ -172,11 +172,11 @@
         Circle4_1 As circle:
             Fill: |-
                 =If(
-                    EndsWith(Trim(Subject), ":SAFTEY"),
+                    EndsWith(Subject, "Y"),
                     Color.Green,
                     If(
-                        EndsWith(Trim(Subject), "MCLE"),
-                        Color.Red
+                        EndsWith(Subject, "E"),
+                        Color.Blue
                     )
                 )
             Height: =Self.Width
@@ -196,7 +196,15 @@
             ZIndex: =1
 
         Subcircle3_1 As circle:
-            Fill: =RGBA(25, 53, 110, 1)
+            Fill: |-
+                =If(
+                    EndsWith(Subject, "Y"),
+                    Color.Green,
+                    If(
+                        EndsWith(Subject, "E"),
+                        Color.Blue
+                    )
+                )
             Height: =3 * Title9_1.Size
             OnSelect: =Select(Parent)
             Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_1.Visible)
