@@ -188,7 +188,7 @@
             ZIndex: =1
 
         Subcircle3_1 As circle:
-            Fill: =
+            Fill: =Color.Blue
             Height: =3 * Title9_1.Size
             OnSelect: =Select(Parent)
             Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_1.Visible)
