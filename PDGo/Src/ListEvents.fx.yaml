@@ -91,6 +91,14 @@ ListEvents As screen:
             Y: =334
             ZIndex: =7
 
+        sideSeparator As rectangle:
+            Height: =279
+            OnSelect: =Select(Parent)
+            Width: =5
+            X: =23
+            Y: =28
+            ZIndex: =8
+
         btnTemplate As button:
             Fill: =Color.Transparent
             Height: =Parent.TemplateHeight
@@ -102,14 +110,6 @@ ListEvents As screen:
             Width: =Parent.TemplateWidth
             X: =3
             Y: =9
-            ZIndex: =8
-
-        Rectangle4 As rectangle:
-            Height: =279
-            OnSelect: =Select(Parent)
-            Width: =5
-            X: =23
-            Y: =28
             ZIndex: =9
 
     EventsTitle As label:
