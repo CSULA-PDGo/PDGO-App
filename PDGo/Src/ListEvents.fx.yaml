@@ -83,7 +83,7 @@ ListEvents As screen:
 
         Button6 As button:
             Fill: =Color.Transparent
-            Height: =334
+            Height: =Parent.TemplateHeight
             HoverFill: =ColorFade(Self.Fill, -20%)
             OnSelect: =Select(Parent)
             PressedFill: =ColorFade(Self.Fill, -30%)
