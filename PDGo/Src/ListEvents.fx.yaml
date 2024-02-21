@@ -5,6 +5,17 @@ ListEvents As screen:
         Width: =640
         ZIndex: =1
 
+    Gallery2 As gallery.variableTemplateHeightGallery:
+        DelayItemLoading: =true
+        Height: =1036
+        Items: =Courses
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =280
+        Y: =100
+        ZIndex: =1
+
     EventsTitle As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
@@ -16,7 +27,7 @@ ListEvents As screen:
         Y: =15
         ZIndex: =2
 
-    "'Back Button_7' As icon.ArrowLeft":
+    arrowback As icon.ArrowLeft:
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft

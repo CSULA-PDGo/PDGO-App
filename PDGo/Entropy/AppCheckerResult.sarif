@@ -7562,19 +7562,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListEvents.'Back Button_7'.AccessibleLabel"
+                  "fullyQualifiedName": "ListEvents.arrowback.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListEvents.'Back Button_7'.AccessibleLabel",
+                  "fullyQualifiedName": "ListEvents.arrowback.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListEvents",
-                "type": "ListEvents.'Back Button_7'"
+                "type": "ListEvents.arrowback"
               }
             }
           ],
@@ -7592,19 +7592,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListEvents.'Back Button_7'.TabIndex"
+                  "fullyQualifiedName": "ListEvents.arrowback.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListEvents.'Back Button_7'.TabIndex",
+                  "fullyQualifiedName": "ListEvents.arrowback.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "ListEvents",
-                "type": "ListEvents.'Back Button_7'"
+                "type": "ListEvents.arrowback"
               }
             }
           ],
@@ -7616,6 +7616,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListEvents.Gallery2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListEvents.Gallery2.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ListEvents",
+                "type": "ListEvents.Gallery2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListEvents.Gallery2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListEvents.Gallery2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ListEvents",
+                "type": "ListEvents.Gallery2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 9
         },
         {
           "locations": [
