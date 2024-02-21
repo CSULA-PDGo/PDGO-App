@@ -66,6 +66,7 @@
 
         "'TO Request Date Container' As groupContainer.verticalAutoLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.None
             FillPortions: =6
             Height: =0
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -82,6 +83,7 @@
 
             "'StartDate Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
@@ -150,7 +152,7 @@
 
             "'End Date Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
-                Fill: =RGBA(39, 67, 125, 1)
+                DropShadow: =DropShadow.None
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -166,7 +168,7 @@
                 "'TO Request Date Screen End Date Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
-                    Color: =RGBA(255, 255, 255, 1)
+                    Color: =RGBA(26, 26, 26, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
@@ -210,6 +212,7 @@
 
             "'Entire Day Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -358,7 +361,7 @@
                     ZIndex: =3
 
         "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(39, 67, 125, 1)
+            DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -366,7 +369,6 @@
             ZIndex: =3
 
             "'TO Request Date Screen Reason Label' As label":
-                Color: =RGBA(255, 255, 255, 1)
                 Font: =Font.Lato
                 Size: =18
                 Text: ="Reason Code"
@@ -427,6 +429,7 @@
                 ZIndex: =3
 
         "'TO Request Date Screen Equipment Container' As groupContainer.horizontalAutoLayoutContainer":
+            DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
             LayoutMinHeight: =100
