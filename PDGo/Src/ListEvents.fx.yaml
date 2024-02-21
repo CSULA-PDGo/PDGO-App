@@ -12,18 +12,19 @@ ListEvents As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
-        TemplateSize: =280
+        TemplateSize: =318
         Y: =100
         ZIndex: =1
 
         CourseTypeLabel As label:
-            Height: =20
+            Height: =32
             OnSelect: =Select(Parent)
             Size: =21
-            Text: =ThisItem.Title
+            Text: |-
+                ="Course Type:         " & ThisItem.CourseType
             Width: =560
             X: =40
-            Y: =40
+            Y: =80
             ZIndex: =1
 
         CourseTitleLabel As label:
@@ -31,11 +32,33 @@ ListEvents As screen:
             OnSelect: =Select(Parent)
             Size: =21
             Text: |-
-                ="Course Title:       " & ThisItem.CourseTitle
+                ="Course Title:          " & ThisItem.CourseTitle
             Width: =560
             X: =40
-            Y: =60
+            Y: =28
             ZIndex: =2
+
+        CourseTitleLabel_1 As label:
+            Height: =32
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: |-
+                ="Course Title:          " & ThisItem.CourseTitle
+            Width: =560
+            X: =40
+            Y: =188
+            ZIndex: =3
+
+        CourseDateLabel As label:
+            Height: =32
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: |-
+                ="Course Date:          " & ThisItem.CourseDate
+            Width: =560
+            X: =40
+            Y: =132
+            ZIndex: =4
 
     EventsTitle As label:
         Align: =Align.Center
