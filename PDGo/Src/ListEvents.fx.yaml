@@ -8,7 +8,10 @@ ListEvents As screen:
     Gallery2 As gallery.variableTemplateHeightGallery:
         DelayItemLoading: =true
         Height: =1036
-        Items: =Courses
+        Items: |-
+            =Filter(
+                Courses, 
+                StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text))
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
@@ -147,7 +150,7 @@ ListEvents As screen:
         Y: =26
         ZIndex: =5
 
-    TextInput1 As text:
+    searchInput As text:
         Default: =""
         Height: =58
         HintText: ="search"
