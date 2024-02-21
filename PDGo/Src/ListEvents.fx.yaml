@@ -7,7 +7,7 @@ ListEvents As screen:
 
     Gallery2 As gallery.variableTemplateHeightGallery:
         DelayItemLoading: =true
-        Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
+        Height: =1036
         Items: |-
             =Filter(
                 Courses, 
@@ -18,7 +18,7 @@ ListEvents As screen:
         TemplatePadding: =0
         TemplateSize: =344
         Transition: =Transition.Pop
-        Y: =If(filterIcon, 388, 100)
+        Y: =100
         ZIndex: =1
 
         CourseTypeLabel As label:
