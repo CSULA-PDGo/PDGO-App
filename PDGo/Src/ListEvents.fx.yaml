@@ -7,7 +7,7 @@ ListEvents As screen:
 
     Gallery2 As gallery.variableTemplateHeightGallery:
         DelayItemLoading: =true
-        Height: =1036
+        Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |-
             =Filter(
                 Courses, 
@@ -172,7 +172,7 @@ ListEvents As screen:
         Y: =29
         ZIndex: =7
 
-    Rectangle5 As rectangle:
+    filterSectionRectangle As rectangle:
         Fill: =RGBA(130, 146, 179, 1)
         Height: =286
         Visible: =filterIcon
