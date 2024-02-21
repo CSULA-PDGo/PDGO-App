@@ -387,7 +387,7 @@
 
         RSVP As button:
             Height: =57
-            OnSelect: =If(RSVPEvent.Run(Subject), Set(varShowSuccess, true));Set(IsSidebarOpen, !IsSidebarOpen)
+            OnSelect: =If(RSVPEvent.Run(Subject.Text), Set(varShowSuccess, true));Set(IsSidebarOpen, !IsSidebarOpen)
             Size: =24
             Text: ="RSVP"
             X: =273
