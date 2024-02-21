@@ -60,7 +60,8 @@ ListEvents As screen:
             Y: =132
             ZIndex: =4
 
-        Button6 As button:
+        CourseFormatLabel As button:
+            Fill: =Switch(ThisItem.CourseFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
             Height: =52
             OnSelect: =Select(Parent)
             Size: =24
