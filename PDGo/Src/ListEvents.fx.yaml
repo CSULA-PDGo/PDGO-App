@@ -71,7 +71,7 @@ ListEvents As screen:
             Y: =255
             ZIndex: =5
 
-        Label8 As label:
+        CourseStatusLabel As label:
             Color: =Switch(ThisItem.CourseStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
             OnSelect: =Select(Parent)
             Size: =21
@@ -80,6 +80,18 @@ ListEvents As screen:
             X: =364
             Y: =261
             ZIndex: =6
+
+        Button6 As button:
+            Fill: =Color.Transparent
+            Height: =334
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Select(Parent)
+            Size: =24
+            Text: ="Button"
+            Width: =634
+            X: =3
+            Y: =9
+            ZIndex: =7
 
     EventsTitle As label:
         Align: =Align.Center
