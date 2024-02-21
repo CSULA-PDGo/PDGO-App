@@ -12,7 +12,7 @@ ListEvents As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
-        TemplateSize: =362
+        TemplateSize: =344
         Y: =100
         ZIndex: =1
 
@@ -24,7 +24,7 @@ ListEvents As screen:
                 ="Course Type:         " & ThisItem.CourseType
             Width: =560
             X: =40
-            Y: =80
+            Y: =82
             ZIndex: =1
 
         CourseTitleLabel As label:
@@ -46,7 +46,7 @@ ListEvents As screen:
                 ="Presenter:              " & ThisItem.'Presenter/Panelist'
             Width: =560
             X: =40
-            Y: =188
+            Y: =190
             ZIndex: =3
 
         CourseDateLabel As label:
@@ -57,7 +57,7 @@ ListEvents As screen:
                 ="Course Date:         " &"📆 "& ThisItem.CourseDate
             Width: =560
             X: =40
-            Y: =132
+            Y: =135
             ZIndex: =4
 
         CourseFormatLabel As button:
@@ -68,7 +68,7 @@ ListEvents As screen:
             Text: =ThisItem.CourseFormat.Value
             Width: =212
             X: =40
-            Y: =275
+            Y: =255
             ZIndex: =5
 
         Label8 As label:
@@ -77,8 +77,8 @@ ListEvents As screen:
             Size: =21
             Text: =ThisItem.CourseStatus.Value
             Width: =236
-            X: =378
-            Y: =255
+            X: =364
+            Y: =261
             ZIndex: =6
 
     EventsTitle As label:
