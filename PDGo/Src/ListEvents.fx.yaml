@@ -124,7 +124,7 @@ ListEvents As screen:
         Height: =74
         Size: =25
         Text: ="Events"
-        Width: =124
+        Width: =112
         X: =81
         Y: =15
         ZIndex: =2
@@ -160,4 +160,15 @@ ListEvents As screen:
         X: =266
         Y: =23
         ZIndex: =6
+
+    Icon15 As icon.Filter:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.Filter
+        OnSelect: |-
+            =UpdateContext({filterIcon: !filterIcon})
+        Width: =48
+        X: =195
+        Y: =29
+        ZIndex: =7
 
