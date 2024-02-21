@@ -16,6 +16,27 @@ ListEvents As screen:
         Y: =100
         ZIndex: =1
 
+        CourseTypeLabel As label:
+            Height: =20
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.Title
+            Width: =560
+            X: =40
+            Y: =40
+            ZIndex: =1
+
+        CourseTitleLabel As label:
+            Height: =32
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: |-
+                ="Course Title:       " & ThisItem.CourseTitle
+            Width: =560
+            X: =40
+            Y: =60
+            ZIndex: =2
+
     EventsTitle As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
