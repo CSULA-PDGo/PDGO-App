@@ -12,9 +12,6 @@
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =20
-        PaddingLeft: =20
-        PaddingRight: =17.99
-        PaddingTop: =17.99
         Width: =Parent.Width
         ZIndex: =1
 
@@ -75,7 +72,8 @@
             LayoutMinHeight: =300
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            PaddingRight: =0.00
+            PaddingLeft: =20
+            PaddingRight: =20
             PaddingTop: =0.00
             Width: =1326.00
             X: =20.00
@@ -363,9 +361,12 @@
         "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
             DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =20
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingRight: =20
             ZIndex: =3
 
             "'TO Request Date Screen Reason Label' As label":
@@ -388,6 +389,7 @@
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisplayFields: =["Title","Description"]
+                FillPortions: =1
                 Font: =Font.Lato
                 Height: ='TO Request Date Screen Reason Container'.Height
                 HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
@@ -413,7 +415,7 @@
                 Size: =20.24
                 Template: =ListItemTemplate.Double
                 Tooltip: =
-                Width: =Parent.Width*.55
+                Width: =300
                 X: =20.00
                 Y: =380.5
                 ZIndex: =2
@@ -436,6 +438,8 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
+            PaddingLeft: =20
+            PaddingRight: =20
             ZIndex: =4
 
             "'TO Request Date Screen Equipment Label' As label":
