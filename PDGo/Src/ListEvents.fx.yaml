@@ -135,3 +135,14 @@ ListEvents As screen:
         Y: =30
         ZIndex: =4
 
+    Icon14 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =52
+        Icon: =Icon.Search
+        OnSelect: |-
+            =UpdateContext({searchIcon: !searchIcon})
+        Width: =48
+        X: =572
+        Y: =26
+        ZIndex: =5
+
