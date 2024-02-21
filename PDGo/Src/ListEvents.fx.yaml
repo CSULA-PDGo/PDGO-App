@@ -43,7 +43,7 @@ ListEvents As screen:
             OnSelect: =Select(Parent)
             Size: =21
             Text: |-
-                ="Course Title:          " & ThisItem.CourseTitle
+                ="Presenter:              " & ThisItem.'Presenter/Panelist'
             Width: =560
             X: =40
             Y: =188
@@ -54,11 +54,21 @@ ListEvents As screen:
             OnSelect: =Select(Parent)
             Size: =21
             Text: |-
-                ="Course Date:          " & ThisItem.CourseDate
+                ="Course Date:         " &"📆 "& ThisItem.CourseDate
             Width: =560
             X: =40
             Y: =132
             ZIndex: =4
+
+        Button6 As button:
+            Height: =52
+            OnSelect: =Select(Parent)
+            Size: =24
+            Text: =ThisItem.CourseFormat.Value
+            Width: =212
+            X: =51
+            Y: =249
+            ZIndex: =5
 
     EventsTitle As label:
         Align: =Align.Center
