@@ -5,15 +5,24 @@ ListEvents As screen:
         Width: =640
         ZIndex: =1
 
-    Label15_1 As label:
+    EventsTitle As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Font: =Font.Lato
-        Height: =70
+        Height: =74
         Size: =25
         Text: ="Events"
-        Width: =560
-        X: =40
+        X: =81
         Y: =15
         ZIndex: =2
+
+    "'Back Button_7' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.ArrowLeft
+        OnSelect: =Navigate(Profile, ScreenTransition.Cover)
+        Width: =48
+        X: =22
+        Y: =30
+        ZIndex: =4
 
