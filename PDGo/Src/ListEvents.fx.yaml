@@ -12,7 +12,7 @@ ListEvents As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
-        TemplateSize: =318
+        TemplateSize: =362
         Y: =100
         ZIndex: =1
 
@@ -67,9 +67,19 @@ ListEvents As screen:
             Size: =24
             Text: =ThisItem.CourseFormat.Value
             Width: =212
-            X: =51
-            Y: =249
+            X: =40
+            Y: =275
             ZIndex: =5
+
+        Label8 As label:
+            Color: =Switch(ThisItem.CourseStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.CourseStatus.Value
+            Width: =236
+            X: =378
+            Y: =255
+            ZIndex: =6
 
     EventsTitle As label:
         Align: =Align.Center
