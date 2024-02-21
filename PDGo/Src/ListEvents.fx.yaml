@@ -83,7 +83,15 @@ ListEvents As screen:
             Y: =261
             ZIndex: =6
 
-        Button6 As button:
+        separator As rectangle:
+            Height: =2
+            OnSelect: =Select(Parent)
+            Width: =538
+            X: =40
+            Y: =334
+            ZIndex: =7
+
+        btnTemplate As button:
             Fill: =Color.Transparent
             Height: =Parent.TemplateHeight
             HoverFill: =ColorFade(Self.Fill, -20%)
@@ -94,7 +102,7 @@ ListEvents As screen:
             Width: =Parent.TemplateWidth
             X: =3
             Y: =9
-            ZIndex: =7
+            ZIndex: =8
 
     EventsTitle As label:
         Align: =Align.Center
