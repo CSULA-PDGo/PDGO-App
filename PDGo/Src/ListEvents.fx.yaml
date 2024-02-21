@@ -121,6 +121,7 @@ ListEvents As screen:
         Height: =74
         Size: =25
         Text: ="Events"
+        Width: =124
         X: =81
         Y: =15
         ZIndex: =2
@@ -142,7 +143,17 @@ ListEvents As screen:
         OnSelect: |-
             =UpdateContext({searchIcon: !searchIcon})
         Width: =48
-        X: =572
+        X: =585
         Y: =26
         ZIndex: =5
+
+    TextInput1 As text:
+        Default: =""
+        Height: =58
+        HintText: ="search"
+        Size: =21
+        Width: =308
+        X: =266
+        Y: =23
+        ZIndex: =6
 
