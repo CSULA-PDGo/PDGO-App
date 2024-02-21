@@ -11,8 +11,10 @@ ListEvents As screen:
         Items: =Courses
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
         TemplatePadding: =0
         TemplateSize: =344
+        Transition: =Transition.Push
         Y: =100
         ZIndex: =1
 
