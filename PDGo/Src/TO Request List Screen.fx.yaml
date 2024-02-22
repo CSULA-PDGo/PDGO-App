@@ -160,12 +160,12 @@
             DelayItemLoading: =true
             Height: =Parent.Height
             Items: |-
-                =With({
+                =Search(With({
                     SubordinateIDs: ForAll(Subordinates, ThisRecord.ID),
                     Statuses: Status_ComboBox.SelectedItems
                 },
                     Filter(TimeOffRequests, Status.Value in Statuses, Requester in SubordinateIDs)
-                )
+                ), search_input.Text, "Reason")
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =Parent.Width
@@ -173,14 +173,14 @@
             OnSelect: |-
                 =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
             TemplatePadding: =20
-            TemplateSize: =160
+            TemplateSize: =150
             Width: =Parent.Width
             ZIndex: =4
 
             "'TO Request List Screen Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 BorderThickness: =0.5
                 DropShadow: =DropShadow.Semilight
-                Fill: =RGBA(0,0,0,0)
+                Fill: =If(ThisItem.'Created By'.Email = User().Email, RGBA(0,0,0,0.2), RGBA(0,0,0,0))
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =5
@@ -208,7 +208,8 @@
                     FillPortions: =3
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =80
                     LayoutMinWidth: =120
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =2
@@ -240,23 +241,41 @@
                         LayoutMinWidth: =100
                         ZIndex: =3
 
-                "'TO Request List Screen Status Column' As label":
-                    Color: |-
-                        =Switch(ThisItem.StatusCode,
-                            "Pending", RGBA(0, 0, 255, 1),
-                            "Cancelled", RGBA(0, 0, 0, 1),
-                            "Denied", RGBA(200, 0, 0, 1),
-                            "Approved", RGBA(0, 255, 100, 1),
-                            RGBA(0,0,0,1)
-                        )
-                    FillPortions: =1
-                    Font: =Font.Lato
-                    LayoutMinWidth: =60
-                    OnSelect: =
-                    Size: =If('TO Request List Screen'.Size=1,10.24,13)
-                    Text: =ThisItem.Status.Value
-                    Width: =Parent.Width*.20
-                    ZIndex: =3
+                Container4 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.None
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =80
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+                    "'TO Request List Screen Status Column' As label":
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        Color: |-
+                            =Switch(ThisItem.StatusCode,
+                                "Pending", RGBA(0, 0, 255, 1),
+                                "Cancelled", RGBA(0, 0, 0, 1),
+                                "Denied", RGBA(200, 0, 0, 1),
+                                "Approved", RGBA(0, 255, 100, 1),
+                                RGBA(0,0,0,1)
+                            )
+                        Font: =Font.Lato
+                        LayoutMinWidth: =60
+                        OnSelect: =
+                        Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                        Text: =ThisItem.Status.Value
+                        Width: =Parent.Width*.20
+                        ZIndex: =1
+
+                    Label4 As label:
+                        Align: =Align.Center
+                        AutoHeight: =true
+                        LayoutMinWidth: =80
+                        Text: =Concat(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), Reason.Value, ", ")
+                        ZIndex: =2
 
                 Icon4 As icon.NextArrow:
                     FillPortions: =1
@@ -268,5 +287,5 @@
                     PaddingRight: =20
                     PaddingTop: =20
                     Width: =100
-                    ZIndex: =4
+                    ZIndex: =5
 
