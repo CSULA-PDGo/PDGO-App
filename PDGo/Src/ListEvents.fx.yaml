@@ -238,6 +238,7 @@ ListEvents As screen:
             Height: =85
             OnCheck: =Collect(colTaskStatusFilter, ThisItem)
             OnSelect: =Select(Parent)
+            OnUncheck: =Remove(colTaskStatusFilter, ThisItem)
             Size: =19
             Text: =ThisItem.Value
             Width: =222
