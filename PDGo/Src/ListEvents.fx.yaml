@@ -206,10 +206,12 @@ ListEvents As screen:
         ChevronBackground: =RGBA(25, 53, 110, 1)
         DisplayFields: =["Value"]
         Height: =60
+        IsSearchable: =false
         Items: =Choices('Courses'.CourseStatus)
         SearchFields: =["Value"]
-        SearchItems: =Choices(Courses.CourseStatus,ComboBox1.SearchText)
+        SearchItems: =[]
         SelectionFill: =RGBA(25, 53, 110, 1)
+        SelectMultiple: =false
         Size: =21
         Width: =261
         X: =35
