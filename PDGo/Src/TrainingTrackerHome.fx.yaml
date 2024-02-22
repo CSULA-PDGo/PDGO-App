@@ -1,9 +1,216 @@
 TrainingTrackerHome As screen:
 
-    Rectangle4_5 As rectangle:
-        Fill: =RGBA(25, 53, 110, 1)
+    "'User Banner Container_1' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.Semibold
+        Height: =420
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =640
-        ZIndex: =1
+        Y: =20
+        ZIndex: =2
+
+        "'Background Color_10' As rectangle":
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(25, 53, 110, 1)
+            Height: =420
+            Width: =640
+            ZIndex: =1
+
+        "'Back Button_7' As icon.ArrowLeft":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =43
+            Icon: =Icon.ArrowLeft
+            OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
+            Width: =40
+            X: =30
+            Y: =30
+            ZIndex: =2
+
+        "'Edit Button_1' As icon.Edit":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =40
+            Icon: =Icon.Edit
+            OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)
+            Width: =40
+            X: =570
+            Y: =30
+            ZIndex: =3
+
+        "'User Name_2' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =51
+            Size: =26
+            Text: =User().FullName & "'s"
+            Width: =580
+            X: =30
+            Y: =70
+            ZIndex: =4
+
+        "Gallery3_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0'":
+            DelayItemLoading: =true
+            Height: =160
+            Items: =["Team Button", "Contact Button", "Office Button", "Schedule Button", "Supervisor Button"]
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =110
+            Visible: =false
+            Width: =580
+            X: =29
+            Y: =252
+            ZIndex: =21
+
+            Circle2_8 As circle:
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =80
+                OnSelect: |
+                    =false
+                Width: =80
+                X: =26
+                Y: =40
+                ZIndex: =4
+
+            Icon3_2 As icon.People:
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.People
+                OnSelect: |
+                    =false
+                Width: =65
+                X: =26
+                Y: =40
+                ZIndex: =5
+
+            Label3_7 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =26
+                OnSelect: |
+                    =false
+                Size: =14
+                Text: ="Team"
+                Width: =80
+                X: =26
+                Y: =120
+                ZIndex: =6
+
+        "'Team Button_1' As group":
+            Height: =5
+            Width: =5
+            X: =-5
+            Y: =-252
+            ZIndex: =21
+
+            Circle2_1 As circle:
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =80
+                OnSelect: =Navigate(ListEvents, ScreenTransition.CoverRight)
+                Width: =80
+                X: =141
+                Y: =285
+                ZIndex: =6
+
+            Icon3_3 As icon.People:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =36
+                Icon: =Icon.People
+                OnSelect: =Navigate(ListEvents, ScreenTransition.CoverRight)
+                Width: =57
+                X: =152
+                Y: =306
+                ZIndex: =10
+
+            Label3_1 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =26
+                OnSelect: =Navigate(ListEvents, ScreenTransition.CoverRight)
+                Size: =14
+                Text: ="My Events"
+                Width: =102
+                X: =123
+                Y: =368
+                ZIndex: =14
+
+        "'Calendar Button_1' As group":
+            Height: =5
+            Width: =5
+            X: =-5
+            Y: =-252
+            ZIndex: =24
+
+            Circle2_9 As circle:
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =80
+                OnSelect: =Navigate('Training - Calendar', ScreenTransition.CoverRight)
+                Width: =80
+                X: =279
+                Y: =286
+                ZIndex: =8
+
+            Icon6_2 As icon.CalendarBlank:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =37
+                Icon: =Icon.CalendarBlank
+                OnSelect: =Navigate('Training - Calendar', ScreenTransition.CoverRight)
+                Width: =52
+                X: =293
+                Y: =306
+                ZIndex: =12
+
+            Label3_8 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =47
+                OnSelect: =Navigate('Training - Calendar', ScreenTransition.CoverRight)
+                Size: =14
+                Text: ="Training Calendar"
+                Width: =121
+                X: =257
+                Y: =365
+                ZIndex: =16
+
+        "'Settings Button_1' As group":
+            Height: =5
+            Width: =5
+            X: =-356
+            Y: =-190
+            ZIndex: =25
+
+            Circle2_12 As circle:
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =80
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Width: =80
+                X: =434
+                Y: =285
+                ZIndex: =18
+
+            Icon7_3 As icon.Person:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =46
+                Icon: =Icon.Settings
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Width: =43
+                X: =453
+                Y: =304
+                ZIndex: =19
+
+            Label3_12 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =26
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Size: =14
+                Text: |-
+                    ="Settings
+                    "
+                Width: =111
+                X: =418
+                Y: =366
+                ZIndex: =20
 
     HomeTitle As label:
         Align: =Align.Center
@@ -13,18 +220,12 @@ TrainingTrackerHome As screen:
         Size: =25
         Text: ="Training Tracker"
         Width: =474
-        X: =81
-        Y: =15
-        ZIndex: =2
-
-    Button5 As button:
-        Fill: =RGBA(25, 53, 110, 1)
-        Height: =70
-        OnSelect: =Navigate(ListEvents, ScreenTransition.CoverRight)
-        Size: =24
-        Text: ="Events"
-        Width: =280
-        X: =147
-        Y: =348
+        X: =83
+        Y: =127
         ZIndex: =3
+
+    Rectangle4_5 As rectangle:
+        Fill: =RGBA(25, 53, 110, 1)
+        Width: =640
+        ZIndex: =4
 

@@ -76,8 +76,8 @@ ListEvents As screen:
             Size: =24
             Text: =ThisItem.CourseFormat.Value
             Width: =212
-            X: =40
-            Y: =255
+            X: =57
+            Y: =252
             ZIndex: =5
 
         CourseStatusLabel As label:
@@ -86,8 +86,8 @@ ListEvents As screen:
             Size: =21
             Text: =ThisItem.CourseStatus.Value
             Width: =236
-            X: =364
-            Y: =261
+            X: =342
+            Y: =222
             ZIndex: =6
 
         separator As rectangle:
@@ -261,4 +261,23 @@ ListEvents As screen:
         X: =322
         Y: =108
         ZIndex: =14
+
+    Icon17 As icon.CalendarBlank:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.CalendarBlank
+        OnSelect: =Navigate('Training - Calendar', ScreenTransition.Cover)
+        X: =485
+        Y: =20
+        ZIndex: =15
+
+    CourseFormatLabel_1 As button:
+        Fill: =Switch(ThisItem.CourseFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
+        Height: =52
+        OnSelect: =Select(Parent)
+        Size: =24
+        Text: =ThisItem.CourseFormat.Value
+        Width: =212
+        X: =40
+        Y: =255
+        ZIndex: =16
 

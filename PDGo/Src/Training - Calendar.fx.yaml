@@ -20,23 +20,6 @@
         Y: =2
         ZIndex: =2
 
-    iconCalendar3_1 As icon.CalendarBlank:
-        Height: =60
-        Icon: =Icon.CalendarBlank
-        OnSelect: |-
-            =/*resets calendar view and date selection to today*/
-                     
-            Set(_dateSelected, Today());         
-            Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), TimeUnit.Days));         
-            Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
-            Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days))
-        TabIndex: =0
-        Tooltip: ="Reset selected date to today"
-        Width: =60
-        X: =Parent.Width - Self.Width - 37
-        Y: =dropdownCalendarSelection3_1.Y
-        ZIndex: =4
-
     LblMonthSelected3_1 As label:
         Align: =Align.Center
         Font: =Font.Lato
@@ -148,8 +131,9 @@
                 )
             Height: =Self.Width
             OnSelect: =Select(Parent)
-            Visible: |
-                =CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3.Visible && Title9.Visible
+            Visible: |-
+                =/*Visible if calendar events are found on this day*/               
+                CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
             Width: =6.5
             X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
             Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
@@ -491,4 +475,13 @@
         X: =27
         Y: =133
         ZIndex: =19
+
+    Icon16 As icon.OptionsList:
+        Icon: =Icon.OptionsList
+        OnSelect: |-
+            =Navigate(ListEvents,ScreenTransition.Cover
+            )
+        X: =545
+        Y: =133
+        ZIndex: =20
 
