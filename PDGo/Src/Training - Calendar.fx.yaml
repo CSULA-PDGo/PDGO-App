@@ -141,9 +141,7 @@
             Fill: =
             Height: =Self.Width
             OnSelect: =Select(Parent)
-            Visible: |-
-                =/*Visible if calendar events are found on this day*/               
-                CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days), StartsWith(Subject, "Training"))) > 0 && !Subcircle3.Visible && Title9.Visible
+            Visible: =CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days), StartsWith(Lower(Subject), Lower("Training")))) > 0 && !Subcircle3.Visible && Title9.Visible
             Width: =6.5
             X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
             Y: =MonthDayGallery3_1.TemplateHeight * (0.75)

@@ -114,46 +114,6 @@
     "dependents": [],
     "id": "4e34b6c9-6b53-4553-a47d-09bfd95626ad"
   },
-  "93dfce78-d6f1-4374-9936-2993dc6f805a": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "a0b87287-25cd-4c05-bde7-29a7bffe1a26": {
-          "value": "shared_office365"
-        },
-        "workflowDisplayName": {
-          "value": "SendEmailAddEvent"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "bacae102-07d9-4fe8-8430-84704e926635"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_office365": {
-          "value": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-        },
-        "workflowDisplayName": {
-          "value": "SendEmailAddEvent"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "bacae102-07d9-4fe8-8430-84704e926635"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "SendEmailAddEvent"
-    ],
-    "dependencies": {
-      "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
-    },
-    "dependents": [],
-    "id": "93dfce78-d6f1-4374-9936-2993dc6f805a"
-  },
   "94904251-1cb1-4cda-89a3-a0b768efe8bb": {
     "connectionRef": {
       "displayName": "Office 365 Users",
@@ -188,7 +148,7 @@
     "dependencies": {},
     "dependents": [
       "2dc43a9f-400a-4621-bee4-53937e0d937d",
-      "93dfce78-d6f1-4374-9936-2993dc6f805a"
+      "fb01ea2a-715d-49b1-b97b-927ca6ea4bbe"
     ],
     "id": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
   },
@@ -228,5 +188,39 @@
     "dependencies": {},
     "dependents": [],
     "id": "b95cc6fb-c45e-4842-8626-f38dffe0d0c6"
+  },
+  "fb01ea2a-715d-49b1-b97b-927ca6ea4bbe": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "SendEmailAddEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "bacae102-07d9-4fe8-8430-84704e926635"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "SendEmailAddEvent"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "bacae102-07d9-4fe8-8430-84704e926635"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "SendEmailAddEvent"
+    ],
+    "dependencies": {
+      "shared_office365": "a0b87287-25cd-4c05-bde7-29a7bffe1a26"
+    },
+    "dependents": [],
+    "id": "fb01ea2a-715d-49b1-b97b-927ca6ea4bbe"
   }
 }
