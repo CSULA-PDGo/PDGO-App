@@ -80,7 +80,8 @@
                 Color: =RGBA(241, 244, 249, 1)
                 Fill: =RGBA(39, 67, 125, 1)
                 Icon: =Icon.Filter
-                OnSelect: =Set(filter_var,!filter_var)
+                OnSelect: |-
+                    =UpdateContext({filter_visible: !filter_visible})
                 ZIndex: =4
 
             Label21_2 As label:
@@ -94,135 +95,76 @@
                 Visible: ='TO Request Screen'.Size<>1
                 ZIndex: =5
 
-        "'TO Request List Screen Column Names' As groupContainer.horizontalAutoLayoutContainer":
-            DropShadow: =DropShadow.Regular
-            Fill: =RGBA(39, 67, 125, 1)
-            FillPortions: =0
-            Height: =50
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =100
-            LayoutMinWidth: =Parent.Width
-            LayoutMode: =LayoutMode.Auto
-            LayoutWrap: =true
-            RadiusBottomLeft: =0
-            RadiusBottomRight: =0
-            RadiusTopLeft: =0
-            RadiusTopRight: =0
-            ZIndex: =2
-
-            "'TO Request List Screen Requestor Column Label' As label":
-                Color: =RGBA(241, 244, 249, 1)
-                Font: =Font.Lato
-                LayoutMinWidth: =120
-                Size: |
-                    =If('TO Request List Screen'.Size=1,10.24,13)
-                Text: ="Requestor"
-                Width: =Parent.Width*.20
-                ZIndex: =1
-
-            "'TO Request List Screen Status Column Label' As label":
-                Color: =RGBA(241, 244, 249, 1)
-                Font: =Font.Lato
-                HoverFill: =RGBA(214, 223, 238, 1)
-                Size: =If('TO Request List Screen'.Size=1,10.24,13)
-                Text: ="Status"
-                Width: =Parent.Width*.20
-                ZIndex: =2
-
-            "'TO Request List Screen Date Range Column Label' As label":
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Lato
-                Size: =If('TO Request List Screen'.Size=1,10.24,13)
-                Text: ="Date Range"
-                Width: =Parent.Width*.20
-                ZIndex: =3
-
-            "'TO Request List Screen Last Modified Column Label' As label":
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Lato
-                Size: =If('TO Request List Screen'.Size=1,10.24,13)
-                Text: ="Last Modified"
-                Width: =Parent.Width*.20
-                ZIndex: =4
-
-        filter_container As groupContainer.horizontalAutoLayoutContainer:
+        search_Container As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Semibold
             Fill: =RGBA(136, 160, 209, 1)
-            LayoutDirection: =LayoutDirection.Vertical
+            FillPortions: =0
+            Height: =190
+            LayoutGap: =4
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            Visible: =filter_var
+            LayoutWrap: =true
+            PaddingBottom: =5
+            PaddingTop: =5
+            Visible: =filter_visible
             ZIndex: =3
 
-            search_Container As groupContainer.horizontalAutoLayoutContainer:
-                LayoutMinHeight: =100
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutWrap: =true
-                PaddingBottom: =5
-                PaddingTop: =5
+            search_icon As icon.Search:
+                Height: =45
+                Icon: =Icon.Search
+                OnSelect: =
                 ZIndex: =1
 
-                search_icon As icon.Search:
-                    Height: =45
-                    Icon: =Icon.Search
-                    OnSelect: =
-                    ZIndex: =1
+            search_input As text:
+                Default: =
+                DelayOutput: =
+                HintText: ="Search"
+                HoverFill: =RGBA(149, 149, 149, 1)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingTop: =0
+                Width: |
+                    =(Parent.Width-search_icon.Width)-4
+                ZIndex: =2
 
-                search_input As text:
-                    Default: =
-                    DelayOutput: =
-                    HintText: ="Search"
-                    HoverFill: =RGBA(149, 149, 149, 1)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingTop: =0
-                    Width: |
-                        =(Parent.Width-search_icon.Width)-4
-                    ZIndex: =2
+            Status_Label As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Size: =15
+                Text: ="Status"
+                ZIndex: =3
 
-                Status_Label As label:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Size: =15
-                    Text: ="Status"
-                    ZIndex: =3
+            Status_ComboBox As combobox:
+                AlignInContainer: =AlignInContainer.Start
+                DefaultSelectedItems: =["Pending"]
+                DisplayFields: =["Value"]
+                IsSearchable: =false
+                Items: =["Approved","Pending","Denied", "Cancelled"]
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                Width: =(Parent.Width-Status_Label.Width)-4
+                ZIndex: =4
 
-                Status_ComboBox As combobox:
-                    AlignInContainer: =AlignInContainer.Start
-                    DisplayFields: =["Value"]
-                    IsSearchable: =false
-                    Items: =["Approve","Pending","Denied"]
-                    SearchFields: =["Value"]
-                    SearchItems: =[]
-                    Width: =(Parent.Width-Status_Label.Width)-4
-                    ZIndex: =4
+            Date_Label As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Size: =15
+                Text: ="Date"
+                ZIndex: =5
 
-                Date_Label As label:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Size: =15
-                    Text: ="Date"
-                    ZIndex: =5
+            DatePicker1 As datepicker:
+                DefaultDate: |
+                    =Blank()
+                Width: =(Parent.Width-Date_Label.Width)-4
+                ZIndex: =6
 
-                DatePicker1 As datepicker:
-                    DefaultDate: |
-                        =Blank()
-                    Width: =(Parent.Width-Date_Label.Width)-4
-                    ZIndex: =6
-
-                filter As button:
-                    FillPortions: =1
-                    Text: ="FIlter"
-                    ZIndex: =7
-
-                reset As button:
-                    FillPortions: =1
-                    OnSelect: |-
-                        =Reset(search_input);
-                        Reset(Status_ComboBox);
-                        Reset(DatePicker1);
-                    Text: ="Reset"
-                    ZIndex: =8
+            reset As button:
+                FillPortions: =1
+                OnSelect: |-
+                    =Reset(search_input);
+                    Reset(Status_ComboBox);
+                    Reset(DatePicker1);
+                Text: ="Reset"
+                ZIndex: =8
 
         "'TO Request List Screen Gallery' As gallery.galleryVertical":
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -254,6 +196,15 @@
                 Width: =Parent.TemplateWidth
                 ZIndex: =1
 
+                "'TO Request List Screen Date Range Column' As label":
+                    Font: =Font.Lato
+                    OnSelect: |-
+                        =Navigate('Open Request Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
+                    Size: =If('TO Request List Screen'.Size=1,8.24,13)
+                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    Width: =Parent.Width*.20
+                    ZIndex: =1
+
                 "'TO Request List Screen Requestor Column' As label":
                     Font: =Font.Lato
                     LayoutMinWidth: =120
@@ -262,7 +213,7 @@
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.'Created By'.DisplayName
                     Width: =Parent.Width*.20
-                    ZIndex: =1
+                    ZIndex: =2
 
                 "'TO Request List Screen Status Column' As label":
                     Font: =Font.Lato
@@ -270,15 +221,6 @@
                         =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.Status.Value
-                    Width: =Parent.Width*.20
-                    ZIndex: =2
-
-                "'TO Request List Screen Date Range Column' As label":
-                    Font: =Font.Lato
-                    OnSelect: |-
-                        =Navigate('Open Request Screen', ScreenTransition.Cover, {PopUp: true, ApproveRecord: ThisItem});
-                    Size: =If('TO Request List Screen'.Size=1,8.24,13)
-                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
                     Width: =Parent.Width*.20
                     ZIndex: =3
 
