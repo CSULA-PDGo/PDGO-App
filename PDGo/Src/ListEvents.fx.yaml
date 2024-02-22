@@ -12,7 +12,7 @@ ListEvents As screen:
             =Filter(
                 Courses, 
                 StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text),
-                IsBlank(statusDropdown.Selected.Value)|| CourseStatus.Value = statusDropdown.Selected.Value)
+                IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedT) || CourseStatus.Value = statusdrop.Selected.Value
                 
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -182,19 +182,6 @@ ListEvents As screen:
         Y: =100
         ZIndex: =8
 
-    statusDropdown As dropdown:
-        ChevronBackground: =RGBA(25, 53, 110, 1)
-        Default: =""
-        Height: =52
-        Items: =Choices('Courses'.CourseStatus)
-        SelectionFill: =RGBA(25, 53, 110, 1)
-        Size: =21
-        Visible: =filterIcon
-        Width: =244
-        X: =35
-        Y: =168
-        ZIndex: =9
-
     Label8 As label:
         Align: =Align.Center
         Size: =21
@@ -214,4 +201,18 @@ ListEvents As screen:
         X: =450
         Y: =168
         ZIndex: =11
+
+    ComboBox1 As combobox:
+        ChevronBackground: =RGBA(25, 53, 110, 1)
+        DisplayFields: =["Value"]
+        Height: =60
+        Items: =Choices('Courses'.CourseStatus)
+        SearchFields: =["Value"]
+        SearchItems: =Choices(Courses.CourseStatus,ComboBox1.SearchText)
+        SelectionFill: =RGBA(25, 53, 110, 1)
+        Size: =21
+        Width: =261
+        X: =35
+        Y: =160
+        ZIndex: =12
 
