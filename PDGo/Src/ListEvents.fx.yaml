@@ -224,20 +224,22 @@ ListEvents As screen:
 
     Gallery5 As gallery.galleryHorizontal:
         DelayItemLoading: =true
-        Height: =133
+        Height: =139
         Items: =Choices(Courses.CourseFormat)
         LoadingSpinner: =LoadingSpinner.Data
-        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+        TemplateSize: =192
         Visible: =filterIcon
+        Width: =590
+        X: =36
         Y: =242
         ZIndex: =13
 
         Checkbox1 As checkbox:
             Height: =85
+            OnCheck: =Collect(colTaskStatusFilter, ThisItem)
             OnSelect: =Select(Parent)
-            Size: =21
-            Text: =
-            Width: =280
-            X: =9
+            Size: =19
+            Text: =ThisItem.Value
+            Width: =222
             ZIndex: =1
 
