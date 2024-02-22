@@ -565,7 +565,7 @@
         DropShadow: =DropShadow.Bold
         Fill: =RGBA(25, 53, 110, 1)
         Height: =Parent.Height
-        Visible: =!IsSidebarOpen
+        Visible: =IsSidebarOpen
         Width: =Parent.Width/2
         ZIndex: =6
 
@@ -806,7 +806,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Cancel
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-        Visible: =!IsSidebarOpen
+        Visible: =IsSidebarOpen
         X: =27
         Y: =14
         ZIndex: =9
@@ -816,7 +816,7 @@
         Height: =75
         Icon: =Icon.Hamburger
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-        Visible: =IsSidebarOpen
+        Visible: =!IsSidebarOpen
         Width: =100
         X: =9
         Y: =8
