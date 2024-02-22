@@ -47,7 +47,7 @@ ListEvents As screen:
             Y: =28
             ZIndex: =2
 
-        CourseTitleLabel_1 As label:
+        CoursePresenterLabel As label:
             Height: =32
             OnSelect: =Select(Parent)
             Size: =21
@@ -86,8 +86,8 @@ ListEvents As screen:
             Size: =21
             Text: =ThisItem.CourseStatus.Value
             Width: =236
-            X: =342
-            Y: =222
+            X: =384
+            Y: =252
             ZIndex: =6
 
         separator As rectangle:
