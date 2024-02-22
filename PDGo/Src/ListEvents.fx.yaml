@@ -196,7 +196,7 @@ ListEvents As screen:
     ResetButton As button:
         Fill: =RGBA(25, 53, 110, 1)
         Height: =52
-        OnSelect: =Reset(statusDropdown)
+        OnSelect: =Reset(statusDropdown); Clear(colTaskStatusFilter)
         Size: =24
         Text: ="Reset"
         Visible: =filterIcon
