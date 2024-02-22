@@ -12,7 +12,7 @@ ListEvents As screen:
             =Filter(
                 Courses, 
                 StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text),
-                IsBlank(statusDropdown.
+                IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value
                 )
                 
         Layout: =Layout.Vertical
