@@ -243,16 +243,19 @@ ListEvents As screen:
             OnUncheck: =Remove(colTaskStatusFilter, ThisItem)
             Size: =19
             Text: =ThisItem.Value
-            Width: =222
+            Width: =192
             ZIndex: =1
 
     ComboBox1 As combobox:
+        ChevronBackground: =RGBA(25, 53, 110, 1)
         DisplayFields: =["Value"]
         Height: =60
         Items: =Choices(Courses.CourseFormat)
         SearchFields: =["Value"]
         SearchItems: =Choices(Courses.CourseFormat,ComboBox1.SearchText)
+        SelectionFill: =RGBA(25, 53, 110, 1)
         Size: =21
+        Visible: =false
         Width: =293
         X: =322
         Y: =108
