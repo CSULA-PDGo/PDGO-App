@@ -367,6 +367,7 @@
                 Items: =FirstN(MCLETrainings_1,8)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =0
+                LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =0
                 TemplateSize: =92
@@ -439,212 +440,6 @@
             Y: =15
             ZIndex: =6
 
-    SideBarContainer As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Bold
-        Fill: =RGBA(25, 53, 110, 1)
-        Height: =Parent.Height
-        Visible: =IsSidebarOpen
-        Width: =Parent.Width/2
-        ZIndex: =4
-
-        SideBarCont As groupContainer.verticalAutoLayoutContainer:
-            Height: =622
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            Width: =Parent.Width
-            Y: =310
-            ZIndex: =13
-
-            MyProfileCont As groupContainer.horizontalAutoLayoutContainer:
-                Height: =80
-                LayoutMinHeight: =70
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =1
-
-                ProNavFrmHomePageIcon As icon.Person:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Icon: =Icon.Person
-                    OnSelect: =
-                    Y: =356
-                    ZIndex: =1
-
-                ProfileButtonHome As button:
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =60
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate(Profile, ScreenTransition.CoverRight);
-                        
-                        
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =22
-                    Text: ="My Profile"
-                    Width: =Parent.Width -ProNavFrmHomePageIcon.Width
-                    Y: =356
-                    ZIndex: =2
-
-            TrainTrackCont As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                FillPortions: =0
-                Height: =80
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =2
-
-                TrainTrackIcon As icon.DocumentwithContent:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Height: =70
-                    Icon: =Icon.DocumentWithContent
-                    Width: =63
-                    X: =1
-                    Y: =634
-                    ZIndex: =1
-
-                NavToTrainTrack As button:
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =63
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate(TrainingTrackerHome, ScreenTransition.CoverRight);
-                        
-                        
-                    Size: =22
-                    Text: ="Training Tracker"
-                    Width: =Parent.Width - TrainTrackIcon.Width
-                    X: =64
-                    Y: =704
-                    ZIndex: =2
-
-            TimeOffCont As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                Height: =80
-                LayoutMinHeight: =80
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =3
-
-                TimeOffRequestsIcon As icon.DocumentwithContent:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Height: =70
-                    Icon: =Icon.DocumentWithContent
-                    Width: =63
-                    X: =1
-                    Y: =634
-                    ZIndex: =1
-
-                TimeOffRequestsButton As button:
-                    AlignInContainer: =AlignInContainer.Start
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =68
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate('TO Request List Screen', ScreenTransition.CoverRight);
-                        
-                        
-                    Size: =21
-                    Text: ="Time Off Requests"
-                    Width: =Parent.Width - TimeOffRequestsIcon.Width
-                    X: =5
-                    Y: =636
-                    ZIndex: =2
-
-            FacilityReqCont As groupContainer.horizontalAutoLayoutContainer:
-                Height: =80
-                LayoutMinHeight: =80
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                Width: =Parent.Width
-                ZIndex: =4
-
-                FacilityReqIcon As icon.DocumentwithContent:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Height: =70
-                    Icon: =Icon.DocumentWithContent
-                    Y: =564
-                    ZIndex: =1
-
-                "'Facility Request' As button":
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =68
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
-                        
-                        
-                    Size: =22
-                    Text: ="Facility Request"
-                    Width: =Parent.Width - FacilityReqIcon.Width
-                    Y: =2
-                    ZIndex: =2
-
-            mcleCont As groupContainer.horizontalAutoLayoutContainer:
-                Height: =80
-                LayoutMinHeight: =80
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =5
-
-                TrainHomeIcon As icon.Notebook:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Icon: =Icon.Notebook
-                    Y: =6
-                    ZIndex: =1
-
-                TrainingHome As button:
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate(MCLETrainings, ScreenTransition.CoverRight);
-                        
-                        
-                    Size: =25
-                    Text: ="MCLE Training"
-                    Width: =Parent.Width - TrainHomeIcon.Width
-                    Y: =496
-                    ZIndex: =2
-
-            ReqTimeOffCont As groupContainer.horizontalAutoLayoutContainer:
-                Height: =80
-                LayoutMinHeight: =80
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =6
-
-                RTOHomeIcon As icon.DocumentwithContent:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Height: =70
-                    Icon: =Icon.DocumentWithContent
-                    Y: =426
-                    ZIndex: =1
-
-                RTOHome As button:
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate('TO Request Screen', ScreenTransition.CoverRight);
-                        
-                        
-                    Size: =21
-                    Text: ="Request Time Off"
-                    Width: =Parent.Width - RTOHomeIcon.Width
-                    Y: =426
-                    ZIndex: =2
-
     Timer1 As timer:
         AutoPause: =false
         AutoStart: =true
@@ -681,25 +476,7 @@
         Width: =280
         X: =360
         Y: =8
-        ZIndex: =5
-
-    OpenSideBar As icon.Hamburger:
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =75
-        Icon: =Icon.Hamburger
-        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-        Visible: =!IsSidebarOpen
-        Width: =100
-        ZIndex: =6
-
-    CloseSideBar As icon.Cancel:
-        Color: =RGBA(255, 255, 255, 1)
-        Icon: =Icon.Cancel
-        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-        Visible: =IsSidebarOpen
-        X: =18
-        Y: =11
-        ZIndex: =7
+        ZIndex: =4
 
     NotifPanel As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(116, 116, 116, 1)
@@ -718,7 +495,7 @@
             )
         X: =265
         Y: =69
-        ZIndex: =8
+        ZIndex: =5
 
         Cont4Bell As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
@@ -784,6 +561,228 @@
                     Width: =309
                     ZIndex: =1
 
+    SideBarContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(25, 53, 110, 1)
+        Height: =Parent.Height
+        Visible: =!IsSidebarOpen
+        Width: =Parent.Width/2
+        ZIndex: =6
+
+        SideBarCont As groupContainer.verticalAutoLayoutContainer:
+            Height: =622
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            Y: =310
+            ZIndex: =13
+
+            MyProfileCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =70
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =500 + Parent.Width
+                ZIndex: =1
+
+                ProNavFrmHomePageIcon As icon.Person:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Icon: =Icon.Person
+                    OnSelect: =
+                    Y: =356
+                    ZIndex: =1
+
+                ProfileButtonHome As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =60
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate(Profile, ScreenTransition.CoverRight);
+                        
+                        
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =22
+                    Text: ="My Profile"
+                    Width: =Parent.Width -ProNavFrmHomePageIcon.Width
+                    Y: =356
+                    ZIndex: =2
+
+            TrainTrackCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =500 + Parent.Width
+                ZIndex: =2
+
+                TrainTrackIcon As icon.DocumentwithContent:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    Icon: =Icon.DocumentWithContent
+                    Width: =63
+                    X: =1
+                    Y: =634
+                    ZIndex: =1
+
+                NavToTrainTrack As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =63
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate(TrainingTrackerHome, ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =22
+                    Text: ="Training Tracker"
+                    Width: =Parent.Width - TrainTrackIcon.Width
+                    X: =64
+                    Y: =704
+                    ZIndex: =2
+
+            TimeOffCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =80
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: |
+                    =500 + Parent.Width
+                ZIndex: =3
+
+                TimeOffRequestsIcon As icon.DocumentwithContent:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    Icon: =Icon.DocumentWithContent
+                    Width: =63
+                    X: =1
+                    Y: =634
+                    ZIndex: =1
+
+                TimeOffRequestsButton As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =68
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate('TO Request List Screen', ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =21
+                    Text: ="Time Off Requests"
+                    Width: =Parent.Width - TimeOffRequestsIcon.Width
+                    X: =5
+                    Y: =636
+                    ZIndex: =2
+
+            FacilityReqCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =80
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =4
+
+                FacilityReqIcon As icon.DocumentwithContent:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    Icon: =Icon.DocumentWithContent
+                    Y: =564
+                    ZIndex: =1
+
+                "'Facility Request_2' As button":
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =68
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =NewForm('facility-form'); Navigate(FacilityRequest, ScreenTransition.CoverRight)
+                        
+                        
+                    Size: =22
+                    Text: ="Facility Request"
+                    Width: =Parent.Width - FacilityReqIcon.Width
+                    Y: =2
+                    ZIndex: =2
+
+            mcleCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =80
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =5
+
+                TrainHomeIcon As icon.Notebook:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Icon: =Icon.Notebook
+                    Y: =6
+                    ZIndex: =1
+
+                TrainingHome As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate(MCLETrainings, ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =25
+                    Text: ="MCLE Training"
+                    Width: =Parent.Width - TrainHomeIcon.Width
+                    Y: =496
+                    ZIndex: =2
+
+            ReqTimeOffCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =80
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =6
+
+                RTOHomeIcon As icon.DocumentwithContent:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    Icon: =Icon.DocumentWithContent
+                    Y: =426
+                    ZIndex: =1
+
+                RTOHome As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate('TO Request Screen', ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =21
+                    Text: ="Request Time Off"
+                    Width: =Parent.Width - RTOHomeIcon.Width
+                    Y: =426
+                    ZIndex: =2
+
     NotificationIconHP As icon.Bell:
         BorderColor: =RGBA(255, 255, 255, 1)
         Color: =RGBA(255, 255, 255, 1)
@@ -792,7 +791,7 @@
         Visible: =!IsNotifGallery
         X: =554
         Y: =30
-        ZIndex: =9
+        ZIndex: =7
 
     CloseNotifHP As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
@@ -801,5 +800,25 @@
         Visible: =IsNotifGallery
         X: =554
         Y: =35
+        ZIndex: =8
+
+    CloseSideBar As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+        Visible: =!IsSidebarOpen
+        X: =27
+        Y: =14
+        ZIndex: =9
+
+    OpenSideBar As icon.Hamburger:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =75
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+        Visible: =IsSidebarOpen
+        Width: =100
+        X: =9
+        Y: =8
         ZIndex: =10
 
