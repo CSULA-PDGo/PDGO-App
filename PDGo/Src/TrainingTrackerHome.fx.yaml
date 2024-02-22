@@ -256,10 +256,19 @@ TrainingTrackerHome As screen:
         ZIndex: =4
 
     Progress As groupContainer.manualLayoutContainer:
-        Height: =291
+        Height: =541
         Width: =640
-        Y: =845
+        Y: =595
         ZIndex: =6
+
+        Gallery6 As gallery.variableTemplateHeightGallery:
+            DelayItemLoading: =true
+            Height: =541
+            Items: =JoinTrainings
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =536
+            ZIndex: =1
 
         Button3_6 As button:
             BorderColor: =RGBA(221, 224, 227, 1)
@@ -288,7 +297,7 @@ TrainingTrackerHome As screen:
             RadiusTopRight: =4
             Text: =""
             Width: =Parent.Width
-            ZIndex: =1
+            ZIndex: =2
 
         Button2_4 As button:
             BorderColor: =ColorFade(Button2_4.Fill, -15%)
@@ -313,8 +322,8 @@ TrainingTrackerHome As screen:
             RadiusTopRight: =4
             Text: =""
             Width: =Parent.Width
-            Y: =166
-            ZIndex: =2
+            Y: =425
+            ZIndex: =3
 
         Label3_10 As label:
             Align: =Align.Center
@@ -333,7 +342,7 @@ TrainingTrackerHome As screen:
             Text: ="Video Completion"
             Width: =160
             Y: =124
-            ZIndex: =5
+            ZIndex: =4
 
         TasksTopSeperator_1 As rectangle:
             BorderColor: =RGBA(101, 128, 187, 1)
@@ -347,8 +356,8 @@ TrainingTrackerHome As screen:
             PressedFill: =TasksTopSeperator_1.Fill
             Width: =536
             X: =48
-            Y: =269
-            ZIndex: =8
+            Y: =528
+            ZIndex: =5
 
         Button2_2 As button:
             BorderColor: =ColorFade(Button2_2.Fill, -15%)
@@ -373,7 +382,7 @@ TrainingTrackerHome As screen:
             RadiusTopRight: =4
             Text: =""
             Width: =Parent.Width
-            ZIndex: =9
+            ZIndex: =6
 
         Label1_11 As label:
             BorderColor: =RGBA(101, 128, 187, 1)
@@ -391,7 +400,7 @@ TrainingTrackerHome As screen:
             Text: ="Track your Training"
             Width: =Parent.Width
             Y: =26
-            ZIndex: =10
+            ZIndex: =7
 
         Label3_11 As label:
             BorderColor: =RGBA(101, 128, 187, 1)
@@ -411,14 +420,22 @@ TrainingTrackerHome As screen:
             Width: =87
             X: =160
             Y: =154
-            ZIndex: =12
+            ZIndex: =8
 
-        Gallery6 As gallery.variableTemplateHeightGallery:
-            DelayItemLoading: =true
-            Height: =291
-            Items: =JoinTrainings
-            Layout: =Layout.Vertical
-            LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =280
-            ZIndex: =13
+    CourseTypeDropDown As combobox:
+        ChevronBackground: =RGBA(25, 53, 110, 1)
+        DisplayFields: =["CourseTitle"]
+        Height: =60
+        IsSearchable: =false
+        Items: =Courses.CourseTitle
+        SearchFields: =["CourseTitle"]
+        SearchItems: =[]
+        SelectionFill: =RGBA(25, 53, 110, 1)
+        SelectMultiple: =false
+        Size: =21
+        Visible: =filterIcon
+        Width: =261
+        X: =40
+        Y: =487
+        ZIndex: =7
 
