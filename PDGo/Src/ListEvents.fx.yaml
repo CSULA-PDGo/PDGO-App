@@ -236,6 +236,7 @@ ListEvents As screen:
         ZIndex: =13
 
         Checkbox1 As checkbox:
+            CheckboxSize: =50
             Default: =ThisItem in colTaskStatusFilter
             Height: =85
             OnCheck: =Collect(colTaskStatusFilter, ThisItem)
