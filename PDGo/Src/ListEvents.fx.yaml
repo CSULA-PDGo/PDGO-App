@@ -222,3 +222,12 @@ ListEvents As screen:
         Y: =160
         ZIndex: =12
 
+    Gallery5 As gallery.galleryHorizontal:
+        DelayItemLoading: =true
+        Height: =133
+        Items: =Choices(Courses.CourseStatus)
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+        Y: =242
+        ZIndex: =13
+
