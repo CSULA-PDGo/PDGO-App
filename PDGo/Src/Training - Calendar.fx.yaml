@@ -120,25 +120,6 @@
         Y: =WeekdayGallery3_1.Y + WeekdayGallery3_1.Height
         ZIndex: =9
 
-        Circle4_1 As circle:
-            Fill: |-
-                =If(
-                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
-                    Color.Green, // If any event contains "mcle", set color to green
-                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
-                    Color.Red, // If any event contains "safety", set color to red
-                    Color.Black // Default color when no conditions are met
-                )
-            Height: =Self.Width
-            OnSelect: =Select(Parent)
-            Visible: |-
-                =/*Visible if calendar events are found on this day*/               
-                CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
-            Width: =6.5
-            X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
-            Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
-            ZIndex: =1
-
         Subcircle3_1 As circle:
             Fill: =RGBA(214, 223, 238, 1)
             Height: =3 * Title9_1.Size
@@ -147,7 +128,7 @@
             Width: =Self.Height
             X: =MonthDayGallery3_1.TemplateWidth/2 - Self.Width/2
             Y: =MonthDayGallery3_1.TemplateHeight / 2 - Self.Height / 2
-            ZIndex: =2
+            ZIndex: =1
 
         Title9_1 As label:
             Align: =Align.Center
@@ -175,6 +156,25 @@
                  !(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) - Weekday(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days)) + 1 > _lastDayOfMonth)
             Width: =MonthDayGallery3_1.TemplateWidth
             Wrap: =false
+            ZIndex: =2
+
+        Circle4_1 As circle:
+            Fill: |-
+                =If(
+                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
+                    Color.Green, // If any event contains "mcle", set color to green
+                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
+                    Color.Red, // If any event contains "safety", set color to red
+                    Color.Black // Default color when no conditions are met
+                )
+            Height: =Self.Width
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =/*Visible if calendar events are found on this day*/               
+                CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
+            Width: =6.5
+            X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
+            Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
             ZIndex: =3
 
     RectCalendarEventsHeader3_1 As rectangle:
