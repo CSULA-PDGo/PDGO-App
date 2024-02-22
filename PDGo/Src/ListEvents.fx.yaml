@@ -249,6 +249,7 @@ ListEvents As screen:
 
     ComboBox1 As combobox:
         ChevronBackground: =RGBA(25, 53, 110, 1)
+        DefaultSelectedItems: =colTaskStatusFilter.Value
         DisplayFields: =["Value"]
         Height: =60
         Items: =Choices(Courses.CourseFormat)
