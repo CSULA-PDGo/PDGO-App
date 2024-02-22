@@ -13,7 +13,7 @@ ListEvents As screen:
                 Courses, 
                 StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text),
                 IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value,
-                sBlank(.Selected.Value) || IsEmpty(.SelectedItems) || CourseStatus.Value = .Selected.Value
+                IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value in ComboBox1.SelectedItems
                 )
                 
         Layout: =Layout.Vertical
