@@ -205,7 +205,9 @@
                 ZIndex: =1
 
                 "'TO Request List Screen Date Range Column' As label":
+                    FillPortions: =1
                     Font: =Font.Lato
+                    LayoutMinWidth: =80
                     OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
                     Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
@@ -214,10 +216,11 @@
 
                 Container3 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.None
+                    FillPortions: =3
                     LayoutAlignItems: =LayoutAlignItems.Stretch
                     LayoutDirection: =LayoutDirection.Vertical
                     LayoutMinHeight: =100
-                    LayoutMinWidth: =250
+                    LayoutMinWidth: =120
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =2
 
@@ -245,6 +248,7 @@
                     HtmlText1 As htmlViewer:
                         FillPortions: =1
                         HtmlText: ="<center>" & ThisItem.Reason & "</center>"
+                        LayoutMinWidth: =100
                         ZIndex: =3
 
                 "'TO Request List Screen Status Column' As label":
@@ -256,7 +260,9 @@
                             "Approved", RGBA(0, 255, 100, 1),
                             RGBA(0,0,0,1)
                         )
+                    FillPortions: =1
                     Font: =Font.Lato
+                    LayoutMinWidth: =60
                     OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,10.24,13)
                     Text: =ThisItem.Status.Value
@@ -264,6 +270,7 @@
                     ZIndex: =3
 
                 Icon4 As icon.NextArrow:
+                    FillPortions: =1
                     Icon: =Icon.NextArrow
                     OnSelect: |-
                         =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
