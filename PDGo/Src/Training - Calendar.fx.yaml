@@ -448,7 +448,7 @@
     dropdownCalendarSelection3_1 As dropdown:
         Default: =_myCalendar.DisplayName
         Height: =60
-        Items: =Office365Outlook.CalendarGetTables().value
+        Items: =Filter(Office365Outlook.CalendarGetTables().value, 'DisplayName' = "Calendar")
         OnChange: =Select(dropdownCalendarSelection3_1)
         OnSelect: |-
             =/*retrieves calendar events for all days in current month view and selected calendar 
