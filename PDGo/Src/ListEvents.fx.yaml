@@ -11,7 +11,9 @@ ListEvents As screen:
         Items: |-
             =Filter(
                 Courses, 
-                StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text))
+                StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseID, searchInput.Text) || StartsWith(CourseType,searchInput.Text),
+                IsBlank(statusDropdown.Selected.Value)|| CourseStatus.Value = statusDropdown.Selected.Value)
+                
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
@@ -180,16 +182,16 @@ ListEvents As screen:
         Y: =100
         ZIndex: =8
 
-    Dropdown1 As dropdown:
+    statusDropdown As dropdown:
         ChevronBackground: =RGBA(25, 53, 110, 1)
-        Height: =60
+        Height: =52
         Items: =Choices('Courses'.CourseStatus)
         SelectionFill: =RGBA(25, 53, 110, 1)
         Size: =21
         Visible: =filterIcon
-        Width: =259
+        Width: =244
         X: =22
-        Y: =160
+        Y: =168
         ZIndex: =9
 
     Label8 As label:
