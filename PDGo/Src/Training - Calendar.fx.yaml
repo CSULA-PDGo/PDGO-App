@@ -138,10 +138,22 @@
         ZIndex: =9
 
         Circle4_1 As circle:
-            Fill: =
+            Fill: |-
+                =If(
+                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
+                    Color.Green, // If any event contains "mcle", set color to green
+                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
+                    Color.Red, // If any event contains "safety", set color to red
+                    Color.Black // Default color when no conditions are met
+                )
             Height: =Self.Width
             OnSelect: =Select(Parent)
-            Visible: =CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3.Visible && Title9.Visible
+            Visible: |+
+                =CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3.Visible && Title9.Visible
+                
+                
+                
+                
             Width: =6.5
             X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
             Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
@@ -249,14 +261,11 @@
             BorderColor: =Self.Color
             Color: |-
                 =If(
-                    EndsWith(ThisItem.Subject, " SAFTEY"),
-                    Color.Green,
-                    If(
-                        EndsWith(ThisItem.Subject, "MCLE"),
-                        Color.Blue,
-                        
-                        Color.Black
-                    )
+                    "mcle" in Lower(ThisItem.Subject), 
+                    Color.Green, // Sets color to green if "mcle" is contained in the subject
+                    "safety" in Lower(ThisItem.Subject), 
+                    Color.Red, // Sets color to red if "safety" is contained in the subject
+                    Color.Black // Fallback color if none of the conditions are met
                 )
             FocusedBorderThickness: =2
             Font: =Font.Lato
