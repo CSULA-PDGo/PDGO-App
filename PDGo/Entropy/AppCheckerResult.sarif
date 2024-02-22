@@ -24,7 +24,7 @@
                 },
                 "region": {
                   "charLength": 13,
-                  "charOffset": 125,
+                  "charOffset": 123,
                   "snippet": {
                     "text": "GetMods.Run()"
                   }
@@ -65,7 +65,7 @@
                 },
                 "region": {
                   "charLength": 12,
-                  "charOffset": 806,
+                  "charOffset": 804,
                   "snippet": {
                     "text": ".jsonstrings"
                   }
@@ -102,7 +102,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 1977,
+                  "charOffset": 1975,
                   "snippet": {
                     "text": "="
                   }
@@ -143,7 +143,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2255,
+                  "charOffset": 2253,
                   "snippet": {
                     "text": "="
                   }
@@ -184,7 +184,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2536,
+                  "charOffset": 2534,
                   "snippet": {
                     "text": "="
                   }
@@ -225,7 +225,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 2822,
+                  "charOffset": 2820,
                   "snippet": {
                     "text": "="
                   }
@@ -266,7 +266,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3107,
+                  "charOffset": 3105,
                   "snippet": {
                     "text": "="
                   }
@@ -307,7 +307,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3393,
+                  "charOffset": 3391,
                   "snippet": {
                     "text": "="
                   }
@@ -348,7 +348,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3675,
+                  "charOffset": 3673,
                   "snippet": {
                     "text": "="
                   }
@@ -389,7 +389,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 3952,
+                  "charOffset": 3950,
                   "snippet": {
                     "text": "="
                   }
@@ -430,7 +430,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 4238,
+                  "charOffset": 4236,
                   "snippet": {
                     "text": "="
                   }
@@ -471,7 +471,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 4524,
+                  "charOffset": 4522,
                   "snippet": {
                     "text": "="
                   }
@@ -496,80 +496,6 @@
           },
           "ruleId": "app-ErrIncompatibleTypesForEquality-Left-Right",
           "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Home Screen'.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Home Screen'.OnVisible",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 28,
-                  "charOffset": 236,
-                  "snippet": {
-                    "text": "UpdateContext({items: var1})"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Home Screen",
-                "type": "'Home Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrIncompatibleCtxtVariableTypes",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Home Screen'.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Home Screen'.OnVisible",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 34,
-                  "charOffset": 106,
-                  "snippet": {
-                    "text": "Set(\n    var1,\n    GetMods.Run()\n)"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Home Screen",
-                "type": "'Home Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrIncompatibleCtxtVariableTypes",
-          "ruleIndex": 3
         },
         {
           "locations": [
@@ -10164,17 +10090,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.IsSidebarNotOpen"
+                  "fullyQualifiedName": "App.UserData"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.IsSidebarNotOpen",
+                  "fullyQualifiedName": "App.UserData",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "IsSidebarNotOpen",
+                "member": "UserData",
                 "module": "App",
                 "type": "App"
               }
@@ -10194,17 +10120,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.UserData"
+                  "fullyQualifiedName": "App.IsSidebarNotOpen"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.UserData",
+                  "fullyQualifiedName": "App.IsSidebarNotOpen",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "UserData",
+                "member": "IsSidebarNotOpen",
                 "module": "App",
                 "type": "App"
               }
