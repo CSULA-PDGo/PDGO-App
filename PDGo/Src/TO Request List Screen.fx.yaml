@@ -180,7 +180,7 @@
             "'TO Request List Screen Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 BorderThickness: =0.5
                 DropShadow: =DropShadow.Semilight
-                Fill: =If(ThisItem.'Created By'.Email = User().Email, RGBA(0,0,0,0.2), RGBA(0,0,0,0))
+                Fill: =If(ThisItem.'Created By'.Email = User().Email, RGBA(0,0,0,0.1), RGBA(0,0,0,0))
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =5
@@ -275,7 +275,7 @@
                         Align: =Align.Center
                         AutoHeight: =true
                         LayoutMinWidth: =80
-                        Text: =Concat(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), Reason.Value, ", ")
+                        Text: =Concat(Filter(TimeOffRequestDays, ThisItem.ID = Request.Id), Reason.Value, ", ")
                         ZIndex: =2
 
                 Icon4 As icon.NextArrow:
