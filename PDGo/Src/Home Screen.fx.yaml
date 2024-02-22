@@ -299,17 +299,6 @@
             Width: =640
             ZIndex: =1
 
-        ProNavFrmHomePage As icon.Person:
-            Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Person
-            OnSelect: |+
-                =Navigate(Profile, ScreenTransition.CoverRight);
-                
-                
-            X: =556
-            Y: =370
-            ZIndex: =2
-
     UpcomingFeed As groupContainer.manualLayoutContainer:
         Height: =702
         Width: =Parent.Width 
@@ -367,98 +356,54 @@
             Y: =67
             ZIndex: =5
 
-            "Feed As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
+            "Feed As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
                 AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(202, 202, 202, 1)
                 BorderThickness: =5
                 DelayItemLoading: =true
                 FillPortions: =0
-                Height: =Parent.Height
+                Height: |
+                    =Parent.Height + 200
                 Items: =FirstN(MCLETrainings_1,8)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =0
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =0
-                TemplateSize: =116
+                TemplateSize: =92
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Image2 As image:
+                Image3 As image:
                     DisplayMode: =DisplayMode.View
-                    Height: =84
+                    Height: =88
                     Image: =ThisItem.VideoIcon
                     OnSelect: =Select(Parent)
                     RadiusBottomLeft: =8
                     RadiusBottomRight: =8
                     RadiusTopLeft: =8
                     RadiusTopRight: =8
-                    Width: =84
+                    Width: =132
                     X: =16
                     Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
                     ZIndex: =1
 
-                Title2 As label:
+                Title4 As label:
+                    Align: =Align.Center
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =Self.Size * 1.8
+                    Height: =59
                     OnSelect: =Select(Parent)
                     Overflow: =Overflow.Scroll
                     PaddingBottom: =0
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
-                    Size: =12
+                    Size: =22
                     Text: =ThisItem.Training
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.TemplateWidth - 185
-                    X: =115
-                    Y: =(Parent.TemplateHeight - (Self.Size*1.8 + Subtitle2.Size*1.8 + 2 + Body1.Size*1.8)) / 2
+                    Width: =308
+                    X: =222
+                    Y: =32
                     ZIndex: =2
-
-                Subtitle2 As label:
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =Self.Size * 1.8
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =ThisItem.TrainingType
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =Title2.Width
-                    X: =Title2.X
-                    Y: =Title2.Y + Title2.Height
-                    ZIndex: =3
-
-                Body1 As label:
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =Self.Size * 1.8
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =ThisItem.Title
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =Subtitle2.Width
-                    X: =Title2.X
-                    Y: =Subtitle2.Y + Subtitle2.Height
-                    ZIndex: =4
-
-                NextArrow2 As icon.ChevronRight:
-                    AccessibleLabel: =Self.Tooltip
-                    Color: =RGBA(166, 166, 166, 1)
-                    Height: =50
-                    Icon: =Icon.ChevronRight
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =16
-                    PaddingLeft: =16
-                    PaddingRight: =16
-                    PaddingTop: =16
-                    Tooltip: ="View item details"
-                    Width: =50
-                    X: =Parent.TemplateWidth - Self.Width - 12
-                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                    ZIndex: =5
 
                 Separator2 As rectangle:
                     Fill: =RGBA(237, 237, 237, 1)
@@ -466,14 +411,14 @@
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth
                     Y: =Parent.TemplateHeight - Self.Height
-                    ZIndex: =6
+                    ZIndex: =4
 
                 Rectangle2 As rectangle:
                     Height: =Parent.TemplateHeight - Separator2.Height
                     OnSelect: =Select(Parent)
                     Visible: =ThisItem.IsSelected
                     Width: =4
-                    ZIndex: =7
+                    ZIndex: =5
 
         FeedTitle As label:
             Align: =Align.Center
@@ -526,13 +471,17 @@
 
                 ProfileButtonHome As button:
                     Fill: =RGBA(27, 49, 89, 1)
-                    Height: =70
+                    Height: =60
                     LayoutMinHeight: =70
                     LayoutMinWidth: =280
                     OnSelect: |+
                         =Navigate(Profile, ScreenTransition.CoverRight);
                         
                         
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Size: =22
                     Text: ="My Profile"
                     Width: =Parent.Width -ProNavFrmHomePageIcon.Width
@@ -751,4 +700,106 @@
         X: =18
         Y: =11
         ZIndex: =7
+
+    NotifPanel As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =1
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =654
+        Visible: =IsNotifGallery
+        Width: |-
+            =Parent.Width *
+            Switch(
+                Parent.Size,
+                ScreenSize.Small, 0.5,
+                ScreenSize.Medium, 0.3,
+                0.25
+            )
+        X: =265
+        Y: =69
+        ZIndex: =8
+
+        Cont4Bell As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =NotifPanel.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            Width: =NotifPanel.Width
+            ZIndex: =1
+
+            Title3 As label:
+                FontWeight: =
+                Height: =91
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =18
+                Text: |-
+                    =If(
+                        isAdmin,
+                        "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" ) & " new notifications",
+                        "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" && "AttName" = "FullName" && ReqID in Split(IDs, ",")) & " new notifications")
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Cont4Bell.Width
+                ZIndex: =1
+
+            "BellGallery As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DelayItemLoading: =true
+                Items: =FirstN(JoinTimeUserMCLETrain,3)
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =4
+                TemplateSize: =Min(870, Self.Height - 60)
+                Width: =Cont4Bell.Width
+                ZIndex: =2
+
+                Title3_1 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =91
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: |+
+                        =User().FullName & " has submitted a  " & ThisItem.Stat4FacilityReq.Value & " Facility request"
+                        
+                        
+                        /*If(
+                            isAdmin,
+                            "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending") & " new notifications",
+                            "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" && AttName in FullNameColumn && ReqID in Split(IDs, ",")) & " new notifications"
+                        )*/
+                        
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =309
+                    ZIndex: =1
+
+    NotificationIconHP As icon.Bell:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Bell
+        OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
+        Visible: =!IsNotifGallery
+        X: =554
+        Y: =30
+        ZIndex: =9
+
+    CloseNotifHP As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
+        Visible: =IsNotifGallery
+        X: =554
+        Y: =35
+        ZIndex: =10
 
