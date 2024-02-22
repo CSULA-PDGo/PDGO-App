@@ -636,15 +636,6 @@ TrainingTrackerHome As screen:
                     Y: =426
                     ZIndex: =2
 
-    CloseNotifHP_1 As icon.Cancel:
-        Color: =RGBA(255, 255, 255, 1)
-        Icon: =Icon.Cancel
-        OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
-        Visible: =IsNotifGallery
-        X: =554
-        Y: =35
-        ZIndex: =10
-
     CloseSideBar_1 As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Cancel
@@ -653,4 +644,34 @@ TrainingTrackerHome As screen:
         X: =27
         Y: =14
         ZIndex: =11
+
+    CloseNotifHP_2 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Cancel
+        OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
+        Visible: =IsNotifGallery
+        X: =557
+        Y: =36
+        ZIndex: =12
+
+    NotificationIconHP_1 As icon.Bell:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Bell
+        OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
+        Visible: =!IsNotifGallery
+        X: =554
+        Y: =30
+        ZIndex: =13
+
+    OpenSideBar_1 As icon.Hamburger:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =75
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
+        Visible: =IsSidebarOpen
+        Width: =100
+        X: =9
+        Y: =8
+        ZIndex: =14
 
