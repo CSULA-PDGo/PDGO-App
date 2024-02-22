@@ -7,6 +7,7 @@ TrainingTrackerHome As screen:
                 {
                     ID: ID,
                     Training: Training,
+                    TrainingType: TrainingType,
                     TrainingID: LookUp(
                         MCLETrainingAttendance,
                         "TrainingID" = "TrainingID",
@@ -424,18 +425,17 @@ TrainingTrackerHome As screen:
 
     CourseTypeDropDown As combobox:
         ChevronBackground: =RGBA(25, 53, 110, 1)
-        DisplayFields: =["CourseTitle"]
-        Height: =60
+        DisplayFields: =["CourseType"]
+        Height: =65
         IsSearchable: =false
-        Items: =Courses.CourseTitle
-        SearchFields: =["CourseTitle"]
+        Items: =Courses.CourseType
+        SearchFields: =["CourseType"]
         SearchItems: =[]
         SelectionFill: =RGBA(25, 53, 110, 1)
         SelectMultiple: =false
         Size: =21
-        Visible: =filterIcon
-        Width: =261
-        X: =40
-        Y: =487
+        Width: =561
+        X: =39
+        Y: =508
         ZIndex: =7
 
