@@ -187,6 +187,7 @@ ListEvents As screen:
         Align: =Align.Center
         Size: =21
         Text: ="Status"
+        Visible: =filterIcon
         Width: =203
         X: =35
         Y: =110
@@ -198,6 +199,7 @@ ListEvents As screen:
         OnSelect: =Reset(statusDropdown)
         Size: =24
         Text: ="Reset"
+        Visible: =filterIcon
         Width: =165
         X: =450
         Y: =168
@@ -214,6 +216,7 @@ ListEvents As screen:
         SelectionFill: =RGBA(25, 53, 110, 1)
         SelectMultiple: =false
         Size: =21
+        Visible: =filterIcon
         Width: =261
         X: =35
         Y: =160
