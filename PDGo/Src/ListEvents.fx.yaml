@@ -228,6 +228,7 @@ ListEvents As screen:
         Items: =Choices(Courses.CourseStatus)
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(320, Self.Width - 60), Min(320, Self.Height - 60))
+        Visible: =filterIcon
         Y: =242
         ZIndex: =13
 
