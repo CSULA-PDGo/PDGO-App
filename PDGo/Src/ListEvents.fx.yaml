@@ -174,9 +174,19 @@ ListEvents As screen:
 
     filterSectionRectangle As rectangle:
         Fill: =RGBA(130, 146, 179, 1)
-        Height: =286
+        Height: =312
         Visible: =filterIcon
         Width: =640
         Y: =100
         ZIndex: =8
+
+    Dropdown1 As dropdown:
+        Height: =60
+        Items: =DropDownSample
+        Size: =21
+        Visible: =filterIcon
+        Width: =259
+        X: =22
+        Y: =160
+        ZIndex: =9
 
