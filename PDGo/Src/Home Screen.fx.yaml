@@ -682,6 +682,35 @@
             Y: =310
             ZIndex: =13
 
+            MyProfileCont As groupContainer.horizontalAutoLayoutContainer:
+                Height: =225
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                ProNavFrmHomePageIcon As icon.Person:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Icon: =Icon.Person
+                    OnSelect: =
+                    Y: =356
+                    ZIndex: =1
+
+                ProfileButtonHome As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate(Profile, ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =22
+                    Text: ="My Profile"
+                    Width: =Parent.Width -ProNavFrmHomePageIcon.Width
+                    Y: =356
+                    ZIndex: =2
+
             TrainTrackCont As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
                 FillPortions: =0
@@ -690,7 +719,7 @@
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
-                ZIndex: =3
+                ZIndex: =2
 
                 TrainTrackIcon As icon.DocumentwithContent:
                     Color: =RGBA(255, 255, 255, 1)
@@ -724,7 +753,7 @@
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
-                ZIndex: =4
+                ZIndex: =3
 
                 TimeOffRequestsIcon As icon.DocumentwithContent:
                     Color: =RGBA(255, 255, 255, 1)
@@ -758,7 +787,7 @@
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 Width: =Parent.Width
-                ZIndex: =5
+                ZIndex: =4
 
                 FacilityReqIcon As icon.DocumentwithContent:
                     Color: =RGBA(255, 255, 255, 1)
@@ -787,7 +816,7 @@
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =6
+                ZIndex: =5
 
                 TrainHomeIcon As icon.Notebook:
                     Color: =RGBA(255, 255, 255, 1)
@@ -815,7 +844,7 @@
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
-                ZIndex: =7
+                ZIndex: =6
 
                 RTOHomeIcon As icon.DocumentwithContent:
                     Color: =RGBA(255, 255, 255, 1)
@@ -837,35 +866,6 @@
                     Text: ="Request Time Off"
                     Width: =Parent.Width - RTOHomeIcon.Width
                     Y: =426
-                    ZIndex: =2
-
-            MyProfileCont As groupContainer.horizontalAutoLayoutContainer:
-                Height: =225
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                ZIndex: =8
-
-                ProNavFrmHomePageIcon As icon.Person:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Icon: =Icon.Person
-                    OnSelect: =
-                    Y: =356
-                    ZIndex: =1
-
-                ProfileButtonHome As button:
-                    Fill: =RGBA(27, 49, 89, 1)
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    OnSelect: |+
-                        =Navigate(Profile, ScreenTransition.CoverRight);
-                        
-                        
-                    Size: =22
-                    Text: ="My Profile"
-                    Width: =Parent.Width -ProNavFrmHomePageIcon.Width
-                    Y: =356
                     ZIndex: =2
 
     Timer1 As timer:
