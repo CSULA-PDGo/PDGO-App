@@ -64,7 +64,7 @@
             filter_details As icon.Filter:
                 Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.Filter
-                OnSelect: =Set(filter2,!filter)
+                OnSelect: =Set(filter2,!filter.Pressed)
                 ZIndex: =3
 
             Label21_3 As label:
