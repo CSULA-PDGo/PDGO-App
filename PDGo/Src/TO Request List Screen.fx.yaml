@@ -239,6 +239,7 @@
                         FillPortions: =1
                         HtmlText: ="<center>" & ThisItem.Reason & "</center>"
                         LayoutMinWidth: =100
+                        Visible: =!IsBlank(PlainText(Self.HtmlText))
                         ZIndex: =3
 
                 Container4 As groupContainer.verticalAutoLayoutContainer:
