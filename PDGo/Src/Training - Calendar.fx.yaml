@@ -497,7 +497,7 @@
         AutoPause: =false
         AutoStart: =true
         DisplayMode: =DisplayMode.View
-        Duration: =3000
+        Duration: =300
         Height: =70
         OnTimerEnd: |
             =UpdateContext({items:GetMods.Run()});
@@ -525,7 +525,6 @@
             If( UType = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "User Type"}));  
             If( Author = true, Collect(af2, { FullN: LookUp(Users,  ID = uID, 'Full Name'), varName: "Author"}));         );
         Repeat: =true
-        Visible: =false
         Width: =280
         X: =360
         Y: =8
