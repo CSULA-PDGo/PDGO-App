@@ -117,7 +117,7 @@
         Visible: =_calendarVisible
         Width: =Parent.Width
         WrapCount: =7
-        Y: =WeekdayGallery3_1.Y + WeekdayGallery3_1.Height
+        Y: =351
         ZIndex: =9
 
         Subcircle3_1 As circle:
@@ -499,13 +499,18 @@
         DisplayMode: =DisplayMode.View
         Duration: =300
         Height: =70
-        OnTimerEnd: |
-            =UpdateContext({items:MyCalendarEvents});
+        OnTimerEnd: |-
+            =UpdateContext({
+                MyCalendarEvents: Office365Outlook.GetEventsCalendarViewV2(
+                    "Calendar",
+                    "2018-01-01T00:00:00Z", 
+                    Text(Now(), "yyyy-MM-ddTHH:mm:ssZ")
+                ).value
+            }); 
         OnTimerStart: =true
         Repeat: =true
         Start: =true
         Width: =280
-        X: =360
-        Y: =8
+        Y: =555
         ZIndex: =22
 
