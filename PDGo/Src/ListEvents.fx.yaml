@@ -181,12 +181,23 @@ ListEvents As screen:
         ZIndex: =8
 
     Dropdown1 As dropdown:
+        ChevronBackground: =RGBA(25, 53, 110, 1)
         Height: =60
-        Items: =DropDownSample
+        Items: =Choices('Courses'.CourseStatus)
+        SelectionFill: =RGBA(25, 53, 110, 1)
         Size: =21
         Visible: =filterIcon
         Width: =259
         X: =22
         Y: =160
         ZIndex: =9
+
+    Label8 As label:
+        Align: =Align.Center
+        Size: =21
+        Text: ="Status"
+        Width: =203
+        X: =35
+        Y: =110
+        ZIndex: =10
 
