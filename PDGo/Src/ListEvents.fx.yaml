@@ -22,7 +22,7 @@ ListEvents As screen:
         TemplatePadding: =0
         TemplateSize: =344
         Transition: =Transition.Pop
-        Y: =100
+        Y: =If(filterIcon, 100 + filterSectionRectangle.Height, 100)
         ZIndex: =1
 
         CourseTypeLabel As label:
