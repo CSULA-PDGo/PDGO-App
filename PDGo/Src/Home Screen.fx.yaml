@@ -311,65 +311,10 @@
             ZIndex: =2
 
     UpcomingFeed As groupContainer.manualLayoutContainer:
-        Height: =Parent.Height/3
+        Height: =702
         Width: =Parent.Width 
         Y: =BannerLogoHomeScreen.Height
         ZIndex: =3
-
-        BkGrnd4Upcoming As button:
-            BorderColor: =RGBA(221, 224, 227, 1)
-            Color: =RGBA(255,255,255,1)
-            DisabledBorderColor: =ColorFade(BkGrnd4Upcoming.BorderColor, 70%)
-            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-            DisplayMode: =DisplayMode.View
-            Fill: =RGBA(255, 255, 255, 1)
-            FocusedBorderColor: =BkGrnd4Upcoming.BorderColor
-            FocusedBorderThickness: =0
-            Height: =378.6666666666667
-            HoverBorderColor: =ColorFade(BkGrnd4Upcoming.BorderColor, 20%)
-            HoverColor: =BkGrnd4Upcoming.Color
-            HoverFill: =ColorFade(BkGrnd4Upcoming.Fill, 20%)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            PressedBorderColor: =BkGrnd4Upcoming.Fill
-            PressedColor: =BkGrnd4Upcoming.Fill
-            PressedFill: =BkGrnd4Upcoming.Color
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Text: =""
-            Width: =UpcomingFeed.Width
-            ZIndex: =1
-
-        FeedFooter As button:
-            BorderColor: =ColorFade(FeedFooter.Fill, -15%)
-            Color: =RGBA(255,255,255,1)
-            DisabledBorderColor: =ColorFade(FeedFooter.BorderColor, 70%)
-            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-            DisplayMode: =DisplayMode.View
-            Fill: =RGBA(245, 247, 249, 1)
-            FocusedBorderColor: =FeedFooter.BorderColor
-            FocusedBorderThickness: =0
-            Height: =73
-            HoverBorderColor: =ColorFade(FeedFooter.BorderColor, 20%)
-            HoverColor: =FeedFooter.Color
-            HoverFill: =ColorFade(FeedFooter.Fill, 20%)
-            PressedBorderColor: =FeedFooter.Fill
-            PressedColor: =FeedFooter.Fill
-            PressedFill: =FeedFooter.Color
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Text: =""
-            Width: =UpcomingFeed.Width
-            Y: =305.6666666666667
-            ZIndex: =2
 
         Rectangle2_4 As rectangle:
             BorderColor: =RGBA(101, 128, 187, 1)
@@ -412,7 +357,7 @@
             ZIndex: =4
 
         Cont4Feeds As groupContainer.horizontalAutoLayoutContainer:
-            Height: =311
+            Height: =311 + UpcomingFeed.Height
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowX: =LayoutOverflow.Scroll
@@ -422,44 +367,39 @@
             Y: =67
             ZIndex: =5
 
-            "Feed As gallery.'BrowseLayout_Vertical_TwoTextOneImageTwoColumnOverlayVariant_ver5.0'":
-                AlignInContainer: =AlignInContainer.SetByContainer
+            "Feed As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.Center
                 BorderColor: =RGBA(202, 202, 202, 1)
                 BorderThickness: =5
                 DelayItemLoading: =true
-                Height: =500
-                Items: =FirstN(MCLETrainings_1,4)
+                FillPortions: =0
+                Height: =Parent.Height
+                Items: =FirstN(MCLETrainings_1,8)
                 Layout: =Layout.Vertical
-                LayoutMinHeight: =287
-                LayoutMinWidth: =320
+                LayoutMinHeight: =0
                 LoadingSpinner: =LoadingSpinner.Data
-                TemplatePadding: =4
-                TemplateSize: =Min(320, Self.Height - 60)
-                Width: =500
-                WrapCount: =2
+                TemplatePadding: =0
+                TemplateSize: =116
+                Width: =Parent.Width
                 ZIndex: =1
 
-                Image7 As image:
+                Image2 As image:
                     DisplayMode: =DisplayMode.View
-                    Height: =Parent.TemplateHeight
-                    ImagePosition: =ImagePosition.Fill
+                    Height: =84
+                    Image: =ThisItem.VideoIcon
                     OnSelect: =Select(Parent)
                     RadiusBottomLeft: =8
                     RadiusBottomRight: =8
                     RadiusTopLeft: =8
                     RadiusTopRight: =8
-                    Width: =Parent.TemplateWidth
+                    Width: =84
+                    X: =16
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
                     ZIndex: =1
 
-                Overlay2 As rectangle:
-                    Height: =135
-                    OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth
-                    Y: =115
-                    ZIndex: =2
-
-                NameofVid As label:
-                    Height: =60
+                Title2 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
                     Overflow: =Overflow.Scroll
                     PaddingBottom: =0
@@ -469,12 +409,14 @@
                     Size: =12
                     Text: =ThisItem.Training
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =244
-                    Y: =115
-                    ZIndex: =3
+                    Width: =Parent.TemplateWidth - 185
+                    X: =115
+                    Y: =(Parent.TemplateHeight - (Self.Size*1.8 + Subtitle2.Size*1.8 + 2 + Body1.Size*1.8)) / 2
+                    ZIndex: =2
 
-                TypeOfVid As label:
-                    Height: =34
+                Subtitle2 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -482,69 +424,25 @@
                     PaddingTop: =0
                     Text: =ThisItem.TrainingType
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =244
-                    Y: =160
+                    Width: =Title2.Width
+                    X: =Title2.X
+                    Y: =Title2.Y + Title2.Height
+                    ZIndex: =3
+
+                Body1 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Subtitle2.Width
+                    X: =Title2.X
+                    Y: =Subtitle2.Y + Subtitle2.Height
                     ZIndex: =4
-
-                TimesOfVid As label:
-                    Height: =57
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =ThisItem.TrainingStartDate & " - " & ThisItem.TrainingEndDay
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =244
-                    Y: =194
-                    ZIndex: =5
-
-            "TO As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderColor: =RGBA(202, 202, 202, 1)
-                BorderThickness: =5
-                DelayItemLoading: =true
-                DisplayMode: =DisplayMode.View
-                Fill: =Color.WhiteSmoke
-                Height: =500
-                Items: =Filter(JoinTime,ReqID=IDs)
-                Layout: =Layout.Vertical
-                LayoutMinHeight: =287
-                LayoutMinWidth: =320
-                LoadingSpinner: =LoadingSpinner.Data
-                OnSelect: =true
-                TemplatePadding: =0
-                TemplateSize: =92
-                Transition: =Transition.Push
-                Width: =500
-                X: =317
-                ZIndex: =2
-
-                TORequests As label:
-                    Align: =Align.Center
-                    DisplayMode: =DisplayMode.View
-                    FontWeight: =FontWeight.Bold
-                    Height: =92
-                    OnSelect: =Select(Parent)
-                    Overflow: =Overflow.Scroll
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =16
-                    Text: |-
-                        =If(
-                            //change this to say if the list does not contain this users id then blah blah..
-                            IsBlank(  If(
-                                ThisItem.ReqID = ThisItem.IDs,
-                                "Your time off request for " & ThisItem.StartDates & " - " & ThisItem.EndDates & " is " & ThisItem.Status,
-                                "You have no time off requests"
-                            )
-                        )//generate blank record for properties if something show up if nothing do not shw up
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =358
-                    X: =92
-                    ZIndex: =2
 
                 NextArrow2 As icon.ChevronRight:
                     AccessibleLabel: =Self.Tooltip
@@ -558,94 +456,24 @@
                     PaddingTop: =16
                     Tooltip: ="View item details"
                     Width: =50
-                    X: =450
-                    Y: =22
-                    ZIndex: =3
+                    X: =Parent.TemplateWidth - Self.Width - 12
+                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                    ZIndex: =5
 
                 Separator2 As rectangle:
-                    Height: =8
+                    Fill: =RGBA(237, 237, 237, 1)
+                    Height: =4
                     OnSelect: =Select(Parent)
                     Width: =Parent.TemplateWidth
                     Y: =Parent.TemplateHeight - Self.Height
-                    ZIndex: =4
+                    ZIndex: =6
 
                 Rectangle2 As rectangle:
                     Height: =Parent.TemplateHeight - Separator2.Height
                     OnSelect: =Select(Parent)
                     Visible: =ThisItem.IsSelected
                     Width: =4
-                    ZIndex: =5
-
-                Icon4_2 As icon.DocumentwithContent:
-                    Height: =84
-                    Icon: =Icon.DocumentWithContent
-                    OnSelect: =Select(Parent)
-                    Width: =108
-                    ZIndex: =6
-
-            "Changes As gallery.'BrowseLayout_Flexible_NewsFeed_ver5.0'":
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderColor: =RGBA(202, 202, 202, 1)
-                DelayItemLoading: =true
-                Fill: =Color.WhiteSmoke
-                Height: =500
-                Items: |-
-                    =Filter(
-                        JoinFacNUsr,
-                        ReqName = User().FullName
-                    )
-                Layout: =Layout.Vertical
-                LayoutMinHeight: =287
-                LayoutMinWidth: =500
-                LoadingSpinner: =LoadingSpinner.Data
-                TemplatePadding: =0
-                TemplateSize: =Min(220, Self.Height - 60)
-                Width: =500
-                ZIndex: =4
-
-                Separator3 As rectangle:
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =5
-                    OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth
-                    ZIndex: =1
-
-                Title2 As label:
-                    Align: =Align.Center
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =69
-                    OnSelect: =Select(Parent)
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =16
-                    Text: |+
-                        =If(
-                            IsBlank(
-                                If(
-                                    ThisItem.ReqName = User().FullName,
-                                    "Your Facility request for your " & ThisItem.'Request Title' & " is "  & ThisItem.Status1,
-                                    ""
-                                )
-                            ),
-                            "You have no Facility Requesets",
-                            "Your Facility request for your " & ThisItem.'Request Title' & " is "  & ThisItem.Status1
-                        )
-                        
-                        
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =351
-                    X: =113
-                    ZIndex: =2
-
-                Icon12_1 As icon.Bug:
-                    Height: =69
-                    Icon: =Icon.Bug
-                    OnSelect: =Select(Parent)
-                    Width: =89
-                    X: =24
-                    ZIndex: =3
+                    ZIndex: =7
 
         FeedTitle As label:
             Align: =Align.Center
@@ -661,7 +489,7 @@
             PressedColor: =FeedTitle.Color
             PressedFill: =FeedTitle.Fill
             Size: =18
-            Text: ="Upcoming!"
+            Text: ="Announcements!"
             Width: =UpcomingFeed.Width
             Y: =15
             ZIndex: =6
@@ -903,7 +731,7 @@
         Visible: =false
         Width: =280
         X: =360
-        Y: =493
+        Y: =8
         ZIndex: =5
 
     OpenSideBar As icon.Hamburger:
