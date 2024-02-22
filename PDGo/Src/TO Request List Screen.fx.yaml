@@ -84,17 +84,6 @@
                     =UpdateContext({filter_visible: !filter_visible})
                 ZIndex: =4
 
-            Label21_2 As label:
-                BorderColor: =RGBA(0, 0, 0, 1)
-                Color: =RGBA(255,255,255, 1)
-                DisabledColor: =RGBA(153, 207, 236, 1)
-                Fill: =RGBA(39, 67, 125, 1)
-                Font: =Font.Lato
-                Size: =15
-                Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =5
-
         search_Container As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.Semibold
             Fill: =RGBA(136, 160, 209, 1)
