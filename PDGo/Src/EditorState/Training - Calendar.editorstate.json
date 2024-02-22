@@ -245,7 +245,7 @@
       "MetaDataIDKey": "",
       "Name": "Background Color_9",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3895,7 +3895,7 @@
       "MetaDataIDKey": "",
       "Name": "Label2_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7164,6 +7164,22 @@
           "InvariantPropertyName": "Visible",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "Start",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "false",
+          "InvariantPropertyName": "OnTimerStart",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -7177,7 +7193,7 @@
       "MetaDataIDKey": "",
       "Name": "Timer1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7203,6 +7219,11 @@
         {
           "Category": "Data",
           "PropertyName": "Repeat",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "Start",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7348,6 +7369,11 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnTimerEnd",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnTimerStart",
           "RuleProviderType": "Unknown"
         }
       ],
