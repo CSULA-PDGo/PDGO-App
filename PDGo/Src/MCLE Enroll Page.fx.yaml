@@ -106,20 +106,22 @@
                 Text: ="Enrolled"
                 ZIndex: =3
 
-            Toggle2 As toggleSwitch:
-                Height: =40
-                LayoutMinHeight: =49
-                LayoutMinWidth: =154
-                ShowLabel: =false
-                Size: =21
+            Status_ComboBox As combobox:
+                AlignInContainer: =AlignInContainer.Start
+                DefaultSelectedItems: =["Pending"]
+                DisplayFields: =["Value"]
+                IsSearchable: =false
+                Items: =["Enrolled", "Upcoming", "Attended"]
+                SearchFields: =["Value"]
+                SearchItems: =[]
                 Width: =(Parent.Width-Status_Label.Width)-4
-                ZIndex: =4
+                ZIndex: =5
 
             Date_Label As label:
                 Color: =RGBA(255, 255, 255, 1)
                 Size: =15
                 Text: ="Attended"
-                ZIndex: =5
+                ZIndex: =6
 
             Toggle2_1 As toggleSwitch:
                 Height: =40
@@ -145,9 +147,14 @@
                     =ClearCollect(currentTrainings, MCLETrainings);
                     Clear(currentTrainings);
                     
+                    With({
+                        upcoming: "Upcoming" in Status_ComboBox.SelectedItems,
+                        enrolled: "Enrolled" in Status_ComboBox.SelectedItems,
+                        prev: "Attended" in Status_ComboBox.SelectedItems
+                    },
                     ForAll(
-                        Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = Toggle2.Value && Attended = Toggle2_1.Value ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
-                    )
+                        Filter(MCLETrainingAttendance, (!upcoming || Attendee = User().FullName) && ((!enrolled || prev) || RSVP = true) && (prev || Attended = true)) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
+                    ))
                 Text: ="Filter"
                 ZIndex: =9
 
