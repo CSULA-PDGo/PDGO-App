@@ -1,0 +1,128 @@
+"'MCLE Trainings' As screen":
+    OnVisible: |-
+        = UpdateContext({CheckInPopup : false});
+
+    "'Background Color_8' As rectangle":
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(25, 53, 110, 1)
+        Height: =111
+        Width: =640
+        Y: =40
+        ZIndex: =1
+
+    Label4_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =26
+        Text: ="MCLE Training"
+        Width: =560
+        X: =80
+        Y: =60
+        ZIndex: =2
+
+    Button4 As button:
+        Height: =70
+        OnSelect: =Navigate('MCLE Enroll Page', ScreenTransition.CoverRight);
+        Size: =19
+        Text: ="Training SignUp"
+        Width: =280
+        X: =220
+        Y: =235
+        ZIndex: =3
+
+    Button5 As button:
+        Height: =70
+        OnSelect: |-
+            =UpdateContext({CheckInPopup: true})
+            //Navigate('check in screen', ScreenTransition.CoverRight);
+        Size: =24
+        Text: ="Check-In "
+        Width: =280
+        X: =220
+        Y: =389
+        ZIndex: =4
+
+    Button6 As button:
+        Height: =70
+        OnSelect: =Navigate('MCLE Previous Trainings Page', ScreenTransition.CoverRight)                                    
+        Size: =24
+        Text: ="Completed Training"
+        Width: =280
+        X: =220
+        Y: =732
+        ZIndex: =5
+
+    Container7 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: =CheckInPopup
+        Width: =Parent.Width
+        ZIndex: =6
+
+        Rectangle1_2 As rectangle:
+            BorderColor: =RGBA(128, 128, 128, 1)
+            Fill: =RGBA(215, 223, 240, .50)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle4 As rectangle:
+            BorderColor: =RGBA(136, 160, 209, 1)
+            Fill: =RGBA(149, 149, 149, 1)
+            Height: =Parent.Height - 50
+            Width: =Parent.Width - 50
+            X: =(Parent.Width - Self.Width)/2
+            Y: =(Parent.Height - Self.Height)/2
+            ZIndex: =2
+
+        Label9_2 As label:
+            Align: =Align.Center
+            Height: =417
+            Size: =21
+            Text: |-
+                ="Warning: Once you hit check-in, you will be locked on the page until you press check-out. "
+            Width: =560
+            X: =40
+            Y: =40
+            ZIndex: =3
+
+        Button10 As button:
+            Height: =70
+            OnSelect: |-
+                =UpdateContext({CheckInPopup: false})
+            Size: =24
+            Text: ="Cancel"
+            Width: =280
+            X: =180
+            Y: =845
+            ZIndex: =4
+
+        Button11 As button:
+            Height: =70
+            OnSelect: =Navigate('check in screen',ScreenTransition.CoverRight)
+            Size: =24
+            Text: ="Check-In"
+            Width: =280
+            X: =180
+            Y: =697
+            ZIndex: =5
+
+    Icon13 As icon.Home:
+        Height: =91
+        Icon: =Icon.Home
+        OnSelect: =Navigate('Home Screen',ScreenTransition.CoverRight)
+        Width: =89
+        X: =65
+        Y: =50
+        ZIndex: =7
+
+    Button14 As button:
+        Height: =70
+        OnSelect: =Navigate('MCLECurrent Enrolled List Page',ScreenTransition.CoverRight)
+        Size: =24
+        Text: ="View My Training"
+        Width: =280
+        X: =220
+        Y: =557
+        ZIndex: =8
+
