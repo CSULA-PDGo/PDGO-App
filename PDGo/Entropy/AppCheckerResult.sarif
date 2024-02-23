@@ -5248,36 +5248,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MCLE_Certificate.MCLE_Certificate_Timer.AutoStart"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MCLE_Certificate.MCLE_Certificate_Timer.AutoStart",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AutoStart",
-                "module": "MCLE_Certificate",
-                "type": "MCLE_Certificate.MCLE_Certificate_Timer"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AutostartShouldBeOff",
-          "ruleIndex": 17
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Profile - Calendar'.'Back Button_1'.AccessibleLabel"
                 }
               ],
@@ -5721,7 +5691,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 18
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -5751,7 +5721,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 18
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -5781,7 +5751,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 18
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -5811,7 +5781,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5841,7 +5811,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5871,7 +5841,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5901,7 +5871,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5931,7 +5901,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5961,7 +5931,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -5991,7 +5961,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -6021,7 +5991,7 @@
             "level": "Medium"
           },
           "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 19
+          "ruleIndex": 18
         },
         {
           "locations": [
@@ -6051,7 +6021,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 18
+          "ruleIndex": 17
         },
         {
           "locations": [
@@ -6081,7 +6051,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 18
+          "ruleIndex": 17
         }
       ],
       "tool": {
@@ -6365,23 +6335,6 @@
                 "level": "Medium",
                 "primaryCategory": "accessibility",
                 "whyFix": "Changing this property setting will give the user better information about the function of the controls in your app."
-              }
-            },
-            {
-              "id": "acc-AutostartShouldBeOff",
-              "messageStrings": {
-                "issue": {
-                  "text": "Turn off autostart"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Set autostart for video and audio to False."
-                ],
-                "level": "Medium",
-                "primaryCategory": "accessibility",
-                "whyFix": "Autostart of video and audio files can be distracting. Let users choose whether to play or not."
               }
             },
             {
