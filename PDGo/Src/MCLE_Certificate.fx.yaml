@@ -202,7 +202,14 @@ MCLE_Certificate As screen:
         AutoStart: =true
         Duration: =1
         OnTimerEnd: |-
-            =Navigate('MCLE Cert Debug', ScreenTransition.None, {MCLE_Cert: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})})
+            =Office365Outlook.SendEmailV2(User().Email, "MCLE Certificate", "See your freshly generated MCLE Certificate of Attendance!", {
+                Attachments: [{
+                    Name: "MCLE_Certificate.pdf",
+                    ContentBytes: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})
+                }]
+            });
+            
+            Back();
         X: =Parent.Width
         ZIndex: =15
 
