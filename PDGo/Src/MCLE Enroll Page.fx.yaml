@@ -651,12 +651,34 @@
                         Y: =549
                         ZIndex: =1
 
+                Container34_6 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    ZIndex: =11
+
+                    Button6_7 As button:
+                        OnSelect: |+
+                            =Navigate(MCLE_Certificate, ScreenTransition.CoverRight, {MeetingRecord: MeetingRecord })
+                            
+                            
+                        Text: ="Certificate"
+                        X: =225
+                        Y: =549
+                        ZIndex: =1
+
                 Container1 As groupContainer.horizontalAutoLayoutContainer:
                     Height: =225
                     LayoutMinHeight: =112
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    ZIndex: =11
+                    ZIndex: =12
 
             Container31_3 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
