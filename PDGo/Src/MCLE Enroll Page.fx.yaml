@@ -150,6 +150,7 @@
                     //Clear(currentTrainings);
                     Trace(Status_ComboBox.Selected.Value);
                     If(Status_ComboBox.Selected.Value <> "Upcoming",
+                        Clear(currentTrainings);
                         ForAll(
                             Switch(
                                 Status_ComboBox.Selected.Value,
