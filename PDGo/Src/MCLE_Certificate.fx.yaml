@@ -3,14 +3,14 @@ MCLE_Certificate As screen:
     OnVisible: |-
         =UpdateContext({
             Credits: [
-                {Title: "General MCLE", Hours: 32},
-                {Title: "Legal Ethics", Hours: 32},
-                {Title: "Recognition & Elimination of Bias", Hours: 32},
+                //{Title: "General MCLE", Hours: 32},
+                //{Title: "Legal Ethics", Hours: 32},
+                ////{Title: "Recognition & Elimination of Bias", Hours: 32},
                 {Title: "Implicit Bias", Hours: 32},
-                {Title: "Prevention & Detection Competence", Hours: 32},
-                {Title: "Wellness Competence", Hours: 32},
-                {Title: "Technology in the Practice of Law", Hours: 32},
-                {Title: "Civility in the Legal Profession", Hours: 32}
+                //{Title: "Prevention & Detection Competence", Hours: 32},
+                //{Title: "Wellness Competence", Hours: 32},
+                //{Title: "Technology in the Practice of Law", Hours: 32},
+                //{Title: "Civility in the Legal Profession", Hours: 32}
             ],
             ProviderName: "Santa Barbara Public Defender",
             ProviderNum: 123456789,
@@ -96,7 +96,7 @@ MCLE_Certificate As screen:
         Text: ="Below section is to be completed by the California Licensee and/or the Provider after participation in the activity"
         Width: =860
         X: =(Parent.Width - Self.Width)/2
-        Y: =MCLE_Certificate_Table.Y + MCLE_Certificate_Table.Height + 10
+        Y: =639
         ZIndex: =6
 
     MCLE_Certificate_CA_Name As htmlViewer:
@@ -203,8 +203,6 @@ MCLE_Certificate As screen:
         Duration: =1
         OnTimerEnd: |-
             =Navigate('MCLE Cert Debug', ScreenTransition.None, {MCLE_Cert: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})})
-        Visible: =false
-        X: =793
-        Y: =457
+        X: =Parent.Width
         ZIndex: =15
 
