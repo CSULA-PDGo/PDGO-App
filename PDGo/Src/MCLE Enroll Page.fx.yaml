@@ -619,7 +619,7 @@
                     Button6_5 As button:
                         OnSelect: |+
                             =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), 
-                                { RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (LookUp(Office365Outlook.CalendarGetTablesV2().value, name="Calendar").id, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); Navigate('MCLE success enroll',ScreenTransition.CoverRight); 
+                                { RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (LookUp(Office365Outlook.CalendarGetTablesV2().value, name="Calendar").id, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); Navigate('Success Screen',ScreenTransition.CoverRight); 
                                 , Notify("You're already enrolled in this course."));
                             
                             
