@@ -28,7 +28,7 @@ MCLE_Certificate As screen:
         Fill: =RGBA(0, 0, 0, 0)
         Height: =Parent.Height - 2*Self.Y
         Width: =Parent.Width - 2*Self.X
-        X: =40
+        X: =20
         Y: =Self.X
         ZIndex: =1
 
@@ -37,9 +37,9 @@ MCLE_Certificate As screen:
         Fill: =RGBA(0, 0, 0, 0)
         Height: |
             =Parent.Height - 2*Self.Y
-        Width: =1022
-        X: =34
-        Y: =Self.X
+        Width: =Parent.Width - 2 * Self.X
+        X: =29
+        Y: =29
         ZIndex: =2
 
     MCLE_Certificate_Upper_Text As label:
