@@ -103,18 +103,15 @@
             Status_Label As label:
                 Color: =RGBA(255, 255, 255, 1)
                 Size: =15
-                Text: ="Status"
+                Text: ="Enrolled"
                 ZIndex: =3
 
-            Status_ComboBox As combobox:
-                AlignInContainer: =AlignInContainer.Start
-                DefaultSelectedItems: =["Upcoming"]
-                DisplayFields: =["Value"]
-                IsSearchable: =false
-                Items: =["Previous", "Enrolled", "Upcoming"]
-                SearchFields: =["Value"]
-                SearchItems: =[]
-                SelectMultiple: =false
+            Toggle2 As toggleSwitch:
+                Height: =40
+                LayoutMinHeight: =49
+                LayoutMinWidth: =154
+                ShowLabel: =false
+                Size: =21
                 Width: =(Parent.Width-Status_Label.Width)-4
                 ZIndex: =4
 
@@ -124,11 +121,14 @@
                 Text: ="Date"
                 ZIndex: =5
 
-            DatePicker1 As datepicker:
-                DefaultDate: |
-                    =Blank()
-                Width: =(Parent.Width-Date_Label.Width)-4
-                ZIndex: =6
+            Toggle2_1 As toggleSwitch:
+                Height: =40
+                LayoutMinHeight: =49
+                LayoutMinWidth: =154
+                ShowLabel: =false
+                Size: =21
+                Width: =(Parent.Width-Status_Label.Width)-4
+                ZIndex: =7
 
             reset As button:
                 FillPortions: =1
@@ -146,7 +146,7 @@
                     Clear(currentTrainings);
                     
                     ForAll(
-                        Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
+                        Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = Toggle2.Value && Attended = Toggle2_1.Value ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
                     )
                 Text: ="Filter"
                 ZIndex: =9
