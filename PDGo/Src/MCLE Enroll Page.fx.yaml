@@ -147,19 +147,18 @@
                 FillPortions: =1
                 OnSelect: |-
                     =ClearCollect(currentTrainings, Filter(MCLETrainings, TrainingEndDay >= Now()));
-                    Clear(currentTrainings);
+                    //Clear(currentTrainings);
                     Trace(Status_ComboBox.Selected.Value);
-                    //If(Status_ComboBox.Selected.Value <> "Upcoming",
-                    //    ForAll(
-                     //       Switch(
-                     //           Status_ComboBox.Selected.Value,
-                    //            "Upcoming", Filter(MCLETrainings, TrainingEndDay >= Now()),
-                    //            "Enrolled", Filter(MCLETrainings, TrainingEndDay >= Now()),
-                    //            "Attended", Filter(MCLETrainings, TrainingEndDay >= Now()),
-                    //            Filter(MCLETrainings, TrainingEndDay >= Now())
-                    //        ) As Trainings,  Trainings
-                    //    );
-                    //)
+                    If(Status_ComboBox.Selected.Value <> "Upcoming",
+                        ForAll(
+                            Switch(
+                                Status_ComboBox.Selected.Value,
+                                "Enrolled", Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false),
+                                "Attended", Filter(MCLETrainingAttendance, Attendee = User().FullName && Attended = true),
+                                Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false)
+                            ) As Trainings, Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID)
+                        );
+                    )
                 Text: ="Filter"
                 ZIndex: =9
 
