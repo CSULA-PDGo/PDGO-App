@@ -115,6 +115,7 @@
                 Items: =["Enrolled", "Upcoming", "Attended"]
                 SearchFields: =["Value"]
                 SearchItems: =[]
+                SelectMultiple: =false
                 Width: =(Parent.Width-Status_Label.Width)-4
                 ZIndex: =5
 
@@ -144,18 +145,21 @@
 
             reset_1 As button:
                 FillPortions: =1
-                OnSelect: |
-                    =ClearCollect(currentTrainings, MCLETrainings);
+                OnSelect: |-
+                    =ClearCollect(currentTrainings, Filter(MCLETrainings, TrainingEndDay >= Now()));
                     Clear(currentTrainings);
-                    
-                    With({
-                        upcoming: "Upcoming" in Status_ComboBox.SelectedItems,
-                        enrolled: "Enrolled" in Status_ComboBox.SelectedItems,
-                        prev: "Attended" in Status_ComboBox.SelectedItems
-                    },
-                    ForAll(
-                        Filter(MCLETrainingAttendance, (!upcoming || Attendee = User().FullName) && ((!enrolled || prev) || RSVP = true) && (prev || Attended = true)) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
-                    ))
+                    Trace(Status_ComboBox.Selected.Value);
+                    //If(Status_ComboBox.Selected.Value <> "Upcoming",
+                    //    ForAll(
+                     //       Switch(
+                     //           Status_ComboBox.Selected.Value,
+                    //            "Upcoming", Filter(MCLETrainings, TrainingEndDay >= Now()),
+                    //            "Enrolled", Filter(MCLETrainings, TrainingEndDay >= Now()),
+                    //            "Attended", Filter(MCLETrainings, TrainingEndDay >= Now()),
+                    //            Filter(MCLETrainings, TrainingEndDay >= Now())
+                    //        ) As Trainings,  Trainings
+                    //    );
+                    //)
                 Text: ="Filter"
                 ZIndex: =9
 
