@@ -20,6 +20,7 @@
             Fill: =RGBA(56, 96, 178, 1)
             FillPortions: =0
             Height: =70
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -47,6 +48,13 @@
                 X: =177
                 Y: =13
                 ZIndex: =2
+
+            filter_icon As icon.Filter:
+                Color: =RGBA(241, 244, 249, 1)
+                Icon: =Icon.Filter
+                OnSelect: |-
+                    =UpdateContext({filter_visible: !filter_visible})
+                ZIndex: =3
 
         search_Container As groupContainer.horizontalAutoLayoutContainer:
             DropShadow: =DropShadow.Semibold
