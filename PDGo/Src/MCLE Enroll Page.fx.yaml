@@ -48,6 +48,77 @@
                 Y: =13
                 ZIndex: =2
 
+        search_Container As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Semibold
+            Fill: =RGBA(136, 160, 209, 1)
+            FillPortions: =0
+            Height: =190
+            LayoutGap: =4
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingBottom: =5
+            PaddingTop: =5
+            Visible: =filter_visible
+            ZIndex: =2
+
+            search_icon As icon.Search:
+                Height: =45
+                Icon: =Icon.Search
+                OnSelect: =
+                ZIndex: =1
+
+            search_input As text:
+                Default: =
+                DelayOutput: =
+                HintText: ="Search"
+                HoverFill: =RGBA(149, 149, 149, 1)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingTop: =0
+                Width: |
+                    =(Parent.Width-search_icon.Width)-4
+                ZIndex: =2
+
+            Status_Label As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Size: =15
+                Text: ="Status"
+                ZIndex: =3
+
+            Status_ComboBox As combobox:
+                AlignInContainer: =AlignInContainer.Start
+                DefaultSelectedItems: =["Pending"]
+                DisplayFields: =["Value"]
+                IsSearchable: =false
+                Items: =["Approved","Pending","Denied", "Cancelled"]
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                Width: =(Parent.Width-Status_Label.Width)-4
+                ZIndex: =4
+
+            Date_Label As label:
+                Color: =RGBA(255, 255, 255, 1)
+                Size: =15
+                Text: ="Date"
+                ZIndex: =5
+
+            DatePicker1 As datepicker:
+                DefaultDate: |
+                    =Blank()
+                Width: =(Parent.Width-Date_Label.Width)-4
+                ZIndex: =6
+
+            reset As button:
+                FillPortions: =1
+                OnSelect: |-
+                    =Reset(search_input);
+                    Reset(Status_ComboBox);
+                    Reset(DatePicker1);
+                Text: ="Reset"
+                ZIndex: =8
+
         Container1_3 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -55,7 +126,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             Width: =Parent.Width
-            ZIndex: =2
+            ZIndex: =3
 
             Label28_3 As label:
                 Align: =Align.Center
@@ -118,7 +189,7 @@
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =4
 
             "Gallery2_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                 AlignInContainer: =AlignInContainer.SetByContainer
