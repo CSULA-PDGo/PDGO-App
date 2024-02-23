@@ -1,0 +1,604 @@
+"'MCLE Enroll Page' As screen":
+    OnVisible: |-
+        =UpdateContext({MeetingRecord: Blank()});
+        UpdateContext({mclePopUp: false});
+        UpdateContext({ErrorPopUp: false})
+
+    MobilePage_2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: |+
+            =//'Open Request page'.Size <=1
+            true
+            
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container11_3 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(56, 96, 178, 1)
+            FillPortions: =0
+            Height: =70
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Icon7_6 As icon.ArrowLeft:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =40
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Back(ScreenTransition.CoverRight)
+                Width: =60
+                X: =26
+                Y: =22
+                ZIndex: =1
+
+            Label13_9 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Stretch
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =61
+                Text: ="Sign up new Trainings"
+                Width: =Parent.Width/1.5
+                X: =177
+                Y: =13
+                ZIndex: =2
+
+        Container1_3 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =70
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Parent.Width
+            ZIndex: =2
+
+            Label28_3 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Training"
+                Width: =Parent.Width/5
+                X: =Label29_3.X-Self.Width
+                ZIndex: =1
+
+            Label29_3 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Date Start"
+                Width: =Parent.Width/5
+                X: =Label30_3.X-Self.Width
+                ZIndex: =2
+
+            Label30_3 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Date End"
+                Width: =Parent.Width/5
+                X: =Label31_3.X-Self.Width
+                ZIndex: =3
+
+            Label31_3 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="ID"
+                Width: =Parent.Width/5
+                X: =Label33_3.X-Self.Width
+                ZIndex: =4
+
+            Label33_3 As label:
+                Align: =Align.Center
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =12
+                Text: ="Training Type"
+                Width: =Parent.Width/5
+                X: =Parent.Width-Self.Width
+                ZIndex: =5
+
+        Container13_3 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =3
+
+            "Gallery2_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DelayItemLoading: =true
+                FillPortions: =0
+                Height: =Parent.Height
+                Items: |+
+                    =Filter(MCLETrainings, TrainingEndDay >= Now())
+                    
+                    
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                OnSelect: |-
+                    =UpdateContext({MeetingRecord: ThisItem}  );
+                    UpdateContext({mclePopUp:true})
+                TemplatePadding: =0
+                TemplateSize: =100
+                Width: =Parent.Width
+                X: =40
+                Y: =155
+                ZIndex: =1
+
+                Label19_12 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.TrainingEndDay
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_15.X-Self.Width
+                    ZIndex: =1
+
+                Label20_9 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.TrainingStartDate
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_12.X-Self.Width
+                    ZIndex: =2
+
+                Label19_15 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.ID
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Label19_16.X-Self.Width
+                    ZIndex: =3
+
+                Label19_16 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Size: =11
+                    Text: =ThisItem.TrainingType
+                    Width: =Parent.TemplateWidth/5 
+                    X: =Parent.TemplateWidth-Self.Width
+                    ZIndex: =5
+
+                Label20_8 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.TemplateHeight
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Training
+                    Width: =Parent.TemplateWidth/5 
+                    ZIndex: =9
+
+    DetailsPage_2 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Visible: =mclePopUp
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Rectangle3_7 As rectangle:
+            Fill: =RGBA(56, 96, 178, .9)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle4_4 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-30
+            Width: =Parent.Width-30
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container2_7 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle4_4.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle4_4.Width
+            X: =Rectangle4_4.X
+            Y: =Rectangle4_4.Y
+            ZIndex: =3
+
+            Container3_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =70
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label17_7 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    Text: ="Training details for " & MeetingRecord.Training
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+            Container14_3 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =2
+
+                Container15_3 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    Label22_27 As label:
+                        BorderThickness: =1
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Supervisor:"
+                        X: =101
+                        Y: =114
+                        ZIndex: =1
+
+                    Label22_28 As label:
+                        FillPortions: =3
+                        Font: =Font.Lato
+                        Size: =14
+                        Text: =MeetingRecord.TrainingSupervisor
+                        X: =101
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_14 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Label22_29 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Start Date:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_4 As label:
+                        FillPortions: =1
+                        Font: =Font.Lato
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: =MeetingRecord.TrainingStartDate
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_15 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =Max(HtmlText2_2.Height, 50)
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Label22_30 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="End Date:"
+                        X: =408
+                        Y: =114
+                        ZIndex: =1
+
+                    HtmlText2_2 As htmlViewer:
+                        AutoHeight: =true
+                        Font: =Font.Lato
+                        HtmlText: =MeetingRecord.TrainingEndDay
+                        LayoutMinHeight: =70
+                        LayoutMinWidth: =560
+                        Size: =14
+                        Y: =(Parent.Height + Self.Height)/2
+                        ZIndex: =3
+
+                Container29_16 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+                    Label22_31 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Hours:"
+                        X: =542
+                        Y: =114
+                        ZIndex: =1
+
+                    Label25_4 As label:
+                        FillPortions: =1
+                        Font: =Font.Lato
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: =MeetingRecord.Hours & " Hours"
+                        X: =553
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_17 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =Max(50, HtmlText1_2.Height)
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =5
+
+                    Label22_32 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Training Type:"
+                        X: =695
+                        Y: =114
+                        ZIndex: =1
+
+                    HtmlText1_2 As htmlViewer:
+                        AlignInContainer: =AlignInContainer.Center
+                        AutoHeight: =true
+                        FillPortions: =1
+                        Height: =
+                        HtmlText: =MeetingRecord.TrainingType
+                        Size: =14
+                        ZIndex: =3
+
+                Container29_18 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =6
+
+                    Label22_33 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Training Host:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_5 As label:
+                        FillPortions: =1
+                        Font: =Font.Lato
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: =MeetingRecord.'Training Host'
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container15_4 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =7
+
+                    Label22_34 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Address:"
+                        X: =101
+                        Y: =114
+                        ZIndex: =1
+
+                    Label22_35 As label:
+                        FillPortions: =3
+                        Font: =Font.Lato
+                        Size: =14
+                        Text: =MeetingRecord.Address
+                        X: =101
+                        Y: =154
+                        ZIndex: =2
+
+                Container29_19 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(215, 223, 240, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =8
+
+                    Label22_36 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: |-
+                            ="Status:"
+                        X: =266
+                        Y: =114
+                        ZIndex: =1
+
+                    Label23_6 As label:
+                        FillPortions: =1
+                        Font: =Font.Lato
+                        Height: =Parent.Height
+                        Size: =14
+                        Text: =MeetingRecord.TrainingStatus.Value
+                        X: =285
+                        Y: =154
+                        ZIndex: =2
+
+                Container34_4 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    ZIndex: =9
+
+                    Button6_5 As button:
+                        OnSelect: |+
+                            =If( IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && MeetingRecord.ID = TrainingID)), Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), 
+                                { RSVP:true, Attendee: User().FullName, TrainingID: MeetingRecord.ID }); Office365Outlook.V4CalendarPostItem     (LookUp(Office365Outlook.CalendarGetTablesV2().value, name="Calendar").id, MeetingRecord.Training, MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, "Pacific Standard Time" ); Navigate('MCLE success enroll',ScreenTransition.CoverRight); 
+                                , Notify("You're already enrolled in this course."));
+                            
+                            
+                            
+                        Text: ="Enroll"
+                        X: =225
+                        Y: =549
+                        ZIndex: =1
+
+            Container31_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Button7_6 As button:
+                    OnSelect: |+
+                        =UpdateContext({MeetingRecord: Blank()});
+                        UpdateContext({mclePopUp:false})
+                        
+                    Text: ="Close"
+                    X: =983
+                    Y: =549
+                    ZIndex: =1
+
+    "'error page_1' As groupContainer.manualLayoutContainer":
+        Height: =Parent.Height
+        Visible: =ErrorPopUp
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Rectangle2_6 As rectangle:
+            Fill: =RGBA(0, 0, 0, .8)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Rectangle5_6 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-50
+            Width: =Parent.Width-50
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+            ZIndex: =2
+
+        Container35_5 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Rectangle5_6.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            Width: =Rectangle5_6.Width
+            X: =Rectangle5_6.X
+            Y: =Rectangle5_6.Y
+            ZIndex: =5
+
+            Container36_3 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =3
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                Label18_4 As label:
+                    Align: =Align.Center
+                    FontWeight: =FontWeight.Semibold
+                    Height: =118
+                    Size: =15
+                    Text: ="Please Specify the reason for denial."
+                    Width: =707
+                    X: =320
+                    Y: =112
+                    ZIndex: =1
+
+            Container37_5 As groupContainer.verticalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                Button9_7 As button:
+                    OnSelect: |-
+                        =UpdateContext({PopUp2: false})
+                    Text: ="OK"
+                    X: =593
+                    Y: =492
+                    ZIndex: =1
+
