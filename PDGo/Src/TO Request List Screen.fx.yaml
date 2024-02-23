@@ -168,7 +168,7 @@
                     SubordinateIDs: ForAll(Subordinates, ThisRecord.ID),
                     Statuses: Status_ComboBox.SelectedItems
                 },
-                    Filter(TimeOffRequests, Status.Value in Statuses, Requester in SubordinateIDs)
+                    Filter(TimeOffRequests, StatusCode in Statuses, Requester in SubordinateIDs)
                 ), search_input.Text, "Reason", "Comments")
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
