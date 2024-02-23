@@ -36,7 +36,7 @@
         "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =RGBA(39, 67, 125, 1)
             FillPortions: =0
-            Height: =75
+            Height: =100
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
@@ -64,14 +64,6 @@
                 Text: ="Requests"
                 ZIndex: =2
 
-            "'TO Request Screen Header Name' As label":
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Lato
-                Size: =15
-                Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
-                ZIndex: =5
-
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
             Height: =Parent.Height
@@ -80,9 +72,9 @@
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(50, Self.Height - 60))
+            TemplateSize: =150
             Width: =Parent.Width
-            ZIndex: =3
+            ZIndex: =2
 
             "'TO Request Screen Dates Gallery Columns' As groupContainer.horizontalAutoLayoutContainer":
                 Height: =Parent.TemplateHeight
@@ -146,14 +138,6 @@
                     Width: =Parent.Width*.20
                     ZIndex: =6
 
-        "'TO Request Screen Add Date Button' As button":
-            Fill: =RGBA(39, 67, 125, 1)
-            Font: =Font.Lato
-            Height: =80
-            OnSelect: =Navigate('TO Request Date Screen')
-            Text: ="Add Date Range"
-            ZIndex: =4
-
         "'TO Request Screen Comments Input' As text":
             Default: =If(IsBlank(Edit), "", Edit.Comments)
             FillPortions: =1
@@ -161,7 +145,15 @@
             HintText: ="Additional Comments"
             LayoutMinHeight: =150
             Mode: =TextMode.MultiLine
-            ZIndex: =5
+            ZIndex: =3
+
+        "'TO Request Screen Add Date Button' As button":
+            Fill: =RGBA(39, 67, 125, 1)
+            Font: =Font.Lato
+            Height: =80
+            OnSelect: =Navigate('TO Request Date Screen')
+            Text: ="Add Date Range"
+            ZIndex: =4
 
         "'TO Request Screen Submit Button' As button":
             Font: =Font.Lato
@@ -201,5 +193,5 @@
                 Reset('TO Request Screen Comments Input');
                 Navigate('Success Screen', ScreenTransition.CoverRight);
             Text: ="Submit Request"
-            ZIndex: =6
+            ZIndex: =5
 
