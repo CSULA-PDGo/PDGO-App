@@ -109,7 +109,7 @@
 
             Status_ComboBox As combobox:
                 AlignInContainer: =AlignInContainer.Start
-                DefaultSelectedItems: =["Pending"]
+                DefaultSelectedItems: =["Upcoming"]
                 DisplayFields: =["Value"]
                 IsSearchable: =false
                 Items: =["Enrolled", "Upcoming", "Attended"]
@@ -157,8 +157,8 @@
                                 "Enrolled", Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false),
                                 "Attended", Filter(MCLETrainingAttendance, Attendee = User().FullName && Attended = true),
                                 Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false)
-                            ) As Trainings, Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID)
-                        );
+                            ) As Trainings, Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID))
+                        )
                     )
                 Text: ="Filter"
                 ZIndex: =9
