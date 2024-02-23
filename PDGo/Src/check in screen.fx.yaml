@@ -1,8 +1,9 @@
 "'check in screen' As screen":
-    OnVisible: |-
+    OnVisible: |+
         =UpdateContext({MeetingRecord: Blank()});
-        UpdateContext({IsCheckIn: false});
+        UpdateContext({IsCheckIn: IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName &&  TrainingID = CheckInRecord.ID && 'Check-In Time' <> Blank() ))});
         UpdateContext({TimerStart: false});
+        
 
     Gallery1 As gallery.galleryHorizontal:
         DelayItemLoading: =true
@@ -120,10 +121,9 @@
 
     Icon5_1 As icon.ArrowLeft:
         Icon: =Icon.ArrowLeft
-        OnSelect: =Back();
-        Visible: =false
+        OnSelect: |-
+            =UpdateContext({CheckInRecord: Blank()}); Back();
         Width: =106
-        X: =80
         Y: =52
         ZIndex: =5
 

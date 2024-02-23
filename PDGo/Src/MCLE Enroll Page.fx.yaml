@@ -629,7 +629,7 @@
 
                     Button6_6 As button:
                         OnSelect: |+
-                            =Navigate('check in screen', ScreenTransition.CoverRight, {CheckInRecord: })
+                            =Navigate('check in screen', ScreenTransition.CoverRight, {CheckInRecord: MeetingRecord })
                             
                             
                         Text: ="Check-In"
