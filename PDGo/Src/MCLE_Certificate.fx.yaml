@@ -1,6 +1,6 @@
 MCLE_Certificate As screen:
     Height: =96*8.5
-    OnVisible: |-
+    OnVisible: |
         =UpdateContext({
             Credits: [
                 //{Title: "General MCLE", Hours: 32},
@@ -21,6 +21,12 @@ MCLE_Certificate As screen:
                 Time: Time(20, 15, 45)
             }
         });
+        
+        If(IsBlankOrError(MeetingRecord),
+            UpdateContext({
+                MeetingRecord: First(MCLETrainings)
+            })
+        );
     Width: =96*11
 
     MCLE_Certificate_Outer_Border As rectangle:
@@ -28,7 +34,7 @@ MCLE_Certificate As screen:
         Fill: =RGBA(0, 0, 0, 0)
         Height: =Parent.Height - 2*Self.Y
         Width: =Parent.Width - 2*Self.X
-        X: =40
+        X: =20
         Y: =Self.X
         ZIndex: =1
 
@@ -37,9 +43,9 @@ MCLE_Certificate As screen:
         Fill: =RGBA(0, 0, 0, 0)
         Height: |
             =Parent.Height - 2*Self.Y
-        Width: =1022
-        X: =34
-        Y: =Self.X
+        Width: =Parent.Width - 2 * Self.X
+        X: =29
+        Y: =29
         ZIndex: =2
 
     MCLE_Certificate_Upper_Text As label:
@@ -64,9 +70,9 @@ MCLE_Certificate As screen:
             ="<table style='table-layout: fixed;width: 100%;border-collapse: collapse;' border>"&
             "<thead style='color: #169; font-size: 1.2em'><th style='width: 70%;'>Credit Type</th><th>Credit Hours</th></thead>"&
             "<tbody>"&
-            Concat(Credits, "<tr><td style='text-align: right;padding:5px;'>"&Title&"</td><td style='padding:5px;text-align:center;'>"&Hours&"</td></tr>", "")&
+            Concat(MeetingRecord.MCLE_Category.Value, "<tr><td style='text-align: right;padding:5px;'>"&Value&"</td><td style='padding:5px;text-align:center;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours) / CountRows(MeetingRecord.MCLE_Category.Value) &"</td></tr>", "")&
             "</tbody><tfoot>"&
-            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&Sum(Credits, Hours)&"</td></tr>"&
+            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours)&"</td></tr>"&
             "</tfoot></table>"
         Size: =10
         Width: =410
@@ -202,7 +208,15 @@ MCLE_Certificate As screen:
         AutoStart: =true
         Duration: =1
         OnTimerEnd: |-
-            =Navigate('MCLE Cert Debug', ScreenTransition.None, {MCLE_Cert: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})})
+            =Office365Outlook.SendEmailV2(User().Email, "MCLE Certificate", "See your freshly generated MCLE Certificate of Attendance!", {
+                Attachments: [{
+                    Name: "MCLE_Certificate.pdf",
+                    ContentBytes: PDF(MCLE_Certificate, {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})
+                }]
+            });
+            
+            Back();
+        Visible: =false
         X: =Parent.Width
         ZIndex: =15
 
