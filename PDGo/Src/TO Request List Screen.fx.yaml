@@ -77,7 +77,7 @@
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
-                Text: ="Requests"
+                Text: ="Time Off Requests"
                 ZIndex: =2
 
             filter_icon As icon.Filter:
@@ -202,7 +202,7 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =60
                     OnSelect: =
-                    Size: =If('TO Request List Screen'.Size=1,8.24,13)
+                    Size: =If('TO Request List Screen'.Size=1,8.24,15)
                     Text: |-
                         =With({
                             format: If('TO Request List Screen'.Size = 1, "dd mmm", "dd mmm yy")
