@@ -5,15 +5,16 @@
         UpdateContext({ErrorPopUp: false});
         
         
-        ClearCollect(previousTrainings, MCLETrainings);
-        Clear(previousTrainings);
-        ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && Attended = true) As Trainings ,  Collect(previousTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
-        );
+        //ClearCollect(previousTrainings, MCLETrainings);
+        //Clear(previousTrainings);
+        //ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && Attended = true) As Trainings ,  Collect(previousTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
+        //);
         
-        ClearCollect(currentTrainings, MCLETrainings);
-        Clear(currentTrainings);
-        ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
-        )
+        //ClearCollect(currentTrainings, MCLETrainings);
+        //Clear(currentTrainings);
+        //ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = //Trainings.TrainingID));    
+        //)
+        UpdateContext({CheckInRecord: Blank()});
 
     MobilePage_2 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -620,6 +621,35 @@
                         X: =225
                         Y: =549
                         ZIndex: =1
+
+                Container34_5 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    ZIndex: =10
+
+                    Button6_6 As button:
+                        OnSelect: |+
+                            =Navigate('check in screen', ScreenTransition.CoverRight, {CheckInRecord: })
+                            
+                            
+                        Text: ="Check-In"
+                        X: =225
+                        Y: =549
+                        ZIndex: =1
+
+                Container1 As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =225
+                    LayoutMinHeight: =112
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =11
 
             Container31_3 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =0
