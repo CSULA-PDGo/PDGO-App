@@ -5,8 +5,15 @@
         UpdateContext({ErrorPopUp: false});
         
         
+        ClearCollect(previousTrainings, MCLETrainings);
+        Clear(previousTrainings);
+        ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && Attended = true) As Trainings ,  Collect(previousTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
+        );
+        
         ClearCollect(currentTrainings, MCLETrainings);
         Clear(currentTrainings);
+        ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings, ID = Trainings.TrainingID));    
+        )
 
     MobilePage_2 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -218,8 +225,7 @@
                 DelayItemLoading: =true
                 FillPortions: =0
                 Height: =Parent.Height
-                Items: |
-                    =currentTrainings
+                Items: =If(Status_ComboBox.SelectedItems = ["Previous"], previousTrainings, 
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
