@@ -150,6 +150,14 @@
             );
             
             Collect(barCodes,{ Type: Last(BarcodeReader1.Barcodes).Type, Value: Last(BarcodeReader1.Barcodes).Value  })
+            
+                If(IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID)),
+             
+                    Patch(MCLETrainingAttendance, Defaults(MCLETrainingAttendance), {Attendee: User().FullName, 'Check-In Time': Now(), TrainingID: Value(Last(BarcodeReader1.Barcodes).Value)}); UpdateContext({IsCheckIn:true}),
+                    Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID), {'Check-In Time': Now()} ); UpdateContext({IsCheckIn: true})); 
+            );
+            
+            Collect(barCodes,{ Type: Last(BarcodeReader1.Barcodes).Type, Value: Last(BarcodeReader1.Barcodes).Value  })
         PressedBorderColor: =RGBA(56, 96, 178, 1)
         PressedContentColor: =RGBA(56, 96, 178, 1)
         PressedFillColor: =RGBA(255, 255, 255, 1)
