@@ -199,7 +199,15 @@
                     LayoutMinWidth: =80
                     OnSelect: =
                     Size: =If('TO Request List Screen'.Size=1,8.24,13)
-                    Text: =Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate) & "-" & Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate)
+                    Text: |-
+                        =With({
+                            format: If('TO Request List Screen'.Size = 1, "dd mmm", "dd mmm yy")
+                        },
+                            Text(Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate), format)
+                            & "-
+                        " &
+                            Text(Max(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), EndDate), format)
+                        )
                     Width: =Parent.Width*.20
                     ZIndex: =1
 
