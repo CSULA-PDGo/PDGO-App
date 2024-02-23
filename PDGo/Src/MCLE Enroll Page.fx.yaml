@@ -141,7 +141,7 @@
 
             reset_1 As button:
                 FillPortions: =1
-                OnSelect: |-
+                OnSelect: |
                     =ClearCollect(currentTrainings, MCLETrainings);
                     Clear(currentTrainings);
                     
