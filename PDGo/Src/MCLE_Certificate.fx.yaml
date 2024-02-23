@@ -70,9 +70,9 @@ MCLE_Certificate As screen:
             ="<table style='table-layout: fixed;width: 100%;border-collapse: collapse;' border>"&
             "<thead style='color: #169; font-size: 1.2em'><th style='width: 70%;'>Credit Type</th><th>Credit Hours</th></thead>"&
             "<tbody>"&
-            Concat(MeetingRecord.MCLE_Category.Value, "<tr><td style='text-align: right;padding:5px;'>"&Value&"</td><td style='padding:5px;text-align:center;'>"&DateDiff(MeetingRecord.TrainingEndDay, MeetingRecord.TrainingStartDate, TimeUnit.Hours) / CountRows(MeetingRecord.MCLE_Category.Value) &"</td></tr>", "")&
+            Concat(MeetingRecord.MCLE_Category.Value, "<tr><td style='text-align: right;padding:5px;'>"&Value&"</td><td style='padding:5px;text-align:center;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours) / CountRows(MeetingRecord.MCLE_Category.Value) &"</td></tr>", "")&
             "</tbody><tfoot>"&
-            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&DateDiff(MeetingRecord.TrainingEndDay, MeetingRecord.TrainingStartDate, TimeUnit.Hours)&"</td></tr>"&
+            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours)&"</td></tr>"&
             "</tfoot></table>"
         Size: =10
         Width: =410
