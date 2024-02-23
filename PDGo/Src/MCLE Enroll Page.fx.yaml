@@ -2,7 +2,11 @@
     OnVisible: |-
         =UpdateContext({MeetingRecord: Blank()});
         UpdateContext({mclePopUp: false});
-        UpdateContext({ErrorPopUp: false})
+        UpdateContext({ErrorPopUp: false});
+        
+        
+        ClearCollect(currentTrainings, MCLETrainings);
+        Clear(currentTrainings);
 
     MobilePage_2 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -97,10 +101,10 @@
 
             Status_ComboBox As combobox:
                 AlignInContainer: =AlignInContainer.Start
-                DefaultSelectedItems: =["Pending"]
+                DefaultSelectedItems: =["Upcoming"]
                 DisplayFields: =["Value"]
                 IsSearchable: =false
-                Items: =["Approved","Pending","Denied", "Cancelled"]
+                Items: =["Previous", "Enrolled", "Upcoming"]
                 SearchFields: =["Value"]
                 SearchItems: =[]
                 Width: =(Parent.Width-Status_Label.Width)-4
@@ -126,6 +130,16 @@
                     Reset(DatePicker1);
                 Text: ="Reset"
                 ZIndex: =8
+
+            reset_1 As button:
+                FillPortions: =1
+                OnSelect: |-
+                    =ClearCollect(currentTrainings, MCLETrainings_1);
+                    Clear(currentTrainings);
+                    ForAll(Filter(MCLETrainingAttendance, Attendee = User().FullName && RSVP = true && Attended = false ) As Trainings ,  Collect(currentTrainings, LookUp(MCLETrainings_1, ID = Trainings.TrainingID));    
+                    )
+                Text: ="Filter"
+                ZIndex: =9
 
         Container1_3 As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -204,10 +218,8 @@
                 DelayItemLoading: =true
                 FillPortions: =0
                 Height: =Parent.Height
-                Items: |+
-                    =Filter(MCLETrainings, TrainingEndDay >= Now())
-                    
-                    
+                Items: |
+                    =currentTrainings
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
