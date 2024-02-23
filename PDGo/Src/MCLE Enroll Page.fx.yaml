@@ -113,6 +113,7 @@
                 DisplayFields: =["Value"]
                 IsSearchable: =false
                 Items: =["Enrolled", "Upcoming", "Attended"]
+                OnChange: =Select(reset_1)
                 SearchFields: =["Value"]
                 SearchItems: =[]
                 SelectMultiple: =false
@@ -138,7 +139,7 @@
                 FillPortions: =1
                 OnSelect: |-
                     =Reset(search_input);
-                    Reset(Toggle2);
+                    Reset(Status_ComboBox);
                     Reset(Toggle2_1);
                 Text: ="Reset"
                 ZIndex: =8
