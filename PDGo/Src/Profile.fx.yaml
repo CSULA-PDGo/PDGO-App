@@ -290,46 +290,6 @@ Profile As screen:
                 Y: =366
                 ZIndex: =16
 
-        "'Settings Button' As group":
-            Height: =5
-            Width: =5
-            X: =-356
-            Y: =-190
-            ZIndex: =25
-
-            Circle2_6 As circle:
-                Fill: =RGBA(136, 160, 209, 1)
-                Height: =80
-                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                Width: =80
-                X: =508
-                Y: =287
-                ZIndex: =18
-
-            Icon7_1 As icon.Person:
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =30
-                Icon: =Icon.Settings
-                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                Width: =30
-                X: =533
-                Y: =313
-                ZIndex: =19
-
-            Label3_6 As label:
-                Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =26
-                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                Size: =14
-                Text: |-
-                    ="Settings
-                    "
-                Width: =111
-                X: =492
-                Y: =368
-                ZIndex: =20
-
         "'Supervisor Button' As group":
             Height: =5
             Width: =5
@@ -376,4 +336,44 @@ Profile As screen:
                 X: =378
                 Y: =367
                 ZIndex: =17
+
+        "'Settings Button' As group":
+            Height: =5
+            Width: =5
+            X: =-356
+            Y: =-190
+            ZIndex: =25
+
+            Circle2_6 As circle:
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =80
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Width: =80
+                X: =508
+                Y: =287
+                ZIndex: =18
+
+            Icon7_1 As icon.Person:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =30
+                Icon: =Icon.Settings
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Width: =30
+                X: =533
+                Y: =313
+                ZIndex: =19
+
+            Label3_6 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =26
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
+                Size: =14
+                Text: |-
+                    ="Settings
+                    "
+                Width: =111
+                X: =492
+                Y: =368
+                ZIndex: =20
 
