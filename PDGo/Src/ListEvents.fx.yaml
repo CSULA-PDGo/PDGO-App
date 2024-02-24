@@ -9,7 +9,9 @@ ListEvents As screen:
         DelayItemLoading: =true
         Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |
-            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text))
+            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text),
+            IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value,
+                IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value = ComboBox1.Selected.Value)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
