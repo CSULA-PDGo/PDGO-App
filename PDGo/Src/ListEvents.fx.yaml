@@ -10,8 +10,11 @@ ListEvents As screen:
         Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |
             =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text),
-            IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value,
-                IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value in ComboBox1.SelectedItems)
+            (IsBlank(statusDropdown.Selected.Value) || CourseStatus.Value = statusDropdown.Selected.Value) &&
+              (Checkbox1.Value && CourseType.Value = "In-person" || !Checkbox1.Value) &&
+              (Checkbox1.Value && CourseType.Value = "Online" || !Checkbox1.Value) &&
+              (Checkbox1.Value && CourseType.Value = "Hybrid" || !Checkbox1.Value)
+            )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
