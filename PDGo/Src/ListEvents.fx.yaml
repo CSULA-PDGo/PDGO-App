@@ -11,7 +11,7 @@ ListEvents As screen:
         Items: |
             =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text),
             IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value,
-                IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value = ComboBox1.Selected.Value)
+                IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value in ComboBox1.SelectedItems)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
