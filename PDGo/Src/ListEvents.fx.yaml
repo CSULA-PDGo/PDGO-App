@@ -48,7 +48,7 @@ ListEvents As screen:
             OnSelect: =Select(Parent)
             Size: =21
             Text: |-
-                ="Presenter:              " & ThisItem.'Presenter/Panelist'
+                ="Presenter:              " & ThisItem.'Presenter/Panelist'.DisplayName
             Width: =560
             X: =40
             Y: =190
@@ -248,9 +248,10 @@ ListEvents As screen:
         DefaultSelectedItems: =colTaskStatusFilter.Value
         DisplayFields: =["Value"]
         Height: =60
+        IsSearchable: =false
         Items: =Choices(Courses.CourseFormat)
         SearchFields: =["Value"]
-        SearchItems: =Choices(Courses.CourseFormat,ComboBox1.SearchText)
+        SearchItems: =[]
         SelectionFill: =RGBA(25, 53, 110, 1)
         Size: =21
         Visible: =false
