@@ -9,7 +9,7 @@ ListEvents As screen:
         DelayItemLoading: =true
         Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |
-            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text), CourseID = Value(searchInput.Text)
+            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text)
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
