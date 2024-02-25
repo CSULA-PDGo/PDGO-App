@@ -661,6 +661,7 @@
                     LayoutMode: =LayoutMode.Auto
                     PaddingLeft: =10
                     PaddingRight: =10
+                    Visible: =!IsBlank(LookUp(MCLETrainingAttendance, TrainingID = MeetingRecord.ID && Attended = true))
                     ZIndex: =11
 
                     Button6_7 As button:
