@@ -66,6 +66,7 @@
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
+            FillPortions: =3
             Height: =Parent.Height
             Items: =RequestDates
             Layout: =Layout.Vertical
@@ -147,51 +148,64 @@
             Mode: =TextMode.MultiLine
             ZIndex: =3
 
-        "'TO Request Screen Add Date Button' As button":
-            Fill: =RGBA(39, 67, 125, 1)
-            Font: =Font.Lato
-            Height: =80
-            OnSelect: =Navigate('TO Request Date Screen')
-            Text: ="Add Date Range"
-            ZIndex: =4
+        "'TO Request Screen Buttons Container' As groupContainer.horizontalAutoLayoutContainer":
+            FillPortions: =0
+            Height: =100
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutGap: =50
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =6
 
-        "'TO Request Screen Submit Button' As button":
-            Font: =Font.Lato
-            Height: =80
-            OnSelect: |-
-                =With({
-                    Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
-                        Reason: 'TO Request Screen Comments Input'.Text,
-                        Requester: UserRecord.ID,
-                        Status: {Value: "Pending"},
-                        Comments: ""
-                    })
-                },
-                    ForAll(RequestDates, With({Date: ThisRecord},
-                            Patch(TimeOffRequestDays,
-                                If(IsBlankOrError(ID),
-                                    Defaults(TimeOffRequestDays),
-                                    LookUp(TimeOffRequestDays, ID = Date.ID)
-                                ),
-                                {
-                                    Request: {Id: Request.ID, Value: Request.ID},
-                                    StartDate: Date.StartDate,
-                                    EndDate: Date.EndDate,
-                                    EntireDay: Date.EntireDay,
-                                    StartTime: Date.StartTime,
-                                    EndTime: Date.EndTime,
-                                    Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },
-                                    AdditionalComments: Date.Comments,
-                                    ITEquipment: Date.ITEquipment
-                                }
-                            )
+            "'TO Request Screen Add Date Button' As button":
+                Fill: =RGBA(39, 67, 125, 1)
+                FillPortions: =1
+                Font: =Font.Lato
+                Height: =80
+                OnSelect: =Navigate('TO Request Date Screen')
+                Text: ="Add Date Range"
+                ZIndex: =1
+
+            "'TO Request Screen Submit Button' As button":
+                FillPortions: =1
+                Font: =Font.Lato
+                Height: =80
+                OnSelect: |-
+                    =With({
+                        Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
+                            Reason: 'TO Request Screen Comments Input'.Text,
+                            Requester: UserRecord.ID,
+                            Status: {Value: "Pending"},
+                            Comments: ""
+                        })
+                    },
+                        ForAll(RequestDates, With({Date: ThisRecord},
+                                Patch(TimeOffRequestDays,
+                                    If(IsBlankOrError(ID),
+                                        Defaults(TimeOffRequestDays),
+                                        LookUp(TimeOffRequestDays, ID = Date.ID)
+                                    ),
+                                    {
+                                        Request: {Id: Request.ID, Value: Request.ID},
+                                        StartDate: Date.StartDate,
+                                        EndDate: Date.EndDate,
+                                        EntireDay: Date.EntireDay,
+                                        StartTime: Date.StartTime,
+                                        EndTime: Date.EndTime,
+                                        Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },
+                                        AdditionalComments: Date.Comments,
+                                        ITEquipment: Date.ITEquipment
+                                    }
+                                )
+                            );
                         );
                     );
-                );
-                
-                Clear(RequestDates);
-                Reset('TO Request Screen Comments Input');
-                Navigate('Success Screen', ScreenTransition.CoverRight);
-            Text: ="Submit Request"
-            ZIndex: =5
+                    
+                    Clear(RequestDates);
+                    Reset('TO Request Screen Comments Input');
+                    Navigate('Success Screen', ScreenTransition.CoverRight);
+                Text: ="Submit Request"
+                ZIndex: =2
 
