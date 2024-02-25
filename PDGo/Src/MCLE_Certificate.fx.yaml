@@ -161,7 +161,7 @@ MCLE_Certificate As screen:
         FontWeight: =FontWeight.Bold
         Height: =32
         Text: |-
-            ="Title of Activity: "& Activity.Title
+            ="Title of Activity: "& MeetingRecord.Training
         Width: =860
         X: =128
         Y: =185
@@ -173,7 +173,7 @@ MCLE_Certificate As screen:
         FontWeight: =FontWeight.Bold
         Height: =31
         Text: |-
-            ="Location of the Activity: "& Activity.Location
+            ="Location of the Activity: "& MeetingRecord.Location
         Width: =860
         X: =128
         Y: =213
@@ -185,7 +185,7 @@ MCLE_Certificate As screen:
         FontWeight: =FontWeight.Bold
         Height: =31
         Text: |-
-            ="Date & Time of the Activity: "& Text(Activity.Date + Activity.Time, DateTimeFormat.ShortDateTime)
+            ="Date & Time of the Activity: "& Text(MeetingRecord.TrainingStartDate, DateTimeFormat.ShortDateTime)
         Width: =860
         X: =128
         Y: =246
