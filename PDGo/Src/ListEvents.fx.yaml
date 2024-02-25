@@ -9,11 +9,7 @@ ListEvents As screen:
         DelayItemLoading: =true
         Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |
-            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text),
-            (IsBlank(statusDropdown.Selected.Value) || CourseStatus.Value = statusDropdown.Selected.Value) &&
-              (Checkbox1.Value && CourseType.Value = "In-person" || !Checkbox1.Value) &&
-              (Checkbox1.Value && CourseType.Value = "Online" || !Checkbox1.Value) &&
-              (Checkbox1.Value && CourseType.Value = "Hybrid" || !Checkbox1.Value)
+            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || CourseID = Value(searchInput.Text)
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
