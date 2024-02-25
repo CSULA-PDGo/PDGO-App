@@ -139,6 +139,10 @@
                     Width: =Parent.Width*.20
                     ZIndex: =6
 
+        "'TO Request Screen Comments Label' As label":
+            Text: ="Additional Comments (Optional)"
+            ZIndex: =3
+
         "'TO Request Screen Comments Input' As text":
             Default: =If(IsBlank(Edit), "", Edit.Comments)
             FillPortions: =1
@@ -146,7 +150,8 @@
             HintText: ="Additional Comments"
             LayoutMinHeight: =150
             Mode: =TextMode.MultiLine
-            ZIndex: =3
+            Size: =20
+            ZIndex: =4
 
         "'TO Request Screen Buttons Container' As groupContainer.horizontalAutoLayoutContainer":
             FillPortions: =0
@@ -157,7 +162,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =6
+            ZIndex: =5
 
             "'TO Request Screen Add Date Button' As button":
                 Fill: =RGBA(39, 67, 125, 1)
@@ -173,8 +178,14 @@
                 Font: =Font.Lato
                 Height: =80
                 OnSelect: |-
-                    =With({
-                        Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
+                    =If(!IsBlank(Edit),
+                        Trace("Cancel Previous TO Request");
+                        Patch(TimeOffRequestDays, LookUp(TimeOffRequestDays, ID = Edit.ID), {
+                            Status: { Value: "Cancelled" }
+                        });
+                    );
+                    With({
+                        Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
                             Reason: 'TO Request Screen Comments Input'.Text,
                             Requester: UserRecord.ID,
                             Status: {Value: "Pending"},
