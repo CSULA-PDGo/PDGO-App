@@ -1,31 +1,17 @@
 "'Home Screen' As screen":
 
-    Rectangle2 As rectangle:
-        Height: =560
-        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight);
-        Width: =768
-        Y: =69
-        ZIndex: =1
-
-    Label1 As label:
-        Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =517
-        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
-        Size: =21
-        Text: ="Profile"
-        Width: |+
-            ='Home Screen'.Width
-            
-        Y: =40
-        ZIndex: =2
-
     Button3 As button:
-        Height: =383
         OnSelect: =Navigate('TO Request Screen', ScreenTransition.Cover)
-        Text: ="Button"
-        Width: =563
-        X: =56
-        Y: =924
+        Text: |-
+            ="TO Request
+            "
+        Width: =196
         ZIndex: =3
+
+    Button1 As button:
+        OnSelect: =Navigate('TO Request List Screen')
+        Text: ="TO Request List"
+        Width: =293
+        X: =233
+        ZIndex: =4
 
