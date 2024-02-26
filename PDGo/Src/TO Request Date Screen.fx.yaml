@@ -268,7 +268,7 @@
 
             "'Start Time Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
-                Fill: =RGBA(175, 191, 224, 1)
+                DropShadow: =DropShadow.None
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -283,7 +283,6 @@
                 ZIndex: =8
 
                 "'TO Request Date Screen Start Time Label' As label":
-                    AutoHeight: =true
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderStyle: =BorderStyle.None
                     Color: =RGBA(51, 51, 51, 1)
@@ -316,6 +315,7 @@
 
             "'End Time Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutGap: =40
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
@@ -397,6 +397,7 @@
                 HoverFill: =RGBA(212, 212, 212, 1)
                 Items: =RequestCodes
                 LayoutMinHeight: =50
+                LayoutMinWidth: =150
                 OnChange: =
                 OnSelect: |-
                     =UpdateContext({
@@ -413,7 +414,6 @@
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
                 Size: =20.24
-                Template: =ListItemTemplate.Double
                 Tooltip: =
                 Width: =300
                 X: =20.00
@@ -422,12 +422,12 @@
 
             Icon2 As icon.Information:
                 AlignInContainer: =AlignInContainer.Stretch
-                FillPortions: =1
                 HoverColor: =ColorFade(Self.Color, 30%)
                 Icon: =Icon.Information
                 OnSelect: |-
                     =UpdateContext({PopUp: true})
                 Tooltip: =codeSelected
+                Width: =80
                 ZIndex: =3
 
         "'TO Request Date Screen Equipment Container' As groupContainer.horizontalAutoLayoutContainer":
