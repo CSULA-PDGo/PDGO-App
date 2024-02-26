@@ -1,165 +1,34 @@
 "'Training - Calendar' As screen":
     OnVisible: =_myCalendar.DisplayName
 
-    iconEmptyState3_1 As icon.CalendarBlank:
+    Timer1_1 As timer:
+        AutoPause: =false
+        AutoStart: =true
         DisplayMode: =DisplayMode.View
-        Icon: =Icon.CalendarBlank
-        Visible: =IsBlank(_userDomain)
-        X: =Parent.Width/2 - Self.Width/2
-        Y: =LblEmptyState3_1.Y - Self.Height
+        Duration: =30000
+        Height: =70
+        OnTimerEnd: =Clear(MyCalendarEvents)
+        Repeat: =true
+        Visible: =false
+        Width: =280
+        X: =360
+        Y: =48
         ZIndex: =1
 
-    LblEmptyState3_1 As label:
-        Align: =Align.Center
-        DisplayMode: =DisplayMode.View
-        Height: =150
-        Size: =21
-        Text: ="Select a calendar from the drop down to begin"
-        Visible: =IsBlank(_userDomain)
-        Width: =450
-        X: =Parent.Width / 2 - Self.Width / 2
-        Y: =Parent.Height / 2 - Self.Height / 2
-        ZIndex: =2
-
-    ListeventCont As groupContainer.manualLayoutContainer:
-        Height: =402
-        Width: =640
-        Y: =734
-        ZIndex: =3
-
-        CalendarEventsGallery3_1 As gallery.CalendarEventsGallery:
-            AccessibleLabel: ="Calendar events for selected day"
-            Height: =402
-            Items: |-
-                =SortByColumns(
-                    Filter(
-                        MyCalendarEvents, 
-                        Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate) && StartsWith( Subject , "TRAINING")
-                    ), 
-                    "Start"
-                )
-            Layout: =Layout.Vertical
-            ShowScrollbar: =false
-            TemplatePadding: =0
-            TemplateSize: =105
-            Visible: =_calendarVisible
-            ZIndex: =1
-
-            Rectangle7_1 As rectangle:
-                BorderThickness: =If(ThisItem.Id = _selectedCalendarEvent.Id, 2, 0)
-                Fill: =RGBA(0,0,0,0)
-                Height: =Parent.TemplateHeight
-                HoverFill: =RGBA(0,0,0,0)
-                OnSelect: =Select(Title10_1)
-                TabIndex: =0
-                Width: =Parent.TemplateWidth
-                ZIndex: =1
-
-            iconLocation3_1 As icon.Waypoint:
-                Height: =Subtitle3_1.Height
-                Icon: =Icon.Waypoint
-                OnSelect: =Select(Title10_1)
-                TabIndex: =0
-                Width: =28
-                X: =Title10_1.X
-                Y: =Subtitle3_1.Y
-                ZIndex: =2
-
-            Title10_1 As label:
-                BorderColor: =Self.Color
-                Color: |-
-                    =If(
-                        "mcle" in Lower(ThisItem.Subject), 
-                        Color.Green, // Sets color to green if "mcle" is contained in the subject
-                        "safety" in Lower(ThisItem.Subject), 
-                        Color.Red, // Sets color to red if "safety" is contained in the subject
-                        Color.Black // Fallback color if none of the conditions are met
-                    )
-                FocusedBorderThickness: =2
-                Font: =Font.Lato
-                FontWeight: =FontWeight.Semibold
-                Height: =66
-                OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-                Size: =19 * CalendarEventsGallery3_1.TemplateHeight / 105
-                TabIndex: =0
-                Text: =ThisItem.Subject
-                Tooltip: =ThisItem.Subject
-                Width: =CalendarEventsGallery3_1.TemplateWidth - Self.X - 10
-                Wrap: =false
-                X: =Body3_1.X + Body3_1.Width + 10
-                ZIndex: =3
-
-            Subtitle3_1 As label:
-                FocusedBorderThickness: =2
-                Font: =Font.Lato
-                FontWeight: =FontWeight.Lighter
-                Height: =Self.Size * 2
-                OnSelect: =Select(Title10_1)
-                PaddingBottom: =0
-                Size: =18 * CalendarEventsGallery3_1.TemplateHeight / 105
-                Text: =ThisItem.Location
-                Tooltip: =ThisItem.Location
-                Width: =CalendarEventsGallery3_1.TemplateWidth - Self.X - 10
-                Wrap: =false
-                X: =iconLocation3_1.X + iconLocation3_1.Width + 10
-                Y: =3 / 4 * CalendarEventsGallery3_1.TemplateHeight - Self.Height / 2 - 5
-                ZIndex: =4
-
-            Body3_1 As label:
-                FocusedBorderThickness: =2
-                Height: =Title10_1.Height
-                OnSelect: =Select(Title10_1)
-                Size: =17 * CalendarEventsGallery3_1.TemplateHeight / 105
-                Text: =Text(ThisItem.Start, DateTimeFormat.ShortTime)
-                Width: =110
-                Wrap: =false
-                X: =32
-                ZIndex: =5
-
-            Description3_1 As label:
-                FocusedBorderThickness: =2
-                Height: =Subtitle3_1.Height
-                OnSelect: =Select(Title10_1)
-                Size: =17 * CalendarEventsGallery3_1.TemplateHeight / 105
-                Text: =DateDiff(ThisItem.Start, ThisItem.End, TimeUnit.Minutes) & Lower(Left("Minute_Name", 1))
-                Width: =100
-                Wrap: =false
-                X: =32
-                Y: =Subtitle3_1.Y
-                ZIndex: =6
-
-            Separator4_1 As rectangle:
-                Height: =1
-                OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth
-                Y: =Parent.TemplateHeight - 1
-                ZIndex: =7
-
-        LblNoEvents3_1 As label:
-            Align: =Align.Center
-            DisplayMode: =DisplayMode.View
-            Height: =64
-            Size: =21
-            Text: =If(_showLoading, "Loading events...", "No events scheduled")
-            Visible: =Or(_showLoading, CountRows(CalendarEventsGallery3_1.AllItems) = 0 && _calendarVisible)
-            Width: =CalendarEventsGallery3_1.Width
-            Wrap: =false
-            Y: =338
-            ZIndex: =2
-
-    HeaderCont As groupContainer.manualLayoutContainer:
+    HeaderCont_1 As groupContainer.manualLayoutContainer:
         Height: =111
         Width: =Parent.Width
-        ZIndex: =4
+        Y: =40
+        ZIndex: =2
 
-        "'Background Color_11' As rectangle":
+        "'Background Color_13' As rectangle":
             BorderStyle: =BorderStyle.None
             Fill: =RGBA(25, 53, 110, 1)
             Height: =111
             Width: =Parent.Width
             ZIndex: =1
 
-        HeaderTitleLabel As label:
+        HeaderTitleLabel_1 As label:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             Font: =Font.Lato
@@ -169,7 +38,7 @@
             Width: =Parent.Width
             ZIndex: =2
 
-        "'Back Button_8' As icon.ArrowLeft":
+        "'Back Button_10' As icon.ArrowLeft":
             Color: =RGBA(255, 255, 255, 1)
             Height: =43
             Icon: =Icon.ArrowLeft
@@ -179,33 +48,41 @@
             Y: =30
             ZIndex: =3
 
-        TrainTraclHomeIcon As icon.Home:
+        Toggle2 As toggleSwitch:
             Color: =RGBA(255, 255, 255, 1)
-            Icon: =Icon.Home
-            OnSelect: =Navigate(TrainingTrackerHome, ScreenTransition.CoverRight)
-            X: =App.Width - TrainTraclHomeIcon.Width - 20
-            Y: =19
-            ZIndex: =4
+            FalseText: ="List View"
+            Height: =51
+            OnChange: =Set(isListViewOpen, !isListViewOpen);
+            OnCheck: =
+            OnSelect: =
+            Reset: =true
+            Size: =18
+            TrueText: ="List View"
+            Width: =189
+            X: =451
+            Y: =30
+            ZIndex: =5
 
-    CalendarCont As groupContainer.manualLayoutContainer:
-        Height: =523
-        Width: =640
-        Y: =211
-        ZIndex: =5
+    CalendarCont_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Regular
+        Height: =652
+        Width: =Parent.Width
+        Y: =128
+        ZIndex: =3
 
-        LblMonthSelected3_1 As label:
+        LblMonthSelected3_2 As label:
             Align: =Align.Center
             Font: =Font.Lato
             Height: =64
             Size: =21
             Text: =Text(_firstDayOfMonth, "mmmm yyyy")
-            Visible: =_calendarVisible
+            Visible: =!_calendarVisibles
             Width: =Parent.Width
             Wrap: =false
-            Y: =
+            Y: =64
             ZIndex: =1
 
-        iconPrevMonth3_1 As icon.ChevronLeft:
+        iconPrevMonth3_2 As icon.ChevronLeft:
             Icon: =Icon.ChevronLeft
             OnSelect: |-
                 =/*changes month view to previous month*/
@@ -215,7 +92,7 @@
                 Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days));           
                 /*collects calendar events for all days in current month view. Updates _minDate to prevent duplicate data collection if user returns to this month view*/           
                 If(_minDate > _firstDayOfMonth,           
-                 Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_firstDayInView, DateTimeFormat.UTC), Text(DateAdd(_minDate, -1, TimeUnit.Days), DateTimeFormat.UTC)).value);           
+                 Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2("Calendar", Text(_firstDayInView, DateTimeFormat.UTC), Text(DateAdd(_minDate, -1, TimeUnit.Days), DateTimeFormat.UTC)).value);           
                  Set(_minDate, _firstDayInView))
             PaddingBottom: =10
             PaddingLeft: =10
@@ -225,11 +102,10 @@
             Tooltip: ="View previous month"
             Visible: =_calendarVisible
             Width: =91
-            X: =40
-            Y: =LblMonthSelected3_1.Y
+            Y: =64
             ZIndex: =2
 
-        iconNextMonth3_1 As icon.ChevronRight:
+        iconNextMonth3_2 As icon.ChevronRight:
             Icon: =Icon.ChevronRight
             OnSelect: |-
                 =/*changes month view to next month*/
@@ -239,7 +115,7 @@
                 /*collects calendar events for all days in current month view. Updates _maxDate to prevent duplicate data collection if user returns to this month view*/           
                 Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days));           
                 If(_maxDate < _lastDayOfMonth,           
-                 Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(DateAdd(_maxDate, 1, TimeUnit.Days), DateTimeFormat.UTC), DateAdd(_firstDayInView, 40, TimeUnit.Days)).value);           
+                 Collect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2("Calendar", Text(DateAdd(_maxDate, 1, TimeUnit.Days), DateTimeFormat.UTC), DateAdd(_firstDayInView, 40, TimeUnit.Days)).value);           
                  Set(_maxDate, DateAdd(_firstDayInView, 40, TimeUnit.Days)))
             PaddingBottom: =10
             PaddingLeft: =10
@@ -250,39 +126,33 @@
             Visible: =_calendarVisible
             Width: =91
             X: =Parent.Width - Self.Width
-            Y: =LblMonthSelected3_1.Y
+            Y: =64
             ZIndex: =3
 
-        WeekdayGallery3_1 As gallery.WeekdayGallery:
-            AccessibleLabel: ="Days of the week"
-            Height: =45
-            Items: =Calendar.WeekdaysShort()
-            ShowScrollbar: =false
-            TemplatePadding: =0
-            TemplateSize: =91
+        RectCalendarEventsHeader3_2 As rectangle:
+            Height: =LblCalendarEventsHeader3_2.Height
+            Visible: =_calendarVisible
+            Width: =LblCalendarEventsHeader3_2.Width
+            X: =LblCalendarEventsHeader3_2.X
+            Y: =LblCalendarEventsHeader3_2.Y
+            ZIndex: =6
+
+        LblCalendarEventsHeader3_2 As label:
+            Align: =Align.Center
+            Font: =Font.Lato
+            Height: =52
+            PaddingLeft: =30
+            Size: =21
+            Text: =Text(_dateSelected, DateTimeFormat.LongDate)
             Visible: =_calendarVisible
             Width: =Parent.Width
-            Y: =LblMonthSelected3_1.Y + LblMonthSelected3_1.Height + 20
-            ZIndex: =4
-
-            Title8_1 As label:
-                Align: =Align.Center
-                Font: =Font.Lato
-                Height: =WeekdayGallery3_1.TemplateHeight
-                OnSelect: =Select(Parent)
-                Size: =17 * WeekdayGallery3_1.TemplateWidth / 77
-                Text: =ThisItem.Value
-                Width: =WeekdayGallery3_1.TemplateWidth
-                Wrap: =false
-                X: =WeekdayGallery3_1.TemplateWidth / 2 - Self.Width / 2
-                Y: =WeekdayGallery3_1.TemplateHeight / 2 - Self.Height / 2
-                ZIndex: =1
+            Wrap: =false
+            ZIndex: =7
 
         MonthDayGallery3_1 As gallery.MonthDayGallery:
             AccessibleLabel: ="Days of selected month"
             Height: =390
-            Items: |
-                =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
+            Items: =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
             Layout: =Layout.Vertical
             ShowScrollbar: =false
             TemplatePadding: =0
@@ -290,23 +160,43 @@
             Visible: =_calendarVisible
             Width: =Parent.Width
             WrapCount: =7
-            Y: =133
-            ZIndex: =5
+            Y: =262
+            ZIndex: =8
+
+            Circle4_1 As circle:
+                Fill: |-
+                    =If(
+                        CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
+                        Color.Green, 
+                        CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
+                        Color.Red, 
+                        Color.Black 
+                    )
+                Height: =Self.Width
+                OnSelect: =Select(Parent)
+                Visible: |-
+                    =CountRows(Filter(MyCalendarEvents, 
+                        DateValue(Start) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) 
+                        && StartsWith(Subject, "Training")
+                    )) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
+                Width: =6.5
+                X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
+                Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
+                ZIndex: =1
 
             Subcircle3_1 As circle:
-                Fill: =RGBA(214, 223, 238, 1)
                 Height: =3 * Title9_1.Size
                 OnSelect: =Select(Parent)
                 Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_1.Visible)
                 Width: =Self.Height
                 X: =MonthDayGallery3_1.TemplateWidth/2 - Self.Width/2
                 Y: =MonthDayGallery3_1.TemplateHeight / 2 - Self.Height / 2
-                ZIndex: =1
+                ZIndex: =2
 
             Title9_1 As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(0, 0, 0, 0)
-                Color: =If(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, RGBA(255, 255, 255, 1), DateAdd(_firstDayInView, ThisItem.Value) = Today(), RGBA(47, 41, 43, 1), LblMonthSelected3_1.Color)
+                Color: =If(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, RGBA(255, 255, 255, 1), DateAdd(_firstDayInView, ThisItem.Value) = Today(), RGBA(47, 41, 43, 1), LblMonthSelected3.Color)
                 Fill: |-
                     =/*Fill value changes if the gallery item day = today, or if it lies outside of the current month*/             
                     If(
@@ -323,148 +213,45 @@
                 OnSelect: =Set(_dateSelected, DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days))
                 Size: =17 * MonthDayGallery3_1.TemplateWidth / 91
                 TabIndex: =0
-                Text: =ThisItem.Value
+                Text: =Day(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days))
                 Visible: |-
                     =/*This item is in a row containing no days of the visible month. It is in the row after the row where the last day of the month occurs*/ 
                      !(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) - Weekday(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days)) + 1 > _lastDayOfMonth)
                 Width: =MonthDayGallery3_1.TemplateWidth
                 Wrap: =false
-                ZIndex: =2
-
-            Circle4_1 As circle:
-                Fill: |-
-                    =If(
-                        CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
-                        Color.Green, // If any event contains "mcle", set color to green
-                        CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
-                        Color.Red, // If any event contains "safety", set color to red
-                        Color.Black // Default color when no conditions are met
-                    )
-                Height: =Self.Width
-                OnSelect: =Select(Parent)
-                Visible: |-
-                    =/*Visible if calendar events are found on this day*/               
-                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) && StartsWith(Subject, "Training"))) > 0 && !Subcircle3_1.Visible && Title9_1.Visible
-                Width: =6.5
-                X: =MonthDayGallery3_1.TemplateWidth / 2 - Self.Width / 2
-                Y: =MonthDayGallery3_1.TemplateHeight * (0.75)
                 ZIndex: =3
 
-        RectCalendarEventsHeader3_1 As rectangle:
-            Height: =LblCalendarEventsHeader3_1.Height
-            Visible: =_calendarVisible
-            Width: =LblCalendarEventsHeader3_1.Width
-            X: =LblCalendarEventsHeader3_1.X
-            Y: =LblCalendarEventsHeader3_1.Y
-            ZIndex: =6
+    WeekTitleCont As groupContainer.manualLayoutContainer:
+        Height: =47
+        Width: =Parent.Width
+        Y: =261
+        ZIndex: =4
 
-        LblCalendarEventsHeader3_1 As label:
-            Font: =Font.Lato
-            Height: =60
-            PaddingLeft: =30
-            Size: =21
-            Text: =Text(_dateSelected, DateTimeFormat.LongDate)
+        WeekdayGallery3_3 As gallery.WeekdayGallery:
+            AccessibleLabel: ="Days of the week"
+            Height: =45
+            Items: =Calendar.WeekdaysShort()
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =91
             Visible: =_calendarVisible
             Width: =Parent.Width
-            Wrap: =false
-            Y: =MonthDayGallery3_1.Y + MonthDayGallery3_1.Height + If(DateAdd(_firstDayInView, 35, TimeUnit.Days) > _lastDayOfMonth, -65, 0)
-            ZIndex: =7
-
-    DropDownCont As groupContainer.manualLayoutContainer:
-        Height: =100
-        Width: =640
-        Y: =111
-        ZIndex: =6
-
-        dropdownCalendarSelection3_2 As dropdown:
-            Default: =_myCalendar.DisplayName
-            Height: =60
-            Items: =Filter(Office365Outlook.CalendarGetTables().value, DisplayName = "Calendar")
-            OnChange: =Select(dropdownCalendarSelection3_2)
-            OnSelect: |-
-                =/*retrieves calendar events for all days in current month view and selected calendar 
-                _minDate and _maxDate act as markers to prevent duplicate data collection*/         
-                If(IsBlank(_userDomain),         
-                	UpdateContext({_showLoading: true});         
-                	Set(_userDomain, Right(User().Email, Len(User().Email) - Find("@", User().Email)));         
-                	Set(_dateSelected, Today());         
-                	Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), TimeUnit.Days));         
-                	Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
-                	Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days))         
-                );         
-                Set(_calendarVisible, false);         
-                UpdateContext({_showLoading: true});         
-                Set(_myCalendar, Self.Selected);         
-                Set(_minDate, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
-                Set(_maxDate, DateAdd(DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days), 40, TimeUnit.Days));         
-                ClearCollect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, DateTimeFormat.UTC), Text(_maxDate, DateTimeFormat.UTC)).value);         
-                UpdateContext({_showLoading: false});         
-                Set(_calendarVisible, true)
-            Size: =21
-            Tooltip: ="Select a calendar"
-            Width: =470
-            X: =(App.Width / 3) - (dropdownCalendarSelection3_2.Width / 3)
-            Y: =16
+            Y: =2
             ZIndex: =1
 
-        CalListView As icon.OptionsList:
-            Icon: =Icon.OptionsList
-            OnSelect: |-
-                =Navigate(ListEvents,ScreenTransition.Cover
-                )
-            X: =App.Width - CalListView.Width - 20
-            Y: =16
-            ZIndex: =2
+            Title8_3 As label:
+                Align: =Align.Center
+                Font: =Font.Lato
+                Height: =WeekdayGallery3_3.TemplateHeight
+                OnSelect: =Select(Parent)
+                Size: =17 * WeekdayGallery3_3.TemplateWidth / 77
+                Text: =ThisItem.Value
+                Width: =Parent.Width - 515
+                Wrap: =false
+                Y: =WeekdayGallery3_3.TemplateHeight / 2 - Self.Height / 2
+                ZIndex: =1
 
-    RSVPPopUpConfirmation As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Bold
-        Fill: =RGBA(245, 246, 247, 1)
-        Height: =362
-        RadiusBottomLeft: =8
-        RadiusBottomRight: =8
-        RadiusTopLeft: =8
-        RadiusTopRight: =8
-        Visible: =varShowSuccess
-        Width: =485
-        X: =82
-        Y: =379
-        ZIndex: =7
-
-        Icon11_1 As icon.Cancel:
-            Icon: =Icon.Cancel
-            OnSelect: =Set(varShowSuccess, !varShowSuccess);
-            X: =410
-            Y: =2
-            ZIndex: =5
-
-        iconCircle1_2 As circle.Circle:
-            Fill: =RGBA(25, 53, 110, 1)
-            X: =194
-            Y: =40
-            ZIndex: =6
-
-        iconCheck1_2 As icon.Check:
-            Height: =iconCircle1_2.Height
-            Icon: =Icon.Check
-            PaddingBottom: =Self.PaddingTop
-            PaddingLeft: =Self.PaddingTop
-            PaddingRight: =Self.PaddingTop
-            PaddingTop: =18
-            Width: =iconCircle1_2.Width
-            X: =194
-            Y: =40
-            ZIndex: =7
-
-        LblSuccessMsg1_2 As label:
-            Align: =Align.Center
-            Height: =111
-            Size: =21
-            Text: ="You have successfully RSVP'd to this event"
-            Width: =485
-            Y: =154
-            ZIndex: =8
-
-    RSVPPopUpContainer As groupContainer.manualLayoutContainer:
+    RSVPPopUpContainer_1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Bold
         Fill: =RGBA(245, 246, 247, 1)
         Height: =362
@@ -474,11 +261,11 @@
         RadiusTopRight: =8
         Visible: =IsSidebarOpen
         Width: =485
-        X: =82
-        Y: =379
-        ZIndex: =8
+        X: =121
+        Y: =419
+        ZIndex: =5
 
-        CancelRSVP As button:
+        CancelRSVP_1 As button:
             Height: =57
             OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
             Size: =24
@@ -487,7 +274,7 @@
             Y: =268
             ZIndex: =2
 
-        RSVP As button:
+        RSVP_1 As button:
             Height: =57
             OnSelect: =If(RSVPEvent.Run(Subject.Text), Set(varShowSuccess, true));Set(IsSidebarOpen, !IsSidebarOpen)
             Size: =24
@@ -496,7 +283,7 @@
             Y: =268
             ZIndex: =3
 
-        CancelTopRight As label:
+        CancelTopRight_1 As label:
             Align: =Align.Center
             Height: =192
             Size: =24
@@ -505,33 +292,496 @@
             Y: =54
             ZIndex: =4
 
-        Icon11 As icon.Cancel:
+        Icon11_3 As icon.Cancel:
             Icon: =Icon.Cancel
             OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
             X: =410
             Y: =2
             ZIndex: =5
 
-    Timer1_1 As timer:
-        AutoPause: =false
-        AutoStart: =true
-        DisplayMode: =DisplayMode.View
-        Duration: =300
-        Height: =70
-        OnTimerEnd: |-
-            =UpdateContext({
-                MyCalendarEvents: Office365Outlook.GetEventsCalendarViewV2(
-                    "Calendar",
-                    "2018-01-01T00:00:00Z", 
-                    Text(Now(), "yyyy-MM-ddTHH:mm:ssZ")
-                ).value
-            }); 
-        OnTimerStart: =true
-        Repeat: =true
-        Start: =true
-        Visible: =false
-        Width: =280
-        X: =110
-        Y: =886
-        ZIndex: =9
+    RSVPPopUpConfirmation_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Fill: =RGBA(245, 246, 247, 1)
+        Height: =362
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =varShowSuccess
+        Width: =485
+        X: =121
+        Y: =419
+        ZIndex: =6
+
+        Icon11_2 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varShowSuccess, !varShowSuccess);
+            X: =410
+            Y: =2
+            ZIndex: =5
+
+        iconCircle1_3 As circle.Circle:
+            Fill: =RGBA(25, 53, 110, 1)
+            X: =194
+            Y: =40
+            ZIndex: =6
+
+        iconCheck1_3 As icon.Check:
+            Height: =iconCircle1_3.Height
+            Icon: =Icon.Check
+            PaddingBottom: =Self.PaddingTop
+            PaddingLeft: =Self.PaddingTop
+            PaddingRight: =Self.PaddingTop
+            PaddingTop: =18
+            Width: =iconCircle1_3.Width
+            X: =194
+            Y: =40
+            ZIndex: =7
+
+        LblSuccessMsg1_3 As label:
+            Align: =Align.Center
+            Height: =111
+            Size: =21
+            Text: ="You have successfully RSVP'd to this event"
+            Width: =485
+            Y: =154
+            ZIndex: =8
+
+    ListViewCont As groupContainer.manualLayoutContainer:
+        Height: =1136
+        Visible: =isListViewOpen
+        Width: =Parent.Width
+        ZIndex: =7
+
+        Rectangle1 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        EventListCont As groupContainer.manualLayoutContainer:
+            Height: =If(filterIcon, Parent.Height+ filterSectionRectangle.Height, Parent.Height + HeaderCont.Height)
+            Width: =640
+            Y: =If(filterIcon, FilterCont.Height, HeaderCont.Height)
+            ZIndex: =2
+
+            Gallery2_1 As gallery.variableTemplateHeightGallery:
+                DelayItemLoading: =true
+                Height: =If(filterIcon, Parent.Height+ filterSectionRectangle.Height, Parent.Height + HeaderCont.Height)
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
+                TemplatePadding: =0
+                TemplateSize: =344
+                Transition: =Transition.Pop
+                Y: =
+                ZIndex: =1
+
+                CourseTypeLabel_1 As label:
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =21
+                    Text: |-
+                        ="Course Type:         " & ThisItem.CourseType
+                    Width: =560
+                    X: =40
+                    Y: =82
+                    ZIndex: =1
+
+                CourseTitleLabel_1 As label:
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =21
+                    Text: |-
+                        ="Course Title:          " & ThisItem.CourseTitle
+                    Width: =560
+                    X: =40
+                    Y: =28
+                    ZIndex: =2
+
+                CoursePresenterLabel_1 As label:
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =21
+                    Text: |-
+                        ="Presenter:              " & ThisItem.'Presenter/Panelist'
+                    Width: =560
+                    X: =40
+                    Y: =190
+                    ZIndex: =3
+
+                CourseDateLabel_1 As label:
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =21
+                    Text: |-
+                        ="Course Date:         " &"📆 "& ThisItem.CourseDate
+                    Width: =560
+                    X: =40
+                    Y: =135
+                    ZIndex: =4
+
+                CourseFormatLabel_1 As button:
+                    Fill: =Switch(ThisItem.CourseFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
+                    Height: =52
+                    OnSelect: =Select(Parent)
+                    Size: =24
+                    Text: =ThisItem.CourseFormat.Value
+                    Width: =212
+                    X: =57
+                    Y: =252
+                    ZIndex: =5
+
+                CourseStatusLabel_1 As label:
+                    Color: =Switch(ThisItem.CourseStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+                    OnSelect: =Select(Parent)
+                    Size: =21
+                    Text: =ThisItem.CourseStatus.Value
+                    Width: =236
+                    X: =384
+                    Y: =252
+                    ZIndex: =6
+
+                separator_1 As rectangle:
+                    Fill: =RGBA(25, 53, 110, 1)
+                    Height: =2
+                    OnSelect: =Select(Parent)
+                    Width: =538
+                    X: =40
+                    Y: =334
+                    ZIndex: =7
+
+                sideSeparator_1 As rectangle:
+                    Fill: =RGBA(25, 53, 110, 1)
+                    Height: =279
+                    OnSelect: =Select(Parent)
+                    Width: =5
+                    X: =23
+                    Y: =28
+                    ZIndex: =8
+
+                btnTemplate_1 As button:
+                    Fill: =Color.Transparent
+                    Height: =Parent.TemplateHeight
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Select(Parent)
+                    PressedFill: =ColorFade(Self.Fill, -30%)
+                    Size: =24
+                    Text: ="Button"
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =9
+
+        FilterCont As groupContainer.manualLayoutContainer:
+            Height: =377
+            Width: =640
+            ZIndex: =3
+
+            filterSectionRectangle_1 As rectangle:
+                Fill: =RGBA(130, 146, 179, 1)
+                Height: =282
+                Visible: =filterIcon
+                Width: =640
+                Y: =100
+                ZIndex: =1
+
+            Label8_1 As label:
+                Align: =Align.Center
+                Size: =21
+                Text: ="Status"
+                Visible: =filterIcon
+                Width: =203
+                X: =40
+                Y: =110
+                ZIndex: =2
+
+            ResetButton_1 As button:
+                Fill: =RGBA(25, 53, 110, 1)
+                Height: =52
+                OnSelect: =Reset(statusDropdown_1); Clear(colTaskStatusFilter)
+                Size: =24
+                Text: ="Reset"
+                Visible: =filterIcon
+                Width: =165
+                X: =455
+                Y: =161
+                ZIndex: =3
+
+            statusDropdown_1 As combobox:
+                ChevronBackground: =RGBA(25, 53, 110, 1)
+                DisplayFields: =["Value"]
+                Height: =60
+                IsSearchable: =false
+                Items: =Choices(Courses.CourseStatus)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionFill: =RGBA(25, 53, 110, 1)
+                SelectMultiple: =false
+                Size: =21
+                Visible: =filterIcon
+                Width: =261
+                X: =40
+                Y: =161
+                ZIndex: =4
+
+            ComboBox1_1 As combobox:
+                ChevronBackground: =RGBA(25, 53, 110, 1)
+                DefaultSelectedItems: =colTaskStatusFilter.Value
+                DisplayFields: =["Value"]
+                Height: =60
+                Items: =Choices(Courses.CourseFormat)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(Courses.CourseFormat,ComboBox1_1.SearchText)
+                SelectionFill: =RGBA(25, 53, 110, 1)
+                Size: =21
+                Visible: =false
+                Width: =293
+                X: =327
+                Y: =40
+                ZIndex: =5
+
+            Gallery5_2 As gallery.galleryHorizontal:
+                DelayItemLoading: =true
+                Height: =382
+                Items: =Choices(Courses.CourseFormat)
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =192
+                Visible: =filterIcon
+                ZIndex: =6
+
+                Checkbox1_2 As checkbox:
+                    CheckboxSize: =50
+                    Default: =ThisItem in colTaskStatusFilter
+                    Height: =85
+                    OnCheck: =Collect(colTaskStatusFilter, ThisItem)
+                    OnSelect: =Select(Parent)
+                    OnUncheck: =Remove(colTaskStatusFilter, ThisItem)
+                    Size: =19
+                    Text: =ThisItem.Value
+                    Width: =192
+                    Y: =234
+                    ZIndex: =1
+
+            FilterIcon As icon.Filter:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =52
+                Icon: =Icon.Filter
+                OnSelect: |-
+                    =UpdateContext({filterIcon: !filterIcon})
+                Width: =48
+                X: =195
+                Y: =25
+                ZIndex: =7
+
+        HeaderCont As groupContainer.manualLayoutContainer:
+            Height: =110
+            Width: =640
+            ZIndex: =4
+
+            HeaderBckground As rectangle:
+                Fill: =RGBA(25, 53, 110, 1)
+                Width: =640
+                ZIndex: =1
+
+            EventsTitle_1 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =74
+                Size: =25
+                Text: ="Events"
+                Width: =112
+                X: =81
+                Y: =15
+                ZIndex: =2
+
+            arrowback_1 As icon.ArrowLeft:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =43
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Navigate(TrainingTrackerHome, ScreenTransition.Cover)
+                Width: =48
+                X: =22
+                Y: =30
+                ZIndex: =3
+
+            SearchIcon As icon.Search:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =52
+                Icon: =Icon.Search
+                OnSelect: |-
+                    =UpdateContext({searchIcon: !searchIcon})
+                Width: =48
+                X: =585
+                Y: =26
+                ZIndex: =4
+
+            searchInput_1 As text:
+                Default: =""
+                Height: =58
+                HintText: ="search"
+                Size: =21
+                Visible: =searchIcon
+                Width: =151
+                X: =423
+                Y: =23
+                ZIndex: =5
+
+            Toggle2_1 As toggleSwitch:
+                Color: =RGBA(255, 255, 255, 1)
+                FalseText: ="Calendar View"
+                Height: =48
+                OnChange: =Set(isListViewOpen, !isListViewOpen);
+                OnCheck: =
+                OnSelect: =
+                Reset: =true
+                Size: =16
+                TrueText: ="Calendar View"
+                Width: =189
+                X: =241
+                Y: =27
+                ZIndex: =7
+
+            FilterIcon_1 As icon.Filter:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =52
+                Icon: =Icon.Filter
+                OnSelect: |-
+                    =UpdateContext({filterIcon: !filterIcon})
+                Width: =48
+                X: =193
+                Y: =26
+                ZIndex: =8
+
+    ListEventsOnCalCont As groupContainer.manualLayoutContainer:
+        Height: =1136
+        Width: =Parent.Width
+        ZIndex: =8
+
+        eventsOnCalendar As gallery.variableTemplateHeightGallery:
+            DelayItemLoading: =true
+            Height: =504
+            Items: |-
+                =SortByColumns(
+                    Filter(
+                        MyCalendarEvents, 
+                        Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate) && StartsWith( Subject , "TRAINING")
+                    ), 
+                    "Start"
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateFill: =If(ThisItem.IsSelected, Color.AliceBlue, RGBA(0, 0, 0, 0))
+            TemplatePadding: =0
+            TemplateSize: =284
+            Transition: =Transition.Pop
+            Width: =Parent.Width
+            Y: =
+            ZIndex: =1
+
+            btnTemplate_2 As button:
+                Color: =
+                Fill: |-
+                    =If(
+                        "mcle" in Lower(ThisItem.Subject),
+                        Color.AliceBlue, 
+                        If(
+                           "safety" in Lower(ThisItem.Subject),
+                           RGBA(0, 0, 255, 1), 
+                           RGBA(255, 255, 255, 1) 
+                        )
+                    )
+                Height: =222
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: =Select(Parent)
+                PressedFill: =ColorFade(Self.Fill, -30%)
+                Size: =24
+                Text: =
+                Width: =640
+                ZIndex: =1
+
+            TImeNDate As label:
+                Align: =Align.Center
+                Height: =74
+                OnSelect: =Select(Parent)
+                Size: =21
+                Text: =ThisItem.Start & " - " & ThisItem.End
+                Width: =Parent.Width
+                Y: =51
+                ZIndex: =2
+
+            RSVPNavButtn As button:
+                BorderColor: =ColorFade(Self.Fill, -10%)
+                BorderThickness: =4
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(222, 222, 222, 1)
+                Height: =42
+                OnSelect: =
+                Size: =24
+                Text: ="RSVP"
+                Width: =150
+                X: =77
+                Y: =125
+                ZIndex: =3
+
+            NameOfEvent As label:
+                Align: =Align.Center
+                Height: =46
+                OnSelect: =Select(Parent)
+                Size: =21
+                Text: =ThisItem.Subject
+                Width: =Parent.Width
+                Y: =16
+                ZIndex: =4
+
+            separator_2 As rectangle:
+                Fill: =RGBA(25, 53, 110, 1)
+                Height: =2
+                OnSelect: =Select(Parent)
+                Width: =538
+                X: =62
+                Y: =202
+                ZIndex: =5
+
+            sideSeparator_2 As rectangle:
+                Fill: =RGBA(25, 53, 110, 1)
+                Height: =150
+                OnSelect: =Select(Parent)
+                Width: =2
+                X: =23
+                Y: =28
+                ZIndex: =6
+
+            LocationLabel As label:
+                Align: =Align.Center
+                Height: =60
+                OnSelect: =Select(Parent)
+                Size: =21
+                Text: =ThisItem.Location
+                Width: =233
+                X: =333
+                Y: =116
+                ZIndex: =7
+
+            SelectItemLabel As label:
+                Height: =120
+                OnSelect: =Select(Parent)
+                Size: =21
+                Text: =If(_showLoading, "Loading events...", "No events scheduled")
+                Visible: =IsBlank(_userDomain)
+                Width: =366
+                X: =246
+                Y: =28
+                ZIndex: =8
+
+            iconLocation3_1 As icon.Waypoint:
+                Color: =RGBA(0, 0, 0, 1)
+                FocusedBorderThickness: =4
+                Height: =50
+                Icon: =Icon.Waypoint
+                OnSelect: =Select(LocationLabel)
+                TabIndex: =0
+                Width: =33
+                X: =511
+                Y: =118
+                ZIndex: =9
 
