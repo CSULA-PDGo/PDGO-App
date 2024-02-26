@@ -9,7 +9,7 @@ ListEvents As screen:
         DelayItemLoading: =true
         Height: =If(filterIcon, 1036 - filterSectionRectangle.Height, 1036)
         Items: |
-            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text),
+            =Filter(Courses, StartsWith(CourseTitle, searchInput.Text) || StartsWith(CourseType, searchInput.Text),
             IsBlank(ComboBox1.Selected.Value) || IsEmpty(ComboBox1.SelectedItems) || CourseFormat.Value in ComboBox1.SelectedItems, 
             IsBlank(statusDropdown.Selected.Value) || IsEmpty(statusDropdown.SelectedItems) || CourseStatus.Value = statusDropdown.Selected.Value
             )
@@ -154,7 +154,7 @@ ListEvents As screen:
     searchInput As text:
         Default: =""
         Height: =58
-        HintText: ="search"
+        HintText: ="Enter Course Title"
         Size: =21
         Visible: =searchIcon
         Width: =308
