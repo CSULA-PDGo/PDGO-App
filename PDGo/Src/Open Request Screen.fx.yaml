@@ -218,7 +218,8 @@
                     LayoutMinHeight: =400
                     LayoutMinWidth: =320
                     LoadingSpinner: =LoadingSpinner.Data
-                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(140, Self.Width - 60), Min(300, Self.Height - 60))
+                    TemplatePadding: =10
+                    TemplateSize: =300
                     Width: =Parent.Width
                     ZIndex: =6
 
@@ -226,6 +227,7 @@
                         Height: =Parent.TemplateHeight
                         LayoutAlignItems: =LayoutAlignItems.Stretch
                         LayoutDirection: =LayoutDirection.Vertical
+                        LayoutGap: =5
                         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                         LayoutMode: =LayoutMode.Auto
                         Width: =Min(Parent.TemplateWidth, App.Width)
@@ -277,31 +279,7 @@
                                 FillPortions: =1
                                 Height: =Parent.Height
                                 LayoutMinWidth: =110
-                                Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
-                                ZIndex: =2
-
-                        Container6_7 As groupContainer.horizontalAutoLayoutContainer:
-                            Fill: =RGBA(215, 223, 240, 1)
-                            FillPortions: =0
-                            Height: =50
-                            LayoutMinHeight: =100
-                            LayoutMinWidth: =250
-                            LayoutMode: =LayoutMode.Auto
-                            ZIndex: =7
-
-                            Label14_8 As label:
-                                FontWeight: =FontWeight.Semibold
-                                Height: =Parent.Height
-                                Size: =14
-                                Text: |-
-                                    ="Entire Day:"
-                                ZIndex: =1
-
-                            Label4_9 As label:
-                                FillPortions: =1
-                                Height: =Parent.Height
-                                LayoutMinWidth: =110
-                                Text: =ThisItem.EntireDay
+                                Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                                 ZIndex: =2
 
                         Container6_8 As groupContainer.horizontalAutoLayoutContainer:
@@ -328,7 +306,6 @@
                                 ZIndex: =2
 
                         Container6_9 As groupContainer.horizontalAutoLayoutContainer:
-                            FillPortions: =0
                             Height: =Max(HtmlText3_1.Height, 50)
                             LayoutMinHeight: =100
                             LayoutMinWidth: =250
