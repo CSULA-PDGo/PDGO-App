@@ -263,6 +263,7 @@ ListEvents As screen:
 
     CalendarEventsView As groupContainer.manualLayoutContainer:
         Height: =1136
+        Visible: =!isListViewOpen
         Width: =640
         ZIndex: =15
 
@@ -458,14 +459,15 @@ ListEvents As screen:
 
             Toggle2_2 As toggleSwitch:
                 Color: =RGBA(255, 255, 255, 1)
-                FalseText: ="List View"
+                Default: =true
+                FalseText: ="Calendar View"
                 Height: =51
                 OnChange: =Set(isListViewOpen, !isListViewOpen);
                 OnCheck: =
                 OnSelect: =
                 Reset: =true
-                Size: =18
-                TrueText: ="List View"
+                Size: =16
+                TrueText: =
                 Width: =189
                 X: =(Parent.Width - Self.Width) 
                 Y: =30
@@ -656,4 +658,19 @@ ListEvents As screen:
                     Wrap: =false
                     Y: =WeekdayGallery3_4.TemplateHeight / 2 - Self.Height / 2
                     ZIndex: =1
+
+    Toggle2_3 As toggleSwitch:
+        Color: =RGBA(255, 255, 255, 1)
+        FalseText: ="List View"
+        Height: =51
+        OnChange: =Set(isListViewOpen, !isListViewOpen);
+        OnCheck: =
+        OnSelect: =
+        Reset: =true
+        Size: =16
+        TrueText: =
+        Width: =189
+        X: =385
+        Y: =26
+        ZIndex: =16
 
