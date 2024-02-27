@@ -258,7 +258,6 @@
                     PressedBorderColor: =RGBA(0, 0, 0, 0)
                     ShowLabel: =false
                     Size: =20.24
-                    TrueFill: =RGBA(39, 67, 125, 1)
                     TrueHoverFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                     TrueText: ="On"
                     Width: =89.97
@@ -358,6 +357,33 @@
                     Size: =20
                     ZIndex: =3
 
+        "'TO Request Date Screen Equipment Container' As groupContainer.horizontalAutoLayoutContainer":
+            DropShadow: =DropShadow.None
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingLeft: =20
+            PaddingRight: =20
+            ZIndex: =3
+
+            "'TO Request Date Screen Equipment Label' As label":
+                Font: =Font.Lato
+                Height: =70
+                Size: =20
+                Text: ="I need access to SBPD IT equipment while abroad"
+                Width: =400
+                ZIndex: =1
+
+            "'TO Request Date Screen Equipment Toggle' As toggleSwitch":
+                Default: =If(IsBlankOrError(Edit), false, Edit.ITEquipment)
+                FalseText: ="No"
+                Height: =49
+                TrueText: ="Yes"
+                ZIndex: =2
+
         "'TO Request Date Screen Reason Container' As groupContainer.horizontalAutoLayoutContainer":
             DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -367,7 +393,7 @@
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             PaddingRight: =20
-            ZIndex: =3
+            ZIndex: =4
 
             "'TO Request Date Screen Reason Label' As label":
                 Font: =Font.Lato
@@ -429,32 +455,6 @@
                 Tooltip: =codeSelected
                 Width: =80
                 ZIndex: =3
-
-        "'TO Request Date Screen Equipment Container' As groupContainer.horizontalAutoLayoutContainer":
-            DropShadow: =DropShadow.None
-            LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            LayoutWrap: =true
-            PaddingLeft: =20
-            PaddingRight: =20
-            ZIndex: =4
-
-            "'TO Request Date Screen Equipment Label' As label":
-                Font: =Font.Lato
-                Height: =70
-                Size: =20
-                Text: ="I need access to SBPD IT equipment while abroad"
-                Width: =400
-                ZIndex: =1
-
-            "'TO Request Date Screen Equipment Toggle' As toggleSwitch":
-                Default: =If(IsBlankOrError(Edit), false, Edit.ITEquipment)
-                FalseText: ="No"
-                TrueText: ="Yes"
-                ZIndex: =2
 
         "'TO Request Date Screen Comments Input' As text":
             BorderColor: =RGBA(166, 166, 166, 1)
