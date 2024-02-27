@@ -161,7 +161,7 @@
                 PaddingTop: =0.00
                 Width: =435.00
                 X: =445.00
-                ZIndex: =6
+                ZIndex: =2
 
                 "'TO Request Date Screen End Date Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
@@ -208,63 +208,6 @@
                     X: =145.00
                     ZIndex: =2
 
-            "'Entire Day Container' As groupContainer.horizontalAutoLayoutContainer":
-                AlignInContainer: =AlignInContainer.SetByContainer
-                DropShadow: =DropShadow.None
-                Fill: =RGBA(255, 255, 255, 1)
-                LayoutAlignItems: =LayoutAlignItems.Stretch
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =50
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                PaddingRight: =0.00
-                PaddingTop: =0.00
-                Width: =435.00
-                X: =891.00
-                ZIndex: =7
-
-                "'TO Request Date Screen Entire Day Toggle Label' As label":
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    Color: =RGBA(51, 51, 51, 1)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    FocusedBorderThickness: =4
-                    Height: =41
-                    LineHeight: =1.361816
-                    PaddingBottom: =15
-                    PaddingLeft: =0
-                    PaddingRight: =0.00
-                    PaddingTop: =13.50
-                    Size: =20.24
-                    Text: ="Entire Day"
-                    Width: =133.16
-                    X: =0.00
-                    Y: =4
-                    ZIndex: =1
-
-                "'TO Request Date Screen Entire Day Toggle' As toggleSwitch":
-                    AlignInContainer: =AlignInContainer.Center
-                    BorderColor: =RGBA(0, 0, 0, 0)
-                    BorderStyle: =BorderStyle.None
-                    Color: =RGBA(177, 177, 177, 1)
-                    Default: =If(IsBlankOrError(Edit), true, Edit.EntireDay)
-                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    FalseFill: =RGBA(102, 102, 102, 1)
-                    FalseHoverFill: =RGBA(33, 33, 33, 1)
-                    FalseText: ="Off"
-                    FocusedBorderThickness: =4
-                    Height: =49
-                    HoverBorderColor: =RGBA(0, 0, 0, 0)
-                    PressedBorderColor: =RGBA(0, 0, 0, 0)
-                    ShowLabel: =false
-                    Size: =20.24
-                    TrueHoverFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
-                    TrueText: ="On"
-                    Width: =89.97
-                    X: =335.00
-                    Y: =11
-                    ZIndex: =2
-
             "'Start Time Container' As groupContainer.horizontalAutoLayoutContainer":
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
@@ -279,7 +222,7 @@
                 Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
                 Width: =0.00
                 X: =0.00
-                ZIndex: =8
+                ZIndex: =3
 
                 "'TO Request Date Screen Start Time Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
@@ -326,7 +269,7 @@
                 Visible: =Not('TO Request Date Screen Entire Day Toggle'.Value)
                 Width: =0.00
                 X: =0.00
-                ZIndex: =9
+                ZIndex: =4
 
                 "'TO Request Date Screen End Time Label' As label":
                     BorderColor: =RGBA(0, 0, 0, 0)
@@ -357,6 +300,64 @@
                     Size: =20
                     ZIndex: =3
 
+            "'Entire Day Container' As groupContainer.horizontalAutoLayoutContainer":
+                AlignInContainer: =AlignInContainer.SetByContainer
+                DropShadow: =DropShadow.None
+                Fill: =RGBA(255, 255, 255, 1)
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =0.00
+                PaddingTop: =0.00
+                Width: =435.00
+                X: =891.00
+                ZIndex: =5
+
+                "'TO Request Date Screen Entire Day Toggle Label' As label":
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Font: =Font.Lato
+                    Height: =41
+                    LineHeight: =1.361816
+                    PaddingBottom: =15
+                    PaddingLeft: =0
+                    PaddingRight: =0.00
+                    PaddingTop: =13.50
+                    Size: =20.24
+                    Text: ="Entire Day"
+                    Width: =133.16
+                    X: =0.00
+                    Y: =4
+                    ZIndex: =1
+
+                "'TO Request Date Screen Entire Day Toggle' As toggleSwitch":
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(177, 177, 177, 1)
+                    Default: =If(IsBlankOrError(Edit), true, Edit.EntireDay)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FalseFill: =RGBA(102, 102, 102, 1)
+                    FalseHoverFill: =RGBA(33, 33, 33, 1)
+                    FalseText: ="Off"
+                    FocusedBorderThickness: =4
+                    Height: =49
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    ShowLabel: =false
+                    Size: =20.24
+                    TrueHoverFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    TrueText: ="On"
+                    Width: =89.97
+                    X: =335.00
+                    Y: =11
+                    ZIndex: =2
+
         "'TO Request Date Screen Equipment Container' As groupContainer.horizontalAutoLayoutContainer":
             DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -372,7 +373,7 @@
             "'TO Request Date Screen Equipment Label' As label":
                 Font: =Font.Lato
                 Height: =70
-                Size: =20
+                Size: =20.24
                 Text: ="I need access to SBPD IT equipment while abroad"
                 Width: =400
                 ZIndex: =1
