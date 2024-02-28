@@ -258,11 +258,61 @@
                         );
                     Size: =24
                     Text: ="RSVP"
-                    Visible: =If(_currentSelectedTraining.TrainingStatus.Value = "In-progress", false, true)
+                    Visible: =If(_currentSelectedTraining.TrainingStatus.Value = "In-progress" || _currentSelectedTraining.TrainingStatus.Value = "Completed", false, true)
                     Width: =Parent.Width - 120
                     X: =60
                     Y: =Parent.Height - 120
                     ZIndex: =18
+
+                Button7_4 As button:
+                    Height: =70
+                    OnSelect: |
+                        =If(
+                            IsBlank(
+                                LookUp(
+                                    MCLETrainingAttendance,
+                                    Attendee = User().FullName && _currentSelectedTraining.ID = TrainingID
+                                )
+                            ),
+                            Patch(
+                                MCLETrainingAttendance,
+                                Defaults(MCLETrainingAttendance),
+                                {
+                                    RSVP: true,
+                                    Attendee: User().FullName,
+                                    TrainingID: _currentSelectedTraining.ID
+                                }
+                            );
+                            Office365Outlook.V4CalendarPostItem(
+                                LookUp(
+                                    Office365Outlook.CalendarGetTablesV2().value,
+                                    name = "Calendar"
+                                ).id,
+                                _currentSelectedTraining.Training,
+                                _currentSelectedTraining.TrainingStartDate,
+                                _currentSelectedTraining.TrainingEndDay,
+                                "Pacific Standard Time"
+                            );
+                            Navigate(
+                                'Training Tracker - RSVP Success',
+                                ScreenTransition.CoverRight
+                            );
+                            ,
+                            Notify("You're already enrolled in this course.")
+                        );
+                    Size: =24
+                    Text: ="Generate Certificate"
+                    Visible: |-
+                        =If(
+                            _currentSelectedTraining.TrainingStatus.Value = "Completed",
+                            true,
+                            false
+                        )
+                    Width: =Parent.Width - 120
+                    X: |
+                        =60
+                    Y: =Parent.Height - 120
+                    ZIndex: =19
 
     "'Back Button_16' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
