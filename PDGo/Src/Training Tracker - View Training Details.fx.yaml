@@ -134,7 +134,7 @@
                         ="Location: "
                     Width: =175
                     X: =40
-                    Y: =434
+                    Y: =397
                     ZIndex: =9
 
                 Label10_9 As label:
@@ -143,7 +143,7 @@
                     Text: =If(IsBlank(_currentSelectedTraining.Location), "N/A", _currentSelectedTraining.Location)
                     Width: =425
                     X: =215
-                    Y: =434
+                    Y: =397
                     ZIndex: =10
 
                 Label10_10 As label:
@@ -154,7 +154,7 @@
                         ="Address: "
                     Width: =175
                     X: =40
-                    Y: =504
+                    Y: =467
                     ZIndex: =11
 
                 Label10_11 As label:
@@ -164,8 +164,28 @@
                     VerticalAlign: =VerticalAlign.Top
                     Width: =398
                     X: =215
-                    Y: =517
+                    Y: =480
                     ZIndex: =12
+
+                Label10_12 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    Size: =21
+                    Text: |-
+                        ="Status: "
+                    Width: =175
+                    X: =40
+                    Y: =602
+                    ZIndex: =13
+
+                Label10_13 As label:
+                    Height: =70
+                    Size: =21
+                    Text: =_currentSelectedTraining.TrainingStatus.Value
+                    Width: =425
+                    X: =215
+                    Y: =602
+                    ZIndex: =14
 
     "'Back Button_16' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
