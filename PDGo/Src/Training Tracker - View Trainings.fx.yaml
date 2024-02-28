@@ -180,3 +180,13 @@
         Y: =Container3_1.Height / 2 - 21
         ZIndex: =2
 
+    "'Back Button_13' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.Filter
+        OnSelect: =Navigate('Training Tracker - Home', ScreenTransition.Cover)
+        Width: =40
+        X: =Parent.Width - 80
+        Y: =Container3_1.Height / 2 - 21
+        ZIndex: =3
+
