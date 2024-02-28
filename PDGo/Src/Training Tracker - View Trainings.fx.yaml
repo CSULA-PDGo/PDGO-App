@@ -1,4 +1,24 @@
 "'Training Tracker - View Trainings' As screen":
+    OnVisible: |
+        =If(IsBlank(_userDomain),
+            UpdateContext({_showLoading: true});
+            Set(_userDomain, Right(User().Email, Len(User().Email) - Find("@", User().Email)));
+            Set(_dateSelected, Today());
+            Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), TimeUnit.Days));
+            Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));
+            Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days))
+        );
+        Set(_calendarVisibles, false);
+        UpdateContext({_showLoading: true});
+        
+        
+        
+        Set(_minDate, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));
+        Set(_maxDate, DateAdd(DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days), 40, TimeUnit.Days));
+        ClearCollect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2("Calendar"  , Text(_minDate, DateTimeFormat.UTC), Text(_maxDate, DateTimeFormat.UTC)).value);
+        ClearCollect(FilteredTrainingEvents, Filter(MyCalendarEvents, StartsWith(Lower(Subject), "training")));
+        UpdateContext({_showLoading: false});
+        Set(_calendarVisible, true);
 
     Container1_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -41,7 +61,7 @@
 
             "Gallery6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                 DelayItemLoading: =true
-                Items: =Courses
+                Items: =MCLETrainings_1
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -68,7 +88,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =24
-                    Text: =ThisItem.CourseTitle
+                    Text: =ThisItem.Training
                     VerticalAlign: =VerticalAlign.Top
                     Width: =467
                     X: =39
@@ -100,7 +120,7 @@
                     PaddingRight: =0.00
                     PaddingTop: =0.00
                     Size: =18
-                    Text: ="📆 " & ThisItem.CourseDate
+                    Text: ="📆 " & ThisItem.TrainingStartDate
                     VerticalAlign: =VerticalAlign.Top
                     Width: =499
                     X: =39
@@ -108,7 +128,7 @@
                     ZIndex: =4
 
                 CourseFormat As button:
-                    Fill: =Switch(ThisItem.CourseFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
+                    Fill: =Switch(ThisItem.TrainingFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
                     Height: =26.65
                     OnSelect: =Select(Parent)
                     PaddingBottom: =3.51
@@ -116,14 +136,14 @@
                     PaddingRight: =3.50
                     PaddingTop: =3.50
                     Size: =12
-                    Text: =ThisItem.CourseFormat.Value
+                    Text: =ThisItem.TrainingFormat.Value
                     Width: =127.31
                     X: =39
                     Y: =112
                     ZIndex: =5
 
                 CourseStatus As label:
-                    Color: =Switch(ThisItem.CourseStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+                    Color: =Switch(ThisItem.TrainingStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
                     Height: =23.14
                     OnSelect: =Select(Parent)
                     PaddingBottom: =3.51
@@ -131,10 +151,10 @@
                     PaddingRight: =3.50
                     PaddingTop: =3.50
                     Size: =12
-                    Text: =ThisItem.CourseStatus.Value
+                    Text: =ThisItem.TrainingStatus.Value
                     Width: =137.10
-                    X: =181
-                    Y: =114
+                    X: =390
+                    Y: =101
                     ZIndex: =6
 
                 CoursePresenter As label:
@@ -147,7 +167,7 @@
                     PaddingTop: =0.00
                     Size: =14
                     Text: |-
-                        ="Presenter:    " & ThisItem.'Presenter/Panelist'.DisplayName
+                        ="Presenter:    " & ThisItem.'Presenter/Host'.DisplayName
                     VerticalAlign: =VerticalAlign.Top
                     Width: =279
                     X: =39
@@ -164,7 +184,7 @@
                     PaddingTop: =0.00
                     Size: =14
                     Text: |-
-                        ="ID:    " & ThisItem.CourseID
+                        ="ID:    " & ThisItem.ID
                     VerticalAlign: =VerticalAlign.Top
                     Width: =159
                     X: =379
