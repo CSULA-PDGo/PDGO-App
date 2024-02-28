@@ -94,7 +94,7 @@
                         ="Type(s): "
                     Width: =175
                     X: =40
-                    Y: =250
+                    Y: =320
                     ZIndex: =5
 
                 Label10_5 As label:
@@ -103,7 +103,7 @@
                     Text: =Concat(_currentSelectedTraining.MCLE_Category, Value, ", ")
                     Width: =425
                     X: =215
-                    Y: =250
+                    Y: =320
                     ZIndex: =6
 
                 Label10_6 As label:
@@ -134,7 +134,7 @@
                         ="Location: "
                     Width: =175
                     X: =40
-                    Y: =397
+                    Y: =458
                     ZIndex: =9
 
                 Label10_9 As label:
@@ -143,7 +143,7 @@
                     Text: =If(IsBlank(_currentSelectedTraining.Location), "N/A", _currentSelectedTraining.Location)
                     Width: =425
                     X: =215
-                    Y: =397
+                    Y: =458
                     ZIndex: =10
 
                 Label10_10 As label:
@@ -154,7 +154,7 @@
                         ="Address: "
                     Width: =175
                     X: =40
-                    Y: =467
+                    Y: =528
                     ZIndex: =11
 
                 Label10_11 As label:
@@ -164,7 +164,7 @@
                     VerticalAlign: =VerticalAlign.Top
                     Width: =398
                     X: =215
-                    Y: =480
+                    Y: =541
                     ZIndex: =12
 
                 Label10_12 As label:
@@ -175,7 +175,7 @@
                         ="Status: "
                     Width: =175
                     X: =40
-                    Y: =602
+                    Y: =663
                     ZIndex: =13
 
                 Label10_13 As label:
@@ -184,8 +184,41 @@
                     Text: =_currentSelectedTraining.TrainingStatus.Value
                     Width: =425
                     X: =215
-                    Y: =602
+                    Y: =663
                     ZIndex: =14
+
+                Label10_14 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    Size: =21
+                    Text: |-
+                        ="Hours: "
+                    Width: =175
+                    X: =40
+                    Y: =250
+                    ZIndex: =15
+
+                Label10_15 As label:
+                    Height: =70
+                    Size: =21
+                    Text: =_currentSelectedTraining.Hours
+                    Width: =425
+                    X: =215
+                    Y: =250
+                    ZIndex: =16
+
+                Button7 As button:
+                    Height: =70
+                    OnSelect: =Navigate('Training Tracker - Check In', ScreenTransition.CoverRight);
+                    Size: =24
+                    Text: ="Check-In"
+                    Visible: =If(_currentSelectedTraining.TrainingStatus.Value = "In-progress", true, false)
+                    Width: =Parent.Width - 120
+                    X: |+
+                        =60
+                        
+                    Y: =Parent.Height - 120
+                    ZIndex: =17
 
     "'Back Button_16' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
