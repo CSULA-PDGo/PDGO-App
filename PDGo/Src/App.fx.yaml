@@ -9,6 +9,7 @@ App As appinfo:
         };
     OnStart: |-
         =Set(UserRecord, LookUp(Users, Office365 = Text(User().EntraObjectId)));
+        Set(trainingsListView, true);
         'Home Screen'
     StartScreen: ='Home Screen'
     Theme: =PowerAppsTheme

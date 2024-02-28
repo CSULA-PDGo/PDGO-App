@@ -48,6 +48,7 @@
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =20
                 TemplateSize: =200
+                Visible: =trainingsListView
                 ZIndex: =1
 
                 Rectangle6 As rectangle:
@@ -189,4 +190,30 @@
         X: =Parent.Width - 80
         Y: =Container3_1.Height / 2 - 21
         ZIndex: =3
+
+    "'Back Button_14' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.CalendarBlank
+        OnSelect: |-
+            =Set(trainingsCalendarView, true);
+            Set(trainingsListView, false);
+        Visible: =trainingsListView
+        Width: =40
+        X: =Parent.Width - 140
+        Y: =Container3_1.Height / 2 - 21
+        ZIndex: =4
+
+    "'Back Button_15' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.ListScrollWatchlist
+        OnSelect: |-
+            =Set(trainingsCalendarView, false);
+            Set(trainingsListView, true);
+        Visible: =trainingsCalendarView
+        Width: =40
+        X: =Parent.Width - 140
+        Y: =Container3_1.Height / 2 - 21
+        ZIndex: =5
 
