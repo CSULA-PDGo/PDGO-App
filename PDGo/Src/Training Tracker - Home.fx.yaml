@@ -1,0 +1,373 @@
+"'Training Tracker - Home' As screen":
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container3 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(0, 16, 96, 1)
+            Height: =225
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            HomeTitle_1 As label:
+                Align: =Align.Center
+                AlignInContainer: =AlignInContainer.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =74
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =26
+                Text: ="My Training Tracker"
+                Width: =Parent.Width
+                X: =83
+                Y: =127
+                ZIndex: =1
+
+        Container4 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =7
+            Height: =225
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container5 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =420
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                Width: =Parent.Width
+                ZIndex: =1
+
+                SummaryLabel As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(41, 40, 55, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel.BorderColor
+                    FontWeight: =FontWeight.Bold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel.BorderColor
+                    HoverColor: =SummaryLabel.Color
+                    HoverFill: =SummaryLabel.Fill
+                    PressedBorderColor: =SummaryLabel.BorderColor
+                    PressedColor: =SummaryLabel.Color
+                    PressedFill: =SummaryLabel.Fill
+                    Size: =28
+                    Text: ="Summary"
+                    Width: =381
+                    X: =30
+                    Y: =21
+                    ZIndex: =1
+
+                BackgroundHeader_1 As button:
+                    BorderColor: =ColorFade(BackgroundHeader_1.Fill, -15%)
+                    Color: =RGBA(255,255,255,1)
+                    DisabledBorderColor: =ColorFade(BackgroundHeader_1.BorderColor, 70%)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(245, 247, 249, 1)
+                    FocusedBorderColor: =BackgroundHeader_1.BorderColor
+                    FocusedBorderThickness: =0
+                    Height: =280
+                    HoverBorderColor: =ColorFade(BackgroundHeader_1.BorderColor, 20%)
+                    HoverColor: =BackgroundHeader_1.Color
+                    HoverFill: =ColorFade(BackgroundHeader_1.Fill, 20%)
+                    PressedBorderColor: =BackgroundHeader_1.Fill
+                    PressedColor: =BackgroundHeader_1.Fill
+                    PressedFill: =BackgroundHeader_1.Color
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Text: =""
+                    Width: =Parent.Width - 80
+                    X: =43
+                    Y: =81
+                    ZIndex: =2
+
+                SummaryLabel_1 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(41, 40, 55, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_1.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_1.BorderColor
+                    HoverColor: =SummaryLabel_1.Color
+                    HoverFill: =SummaryLabel_1.Fill
+                    PressedBorderColor: =SummaryLabel_1.BorderColor
+                    PressedColor: =SummaryLabel_1.Color
+                    PressedFill: =SummaryLabel_1.Fill
+                    Size: =20
+                    Text: ="Training Hours"
+                    Width: =381
+                    X: =69
+                    Y: =93
+                    ZIndex: =3
+
+                SummaryLabel_2 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(41, 40, 55, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_2.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_2.BorderColor
+                    HoverColor: =SummaryLabel_2.Color
+                    HoverFill: =SummaryLabel_2.Fill
+                    PressedBorderColor: =SummaryLabel_2.BorderColor
+                    PressedColor: =SummaryLabel_2.Color
+                    PressedFill: =SummaryLabel_2.Fill
+                    Size: =20
+                    Text: ="Trainings Attended"
+                    Width: =381
+                    X: =69
+                    Y: =173
+                    ZIndex: =4
+
+                SummaryLabel_3 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(41, 40, 55, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_3.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_3.BorderColor
+                    HoverColor: =SummaryLabel_3.Color
+                    HoverFill: =SummaryLabel_3.Fill
+                    PressedBorderColor: =SummaryLabel_3.BorderColor
+                    PressedColor: =SummaryLabel_3.Color
+                    PressedFill: =SummaryLabel_3.Fill
+                    Size: =20
+                    Text: ="Trainings Currently RSVP'd"
+                    Width: =381
+                    X: =69
+                    Y: =254
+                    ZIndex: =5
+
+                SummaryLabel_4 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(246, 88, 16, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_4.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_4.BorderColor
+                    HoverColor: =SummaryLabel_4.Color
+                    HoverFill: =SummaryLabel_4.Fill
+                    PressedBorderColor: =SummaryLabel_4.BorderColor
+                    PressedColor: =SummaryLabel_4.Color
+                    PressedFill: =SummaryLabel_4.Fill
+                    Size: =20
+                    Text: ="24"
+                    Width: =381
+                    X: =88
+                    Y: =122
+                    ZIndex: =6
+
+                SummaryLabel_5 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(141, 198, 63, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_5.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_5.BorderColor
+                    HoverColor: =SummaryLabel_5.Color
+                    HoverFill: =SummaryLabel_5.Fill
+                    PressedBorderColor: =SummaryLabel_5.BorderColor
+                    PressedColor: =SummaryLabel_5.Color
+                    PressedFill: =SummaryLabel_5.Fill
+                    Size: =20
+                    Text: ="12"
+                    Width: =381
+                    X: =88
+                    Y: =205
+                    ZIndex: =7
+
+                SummaryLabel_6 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(0, 134, 208, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =SummaryLabel_6.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =60
+                    HoverBorderColor: =SummaryLabel_6.BorderColor
+                    HoverColor: =SummaryLabel_6.Color
+                    HoverFill: =SummaryLabel_6.Fill
+                    PressedBorderColor: =SummaryLabel_6.BorderColor
+                    PressedColor: =SummaryLabel_6.Color
+                    PressedFill: =SummaryLabel_6.Fill
+                    Size: =20
+                    Text: ="5"
+                    Width: =381
+                    X: =88
+                    Y: =285
+                    ZIndex: =8
+
+                TasksTopSeperator_2 As rectangle:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    DisabledFill: =TasksTopSeperator_2.Fill
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(221, 224, 227, 1)
+                    FocusedBorderColor: =TasksTopSeperator_2.BorderColor
+                    FocusedBorderThickness: =0
+                    Height: =3
+                    HoverFill: =TasksTopSeperator_2.Fill
+                    PressedFill: =TasksTopSeperator_2.Fill
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =398
+                    ZIndex: =9
+
+            Container6 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.None
+                Height: =225
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                Width: =Parent.Width
+                ZIndex: =2
+
+                UpcomingTrainingLabel As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(41, 40, 55, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =UpcomingTrainingLabel.BorderColor
+                    FontWeight: =FontWeight.Bold
+                    Height: =60
+                    HoverBorderColor: =UpcomingTrainingLabel.BorderColor
+                    HoverColor: =UpcomingTrainingLabel.Color
+                    HoverFill: =UpcomingTrainingLabel.Fill
+                    PressedBorderColor: =UpcomingTrainingLabel.BorderColor
+                    PressedColor: =UpcomingTrainingLabel.Color
+                    PressedFill: =UpcomingTrainingLabel.Fill
+                    Size: =28
+                    Text: ="Upcoming Training"
+                    Width: =381
+                    X: =30
+                    Y: =21
+                    ZIndex: =1
+
+                BackgroundHeader_2 As button:
+                    BorderColor: =ColorFade(BackgroundHeader_2.Fill, -15%)
+                    Color: =RGBA(255,255,255,1)
+                    DisabledBorderColor: =ColorFade(BackgroundHeader_2.BorderColor, 70%)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(245, 247, 249, 1)
+                    FocusedBorderColor: =BackgroundHeader_2.BorderColor
+                    FocusedBorderThickness: =0
+                    Height: =140
+                    HoverBorderColor: =ColorFade(BackgroundHeader_2.BorderColor, 20%)
+                    HoverColor: =BackgroundHeader_2.Color
+                    HoverFill: =ColorFade(BackgroundHeader_2.Fill, 20%)
+                    PressedBorderColor: =BackgroundHeader_2.Fill
+                    PressedColor: =BackgroundHeader_2.Fill
+                    PressedFill: =BackgroundHeader_2.Color
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Text: =""
+                    Width: =Parent.Width - 80
+                    X: =40
+                    Y: =101
+                    ZIndex: =2
+
+                UpcomingTrainingLabel_2 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(0, 134, 208, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =UpcomingTrainingLabel_2.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =71
+                    HoverBorderColor: =UpcomingTrainingLabel_2.BorderColor
+                    HoverColor: =UpcomingTrainingLabel_2.Color
+                    HoverFill: =UpcomingTrainingLabel_2.Fill
+                    PressedBorderColor: =UpcomingTrainingLabel_2.BorderColor
+                    PressedColor: =UpcomingTrainingLabel_2.Color
+                    PressedFill: =UpcomingTrainingLabel_2.Fill
+                    Size: =28
+                    Text: ="MONDAY, FEB 19 2024"
+                    Width: =492
+                    X: =69
+                    Y: =114
+                    ZIndex: =3
+
+                UpcomingTrainingLabel_3 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(0, 134, 208, 1)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    FocusedBorderColor: =UpcomingTrainingLabel_3.BorderColor
+                    FontWeight: =FontWeight.Semibold
+                    Height: =71
+                    HoverBorderColor: =UpcomingTrainingLabel_3.BorderColor
+                    HoverColor: =UpcomingTrainingLabel_3.Color
+                    HoverFill: =UpcomingTrainingLabel_3.Fill
+                    PressedBorderColor: =UpcomingTrainingLabel_3.BorderColor
+                    PressedColor: =UpcomingTrainingLabel_3.Color
+                    PressedFill: =UpcomingTrainingLabel_3.Fill
+                    Size: =22
+                    Text: |-
+                        ="12:00 - 2:00 PM PST"
+                    Width: =492
+                    X: =69
+                    Y: =155
+                    ZIndex: =4
+
+                Icon4 As icon.ArrowRight:
+                    Height: =30
+                    Icon: =Icon.ArrowRight
+                    Width: =30
+                    X: =544
+                    Y: =156
+                    ZIndex: =5
+
+            Container7 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.None
+                Height: =225
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                ZIndex: =3
+
+                Button5 As button:
+                    Fill: =RGBA(0, 134, 208, 1)
+                    Height: =70
+                    Size: =24
+                    Text: ="View My Trainings"
+                    Width: =Parent.Width - 80
+                    X: =40
+                    Y: =Parent.Height - 200
+                    ZIndex: =1
+
+                Button5_1 As button:
+                    Fill: =RGBA(0, 134, 208, 1)
+                    Height: =70
+                    Size: =24
+                    Text: ="View All Available Trainings"
+                    Width: =Parent.Width - 80
+                    X: =40
+                    Y: =Parent.Height - 100
+                    ZIndex: =2
+
+    "'Back Button_8' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.ArrowLeft
+        OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
+        Width: =40
+        X: =30
+        Y: =Container3.Height / 2 - 21
+        ZIndex: =2
+
