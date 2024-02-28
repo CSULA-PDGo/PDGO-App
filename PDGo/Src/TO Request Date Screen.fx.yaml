@@ -102,7 +102,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
-                    Font: =Font.Lato
+                    Font: =Font.Arial
                     Height: =24
                     LayoutMinWidth: =100
                     LineHeight: =1
@@ -170,7 +170,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
-                    Font: =Font.Lato
+                    Font: =Font.Arial
                     Height: =24
                     LineHeight: =0.8
                     PaddingBottom: =15
@@ -231,6 +231,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
+                    Font: =Font.Arial
                     Height: =41
                     LineHeight: =1.361816
                     PaddingBottom: =15
@@ -278,6 +279,7 @@
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FillPortions: =1
                     FocusedBorderThickness: =4
+                    Font: =Font.Arial
                     Height: =41
                     LineHeight: =1.361816
                     PaddingBottom: =15
@@ -321,7 +323,7 @@
                     Color: =RGBA(51, 51, 51, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                     FocusedBorderThickness: =4
-                    Font: =Font.Lato
+                    Font: =Font.Arial
                     Height: =41
                     LineHeight: =1.361816
                     PaddingBottom: =15
@@ -371,7 +373,7 @@
             ZIndex: =3
 
             "'TO Request Date Screen Equipment Label' As label":
-                Font: =Font.Lato
+                Font: =Font.Arial
                 Height: =70
                 Size: =20.24
                 Text: ="I need access to SBPD IT equipment while abroad"
@@ -380,6 +382,7 @@
 
             "'TO Request Date Screen Equipment Toggle' As toggleSwitch":
                 Default: =If(IsBlankOrError(Edit), false, Edit.ITEquipment)
+                FalseFill: =RGBA(116, 116, 116, 1)
                 FalseText: ="No"
                 Height: =49
                 TrueText: ="Yes"
@@ -397,21 +400,19 @@
             ZIndex: =4
 
             "'TO Request Date Screen Reason Label' As label":
-                Font: =Font.Lato
-                Size: =18
+                Font: =Font.Arial
+                Size: =20.24
                 Text: ="Reason Code"
                 Width: =Parent.Width*.30
                 ZIndex: =1
 
             "'TO Request Date Screen Reason Dropdown' As combobox":
                 BorderColor: =RGBA(166, 166, 166, 1)
-                ChevronBackground: =RGBA(255, 255, 255, 1)
+                BorderThickness: =4
                 ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
                 ChevronDisabledFill: =RGBA(166, 166, 166, 1)
-                ChevronFill: =RGBA(51, 51, 51, 1)
                 ChevronHoverBackground: =RGBA(212, 212, 212, 1)
                 ChevronHoverFill: =RGBA(33, 33, 33, 1)
-                Color: =RGBA(166, 166, 166, 1)
                 Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
@@ -438,7 +439,6 @@
                 PressedFill: =RGBA(0, 120, 212, 1)
                 SearchFields: =["Title", "Description"]
                 SearchItems: =Search(RequestCodes,'TO Request Date Screen Reason Dropdown'.SearchText,"Title","Description")
-                SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
                 Size: =20.24
                 Tooltip: =
@@ -458,18 +458,19 @@
                 ZIndex: =3
 
         "'TO Request Date Screen Comments Input' As text":
+            AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(166, 166, 166, 1)
             Color: =RGBA(166, 166, 166, 1)
             Default: =If(IsBlankOrError(Edit), "", Edit.Comments)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
-            FillPortions: =
-            Font: =Font.Lato
+            Font: =Font.Arial
             Height: =Parent.Height*.30
             HintText: ="Additional Comments"
             HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
             HoverColor: =RGBA(51, 51, 51, 1)
             HoverFill: =RGBA(255, 255, 255, 1)
             LineHeight: =1.361816
+            Mode: =TextMode.MultiLine
             PaddingBottom: =15
             PaddingLeft: =16
             PaddingRight: =14.40
@@ -500,12 +501,11 @@
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(9, 33, 98, 1)
             FocusedBorderColor: =ColorFade(Self.Fill, -75%)
-            Font: =Font.Lato
-            FontWeight: =FontWeight.Lighter
+            Font: =Font.Arial
+            FontWeight: =FontWeight.Normal
             Height: =71
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
-            Italic: =true
             OnSelect: |
                 =If(And('TO Request Date Screen Reason Dropdown'.Selected.Title = "Other", 'TO Request Date Screen Comments Input'.Text = ""),
                     'TO Request Date Screen Error Label'.Text = "Comments are required for Other Leave Code",
@@ -553,9 +553,9 @@
                     If(!Back(), Navigate('TO Request Screen'));
                 );
             PaddingBottom: =12
-            PaddingLeft: =56
-            PaddingRight: =50.38
-            PaddingTop: =9.90
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =12
             PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
             PressedColor: =RGBA(255, 255, 255, 1)
             PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
