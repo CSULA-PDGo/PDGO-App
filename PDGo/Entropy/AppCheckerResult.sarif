@@ -2115,6 +2115,86 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 8,
+                  "charOffset": 75,
+                  "snippet": {
+                    "text": "Training"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Training Tracker - View Trainings",
+                "type": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Training"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 71,
+                  "charOffset": 51,
+                  "snippet": {
+                    "text": "StartsWith(\n            Training,\n            TextInput1.Text\n        )"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Training Tracker - View Trainings",
+                "type": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "StartsWith"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'TO Request List Screen'.'TO Request List Screen Main'.'TO Request List Screen Header'.'TO Request List Screen Header Back'.AccessibleLabel"
                 }
               ],
@@ -12057,6 +12137,66 @@
                 "member": "TabIndex",
                 "module": "Screen3",
                 "type": "Screen3.CalendarEventsGallery1.Description1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Training Tracker - View Trainings",
+                "type": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Training Tracker - View Trainings",
+                "type": "'Training Tracker - View Trainings'.Container1_1.Container4_1.Gallery6_1"
               }
             }
           ],
