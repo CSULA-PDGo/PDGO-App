@@ -320,7 +320,7 @@
                     ZIndex: =10
 
             Container8 As groupContainer.manualLayoutContainer:
-                FillPortions: =6
+                FillPortions: =3
                 Height: =225
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
@@ -516,7 +516,7 @@
 
             "Gallery6_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                 DelayItemLoading: =true
-                FillPortions: =6
+                FillPortions: =3
                 Items: |-
                     =Sort(
                         Filter(
@@ -534,7 +534,7 @@
                     
                     // SortByColumns(Filter(MyCalendarEvents, Text(Start, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)), "Start")
                 Layout: =Layout.Vertical
-                LayoutMinHeight: =287
+                LayoutMinHeight: =350
                 LayoutMinWidth: =320
                 LoadingSpinner: =LoadingSpinner.Data
                 TemplatePadding: =20
