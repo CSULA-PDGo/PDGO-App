@@ -59,33 +59,19 @@
                         );
                         If(
                             !IsBlank(MeetingRecord),
-                            If(
-                                IsCheckIn,
-                                Patch(
+                            Patch(
+                                MCLETrainingAttendance,
+                                LookUp(
                                     MCLETrainingAttendance,
-                                    LookUp(
-                                        MCLETrainingAttendance,
-                                        TrainingID = MeetingRecord.ID && Attendee = User().FullName
-                                    ),
-                                    {
-                                        'Checkout Time': Now(),
-                                        Attended: true
-                                    }
-                                );
-                                UpdateContext({IsCheckIn: !IsCheckIn});
-                                UpdateContext({TimerStart: true}),
-                                Patch(
-                                    MCLETrainingAttendance,
-                                    Defaults(MCLETrainingAttendance),
-                                    {
-                                        Attendee: User().FullName,
-                                        TrainingID: MeetingRecord.ID,
-                                        'Check-In Time': Now()
-                                    }
-                                );
-                                UpdateContext({IsCheckIn: !IsCheckIn})
-                            ),
-                            Notify("bad case")
+                                    TrainingID = MeetingRecord.ID && Attendee = User().FullName
+                                ),
+                                {
+                                    'Checkout Time': Now(),
+                                    Attended: true
+                                }
+                            );
+                            ,
+                            Notify("ERROR: Could not find meeting ID")
                         );
                     Size: =24
                     Text: ="Submit Access Code"
@@ -107,8 +93,10 @@
 
                 TextInput2 As text:
                     Default: =Blank() 
+                    Format: =TextFormat.Number
                     Height: =74
                     HintText: ="Enter Access Code Here"
+                    MaxLength: =8
                     Size: =21
                     Width: =Parent.Width - 120
                     X: =60
