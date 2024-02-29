@@ -414,7 +414,7 @@
 
                     MonthDayGallery3_3 As gallery.MonthDayGallery:
                         AccessibleLabel: ="Days of selected month"
-                        Height: =342
+                        Height: =329
                         Items: =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
                         Layout: =Layout.Vertical
                         ShowScrollbar: =false
@@ -542,6 +542,23 @@
         OnSelect: |-
             =Set(trainingsCalendarView, true);
             Set(trainingsListView, false);
+            
+            If(IsBlank(_userDomain),         
+            	UpdateContext({_showLoading: true});         
+            	Set(_userDomain, Right(User().Email, Len(User().Email) - Find("@", User().Email)));         
+            	Set(_dateSelected, Today());         
+            	Set(_firstDayOfMonth, DateAdd(Today(), 1 - Day(Today()), TimeUnit.Days));         
+            	Set(_firstDayInView, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
+            	Set(_lastDayOfMonth, DateAdd(DateAdd(_firstDayOfMonth, 1, TimeUnit.Months), -1, TimeUnit.Days))         
+            );         
+            Set(_calendarVisible, false);         
+            UpdateContext({_showLoading: true});         
+            Set(_myCalendar, Last(FirstN(Office365Outlook.CalendarGetTables().value, 3)));         
+            Set(_minDate, DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days));         
+            Set(_maxDate, DateAdd(DateAdd(_firstDayOfMonth, -(Weekday(_firstDayOfMonth) - 2 + 1), TimeUnit.Days), 40, TimeUnit.Days));         
+            ClearCollect(MyCalendarEvents, Office365Outlook.GetEventsCalendarViewV2(_myCalendar.Name, Text(_minDate, DateTimeFormat.UTC), Text(_maxDate, DateTimeFormat.UTC)).value);         
+            UpdateContext({_showLoading: false});         
+            Set(_calendarVisible, true)
         Visible: =trainingsListView
         Width: =40
         X: =Parent.Width - 140
