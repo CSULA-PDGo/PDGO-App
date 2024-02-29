@@ -1,13 +1,13 @@
-"'Training Tracker - Check In' As screen":
+"'Training Tracker - Check Out' As screen":
 
-    Container1_4 As groupContainer.verticalAutoLayoutContainer:
+    Container1_7 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
 
-        Container3_9 As groupContainer.horizontalAutoLayoutContainer:
+        Container3_12 As groupContainer.horizontalAutoLayoutContainer:
             Fill: =RGBA(0, 16, 96, 1)
             Height: =225
             LayoutMinHeight: =112
@@ -15,7 +15,7 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =1
 
-            HomeTitle_4 As label:
+            HomeTitle_7 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
                 Color: =RGBA(255, 255, 255, 1)
@@ -30,7 +30,7 @@
                 Y: =127
                 ZIndex: =1
 
-        Container4_3 As groupContainer.verticalAutoLayoutContainer:
+        Container4_6 As groupContainer.verticalAutoLayoutContainer:
             FillPortions: =7
             Height: =225
             LayoutDirection: =LayoutDirection.Vertical
@@ -39,21 +39,21 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-            Container9_1 As groupContainer.manualLayoutContainer:
+            Container9_3 As groupContainer.manualLayoutContainer:
                 Height: =Parent.Height
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =1
 
-                Button7_3 As button:
+                Button7_6 As button:
                     Height: =90
                     OnSelect: |+
                         =UpdateContext(
                             {
                                 MeetingRecord: LookUp(
                                     MCLETrainings_1,
-                                    'Access Code' = TextInput2.Text && ID = _currentSelectedTraining.ID
+                                    'Access Code' = TextInput2_1.Text && ID = _currentSelectedTraining.ID
                                 )
                             }
                         );
@@ -66,8 +66,7 @@
                                     TrainingID = MeetingRecord.ID && Attendee = User().FullName
                                 ),
                                 {
-                                    'Check-In Time': Now(),
-                                    Attended: true
+                                    'Checkout Time': Now()
                                 }
                             );
                             Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
@@ -82,18 +81,18 @@
                     Y: =456
                     ZIndex: =18
 
-                Label11 As label:
+                Label11_2 As label:
                     Align: =Align.Center
                     FontWeight: =FontWeight.Bold
                     Height: =70
                     Size: =36
                     Text: ="OR"
                     Width: =100
-                    X: =Parent.Width / 2 - Label11.Width / 2
+                    X: =Parent.Width / 2 - Label11_2.Width / 2
                     Y: =225
                     ZIndex: =19
 
-                TextInput2 As text:
+                TextInput2_1 As text:
                     Default: =Blank() 
                     Format: =TextFormat.Number
                     Height: =74
@@ -105,18 +104,18 @@
                     Y: =354
                     ZIndex: =20
 
-                Label12 As label:
+                Label12_1 As label:
                     Align: =Align.Center
                     Height: =196
                     Size: =21
                     Text: ="Don't have a QR Code or Access Code? Contact your Training Host."
                     VerticalAlign: =VerticalAlign.Top
                     Width: =520
-                    X: =Parent.Width / 2 - Label12.Width / 2
+                    X: =Parent.Width / 2 - Label12_1.Width / 2
                     Y: =638
                     ZIndex: =21
 
-                "BarcodeReader1 As 'Barcode Reader'":
+                "BarcodeReader1_1 As 'Barcode Reader'":
                     BorderFillColor: =RGBA(47, 81, 151, 1)
                     BorderThickness: =0
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -131,54 +130,23 @@
                     HoverFillColor: =RGBA(47, 81, 151, 1)
                     OnCancel: =false
                     OnScan: |-
-                        =If(
-                            IsCheckIn,
-                            Patch(
+                        =Patch(
+                            MCLETrainingAttendance,
+                            LookUp(
                                 MCLETrainingAttendance,
-                                LookUp(
-                                    MCLETrainingAttendance,
-                                    Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                ),
-                                {
-                                    'Checkout Time': Now(),
-                                    Attended: true
-                                }
-                            );
-                            UpdateContext({TimerStart: true}),
-                            If(
-                                IsBlank(
-                                    LookUp(
-                                        MCLETrainingAttendance,
-                                        Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                    )
-                                ),
-                                Patch(
-                                    MCLETrainingAttendance,
-                                    Defaults(MCLETrainingAttendance),
-                                    {
-                                        Attendee: User().FullName,
-                                        'Check-In Time': Now(),
-                                        TrainingID: Value(Last(BarcodeReader1.Barcodes).Value)
-                                    }
-                                );
-                                UpdateContext({IsCheckIn: true}),
-                                Patch(
-                                    MCLETrainingAttendance,
-                                    LookUp(
-                                        MCLETrainingAttendance,
-                                        Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                    ),
-                                    {'Check-In Time': Now()}
-                                );
-                                UpdateContext({IsCheckIn: true})
-                            );
-                            
+                                Attendee = User().FullName && Value(Last(BarcodeReader1_1.Barcodes).Value) = TrainingID
+                            ),
+                            {
+                                'Checkout Time': Now(),
+                                Attended: true
+                            }
                         );
+                        
                         Collect(
                             barCodes,
                             {
-                                Type: Last(BarcodeReader1.Barcodes).Type,
-                                Value: Last(BarcodeReader1.Barcodes).Value
+                                Type: Last(BarcodeReader1_1.Barcodes).Type,
+                                Value: Last(BarcodeReader1_1.Barcodes).Value
                             }
                         )
                     PaddingBottom: =5
@@ -195,13 +163,13 @@
                     Y: =84
                     ZIndex: =22
 
-    "'Back Button_17' As icon.ArrowLeft":
+    "'Back Button_20' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Navigate('Training Tracker - View Training Details', ScreenTransition.Cover)
         Width: =40
         X: =30
-        Y: =Container3_9.Height / 2 - 21
+        Y: =Container3_12.Height / 2 - 21
         ZIndex: =2
 

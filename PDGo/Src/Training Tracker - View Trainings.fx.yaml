@@ -22,6 +22,8 @@
         
         
         UpdateContext({_showFilter: false});
+        
+        Refresh(MCLETrainings_1);
 
     Container1_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -241,11 +243,11 @@
                     PaddingLeft: =3.51
                     PaddingRight: =3.50
                     PaddingTop: =3.50
-                    Size: =12
-                    Text: =If(Now() < _currentSelectedTraining.TrainingStartDate, "Available", Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, "In-progress", Now() > _currentSelectedTraining.TrainingEndDay, "Completed")
+                    Size: =16
+                    Text: =If(Now() < ThisItem.TrainingStartDate, "Available", Now() >= ThisItem.TrainingStartDate And Now() <= ThisItem.TrainingEndDay, "In-progress", Now() > ThisItem.TrainingEndDay, "Completed")
                     Width: =137.10
-                    X: =390
-                    Y: =101
+                    X: =Parent.Width - 260
+                    Y: =112
                     ZIndex: =6
 
                 CoursePresenter As label:
@@ -278,7 +280,7 @@
                         ="ID:    " & ThisItem.ID
                     VerticalAlign: =VerticalAlign.Top
                     Width: =159
-                    X: =379
+                    X: =Parent.Width - 260
                     Y: =157
                     ZIndex: =8
 
@@ -309,7 +311,7 @@
                     Text: ="* RSVP'd"
                     Visible: =If(LookUp(MCLETrainingAttendance, TrainingID = ThisItem.ID && Attendee = User().FullName, RSVP), true, false)
                     Width: =137.10
-                    X: =434
+                    X: =Parent.Width - 210
                     Y: =30
                     ZIndex: =10
 

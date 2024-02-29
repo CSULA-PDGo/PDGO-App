@@ -181,7 +181,7 @@
                 Label10_13 As label:
                     Height: =70
                     Size: =21
-                    Text: =If(Now() < _currentSelectedTraining.TrainingStartDate, "Available", Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, "In-progress", Now() > _currentSelectedTraining.TrainingEndDay, "Completed")
+                    Text: =_currentSelectedTrainingStatus
                     Width: =425
                     X: =215
                     Y: =663
@@ -212,7 +212,16 @@
                     OnSelect: =Navigate('Training Tracker - Check In', ScreenTransition.CoverRight);
                     Size: =24
                     Text: ="Check-In"
-                    Visible: =If(_currentSelectedTraining.TrainingStatus.Value = "In-progress", true, false)
+                    Visible: |-
+                        =If(
+                            _currentSelectedTrainingStatus = "In-progress" And LookUp(
+                                MCLETrainingAttendance,
+                                TrainingID = _currentSelectedTraining.ID And Attendee = User().FullName,
+                                IsBlank('Checkout Time')
+                            ),
+                            true,
+                            false
+                        )
                     Width: =Parent.Width - 120
                     X: |+
                         =60
@@ -248,7 +257,11 @@
                                 _currentSelectedTraining.Training,
                                 _currentSelectedTraining.TrainingStartDate,
                                 _currentSelectedTraining.TrainingEndDay,
-                                "Pacific Standard Time"
+                                "Pacific Standard Time",
+                                {location: _currentSelectedTraining.Location & " " & _currentSelectedTraining.Address,
+                                importance: "normal",
+                                isReminderOn: true,
+                                reminder: 60}
                             );
                             Navigate(
                                 'Training Tracker - RSVP Success',
@@ -259,7 +272,7 @@
                         );
                     Size: =24
                     Text: ="RSVP"
-                    Visible: =If(_currentSelectedTraining.TrainingStatus.Value = "In-progress" || _currentSelectedTraining.TrainingStatus.Value = "Completed", false, true)
+                    Visible: =If(_currentSelectedTrainingStatus = "In-progress" || _currentSelectedTrainingStatus = "Completed", false, true)
                     Width: =Parent.Width - 120
                     X: =60
                     Y: =Parent.Height - 120
@@ -268,44 +281,16 @@
                 Button7_4 As button:
                     Height: =70
                     OnSelect: |
-                        =If(
-                            IsBlank(
-                                LookUp(
-                                    MCLETrainingAttendance,
-                                    Attendee = User().FullName && _currentSelectedTraining.ID = TrainingID
-                                )
-                            ),
-                            Patch(
-                                MCLETrainingAttendance,
-                                Defaults(MCLETrainingAttendance),
-                                {
-                                    RSVP: true,
-                                    Attendee: User().FullName,
-                                    TrainingID: _currentSelectedTraining.ID
-                                }
-                            );
-                            Office365Outlook.V4CalendarPostItem(
-                                LookUp(
-                                    Office365Outlook.CalendarGetTablesV2().value,
-                                    name = "Calendar"
-                                ).id,
-                                _currentSelectedTraining.Training,
-                                _currentSelectedTraining.TrainingStartDate,
-                                _currentSelectedTraining.TrainingEndDay,
-                                "Pacific Standard Time"
-                            );
-                            Navigate(
-                                'Training Tracker - RSVP Success',
-                                ScreenTransition.CoverRight
-                            );
-                            ,
-                            Notify("You're already enrolled in this course.")
-                        );
+                        =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.CoverRight, {MeetingRecord: _currentSelectedTraining })
                     Size: =24
                     Text: ="Generate Certificate"
                     Visible: |-
                         =If(
-                            _currentSelectedTraining.TrainingStatus.Value = "Completed",
+                            _currentSelectedTrainingStatus = "Completed" && LookUp(
+                                MCLETrainingAttendance,
+                                Attendee = User().FullName && TrainingID = _currentSelectedTraining.ID,
+                                Attended
+                            ) = true,
                             true,
                             false
                         )
@@ -334,6 +319,27 @@
                     X: =215
                     Y: =733
                     ZIndex: =21
+
+                Button7_1 As button:
+                    Height: =70
+                    OnSelect: =Navigate('Training Tracker - Check Out', ScreenTransition.CoverRight);
+                    Size: =24
+                    Text: ="Check-Out"
+                    Visible: |-
+                        =If(
+                            _currentSelectedTrainingStatus = "In-progress" And LookUp(
+                                MCLETrainingAttendance,
+                                TrainingID = _currentSelectedTraining.ID And Attendee = User().FullName,
+                                !IsBlank('Checkout Time')
+                            ),
+                            true,
+                            false
+                        )
+                    Width: =Parent.Width - 120
+                    X: |
+                        =60
+                    Y: =Parent.Height - 120
+                    ZIndex: =22
 
     "'Back Button_16' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
