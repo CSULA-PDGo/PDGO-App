@@ -53,7 +53,7 @@
                             {
                                 MeetingRecord: LookUp(
                                     MCLETrainings_1,
-                                    'Access Code' = TextInput2.Text
+                                    'Access Code' = TextInput2.Text && 'ID' = _currentSelectedTraining.ID
                                 )
                             }
                         );

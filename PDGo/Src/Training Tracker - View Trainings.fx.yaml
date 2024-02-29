@@ -234,7 +234,7 @@
                     ZIndex: =5
 
                 CourseStatus As label:
-                    Color: =Switch(ThisItem.TrainingStatus.Value, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+                    Color: =Switch(CourseStatus.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
                     Height: =23.14
                     OnSelect: =Select(Parent)
                     PaddingBottom: =3.51
@@ -242,7 +242,7 @@
                     PaddingRight: =3.50
                     PaddingTop: =3.50
                     Size: =12
-                    Text: =ThisItem.TrainingStatus.Value
+                    Text: =If(Now() < _currentSelectedTraining.TrainingStartDate, "Available", Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, "In-progress", Now() > _currentSelectedTraining.TrainingEndDay, "Completed")
                     Width: =137.10
                     X: =390
                     Y: =101
@@ -290,6 +290,8 @@
                     OnSelect: |-
                         =Set(_currentSelectedTraining, ThisItem);
                         Navigate('Training Tracker - View Training Details', ScreenTransition.CoverRight);
+                        
+                        If(Now() < _currentSelectedTraining.TrainingStartDate, Set(_currentSelectedTrainingStatus, "Available"), Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "In-progress"), Now() > _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "Completed"))
                     Size: =24
                     Text: =""
                     Width: =Parent.TemplateWidth

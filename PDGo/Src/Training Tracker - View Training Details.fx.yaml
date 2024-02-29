@@ -181,7 +181,7 @@
                 Label10_13 As label:
                     Height: =70
                     Size: =21
-                    Text: =_currentSelectedTraining.TrainingStatus.Value
+                    Text: =If(Now() < _currentSelectedTraining.TrainingStartDate, "Available", Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, "In-progress", Now() > _currentSelectedTraining.TrainingEndDay, "Completed")
                     Width: =425
                     X: =215
                     Y: =663
@@ -221,6 +221,7 @@
                     ZIndex: =17
 
                 Button7_2 As button:
+                    DisplayMode: =If(Label10_17.Text = "Yes", DisplayMode.Disabled, DisplayMode.Edit)
                     Height: =70
                     OnSelect: |
                         =If(
