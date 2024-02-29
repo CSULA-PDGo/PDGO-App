@@ -116,6 +116,7 @@
                     ZIndex: =4
 
                 ComboBox3 As combobox:
+                    DefaultSelectedItems: =
                     DisplayFields: =["Value"]
                     Height: =57
                     InputTextPlaceholder: =""
@@ -145,7 +146,8 @@
                 DelayItemLoading: =true
                 FillPortions: =6
                 Items: |-
-                    =Filter(
+                    =Sort(
+                    Filter(
                         MCLETrainings_1,
                         StartsWith(
                             Training,
@@ -153,7 +155,8 @@
                         ),
                         IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
                         IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value
-                    )
+                    ),
+                    Now() > TrainingStartDate)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
