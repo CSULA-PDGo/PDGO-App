@@ -1577,7 +1577,7 @@
                 },
                 "region": {
                   "charLength": 8,
-                  "charOffset": 59,
+                  "charOffset": 75,
                   "snippet": {
                     "text": "Training"
                   }
@@ -1616,10 +1616,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 59,
-                  "charOffset": 39,
+                  "charLength": 71,
+                  "charOffset": 51,
                   "snippet": {
-                    "text": "StartsWith(\n        Training,\n        TextInput1.Text\n    )"
+                    "text": "StartsWith(\n            Training,\n            TextInput1.Text\n        )"
                   }
                 }
               },
@@ -11619,6 +11619,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_3.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_3.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Training Tracker - View Training Details",
+                "type": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_4.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_4.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Training Tracker - View Training Details",
+                "type": "'Training Tracker - View Training Details'.Container1_3.Container4_2.Container9.BackgroundHeader_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 10
         },
         {
           "locations": [

@@ -147,16 +147,17 @@
                 FillPortions: =6
                 Items: |-
                     =Sort(
-                    Filter(
-                        MCLETrainings_1,
-                        StartsWith(
-                            Training,
-                            TextInput1.Text
+                        Filter(
+                            MCLETrainings_1,
+                            StartsWith(
+                                Training,
+                                TextInput1.Text
+                            ),
+                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
+                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value
                         ),
-                        IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
-                        IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value
-                    ),
-                    Now() > TrainingStartDate)
+                        Now() > TrainingStartDate
+                    )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
