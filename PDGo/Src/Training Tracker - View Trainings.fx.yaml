@@ -171,7 +171,7 @@
 
                 Subtitle1 As label:
                     FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =48
+                    Height: =43
                     OnSelect: =Select(Parent)
                     PaddingBottom: =0
                     PaddingLeft: =0
@@ -180,7 +180,8 @@
                     Size: =24
                     Text: =ThisItem.Training
                     VerticalAlign: =VerticalAlign.Top
-                    Width: =467
+                    Width: =395
+                    Wrap: =false
                     X: =39
                     Y: =20
                     ZIndex: =2
@@ -293,6 +294,22 @@
                     Text: =""
                     Width: =Parent.TemplateWidth
                     ZIndex: =9
+
+                RSVPLabel As label:
+                    Align: =Align.Right
+                    Height: =23.14
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =3.51
+                    PaddingLeft: =3.51
+                    PaddingRight: =3.50
+                    PaddingTop: =3.50
+                    Size: =18
+                    Text: ="* RSVP'd"
+                    Visible: =If(LookUp(MCLETrainingAttendance, TrainingID = ThisItem.ID && Attendee = User().FullName, RSVP), true, false)
+                    Width: =137.10
+                    X: =434
+                    Y: =30
+                    ZIndex: =10
 
             Container8 As groupContainer.manualLayoutContainer:
                 FillPortions: =6
