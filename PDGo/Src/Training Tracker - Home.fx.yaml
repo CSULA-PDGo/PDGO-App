@@ -1,4 +1,6 @@
 "'Training Tracker - Home' As screen":
+    OnVisible: |-
+        =UpdateContext({_mostUpcomingTraining: First(Sort(Filter(MCLETrainings_1, TrainingStartDate > Now()), TrainingStartDate))})
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -299,7 +301,7 @@
                     PressedColor: =UpcomingTrainingLabel_2.Color
                     PressedFill: =UpcomingTrainingLabel_2.Fill
                     Size: =28
-                    Text: ="MONDAY, FEB 19 2024"
+                    Text: =Text(_mostUpcomingTraining.TrainingStartDate, DateTimeFormat.LongDate)
                     Width: =492
                     X: =69
                     Y: =114
@@ -319,8 +321,7 @@
                     PressedColor: =UpcomingTrainingLabel_3.Color
                     PressedFill: =UpcomingTrainingLabel_3.Fill
                     Size: =22
-                    Text: |-
-                        ="12:00 - 2:00 PM PST"
+                    Text: =Text(_mostUpcomingTraining.TrainingStartDate, DateTimeFormat.ShortTime) & " - " & Text(_mostUpcomingTraining.TrainingEndDay, DateTimeFormat.ShortTime)
                     Width: =492
                     X: =69
                     Y: =155
@@ -333,6 +334,35 @@
                     X: =544
                     Y: =156
                     ZIndex: =5
+
+                BackgroundHeader_5 As button:
+                    BorderColor: =ColorFade(BackgroundHeader_5.Fill, -15%)
+                    Color: =Color.Transparent
+                    DisabledBorderColor: =ColorFade(BackgroundHeader_5.BorderColor, 70%)
+                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+                    DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+                    Fill: =Color.Transparent
+                    FocusedBorderColor: =BackgroundHeader_5.BorderColor
+                    FocusedBorderThickness: =0
+                    Height: =140
+                    HoverBorderColor: =ColorFade(BackgroundHeader_5.BorderColor, 20%)
+                    HoverColor: =BackgroundHeader_5.Color
+                    HoverFill: =ColorFade(BackgroundHeader_5.Fill, 20%)
+                    OnSelect: |-
+                        =Set(_currentSelectedTraining, _mostUpcomingTraining);
+                        Navigate('Training Tracker - View Training Details', ScreenTransition.CoverRight)
+                    PressedBorderColor: =BackgroundHeader_5.Fill
+                    PressedColor: =BackgroundHeader_5.Fill
+                    PressedFill: =BackgroundHeader_5.Color
+                    RadiusBottomLeft: =20
+                    RadiusBottomRight: =20
+                    RadiusTopLeft: =20
+                    RadiusTopRight: =20
+                    Text: =""
+                    Width: =Parent.Width - 80
+                    X: =40
+                    Y: =101
+                    ZIndex: =6
 
             Container7 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.None
