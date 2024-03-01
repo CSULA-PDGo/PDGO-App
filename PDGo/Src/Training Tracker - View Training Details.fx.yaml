@@ -365,11 +365,11 @@
                     Text: ="Check-Out"
                     Visible: |-
                         =If(
-                            _currentSelectedTrainingStatus = "In-progress" And LookUp(
+                            Label10_13.Text = "In-progress" And !IsBlank(LookUp(
                                 MCLETrainingAttendance,
-                                Attendee = User().FullName,
+                                Attendee = User().FullName && TrainingID = _currentSelectedTraining.ID,
                                 IsBlank('Checkout Time') And 'Check-In Time' <> Blank()
-                            ),
+                            )),
                             true,
                             false
                         )
