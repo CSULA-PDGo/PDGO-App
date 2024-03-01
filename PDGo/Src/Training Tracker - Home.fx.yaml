@@ -350,6 +350,9 @@
                     HoverFill: =ColorFade(BackgroundHeader_5.Fill, 20%)
                     OnSelect: |-
                         =Set(_currentSelectedTraining, _mostUpcomingTraining);
+                        
+                        If(Now() < _currentSelectedTraining.TrainingStartDate, Set(_currentSelectedTrainingStatus, "Available"), Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "In-progress"), Now() > _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "Completed"));
+                        
                         Navigate('Training Tracker - View Training Details', ScreenTransition.CoverRight)
                     PressedBorderColor: =BackgroundHeader_5.Fill
                     PressedColor: =BackgroundHeader_5.Fill
