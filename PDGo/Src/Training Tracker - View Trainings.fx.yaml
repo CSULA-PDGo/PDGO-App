@@ -480,7 +480,7 @@
                             Visible: |-
                                 =/*This item is in a row containing no days of the visible month. It is in the row after the row where the last day of the month occurs*/ 
                                  !(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days) - Weekday(DateAdd(_firstDayInView,ThisItem.Value, TimeUnit.Days)) + 1 > _lastDayOfMonth)
-                            Width: =91.42857142857143
+                            Width: =Parent.Width / 7
                             Wrap: =false
                             ZIndex: =3
 
@@ -509,7 +509,7 @@
                             OnSelect: =Select(Parent)
                             Size: =17 * WeekdayGallery3_5.TemplateWidth / 77
                             Text: =ThisItem.Value
-                            Width: =91
+                            Width: =Parent.Width / 7
                             Wrap: =false
                             Y: =WeekdayGallery3_5.TemplateHeight / 2 - Self.Height / 2
                             ZIndex: =1
