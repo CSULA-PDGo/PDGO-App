@@ -1,5 +1,5 @@
 "'Training Tracker - MCLE Certificate' As screen.'printableLayout_A4Landscape_ver1.0'":
-    Height: =794
+    Height: =8.5*92
     OnVisible: |
         =UpdateContext({
             Credits: [
@@ -27,14 +27,14 @@
                 MeetingRecord: First(MCLETrainings_1)
             })
         );
-    Width: =1123
+    Width: =11*92
 
     MCLE_Certificate_Outer_Border As rectangle:
         BorderThickness: =5
         Fill: =RGBA(0, 0, 0, 0)
         Height: =754
         Width: =Parent.Width - 2*Self.X
-        X: =40
+        X: =12
         Y: =18
         ZIndex: =3
 
@@ -44,7 +44,7 @@
         Height: |
             =Parent.Height - 2*Self.Y
         Width: =Parent.Width - 2 * Self.X
-        X: =49
+        X: =32
         Y: =29
         ZIndex: =4
 
@@ -76,7 +76,7 @@
             "</tfoot></table>"
         Size: =10
         Width: =410
-        X: =355
+        X: =303
         Y: =339
         ZIndex: =6
 
@@ -115,7 +115,7 @@
         Size: |
             =11
         Width: =302
-        X: =148
+        X: =75
         Y: =691
         ZIndex: =9
 
@@ -127,7 +127,7 @@
             ="<p style='margin-bottom: 2px;line-height:0.5;'>"&Left(User().EntraObjectId, 10)&"</p>"&
             "<p style='border-top: 2px solid;text-align: center;'><b>CA Bar Number</b></p>"
         Width: =155
-        X: =500
+        X: =435
         Y: =691
         ZIndex: =10
 
@@ -139,7 +139,7 @@
             ="<p style='margin-bottom: 2px;line-height:0.5;'>&nbsp;</p>"&
             "<p style='border-top: 2px solid;text-align: center;'><b>Signature of CA Licensee</b></p>"
         Width: =302
-        X: =742
+        X: =658
         Y: =691
         ZIndex: =11
 
@@ -151,7 +151,7 @@
         Text: |-
             ="Provider Name: "& ProviderName
         Width: =617
-        X: =148
+        X: =78
         Y: =154
         ZIndex: =12
 
@@ -163,7 +163,7 @@
         Text: |-
             ="Title of Activity: "& MeetingRecord.Training
         Width: =860
-        X: =148
+        X: =78
         Y: =185
         ZIndex: =13
 
@@ -175,7 +175,7 @@
         Text: |-
             ="Location of the Activity: "& MeetingRecord.Location
         Width: =860
-        X: =148
+        X: =78
         Y: =213
         ZIndex: =14
 
@@ -187,7 +187,7 @@
         Text: |-
             ="Date & Time of the Activity: "& Text(MeetingRecord.TrainingStartDate, DateTimeFormat.ShortDateTime)
         Width: =860
-        X: =148
+        X: =78
         Y: =246
         ZIndex: =15
 
@@ -199,7 +199,7 @@
         Text: |-
             ="Provider No.: "& ProviderNum
         Width: =279
-        X: =765
+        X: =643
         Y: =154
         ZIndex: =16
 
