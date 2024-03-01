@@ -31,7 +31,7 @@
             Height: =434
             Image: =PDGoLogo
             ImagePosition: =ImagePosition.Fill
-            Width: =640
+            Width: =Parent.Width
             ZIndex: =1
 
     UpcomingFeed As groupContainer.manualLayoutContainer:
@@ -87,7 +87,7 @@
             LayoutOverflowX: =LayoutOverflow.Scroll
             LayoutOverflowY: =LayoutOverflow.Scroll
             LayoutWrap: =true
-            Width: =640
+            Width: =Parent.Width
             Y: =67
             ZIndex: =5
 
@@ -170,7 +170,7 @@
             PressedFill: =FeedTitle.Fill
             Size: =18
             Text: ="Announcements!"
-            Width: =UpcomingFeed.Width
+            Width: =Parent.Width
             Y: =15
             ZIndex: =6
 
