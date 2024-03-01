@@ -130,17 +130,26 @@
                     HoverFillColor: =RGBA(47, 81, 151, 1)
                     OnCancel: =false
                     OnScan: |-
-                        =Patch(
+                        =If(!IsBlank(LookUp(MCLETrainingAttendance, Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName)),
+                        Patch(
                             MCLETrainingAttendance,
                             LookUp(
                                 MCLETrainingAttendance,
-                                Attendee = User().FullName && Value(Last(BarcodeReader1_1.Barcodes).Value) = TrainingID
+                                Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName
                             ),
                             {
-                                'Checkout Time': Now(),
-                                Attended: true
+                                'Checkout Time': Now()
                             }
-                        );
+                        ),
+                        Patch(
+                            MCLETrainingAttendance,
+                            Defaults(MCLETrainingAttendance),
+                            {
+                                Attendee: User().FullName,
+                                TrainingID: Value(Last(BarcodeReader1.Barcodes).Value),
+                                'Checkout Time': Now()
+                            }
+                        ));
                         
                         Collect(
                             barCodes,

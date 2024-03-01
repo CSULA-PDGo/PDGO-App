@@ -390,7 +390,7 @@
                 Button5_1 As button:
                     Fill: =RGBA(0, 134, 208, 1)
                     Height: =70
-                    OnSelect: =Navigate('Training Tracker - View Trainings', ScreenTransition.CoverRight)
+                    OnSelect: =Navigate('Training Tracker - View Trainings', ScreenTransition.Cover)
                     Size: =24
                     Text: ="View All Trainings"
                     Width: =Parent.Width - 80
@@ -402,7 +402,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft
-        OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
+        OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
         Width: =40
         X: =30
         Y: =Container3.Height / 2 - 21

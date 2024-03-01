@@ -136,49 +136,30 @@
                     HoverFillColor: =RGBA(47, 81, 151, 1)
                     OnCancel: =false
                     OnScan: |-
-                        =If(
-                            IsCheckIn,
-                            Patch(
+                        =If(!IsBlank(LookUp(MCLETrainingAttendance, Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName)),
+                        Patch(
+                            MCLETrainingAttendance,
+                            LookUp(
                                 MCLETrainingAttendance,
-                                LookUp(
-                                    MCLETrainingAttendance,
-                                    Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                ),
-                                {
-                                    'Checkout Time': Now(),
-                                    Attended: true
-                                }
-                            );
-                            UpdateContext({TimerStart: true}),
-                            If(
-                                IsBlank(
-                                    LookUp(
-                                        MCLETrainingAttendance,
-                                        Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                    )
-                                ),
-                                Patch(
-                                    MCLETrainingAttendance,
-                                    Defaults(MCLETrainingAttendance),
-                                    {
-                                        Attendee: User().FullName,
-                                        'Check-In Time': Now(),
-                                        TrainingID: Value(Last(BarcodeReader1.Barcodes).Value)
-                                    }
-                                );
-                                UpdateContext({IsCheckIn: true}),
-                                Patch(
-                                    MCLETrainingAttendance,
-                                    LookUp(
-                                        MCLETrainingAttendance,
-                                        Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID
-                                    ),
-                                    {'Check-In Time': Now()}
-                                );
-                                UpdateContext({IsCheckIn: true})
-                            );
-                            
-                        );
+                                Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName
+                            ),
+                            {
+                                'Check-In Time': Now(),
+                                Attended: true
+                            }
+                        ),
+                        Patch(
+                            MCLETrainingAttendance,
+                            Defaults(MCLETrainingAttendance),
+                            {
+                                Attendee: User().FullName,
+                                TrainingID: Value(Last(BarcodeReader1.Barcodes).Value),
+                                'Check-In Time': Now(),
+                                Attended: true
+                            }
+                        ));
+                        
+                        
                         Collect(
                             barCodes,
                             {

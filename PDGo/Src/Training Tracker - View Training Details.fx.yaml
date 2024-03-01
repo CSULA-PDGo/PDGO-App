@@ -264,7 +264,7 @@
 
                 Button7 As button:
                     Height: =70
-                    OnSelect: =Navigate('Training Tracker - Check In', ScreenTransition.CoverRight);
+                    OnSelect: =Navigate('Training Tracker - Check In', ScreenTransition.Cover);
                     Size: =24
                     Text: ="Check-In"
                     Visible: |-
@@ -316,7 +316,7 @@
                             );
                             Navigate(
                                 'Training Tracker - RSVP Success',
-                                ScreenTransition.CoverRight
+                                ScreenTransition.Cover
                             );
                             ,
                             Notify("You're already enrolled in this course.")
@@ -360,7 +360,7 @@
                             DisplayMode.Disabled
                         )
                     Height: =70
-                    OnSelect: =Navigate('Training Tracker - Check Out', ScreenTransition.CoverRight);
+                    OnSelect: =Navigate('Training Tracker - Check Out', ScreenTransition.Cover);
                     Size: =24
                     Text: ="Check-Out"
                     Visible: |-
@@ -368,7 +368,7 @@
                             Label10_13.Text = "In-progress" And !IsBlank(LookUp(
                                 MCLETrainingAttendance,
                                 Attendee = User().FullName && TrainingID = _currentSelectedTraining.ID,
-                                IsBlank('Checkout Time') And 'Check-In Time' <> Blank()
+                                'Check-In Time'
                             )),
                             true,
                             false
@@ -382,7 +382,7 @@
                 Button7_4 As button:
                     Height: =70
                     OnSelect: |
-                        =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.CoverRight, {MeetingRecord: _currentSelectedTraining })
+                        =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.Cover, {MeetingRecord: _currentSelectedTraining })
                     Size: =24
                     Text: ="Generate Certificate"
                     Visible: |-
@@ -434,7 +434,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft
-        OnSelect: =Navigate('Training Tracker - View Trainings', ScreenTransition.Cover)
+        OnSelect: =Navigate('Training Tracker - View Trainings', ScreenTransition.CoverRight)
         Width: =40
         X: =30
         Y: =Container3_3.Height / 2 - 21

@@ -301,7 +301,7 @@
                     HoverFill: =ColorFade(RGBA(56, 96, 178, 0.1), -20%)
                     OnSelect: |-
                         =Set(_currentSelectedTraining, ThisItem);
-                        Navigate('Training Tracker - View Training Details', ScreenTransition.CoverRight);
+                        Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
                         
                         If(Now() < _currentSelectedTraining.TrainingStartDate, Set(_currentSelectedTrainingStatus, "Available"), Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "In-progress"), Now() > _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "Completed"))
                     Size: =24
@@ -697,7 +697,7 @@
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.ArrowLeft
-        OnSelect: =Navigate('Training Tracker - Home', ScreenTransition.Cover)
+        OnSelect: =Navigate('Training Tracker - Home', ScreenTransition.CoverRight)
         Width: =40
         X: =30
         Y: =Container3_1.Height / 2 - 21
