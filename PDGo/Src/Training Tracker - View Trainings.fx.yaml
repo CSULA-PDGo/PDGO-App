@@ -420,34 +420,41 @@
                         ShowScrollbar: =false
                         TemplatePadding: =0
                         TemplateSize: =65
-                        Visible: =_calendarVisible
+                        Visible: |-
+                            =_calendarVisible;
+                            Sort(
+                                Filter(
+                                    MCLETrainings_1,
+                                    StartsWith(
+                                        Training,
+                                        TextInput1.Text
+                                    ),
+                                    IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
+                                    IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value,
+                                    Text(TrainingStartDate, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)
+                                ),
+                                Now() > TrainingStartDate
+                            )
                         Width: =Parent.Width
                         WrapCount: =7
                         Y: =113
                         ZIndex: =8
 
                         Circle4_3 As circle:
-                            Fill: |-
-                                =If(
-                                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "mcle" in Lower(Subject))) > 0, 
-                                    Color.Green, 
-                                    CountRows(Filter(MyCalendarEvents, DateValue(Text(Start)) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) && "safety" in Lower(Subject))) > 0,
-                                    Color.Red, 
-                                    Color.Black 
-                                )
+                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
                             Height: =Self.Width
                             OnSelect: =Select(Parent)
                             Visible: |-
                                 =CountRows(Filter(MyCalendarEvents, 
                                     DateValue(Start) = DateAdd(_firstDayInView, ThisItem.Value, TimeUnit.Days) 
-                                    && StartsWith(Subject, "Training")
-                                )) > 0 && !Subcircle3_3.Visible && Title9_3.Visible
+                                    && !Subcircle3_3.Visible && Title9_3.Visible))
                             Width: =6.5
                             X: =MonthDayGallery3_3.TemplateWidth / 2 - Self.Width / 2
                             Y: =MonthDayGallery3_3.TemplateHeight * (0.75)
                             ZIndex: =1
 
                         Subcircle3_3 As circle:
+                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
                             Height: =3 * Title9_3.Size
                             OnSelect: =Select(Parent)
                             Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_3.Visible)

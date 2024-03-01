@@ -189,7 +189,7 @@
                 ScreenSize.Medium, 0.3,
                 0.25
             )
-        X: =265
+        X: =(Parent.Width - Self.Width) - NotificationIconHP.Width
         Y: =69
         ZIndex: =5
 
@@ -494,7 +494,7 @@
         Icon: =Icon.Cancel
         OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
         Visible: =IsNotifGallery
-        X: =554
+        X: =(Parent.Width - Self.Width) 
         Y: =35
         ZIndex: =8
 
