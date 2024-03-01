@@ -1,5 +1,5 @@
 "'Training Tracker - View Trainings' As screen":
-    OnVisible: |-
+    OnVisible: |+
         =If(IsBlank(_userDomain),
             UpdateContext({_showLoading: true});
             Set(_userDomain, Right(User().Email, Len(User().Email) - Find("@", User().Email)));
@@ -10,6 +10,7 @@
         );
         Set(_calendarVisibles, false);
         UpdateContext({_showLoading: true});
+        
         
         
         
@@ -24,6 +25,7 @@
         UpdateContext({_showFilter: false});
         
         Refresh(MCLETrainings_1);
+        
 
     Container1_1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -420,28 +422,15 @@
                         ShowScrollbar: =false
                         TemplatePadding: =0
                         TemplateSize: =65
-                        Visible: |-
-                            =_calendarVisible;
-                            Sort(
-                                Filter(
-                                    MCLETrainings_1,
-                                    StartsWith(
-                                        Training,
-                                        TextInput1.Text
-                                    ),
-                                    IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
-                                    IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value,
-                                    Text(TrainingStartDate, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)
-                                ),
-                                Now() > TrainingStartDate
-                            )
+                        Visible: |
+                            =_calendarVisible
                         Width: =Parent.Width
                         WrapCount: =7
                         Y: =113
                         ZIndex: =8
 
                         Circle4_3 As circle:
-                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange, RGBA(205, 220, 245, 1))
                             Height: =Self.Width
                             OnSelect: =Select(Parent)
                             Visible: |-
@@ -454,7 +443,7 @@
                             ZIndex: =1
 
                         Subcircle3_3 As circle:
-                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange)
+                            Fill: =Switch(CourseStatus_1.Text, "Available", Color.Blue, "Completed", Color.Green, "In-progress", Color.Orange, RGBA(205, 220, 245, 1))
                             Height: =3 * Title9_3.Size
                             OnSelect: =Select(Parent)
                             Visible: =And(DateAdd(_firstDayInView, ThisItem.Value) = _dateSelected, Title9_3.Visible)
