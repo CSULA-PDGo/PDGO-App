@@ -269,7 +269,7 @@
                     Text: ="Check-In"
                     Visible: |-
                         =If(
-                            Label10_13.Text = "In-progress",
+                            Label10_13.Text = "In-progress" And Not(LookUp(MCLETrainingAttendance, Attendee = User().FullName And _currentSelectedTraining.ID = TrainingID, Not(IsBlank('Check-In Time')))),
                             true,
                             false
                         )

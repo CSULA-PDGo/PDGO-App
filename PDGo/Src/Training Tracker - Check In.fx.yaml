@@ -48,7 +48,7 @@
 
                 Button7_3 As button:
                     Height: =90
-                    OnSelect: |+
+                    OnSelect: |-
                         =UpdateContext(
                             {
                                 MeetingRecord: LookUp(
@@ -57,24 +57,29 @@
                                 )
                             }
                         );
-                        If(
-                            !IsBlank(MeetingRecord),
-                            Patch(
+                        If(!IsBlank(LookUp(MCLETrainingAttendance, TrainingID = MeetingRecord.ID && Attendee = User().FullName)),
+                        Patch(
+                            MCLETrainingAttendance,
+                            LookUp(
                                 MCLETrainingAttendance,
-                                LookUp(
-                                    MCLETrainingAttendance,
-                                    TrainingID = MeetingRecord.ID && Attendee = User().FullName
-                                ),
-                                {
-                                    'Check-In Time': Now(),
-                                    Attended: true
-                                }
-                            );
-                            Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
-                            ,
-                            Notify("ERROR: Could not find meeting ID")
-                        );
-                        
+                                TrainingID = MeetingRecord.ID && Attendee = User().FullName
+                            ),
+                            {
+                                'Check-In Time': Now(),
+                                Attended: true
+                            }
+                        ),
+                        Patch(
+                            MCLETrainingAttendance,
+                            Defaults(MCLETrainingAttendance),
+                            {
+                                Attendee: User().FullName,
+                                TrainingID: _currentSelectedTraining.ID,
+                                'Check-In Time': Now(),
+                                Attended: true
+                            }
+                        ));
+                        Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
                     Size: =24
                     Text: ="Submit Access Code"
                     Width: =Parent.Width - 120
