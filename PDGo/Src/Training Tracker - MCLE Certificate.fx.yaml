@@ -76,7 +76,7 @@
             "</tfoot></table>"
         Size: =10
         Width: =410
-        X: =303
+        X: =(Parent.Width-Self.Width)/2
         Y: =339
         ZIndex: =6
 
@@ -88,7 +88,7 @@
             ="<center>California MCLE Certificate of <font color='#169'>Attendance</font></center>"
         Size: =32
         Width: =531
-        X: =313
+        X: =(Parent.Width-Self.Width)/2
         Y: =40
         ZIndex: =7
 
@@ -102,7 +102,7 @@
         Text: ="Below section is to be completed by the California Licensee and/or the Provider after participation in the activity"
         Width: =860
         X: =(Parent.Width - Self.Width)/2
-        Y: =639
+        Y: =626
         ZIndex: =8
 
     MCLE_Certificate_CA_Name As htmlViewer:
