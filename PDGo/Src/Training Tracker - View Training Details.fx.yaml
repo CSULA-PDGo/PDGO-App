@@ -368,7 +368,7 @@
                             _currentSelectedTrainingStatus = "In-progress" And LookUp(
                                 MCLETrainingAttendance,
                                 Attendee = User().FullName,
-                                IsBlank('Checkout Time') And IsBlank('Check-In Time') <> Blank()
+                                IsBlank('Checkout Time') And 'Check-In Time' <> Blank()
                             ),
                             true,
                             false
