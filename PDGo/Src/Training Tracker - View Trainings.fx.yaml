@@ -125,6 +125,7 @@
                     Items: =Choices(MCLETrainings_1.TrainingStatus)
                     SearchFields: =["Value"]
                     SearchItems: =Choices(MCLETrainings_1.TrainingStatus,ComboBox3.SearchText)
+                    SelectMultiple: =false
                     Size: =21
                     Width: =Parent.Width / 2.5
                     X: =36
@@ -155,8 +156,11 @@
                                 Training,
                                 TextInput1.Text
                             ),
-                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
-                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value
+                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("In-progress" = ComboBox3.Selected.Value) || Now() >= TrainingStartDate && Now() <= TrainingEndDay,
+                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Available" = ComboBox3.Selected.Value) || Now() < TrainingStartDate,
+                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Completed" = ComboBox3.Selected.Value) || Now() > TrainingEndDay,
+                            // IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value,
+                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems
                         ),
                         Now() > TrainingStartDate
                     )
@@ -522,7 +526,6 @@
                                 TextInput1.Text
                             ),
                             IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
-                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || TrainingStatus.Value = ComboBox3.Selected.Value,
                             Text(TrainingStartDate, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)
                         ),
                         Now() > TrainingStartDate
