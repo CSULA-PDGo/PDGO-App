@@ -485,7 +485,7 @@
         Icon: =Icon.Bell
         OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
         Visible: =!IsNotifGallery
-        X: =554
+        X: =(Parent.Width - Self.Width)
         Y: =30
         ZIndex: =7
 
