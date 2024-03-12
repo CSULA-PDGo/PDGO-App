@@ -172,12 +172,13 @@
                     PressedFill: =TrainingHoursCount.Fill
                     Size: =20
                     Text: |-
-                        =CountRows(
+                        =Sum(
                             Filter(
                                 MCLETrainingAttendance,
-                                User().FullName in Attendee &&
-                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years)
-                            )
+                                User().FullName in Attendee && 
+                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years) 
+                            ),
+                            DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Hours) 
                         )
                     Width: =381
                     X: =88
@@ -202,7 +203,8 @@
                         =CountRows(
                             Filter(
                                 MCLETrainingAttendance,
-                                User().FullName in Attendee
+                                User().FullName in Attendee &&
+                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years)
                             )
                         )
                     Width: =381
