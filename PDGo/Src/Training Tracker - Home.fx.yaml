@@ -42,8 +42,11 @@
             ZIndex: =2
 
             Container5 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 Height: =420
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =1
 
@@ -173,7 +176,7 @@
                             Filter(
                                 MCLETrainingAttendance,
                                 User().FullName in Attendee &&
-                                Check-inTime >= DateAdd(Today(), -4, Years)
+                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years)
                             )
                         )
                     Width: =381

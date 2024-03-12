@@ -65,7 +65,7 @@
                                 TrainingID = MeetingRecord.ID && Attendee = User().FullName
                             ),
                             {
-                                'Check-In Time': Now(),
+                                'Check-InTime': Now(),
                                 Attended: true
                             }
                         ),
@@ -75,7 +75,7 @@
                             {
                                 Attendee: User().FullName,
                                 TrainingID: _currentSelectedTraining.ID,
-                                'Check-In Time': Now(),
+                                'Check-InTime': Now(),
                                 Attended: true
                             }
                         ));
@@ -144,7 +144,7 @@
                                 Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName
                             ),
                             {
-                                'Check-In Time': Now(),
+                                'Check-InTime': Now(),
                                 Attended: true
                             }
                         ),
@@ -154,7 +154,7 @@
                             {
                                 Attendee: User().FullName,
                                 TrainingID: Value(Last(BarcodeReader1.Barcodes).Value),
-                                'Check-In Time': Now(),
+                                'Check-InTime': Now(),
                                 Attended: true
                             }
                         ));
