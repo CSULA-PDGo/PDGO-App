@@ -111,7 +111,7 @@
                 Image3 As image:
                     DisplayMode: =DisplayMode.View
                     Height: =88
-                    Image: =ThisItem.VideoIcon
+                    Image: =
                     OnSelect: =Select(Parent)
                     RadiusBottomLeft: =8
                     RadiusBottomRight: =8
@@ -133,7 +133,7 @@
                     PaddingRight: =0
                     PaddingTop: =0
                     Size: =22
-                    Text: =ThisItem.Training
+                    Text: =
                     VerticalAlign: =VerticalAlign.Top
                     Width: =308
                     X: =222
@@ -213,11 +213,7 @@
                 PaddingRight: =0
                 PaddingTop: =0
                 Size: =18
-                Text: |-
-                    =If(
-                        isAdmin,
-                        "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" ) & " new notifications",
-                        "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" && "AttName" = "FullName" && ReqID in Split(IDs, ",")) & " new notifications")
+                Text: =
                 VerticalAlign: =VerticalAlign.Top
                 Width: =Cont4Bell.Width
                 ZIndex: =1
@@ -225,7 +221,6 @@
             "BellGallery As gallery.'BrowseLayout_Flexible_SocialFeed_ver5.0'":
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DelayItemLoading: =true
-                Items: =FirstN(JoinTimeUserMCLETrain,3)
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -243,16 +238,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
-                    Text: |+
-                        =User().FullName & " has submitted a  " & ThisItem.Stat4FacilityReq.Value & " Facility request"
-                        
-                        
-                        /*If(
-                            isAdmin,
-                            "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending") & " new notifications",
-                            "You have " & CountIf(JoinTimeUserMCLETrain, Status = "Pending" && AttName in FullNameColumn && ReqID in Split(IDs, ",")) & " new notifications"
-                        )*/
-                        
+                    Text: =
                     VerticalAlign: =VerticalAlign.Top
                     Width: =309
                     ZIndex: =1

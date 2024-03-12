@@ -388,7 +388,14 @@
     "BellGallery": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Items",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "FirstN(JoinTimeUserMCLETrain,3)",
+          "InvariantPropertyName": "Items",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "WrapCount",
         "TemplateSize",
         "TemplatePadding",
@@ -3119,7 +3126,14 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        "Image",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "ThisItem.VideoIcon",
+          "InvariantPropertyName": "Image",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ImagePosition",
         "ImageRotation",
         "X",
@@ -7921,7 +7935,14 @@
       "ControlPropertyState": [
         "Live",
         "Overflow",
-        "Text",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(\n    isAdmin,\n    \"You have \" & CountIf(JoinTimeUserMCLETrain, Status = \"Pending\" ) & \" new notifications\",\n    \"You have \" & CountIf(JoinTimeUserMCLETrain, Status = \"Pending\" && \"AttName\" = \"FullName\" && ReqID in Split(IDs, \",\")) & \" new notifications\")",
+          "InvariantPropertyName": "Text",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Role",
         "Color",
         "DisabledColor",
@@ -8041,7 +8062,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -8212,7 +8233,14 @@
       "ControlPropertyState": [
         "Live",
         "Overflow",
-        "Text",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "User().FullName & \" has submitted a  \" & ThisItem.Stat4FacilityReq.Value & \" Facility request\"\n\n\n/*If(\n    isAdmin,\n    \"You have \" & CountIf(JoinTimeUserMCLETrain, Status = \"Pending\") & \" new notifications\",\n    \"You have \" & CountIf(JoinTimeUserMCLETrain, Status = \"Pending\" && AttName in FullNameColumn && ReqID in Split(IDs, \",\")) & \" new notifications\"\n)*/\n\n",
+          "InvariantPropertyName": "Text",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Role",
         "Color",
         "DisabledColor",
@@ -8273,7 +8301,7 @@
         {
           "Category": "Data",
           "PropertyName": "Text",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -8450,14 +8478,7 @@
           "IsLockable": false,
           "NameMapSourceSchema": "?"
         },
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Text",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Text",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
