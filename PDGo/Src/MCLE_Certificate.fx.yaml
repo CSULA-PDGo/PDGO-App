@@ -53,7 +53,9 @@ MCLE_Certificate As screen:
             Fill: =RGBA(0, 0, 0, 0)
             Height: |
                 =Parent.Height - 2*Self.Y
-            Width: =1022
+            Width: |+
+                =Parent.Width - 2 * Self.X
+                
             X: =27
             Y: =Self.X
             ZIndex: =2
@@ -211,12 +213,12 @@ MCLE_Certificate As screen:
             Y: =134
             ZIndex: =14
 
-    Label1 As label:
+    "'MCLE_Certificate_Please Wait' As label":
         Align: =Align.Center
         Fill: =RGBA(215, 223, 240, 1)
-        Height: =Parent.Height
+        Height: =App.Height
         Size: =20
         Text: ="Please Wait"
-        Width: =Parent.Width
+        Width: =App.Width
         ZIndex: =17
 
