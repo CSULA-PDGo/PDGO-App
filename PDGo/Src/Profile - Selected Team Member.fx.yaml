@@ -3,7 +3,7 @@
     "'Background Color_5' As rectangle":
         BorderStyle: =BorderStyle.None
         Height: =296
-        Width: =640
+        Width: =App.Width
         ZIndex: =1
 
     "'Profile Selected Team Member Back Button' As icon.ArrowLeft":
@@ -44,17 +44,16 @@
 
     "'Profile Selected Team Member About Container' As groupContainer.manualLayoutContainer":
         Height: =716
-        Width: =640
+        Width: =App.Width
         Y: =52
         ZIndex: =5
 
         "'Profile Selected Team Member About Me Label' As label":
             Font: =Font.'Lato Black'
-            Height: =44
-            Size: =21
+            Height: =App.Height * .1
+            Size: =App.Height * 0.03
             Text: ="About Me"
-            Width: =148
-            X: =36
+            Width: =App.Width
             Y: =66
             ZIndex: =1
 

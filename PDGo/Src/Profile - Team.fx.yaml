@@ -10,6 +10,7 @@
             Navigate('Profile - Selected Team Member', ScreenTransition.CoverRight)
         TemplatePadding: =0
         TemplateSize: =177
+        Width: =App.Width
         Y: =100
         ZIndex: =1
 
@@ -106,18 +107,17 @@
             ZIndex: =7
 
     Rectangle4_1 As rectangle:
-        Width: =640
+        Width: =App.Width
         ZIndex: =2
 
     Label15 As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Font: =Font.Lato
-        Height: =70
+        Height: =58
         Size: =25
         Text: ="Team"
-        Width: =560
-        X: =40
+        Width: =App.Width
         Y: =15
         ZIndex: =3
 
