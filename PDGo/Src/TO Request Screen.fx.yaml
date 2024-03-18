@@ -29,6 +29,7 @@
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
         LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =1
         Width: =Parent.Width
         ZIndex: =1
@@ -71,7 +72,7 @@
             Items: =RequestDates
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
-            LayoutMinWidth: =320
+            LayoutMinWidth: =Parent.Width
             LoadingSpinner: =LoadingSpinner.Data
             TemplateSize: =150
             Width: =Parent.Width
@@ -156,11 +157,10 @@
             ZIndex: =4
 
         testing As groupContainer.verticalAutoLayoutContainer:
-            FillPortions: =0
             Height: =Parent.Height/4
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
-            LayoutMinWidth: =250
+            LayoutMinWidth: ='TO Request Screen Main Container'.Width
             LayoutMode: =LayoutMode.Auto
             ZIndex: =5
 

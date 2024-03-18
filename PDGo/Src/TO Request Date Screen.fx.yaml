@@ -364,8 +364,8 @@
             DropShadow: =DropShadow.None
             LayoutAlignItems: =LayoutAlignItems.Center
             LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMinHeight: =100
-            LayoutMinWidth: =250
+            LayoutMinHeight: =150
+            LayoutMinWidth: ='TO Request Date Screen Main Container'.Width
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
             PaddingLeft: =20
@@ -373,9 +373,11 @@
             ZIndex: =3
 
             "'TO Request Date Screen Equipment Label' As label":
+                AlignInContainer: =AlignInContainer.Start
+                AutoHeight: =true
                 Font: =Font.Arial
                 Height: =70
-                Size: =20.24
+                Size: =18.24
                 Text: ="I need access to SBPD IT equipment while abroad"
                 Width: =400
                 ZIndex: =1
@@ -384,7 +386,10 @@
                 Default: =If(IsBlankOrError(Edit), false, Edit.ITEquipment)
                 FalseFill: =RGBA(116, 116, 116, 1)
                 FalseText: ="No"
+                FillPortions: =1
+                FontWeight: =FontWeight.Bold
                 Height: =49
+                Size: =15
                 TrueText: ="Yes"
                 ZIndex: =2
 
@@ -393,14 +398,16 @@
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutGap: =20
             LayoutMinHeight: =100
-            LayoutMinWidth: =250
+            LayoutMinWidth: ='TO Request Date Screen Main Container'.Width
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             PaddingRight: =20
             ZIndex: =4
 
             "'TO Request Date Screen Reason Label' As label":
+                FillPortions: =1
                 Font: =Font.Arial
+                LayoutMinWidth: =110
                 Size: =20.24
                 Text: ="Reason Code"
                 Width: =Parent.Width*.30
@@ -425,7 +432,7 @@
                 HoverFill: =RGBA(212, 212, 212, 1)
                 Items: =RequestCodes
                 LayoutMinHeight: =50
-                LayoutMinWidth: =150
+                LayoutMinWidth: =120
                 OnChange: =
                 OnSelect: |-
                     =UpdateContext({
@@ -449,8 +456,10 @@
 
             Icon2 As icon.Information:
                 AlignInContainer: =AlignInContainer.Stretch
+                FillPortions: =1
                 HoverColor: =ColorFade(Self.Color, 30%)
                 Icon: =Icon.Information
+                LayoutMinWidth: =60
                 OnSelect: |-
                     =UpdateContext({PopUp: true})
                 Tooltip: =codeSelected
