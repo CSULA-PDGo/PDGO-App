@@ -5,21 +5,54 @@
         Text: |-
             ="TO Request
             "
+        Visible: =false
         Width: =196
+        X: =267
+        Y: =120
         ZIndex: =3
 
     Button1 As button:
         OnSelect: =Navigate('TO Request List Screen')
         Text: ="TO Request List"
+        Visible: =false
         Width: =293
-        X: =219
-        Y: =195
+        X: =201
+        Y: =252
         ZIndex: =4
 
     Button4 As button:
         OnSelect: =Navigate(MCLE_Certificate);
         Text: ="Button"
+        Visible: =false
         X: =164
         Y: =612
         ZIndex: =5
+
+    Container2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =110
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        X: =147
+        Y: =429
+        ZIndex: =6
+
+        Button3_1 As button:
+            OnSelect: =Navigate('TO Request Screen', ScreenTransition.Cover)
+            Text: |-
+                ="TO Request
+                "
+            Width: =196
+            X: =267
+            Y: =120
+            ZIndex: =1
+
+        Button1_1 As button:
+            OnSelect: =Navigate('TO Request List Screen')
+            Text: ="TO Request List"
+            Width: =293
+            X: =201
+            Y: =252
+            ZIndex: =2
 
