@@ -1,0 +1,42 @@
+Screen1 As screen:
+
+    Container12 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        ComboBox4 As combobox:
+            DefaultSelectedItems: =Filter(Filter(MCLETrainingAttendance, TrainingID = 11), DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Minutes) > 1)
+            DisplayFields: =["Name","AttendedTime"]
+            FillPortions: =1
+            Height: =70
+            IsSearchable: =false
+            Items: |-
+                =ForAll(Filter(MCLETrainingAttendance, TrainingID = 11) As Attendance, {
+                    Name: Attendance.Attendee,
+                    ID: Attendance.ID,
+                    AttendedTime: Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)) + " min",
+                    CO: Attendance.'Checkout Time',
+                    CI: Attendance.'Check-InTime'
+                })
+            LayoutMinHeight: =70
+            LayoutMinWidth: =575
+            OnSelect: |-
+                =UpdateContext({test: Self.SelectedItems})
+            SearchFields: =["Name"]
+            SearchItems: |-
+                =Search(ForAll(Filter(MCLETrainingAttendance, TrainingID = 11) As Attendance, {
+                    Name: Attendance.Attendee,
+                    ID: Attendance.ID,
+                    AttendedTime: Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)) + " M",
+                    CO: Attendance.'Checkout Time',
+                    CI: Attendance.'Check-InTime'
+                }),ComboBox4.SearchText,"Name")
+            Size: =21
+            Template: =ListItemTemplate.Double
+            Width: =575
+            ZIndex: =1
+
