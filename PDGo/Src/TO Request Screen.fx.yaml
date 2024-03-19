@@ -28,6 +28,7 @@
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =1
@@ -67,8 +68,8 @@
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
-            FillPortions: =3
-            Height: =Parent.Height
+            FillPortions: =0
+            Height: =(Self.TemplateHeight + Self.TemplatePadding) * Self.AllItemsCount
             Items: =RequestDates
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
@@ -104,7 +105,7 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =60
                     Size: =If('TO Request Screen'.Size=1,7,12)
-                    Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
+                    Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                     Width: =Parent.Width*.20
                     ZIndex: =2
 
@@ -140,10 +141,15 @@
                     Width: =Parent.Width*.20
                     ZIndex: =6
 
+        Rectangle2 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0)
+            FillPortions: =1
+            ZIndex: =3
+
         "'TO Request Screen Comments Label' As label":
             Text: ="Additional Comments (Optional)"
             Visible: =false
-            ZIndex: =3
+            ZIndex: =4
 
         "'TO Request Screen Comments Input' As text":
             Default: =If(IsBlank(Edit), "", Edit.Comments)
@@ -154,20 +160,20 @@
             Mode: =TextMode.MultiLine
             Size: =20
             Visible: =false
-            ZIndex: =4
+            ZIndex: =5
 
         testing As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
             Height: =Parent.Height/4
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
             LayoutMinWidth: ='TO Request Screen Main Container'.Width
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =5
+            ZIndex: =6
 
             "'TO Request Screen Comments Label_1' As label":
                 AlignInContainer: =AlignInContainer.Stretch
                 AutoHeight: =true
-                FillPortions: =1
                 LineHeight: =1.3
                 Text: ="Additional Comments (Optional)"
                 ZIndex: =1
@@ -192,7 +198,7 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
-            ZIndex: =6
+            ZIndex: =7
 
             "'TO Request Screen Add Date Button' As button":
                 Fill: =RGBA(39, 67, 125, 1)
