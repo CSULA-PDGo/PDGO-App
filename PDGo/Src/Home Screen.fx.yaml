@@ -36,7 +36,7 @@
         LayoutMode: =LayoutMode.Auto
         Width: =214
         X: =App.Width * 0.25
-        Y: =App.Height * 0.1
+        Y: =App.Height * 0.15
         ZIndex: =6
 
         Button3_1 As button:
@@ -56,4 +56,19 @@
             X: =201
             Y: =252
             ZIndex: =2
+
+    Rectangle19 As rectangle:
+        Width: =App.Width
+        ZIndex: =7
+
+    Label19 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.Lato
+        Height: =58
+        Size: =25
+        Text: ="Home Screen"
+        Width: =App.Width
+        Y: =21
+        ZIndex: =8
 

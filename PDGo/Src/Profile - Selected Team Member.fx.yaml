@@ -43,15 +43,15 @@
         ZIndex: =4
 
     "'Profile Selected Team Member About Container' As groupContainer.manualLayoutContainer":
-        Height: =716
+        Height: =App.Height
         Width: =App.Width
-        Y: =52
         ZIndex: =5
 
         "'Profile Selected Team Member About Me Label' As label":
             Color: =RGBA(241, 244, 249, 1)
             Font: =Font.'Lato Black'
             Height: =App.Height * .1
+            PaddingLeft: =10
             Size: =App.Height * 0.03
             Text: ="About Me"
             Width: =App.Width
