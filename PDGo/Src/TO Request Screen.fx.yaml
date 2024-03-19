@@ -28,6 +28,7 @@
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =1
@@ -67,8 +68,8 @@
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
             DelayItemLoading: =true
-            FillPortions: =3
-            Height: =Parent.Height
+            FillPortions: =0
+            Height: =Self.TemplateHeight * Self.AllItemsCount
             Items: =RequestDates
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
@@ -157,6 +158,7 @@
             ZIndex: =4
 
         testing As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
             Height: =Parent.Height/4
             LayoutDirection: =LayoutDirection.Vertical
             LayoutMinHeight: =100
@@ -167,7 +169,6 @@
             "'TO Request Screen Comments Label_1' As label":
                 AlignInContainer: =AlignInContainer.Stretch
                 AutoHeight: =true
-                FillPortions: =1
                 LineHeight: =1.3
                 Text: ="Additional Comments (Optional)"
                 ZIndex: =1
