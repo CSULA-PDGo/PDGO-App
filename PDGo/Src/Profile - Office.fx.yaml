@@ -1,10 +1,10 @@
 "'Profile - Office' As screen":
 
     "'Office Image' As image":
-        Height: =256
+        Height: =App.Height * 0.2
         Image: ='Courthouse and Sunken Garden'
         ImagePosition: =ImagePosition.Fill
-        Width: =640
+        Width: =App.Width
         Y: =111
         ZIndex: =1
 
@@ -103,7 +103,7 @@
     "'Background Color_2' As rectangle":
         BorderStyle: =BorderStyle.None
         Height: =111
-        Width: =640
+        Width: =App.Width
         ZIndex: =9
 
     "'Back Button_2' As icon.ArrowLeft":
