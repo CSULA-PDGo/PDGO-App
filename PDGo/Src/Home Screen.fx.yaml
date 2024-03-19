@@ -30,12 +30,13 @@
 
     Container2 As groupContainer.verticalAutoLayoutContainer:
         Height: =110
-        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
-        X: =147
-        Y: =429
+        Width: =214
+        X: =App.Width * 0.25
+        Y: =App.Height * 0.1
         ZIndex: =6
 
         Button3_1 As button:
