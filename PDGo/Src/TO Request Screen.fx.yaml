@@ -105,7 +105,7 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =60
                     Size: =If('TO Request Screen'.Size=1,7,12)
-                    Text: =ThisItem.StartTime & "-" & ThisItem.EndTime
+                    Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                     Width: =Parent.Width*.20
                     ZIndex: =2
 
