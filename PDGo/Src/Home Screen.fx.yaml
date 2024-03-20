@@ -1,5 +1,5 @@
 "'Home Screen' As screen":
-    OnVisible: |
+    OnVisible: |+
         = Set(IsSidebarNotOpen, If('Home Screen'.Width < 600, 100, 20));
            
         Set(
@@ -9,6 +9,7 @@
                 'Email Address' = User().Email
             )
         );
+        
 
     Label1 As label:
         Align: =Align.Center
@@ -462,6 +463,39 @@
                     Size: =21
                     Text: ="Request Time Off"
                     Width: =Parent.Width - RTOHomeIcon.Width
+                    Y: =426
+                    ZIndex: =2
+
+            ADMINCont As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =80
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =80
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =UserData.UserType.Value = "Admin"   
+                ZIndex: =7
+
+                AdminContIcon As icon.DocumentwithContent:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =70
+                    Icon: =Icon.DocumentWithContent
+                    Y: =426
+                    ZIndex: =1
+
+                AdminHome As button:
+                    Fill: =RGBA(27, 49, 89, 1)
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    OnSelect: |+
+                        =Navigate('Admin - Tools', ScreenTransition.CoverRight);
+                        
+                        
+                    Size: =21
+                    Text: ="Admin Tools"
+                    Width: =Parent.Width - AdminContIcon.Width
                     Y: =426
                     ZIndex: =2
 
