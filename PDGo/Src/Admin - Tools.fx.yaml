@@ -7,32 +7,43 @@
         Width: =Parent.Width
         ZIndex: =1
 
-    Container14 As groupContainer.verticalAutoLayoutContainer:
-        Height: ='Background Color_9'.Height
-        LayoutJustifyContent: =LayoutJustifyContent.Center
+    Container15 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
-        Width: ='Background Color_9'.Width
-        X: ='Background Color_9'.X
-        Y: ='Background Color_9'.Y
-        ZIndex: =3
+        Width: =Parent.Width
+        ZIndex: =2
 
-        Icon11_1 As icon.ArrowLeft:
-            Icon: =Icon.ArrowLeft
-            X: =40
-            Y: =40
+        Container14_1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: ='Background Color_9'.Height
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: ='Background Color_9'.Width
+            X: =
+            Y: =
             ZIndex: =1
 
-        Label15_2 As label:
-            Align: =Align.Center
-            Color: =RGBA(255, 255, 255, 1)
-            Font: =Font.Lato
-            Height: =70
-            LayoutMinHeight: =70
-            LayoutMinWidth: =560
-            Size: =25
-            Text: ="Team"
-            Width: =487
-            X: =115
-            Y: =15
-            ZIndex: =2
+            Icon11_2 As icon.ArrowLeft:
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            Label15_3 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =25
+                Text: ="Admin - Tools"
+                Width: =487
+                X: =115
+                Y: =15
+                ZIndex: =2
 
