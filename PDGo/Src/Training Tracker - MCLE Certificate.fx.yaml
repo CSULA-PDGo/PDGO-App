@@ -21,7 +21,7 @@
                 Time: Time(20, 15, 45)
             },
             Index: 1,
-            AttendanceRecord: First(AttendanceRecords)
+            AttendanceRecord: LookUp(MCLETrainingAttendance, ID = First(AttendanceRecords).ID)
         });
         
         If(IsBlankOrError(MeetingRecord),
@@ -72,9 +72,9 @@
             ="<table style='table-layout: fixed;width: 100%;border-collapse: collapse;' border>"&
             "<thead style='color: #169; font-size: 1.2em'><th style='width: 70%;'>Credit Type</th><th>Credit Hours</th></thead>"&
             "<tbody>"&
-            Concat(MeetingRecord.MCLE_Category.Value, "<tr><td style='text-align: right;padding:5px;'>"&Value&"</td><td style='padding:5px;text-align:center;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours) / CountRows(MeetingRecord.MCLE_Category.Value) &"</td></tr>", "")&
+            Concat(LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).MCLE_Category.Value, "<tr><td style='text-align: right;padding:5px;'>"&Value&"</td><td style='padding:5px;text-align:center;'>"&DateDiff(LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).TrainingStartDate, LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).TrainingEndDay, TimeUnit.Hours) / CountRows(LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).MCLE_Category.Value) &"</td></tr>", "")&
             "</tbody><tfoot>"&
-            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&DateDiff(MeetingRecord.TrainingStartDate, MeetingRecord.TrainingEndDay, TimeUnit.Hours)&"</td></tr>"&
+            "<tr><th style='text-align: right;padding:2%;border-left-color: transparent;border-bottom-color: transparent;color: #169; font-size: 1.2em'>Total</th><td style='padding:5px;'>"&DateDiff(LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).TrainingStartDate, LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).TrainingEndDay, TimeUnit.Hours)&"</td></tr>"&
             "</tfoot></table>"
         Size: =10
         Width: =410
@@ -112,7 +112,7 @@
         Font: =Font.Georgia
         Height: =103
         HtmlText: |-
-            ="<p style='margin-bottom: 2px;line-height:0.5;'>"&User().FullName&"</p>"&
+            ="<p style='margin-bottom: 2px;line-height:0.5;'>"&AttendanceRecord.Attendee&"</p>"&
             "<p style='border-top: 2px solid;text-align: center;'><b>Name of CA Licensee</b> (<i>print name</i>)</p>"
         Size: |
             =11
@@ -163,7 +163,7 @@
         FontWeight: =FontWeight.Bold
         Height: =32
         Text: |-
-            ="Title of Activity: "& MeetingRecord.Training
+            ="Title of Activity: "& LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).Training
         Width: =860
         X: =78
         Y: =185
@@ -175,7 +175,7 @@
         FontWeight: =FontWeight.Bold
         Height: =31
         Text: |-
-            ="Location of the Activity: "& MeetingRecord.Location
+            ="Location of the Activity: "& LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).Location
         Width: =860
         X: =78
         Y: =213
@@ -187,7 +187,7 @@
         FontWeight: =FontWeight.Bold
         Height: =31
         Text: |-
-            ="Date & Time of the Activity: "& Text(MeetingRecord.TrainingStartDate, DateTimeFormat.ShortDateTime)
+            ="Date & Time of the Activity: "& Text(LookUp(MCLETrainings_1, ID = AttendanceRecord.TrainingID).TrainingStartDate, DateTimeFormat.ShortDateTime)
         Width: =860
         X: =78
         Y: =246
