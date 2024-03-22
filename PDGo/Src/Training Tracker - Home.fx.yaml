@@ -175,10 +175,11 @@
                         =Sum(
                             Filter(
                                 MCLETrainingAttendance,
-                                User().FullName in Attendee && 
-                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years) 
+                                Attendee = User().FullName && 
+                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years) &&
+                                Attended = true
                             ),
-                            DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Hours) 
+                            DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Hours)
                         )
                     Width: =381
                     X: =88
@@ -199,14 +200,8 @@
                     PressedColor: =TrainAttendCount.Color
                     PressedFill: =TrainAttendCount.Fill
                     Size: =20
-                    Text: |-
-                        =CountRows(
-                            Filter(
-                                MCLETrainingAttendance,
-                                User().FullName in Attendee &&
-                                'Check-InTime' >= DateAdd(Today(), -4, TimeUnit.Years)
-                            )
-                        )
+                    Text: |
+                        =CountRows(Filter(MCLETrainingAttendance,Attendee=User().FullName,Attended="true"))
                     Width: =381
                     X: =88
                     Y: =209
@@ -226,7 +221,14 @@
                     PressedColor: =CurrRSVPCount.Color
                     PressedFill: =CurrRSVPCount.Fill
                     Size: =20
-                    Text: ="5"
+                    Text: |-
+                        =CountRows(
+                            Filter(
+                                MCLETrainingAttendance,
+                                Attendee = User().FullName && 
+                                RSVP = true
+                            )
+                        )
                     Width: =381
                     X: =88
                     Y: =285
@@ -246,6 +248,16 @@
                     X: =30
                     Y: =410
                     ZIndex: =9
+
+                LicenseBarNum As label:
+                    Height: =71
+                    Size: =21
+                    Text: |-
+                        ="License Number:  8IJK789"
+                    Width: =346
+                    X: =264
+                    Y: =10
+                    ZIndex: =10
 
             Container6 As groupContainer.manualLayoutContainer:
                 DropShadow: =DropShadow.None
