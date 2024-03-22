@@ -22,7 +22,7 @@ Screen1 As screen:
 
         ComboBox4 As combobox:
             DefaultSelectedItems: =Filter(Filter(MCLETrainingAttendance, TrainingID = 11), DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Minutes) > 1)
-            DisplayFields: =["AttendedTime"]
+            DisplayFields: =["Name","AttendedTime"]
             FillPortions: =1
             Height: =70
             IsSearchable: =false
@@ -49,6 +49,8 @@ Screen1 As screen:
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =280
+            OnSelect: |-
+                =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.Cover, {AttendanceRecords: ComboBox4.SelectedItems})
             Size: =24
             Text: ="Button"
             Width: =280

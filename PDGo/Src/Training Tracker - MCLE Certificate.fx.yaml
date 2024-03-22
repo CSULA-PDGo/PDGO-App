@@ -19,7 +19,9 @@
                 Location: "Remote",
                 Date: Date(2024, 2, 13),
                 Time: Time(20, 15, 45)
-            }
+            },
+            Index: 1,
+            AttendanceRecord: First(AttendanceRecords)
         });
         
         If(IsBlankOrError(MeetingRecord),
