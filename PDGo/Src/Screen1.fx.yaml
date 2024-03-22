@@ -8,14 +8,26 @@ Screen1 As screen:
         Width: =Parent.Width
         ZIndex: =1
 
+        ComboBox5 As combobox:
+            DisplayFields: =["TrainingLocation"]
+            Height: =70
+            Items: =MCLETrainings_1
+            LayoutMinHeight: =70
+            LayoutMinWidth: =575
+            SearchFields: =["AccessCode"]
+            SearchItems: =Search(MCLETrainings_1,ComboBox5.SearchText,"AccessCode")
+            Size: =21
+            Width: =575
+            ZIndex: =1
+
         ComboBox4 As combobox:
             DefaultSelectedItems: =Filter(Filter(MCLETrainingAttendance, TrainingID = 11), DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Minutes) > 1)
-            DisplayFields: =["Name","AttendedTime"]
+            DisplayFields: =["AttendedTime"]
             FillPortions: =1
             Height: =70
             IsSearchable: =false
             Items: |-
-                =ForAll(Filter(MCLETrainingAttendance, TrainingID = 11) As Attendance, {
+                =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID)) As Attendance, {
                     Name: Attendance.Attendee,
                     ID: Attendance.ID,
                     AttendedTime: Concatenate(Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)), " min"),
@@ -26,10 +38,19 @@ Screen1 As screen:
             LayoutMinWidth: =575
             OnSelect: |-
                 =UpdateContext({test: Self.SelectedItems})
-            SearchFields: =["Name"]
+            SearchFields: =["AttendedTime"]
             SearchItems: =[]
             Size: =21
             Template: =ListItemTemplate.Double
             Width: =575
-            ZIndex: =1
+            ZIndex: =2
+
+        Button1 As button:
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =280
+            Size: =24
+            Text: ="Button"
+            Width: =280
+            ZIndex: =3
 
