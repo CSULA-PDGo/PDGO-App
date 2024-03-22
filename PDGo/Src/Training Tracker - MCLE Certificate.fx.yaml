@@ -23,6 +23,7 @@
             Index: 1,
             AttendanceRecord: LookUp(MCLETrainingAttendance, ID = First(AttendanceRecords).ID)
         });
+        Clear(CertificatePDFs);
         
         If(IsBlankOrError(MeetingRecord),
             UpdateContext({
@@ -206,18 +207,39 @@
         ZIndex: =16
 
     MCLE_Certificate_Timer As timer:
-        AutoPause: =false
         AutoStart: =true
         Duration: =1
         OnTimerEnd: |-
-            =Office365Outlook.SendEmailV2(User().Email, "MCLE Certificate", "See your freshly generated MCLE Certificate of Attendance!", {
-                Attachments: [{
-                    Name: "MCLE_Certificate.pdf",
-                    ContentBytes: PDF('Training Tracker - MCLE Certificate', {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})
-                }]
+            =UpdateContext({
+                AttendanceRecord: Last(FirstN(AttendanceRecords, Index + 1)),
+                Index: Index + 1
             });
             
-            Back();
+            If(Index > CountRows(AttendanceRecords),
+                Collect(CertificatePDFs,
+                    PDF('Training Tracker - MCLE Certificate', {
+                        Orientation: PaperOrientation.Landscape,
+                        Size: PaperSize.Letter,
+                        Margin: "0"
+                    })
+                );
+                UpdateContext({More: false});
+                Navigate('Success Screen');,
+            
+                Collect(CertificatePDFs,
+                    PDF('Training Tracker - MCLE Certificate', {
+                        Orientation: PaperOrientation.Landscape,
+                        Size: PaperSize.Letter,
+                        Margin: "0"
+                    })
+                );
+                UpdateContext({
+                    AttendanceRecord: Last(FirstN(AttendanceRecords, Index + 1)),
+                    Index: Index + 1
+                });
+            );
+        Repeat: =true
+        Start: =Index <= CountRows(AttendanceRecords)
         Visible: =false
         X: =963
         ZIndex: =17
