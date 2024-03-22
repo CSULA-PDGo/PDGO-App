@@ -210,14 +210,13 @@
         AutoStart: =true
         Duration: =1
         OnTimerEnd: |-
-            =Office365Outlook.SendEmailV2(User().Email, "MCLE Certificate", "See your freshly generated MCLE Certificate of Attendance!", {
-                Attachments: [{
-                    Name: "MCLE_Certificate.pdf",
-                    ContentBytes: PDF('Training Tracker - MCLE Certificate', {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"})
-                }]
+            =Collect(CertificatePDFs, PDF('Training Tracker - MCLE Certificate', {Orientation: PaperOrientation.Landscape, Size: PaperSize.Letter, Margin: "0"}));
+            UpdateContext({
+                AttendanceRecord: Last(FirstN(AttendanceRecords, Index + 1)),
+                Index: Index + 1
             });
             
-            Back();
+            If(Index >= CountRows(AttendanceRecords), Back());
         Visible: =false
         X: =963
         ZIndex: =17
