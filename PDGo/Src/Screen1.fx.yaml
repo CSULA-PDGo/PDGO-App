@@ -18,7 +18,7 @@ Screen1 As screen:
                 =ForAll(Filter(MCLETrainingAttendance, TrainingID = 11) As Attendance, {
                     Name: Attendance.Attendee,
                     ID: Attendance.ID,
-                    AttendedTime: Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)) + " min",
+                    AttendedTime: Concatenate(Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)), " min"),
                     CO: Attendance.'Checkout Time',
                     CI: Attendance.'Check-InTime'
                 })
