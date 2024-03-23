@@ -168,17 +168,37 @@
                     =Sort(
                         If(
                             IsBlank(ComboBox3.Selected.Value),
-                            Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text)), // Applied globally
+                            Filter(
+                                MCLETrainings_1, 
+                                StartsWith(Training, TextInput1.Text) && 
+                                (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
+                            ), // Applied globally including ComboBox3_1 condition
                             ComboBox3.Selected.Value = "In-progress",
-                            Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay),
+                            Filter(
+                                MCLETrainings_1, 
+                                StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay &&
+                                (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
+                            ),
                             ComboBox3.Selected.Value = "Available",
-                            Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
+                            Filter(
+                                MCLETrainings_1, 
+                                StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Available" && Now() < TrainingStartDate &&
+                                (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
+                            ),
                             ComboBox3.Selected.Value = "Completed",
-                            Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Completed" && Now() > TrainingEndDay),
+                            Filter(
+                                MCLETrainings_1, 
+                                StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Completed" && Now() > TrainingEndDay &&
+                                (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
+                            ),
                             ComboBox3.Selected.Value = "Cancelled",
-                            Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
+                            Filter(
+                                MCLETrainings_1, 
+                                StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate &&
+                                (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
+                            )
                         ), Now() >= TrainingStartDate
-                    )  
+                    )
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
