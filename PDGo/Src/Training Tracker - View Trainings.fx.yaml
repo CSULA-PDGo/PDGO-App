@@ -271,7 +271,16 @@
                     PaddingRight: =3.50
                     PaddingTop: =3.50
                     Size: =16
-                    Text: =If(Now() < ThisItem.TrainingStartDate, "Available", Now() >= ThisItem.TrainingStartDate And Now() <= ThisItem.TrainingEndDay, "In-progress", Now() > ThisItem.TrainingEndDay, "Completed")
+                    Text: |
+                        =If(
+                            Now() < ThisItem.TrainingStartDate && Not("Available" = ThisItem.TrainingStatus.Value), 
+                            "Cancelled",
+                            Now() < ThisItem.TrainingStartDate, 
+                            "Available", 
+                            Now() >= ThisItem.TrainingStartDate && Now() <= ThisItem.TrainingEndDay, 
+                            "In-progress", 
+                            Now() > ThisItem.TrainingEndDay, 
+                            "Completed")
                     Width: =137.10
                     X: =Parent.Width - 260
                     Y: =112
