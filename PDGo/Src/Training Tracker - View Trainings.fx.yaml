@@ -165,10 +165,22 @@
                 DelayItemLoading: =true
                 FillPortions: =6
                 Items: |-
-                    =If(
-                        IsEmpty(ComboBox3.SelectedItems) || IsBlank(ComboBox3.Selected.Value),
-                        MCLETrainings_1, // Show all items if nothing is selected
-                        Filter(MCLETrainings_1, TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay))
+                    =
+                        If(
+                            IsBlank(ComboBox3.Selected.Value),
+                            MCLETrainings_1, // Show all items if nothing is selected
+                            ComboBox3.Selected.Value = "In-progress",
+                            Filter(MCLETrainings_1, TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay),
+                            ComboBox3.Selected.Value = "Available",
+                            Filter(MCLETrainings_1, TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
+                            ComboBox3.Selected.Value = "Completed",
+                            Filter(MCLETrainings_1, TrainingStatus.Value = "Completed" && Now() > TrainingEndDay),
+                            ComboBox3.Selected.Value = "Cancelled",
+                            Filter(MCLETrainings_1, TrainingStatus.Value = "Cancelled")
+                            // Add additional conditions as necessary
+                        )
+                        
+                    
                      
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
