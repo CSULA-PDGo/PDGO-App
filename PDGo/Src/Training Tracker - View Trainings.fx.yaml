@@ -172,7 +172,7 @@
                                 MCLETrainings_1, 
                                 StartsWith(Training, TextInput1.Text) && 
                                 (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
-                            ), // Applied globally including ComboBox3_1 condition
+                            ), 
                             ComboBox3.Selected.Value = "In-progress",
                             Filter(
                                 MCLETrainings_1, 
