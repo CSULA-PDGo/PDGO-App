@@ -173,7 +173,6 @@
                                 (IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value)
                             )
                         },
-                        // Step 2: Sort and apply conditional status-based filtering
                         Sort(
                             If(
                                 IsBlank(ComboBox3.Selected.Value),
@@ -183,7 +182,7 @@
                                 ComboBox3.Selected.Value = "Available",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
                                 ComboBox3.Selected.Value = "Completed",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Completed" && Now() > TrainingEndDay),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Completed" && Now() <= TrainingEndDay),
                                 ComboBox3.Selected.Value = "Cancelled",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
                             ), Now() >= TrainingStartDate
