@@ -170,7 +170,7 @@
                             IsBlank(ComboBox3.Selected.Value),
                             MCLETrainings_1, // Show all items if nothing is selected
                             ComboBox3.Selected.Value = "In-progress",
-                            Filter(MCLETrainings_1, TrainingStatus.Value = "In-progress" || (Now() >= TrainingStartDate && Now() <= TrainingEndDay)),
+                            Filter(MCLETrainings_1, TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay),
                             ComboBox3.Selected.Value = "Available",
                             Filter(MCLETrainings_1, TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
                             ComboBox3.Selected.Value = "Completed",
