@@ -159,7 +159,7 @@
                             IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("In-progress" = ComboBox3.Selected.Value) || Now() >= TrainingStartDate && Now() <= TrainingEndDay,
                             IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Available" = ComboBox3.Selected.Value) || Now() < TrainingStartDate,
                             IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Completed" = ComboBox3.Selected.Value) || Now() > TrainingEndDay,
-                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Cancelled" = ComboBox3.Selected.Value) || Now() > TrainingEndDay,
+                            IsBlank(ComboBox3.Selected.Value) || IsEmpty(ComboBox3.SelectedItems) || Not("Cancelled" = ComboBox3.Selected.Value) || Now() < TrainingEndDay,
                             IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems
                         ),
                         Now() > TrainingStartDate
