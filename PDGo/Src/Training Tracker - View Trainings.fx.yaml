@@ -76,16 +76,6 @@
                 Visible: =_showFilter
                 ZIndex: =1
 
-                Icon11 As icon.Reset:
-                    Color: =RGBA(255, 255, 255, 1)
-                    Height: =59
-                    Icon: =Icon.Reset
-                    PaddingLeft: =10
-                    Width: =50
-                    X: =590
-                    Y: =95
-                    ZIndex: =1
-
                 Icon10 As icon.Search:
                     Color: =RGBA(255, 255, 255, 1)
                     Height: =32
@@ -93,7 +83,7 @@
                     Width: =32
                     X: =36
                     Y: =45
-                    ZIndex: =2
+                    ZIndex: =1
 
                 TextInput1 As text:
                     Default: =""
@@ -103,7 +93,7 @@
                     Width: =Parent.Width - 120
                     X: =80
                     Y: =36
-                    ZIndex: =3
+                    ZIndex: =2
 
                 Label13 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -114,7 +104,7 @@
                     Width: =103
                     X: =36
                     Y: =100
-                    ZIndex: =4
+                    ZIndex: =3
 
                 Label13_1 As label:
                     Color: =RGBA(255, 255, 255, 1)
@@ -125,6 +115,16 @@
                     Width: =123
                     X: =Parent.Width / 2 + 25
                     Y: =100
+                    ZIndex: =4
+
+                Icon11 As icon.Reset:
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =59
+                    Icon: =Icon.Reset
+                    PaddingLeft: =10
+                    Width: =50
+                    X: =590
+                    Y: =95
                     ZIndex: =5
 
                 ComboBox3 As combobox:
