@@ -1092,10 +1092,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 8,
-                  "charOffset": 75,
+                  "charLength": 2,
+                  "charOffset": 230,
                   "snippet": {
-                    "text": "Training"
+                    "text": "in"
                   }
                 }
               },
@@ -1108,15 +1108,15 @@
           ],
           "message": {
             "arguments": [
-              "Training"
+              "Filter"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 1
+          "ruleId": "app-SuggestRemoteExecutionHint-InOpRhs",
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1132,10 +1132,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 71,
-                  "charOffset": 51,
+                  "charLength": 2,
+                  "charOffset": 206,
                   "snippet": {
-                    "text": "StartsWith(\n            Training,\n            TextInput1.Text\n        )"
+                    "text": "||"
                   }
                 }
               },
@@ -1148,7 +1148,7 @@
           ],
           "message": {
             "arguments": [
-              "StartsWith"
+              "Filter"
             ],
             "id": "issue"
           },
