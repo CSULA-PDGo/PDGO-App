@@ -182,7 +182,7 @@
                                 ComboBox3.Selected.Value = "Available",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
                                 ComboBox3.Selected.Value = "Completed",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Completed" && Now() <= TrainingEndDay),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Completed" && Now() < TrainingEndDay),
                                 ComboBox3.Selected.Value = "Cancelled",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
                             ), Now() >= TrainingStartDate
