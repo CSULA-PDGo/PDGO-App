@@ -179,8 +179,6 @@
                             Filter(MCLETrainings_1, TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
                         ), Now() >= TrainingStartDate
                     )
-                    
-                     
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
