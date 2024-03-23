@@ -164,7 +164,7 @@
             "Gallery6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
                 DelayItemLoading: =true
                 FillPortions: =6
-                Items: |-
+                Items: |
                     =Sort(
                         If(
                             IsBlank(ComboBox3.Selected.Value),
@@ -178,7 +178,7 @@
                             ComboBox3.Selected.Value = "Cancelled",
                             Filter(MCLETrainings_1, StartsWith(Training, TextInput1.Text) && TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
                         ), Now() >= TrainingStartDate
-                    )    
+                    )  
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
@@ -549,7 +549,7 @@
                                 Training,
                                 TextInput1.Text
                             ),
-                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value in ComboBox3_1.SelectedItems,
+                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value,
                             Text(TrainingStartDate, DateTimeFormat.ShortDate) = Text(_dateSelected, DateTimeFormat.ShortDate)
                         ),
                         Now() > TrainingStartDate
