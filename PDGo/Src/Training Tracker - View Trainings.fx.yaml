@@ -177,7 +177,6 @@
                             Filter(MCLETrainings_1, TrainingStatus.Value = "Completed" && Now() > TrainingEndDay),
                             ComboBox3.Selected.Value = "Cancelled",
                             Filter(MCLETrainings_1, TrainingStatus.Value = "Cancelled")
-                            // Add additional conditions as necessary
                         )
                         
                     
