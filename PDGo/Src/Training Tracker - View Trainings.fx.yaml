@@ -165,16 +165,11 @@
                 DelayItemLoading: =true
                 FillPortions: =6
                 Items: |-
-                    =Sort(
-                        Filter(
-                            MCLETrainings_1,
-                            StartsWith(
-                                Training,
-                                TextInput1.Text
-                            )
-                            IsBlank(ComboBox3_1.Selected.Value) || IsEmpty(ComboBox3_1.SelectedItems) || TrainingFormat.Value = ComboBox3_1.Selected.Value),
-                        Now() >= TrainingStartDate
-                    )
+                    =If(
+                        IsEmpty(ComboBox3.SelectedItems) || IsBlank(ComboBox3.Selected.Value),
+                        MCLETrainings_1, // Show all items if nothing is selected
+                        Filter(MCLETrainings_1, TrainingStatus.Value = "In-progress" && Now() >= TrainingStartDate && Now() <= TrainingEndDay))
+                     
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
