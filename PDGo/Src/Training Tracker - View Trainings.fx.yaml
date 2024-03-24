@@ -178,9 +178,9 @@
                                 IsBlank(ComboBox3.Selected.Value),
                                 filteredByInputAndFormat, // Use already filtered collection if no selection
                                 ComboBox3.Selected.Value = "In-progress",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "In-progress" || (Now() >= TrainingStartDate && Now() <= TrainingEndDay)),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "In-progress" && (Now() >= TrainingStartDate && Now() <= TrainingEndDay)),
                                 ComboBox3.Selected.Value = "Available",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Available" || Now() < TrainingStartDate),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value = "Available" && Now() < TrainingStartDate),
                                 ComboBox3.Selected.Value = "Completed",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Completed" || Now() > TrainingEndDay),
                                 ComboBox3.Selected.Value = "Cancelled",
