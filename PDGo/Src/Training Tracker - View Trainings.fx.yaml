@@ -304,7 +304,7 @@
                     PaddingTop: =0.00
                     Size: =14
                     Text: |-
-                        ="Presenter:    " & ThisItem.'Presenter/Host'.DisplayName
+                        ="Presenter:    " & ThisItem.'Training Host'
                     VerticalAlign: =VerticalAlign.Top
                     Width: =279
                     X: =39
@@ -328,21 +328,6 @@
                     Y: =157
                     ZIndex: =8
 
-                Button6 As button:
-                    Fill: =Color.Transparent
-                    Height: =Parent.TemplateHeight
-                    HoverColor: =RGBA(255, 255, 255, 0.1)
-                    HoverFill: =ColorFade(RGBA(56, 96, 178, 0.1), -20%)
-                    OnSelect: |-
-                        =Set(_currentSelectedTraining, ThisItem);
-                        Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
-                        
-                        If(Now() < _currentSelectedTraining.TrainingStartDate, Set(_currentSelectedTrainingStatus, "Available"), Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "In-progress"), Now() > _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "Completed"))
-                    Size: =24
-                    Text: =""
-                    Width: =Parent.TemplateWidth
-                    ZIndex: =9
-
                 RSVPLabel As label:
                     Align: =Align.Right
                     Height: =23.14
@@ -357,6 +342,21 @@
                     Width: =137.10
                     X: =Parent.Width - 210
                     Y: =30
+                    ZIndex: =9
+
+                Button6 As button:
+                    Fill: =Color.Transparent
+                    Height: =Parent.TemplateHeight
+                    HoverColor: =RGBA(255, 255, 255, 0.1)
+                    HoverFill: =ColorFade(RGBA(56, 96, 178, 0.1), -20%)
+                    OnSelect: |-
+                        =Set(_currentSelectedTraining, ThisItem);
+                        Navigate('Training Tracker - View Training Details', ScreenTransition.Cover);
+                        
+                        If(Now() < _currentSelectedTraining.TrainingStartDate, Set(_currentSelectedTrainingStatus, "Available"), Now() > _currentSelectedTraining.TrainingStartDate && Now() < _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "In-progress"), Now() > _currentSelectedTraining.TrainingEndDay, Set(_currentSelectedTrainingStatus, "Completed"))
+                    Size: =24
+                    Text: =""
+                    Width: =Parent.TemplateWidth
                     ZIndex: =10
 
             Container8 As groupContainer.manualLayoutContainer:
