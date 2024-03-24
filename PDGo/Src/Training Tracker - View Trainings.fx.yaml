@@ -287,7 +287,8 @@
                             Now() >= ThisItem.TrainingStartDate && Now() <= ThisItem.TrainingEndDay, 
                             "In-progress", 
                             Now() > ThisItem.TrainingEndDay, 
-                            "Completed")
+                            "Completed"
+                        )
                     Width: =137.10
                     X: =Parent.Width - 260
                     Y: =112
