@@ -130,34 +130,41 @@
                     HoverFillColor: =RGBA(47, 81, 151, 1)
                     OnCancel: =false
                     OnScan: |-
-                        =If(!IsBlank(LookUp(MCLETrainingAttendance, Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName)),
-                        Patch(
-                            MCLETrainingAttendance,
-                            LookUp(
-                                MCLETrainingAttendance,
-                                Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName
-                            ),
-                            {
-                                'Checkout Time': Now()
-                            }
-                        ),
-                        Patch(
-                            MCLETrainingAttendance,
-                            Defaults(MCLETrainingAttendance),
-                            {
-                                Attendee: User().FullName,
-                                TrainingID: Value(Last(BarcodeReader1.Barcodes).Value),
-                                'Checkout Time': Min(Now(), DateAdd(MeetingRecord.TrainingEndDay, 30, TimeUnit.Minutes))
-                            }
-                        ));
+                        =// If(!IsBlank(LookUp(MCLETrainingAttendance, Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName)),
+                        // Patch(
+                        //     MCLETrainingAttendance,
+                        //     LookUp(
+                        //         MCLETrainingAttendance,
+                        //         Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID && Attendee = User().FullName
+                        //     ),
+                        //     {
+                        //         'Checkout Time': Now()
+                        //     }
+                        // ),
+                        // Patch(
+                        //     MCLETrainingAttendance,
+                        //     Defaults(MCLETrainingAttendance),
+                        //     {
+                        //         Attendee: User().FullName,
+                        //         TrainingID: Value(Last(BarcodeReader1.Barcodes).Value),
+                        //         'Checkout Time': Min(Now(), DateAdd(MeetingRecord.TrainingEndDay, 30, TimeUnit.Minutes))
+                        //     }
+                        // ));
                         
-                        Collect(
-                            barCodes,
-                            {
-                                Type: Last(BarcodeReader1_1.Barcodes).Type,
-                                Value: Last(BarcodeReader1_1.Barcodes).Value
-                            }
-                        )
+                        // Collect(
+                        //     barCodes,
+                        //     {
+                        //         Type: Last(BarcodeReader1_1.Barcodes).Type,
+                        //         Value: Last(BarcodeReader1_1.Barcodes).Value
+                        //     }
+                        // )
+                        
+                        /*
+                        The idea here is to de-duplicate the code used for this screen, since the QR code is just a different representation of the access code, we can reuse the manual access code input, and only automate the flow.
+                        */
+                        
+                        TextInput2_1.Text = Last(Self.Barcodes).Value; // Input the Access Code
+                        Select(Button7_6); // Press the Input Access Code button
                     PaddingBottom: =5
                     PaddingLeft: =5
                     PaddingRight: =5
