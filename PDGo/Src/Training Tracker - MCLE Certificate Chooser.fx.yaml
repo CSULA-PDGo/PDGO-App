@@ -4,6 +4,8 @@
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =20
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =1
@@ -52,7 +54,7 @@
             OnSelect: |-
                 =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.Cover, {AttendanceRecords: ComboBox4.SelectedItems})
             Size: =24
-            Text: ="Button"
+            Text: ="Generate Certificates"
             Width: =280
             ZIndex: =3
 
