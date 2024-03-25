@@ -80,11 +80,10 @@
             ZIndex: =4
 
         ComboBox4 As combobox:
-            DefaultSelectedItems: =Filter(Filter(MCLETrainingAttendance, TrainingID = 11), DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Minutes) > 1)
+            DefaultSelectedItems: =
             DisplayFields: =["Name","AttendedTime"]
             FillPortions: =1
             Height: =70
-            IsSearchable: =false
             Items: |-
                 =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID), 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank()), {
                     Name: ThisRecord.Attendee,
