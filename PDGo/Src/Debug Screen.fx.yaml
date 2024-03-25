@@ -11,3 +11,14 @@
         Y: =40
         ZIndex: =1
 
+    Button2 As button:
+        Height: =70
+        OnSelect: |-
+            =UpdateContext({Cap: UserRecord.Capabilities})
+        Size: =24
+        Text: ="Button"
+        Width: =280
+        X: =40
+        Y: =210
+        ZIndex: =2
+
