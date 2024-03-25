@@ -14,7 +14,7 @@
     Button2 As button:
         Height: =70
         OnSelect: |-
-            =UpdateContext({Cap: UserRecord.Capabilities})
+            =UpdateContext({Cap: ForAll(UserRecord.Capabilities, Value)})
         Size: =24
         Text: ="Button"
         Width: =280

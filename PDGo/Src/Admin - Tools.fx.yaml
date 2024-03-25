@@ -56,7 +56,7 @@
             OnSelect: =Navigate('Training Tracker - MCLE Certificate Chooser', ScreenTransition.Cover)
             Size: =24
             Text: ="Generate Certificates"
-            Visible: ="Training Certificates" in UserRecord.Capabilities
+            Visible: ="Training Certificates" in ForAll(UserRecord.Capabilities, Value)
             Width: =280
             ZIndex: =2
 
