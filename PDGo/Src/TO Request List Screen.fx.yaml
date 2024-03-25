@@ -168,7 +168,7 @@
                     SubordinateIDs: ForAll(Subordinates, ThisRecord.ID),
                     Statuses: Status_ComboBox.SelectedItems
                 },
-                    Filter(TimeOffRequests, StatusCode in Statuses, Or("Time Off Requests" in UserRecord.Capabilities, Requester in SubordinateIDs))
+                    Filter(TimeOffRequests, StatusCode in Statuses, Or("Time Off Requests" in ForAll(UserRecord.Capabilities, Value), Requester in SubordinateIDs))
                 ), search_input.Text, "Reason", "Comments")
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
