@@ -9,7 +9,9 @@
 
     Container15 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
         LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =20
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
         ZIndex: =2
@@ -46,4 +48,14 @@
                 X: =115
                 Y: =15
                 ZIndex: =2
+
+        Button9 As button:
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =280
+            OnSelect: =Navigate('Training Tracker - MCLE Certificate Chooser', ScreenTransition.Cover)
+            Size: =24
+            Text: ="Generate Certificates"
+            Width: =280
+            ZIndex: =2
 
