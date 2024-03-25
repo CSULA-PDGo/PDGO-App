@@ -20,6 +20,7 @@
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
             Height: ='Background Color_9'.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
@@ -29,6 +30,7 @@
             ZIndex: =1
 
             Icon11_2 As icon.ArrowLeft:
+                Color: =RGBA(255, 255, 255, 1)
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
                 X: =40

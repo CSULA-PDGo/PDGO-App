@@ -10,17 +10,74 @@
         Width: =Parent.Width
         ZIndex: =1
 
+        Container14_3 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(50, 86, 160, 1)
+            FillPortions: =0
+            Height: ='Background Color_9'.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: ='Background Color_9'.Width
+            X: =
+            Y: =
+            ZIndex: =1
+
+            Icon11_3 As icon.ArrowLeft:
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.ArrowLeft
+                OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            Label15_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =25
+                Text: ="Generate Certificates"
+                Width: =487
+                X: =115
+                Y: =15
+                ZIndex: =2
+
+        Label19 As label:
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: |-
+                ="Trainings:"
+            Width: =560
+            ZIndex: =2
+
         ComboBox5 As combobox:
             DisplayFields: =["TrainingLocation"]
             Height: =70
-            Items: =MCLETrainings_1
+            IsSearchable: =false
+            Items: =Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE")
             LayoutMinHeight: =70
             LayoutMinWidth: =575
             SearchFields: =["AccessCode"]
-            SearchItems: =Search(MCLETrainings_1,ComboBox5.SearchText,"AccessCode")
+            SearchItems: =[]
             Size: =21
             Width: =575
-            ZIndex: =1
+            ZIndex: =3
+
+        Label20 As label:
+            Height: =70
+            LayoutMinHeight: =70
+            LayoutMinWidth: =560
+            Size: =21
+            Text: |-
+                ="Attendees:"
+            Width: =560
+            ZIndex: =4
 
         ComboBox4 As combobox:
             DefaultSelectedItems: =Filter(Filter(MCLETrainingAttendance, TrainingID = 11), DateDiff('Check-InTime', 'Checkout Time', TimeUnit.Minutes) > 1)
@@ -29,12 +86,12 @@
             Height: =70
             IsSearchable: =false
             Items: |-
-                =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID)) As Attendance, {
-                    Name: Attendance.Attendee,
-                    ID: Attendance.ID,
-                    AttendedTime: Concatenate(Text(DateDiff(Attendance.'Check-InTime', Attendance.'Checkout Time', TimeUnit.Minutes)), " min"),
-                    CO: Attendance.'Checkout Time',
-                    CI: Attendance.'Check-InTime'
+                =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID), 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank()), {
+                    Name: ThisRecord.Attendee,
+                    ID: ThisRecord.ID,
+                    AttendedTime: Concatenate(Text(DateDiff(ThisRecord.'Check-InTime', ThisRecord.'Checkout Time', TimeUnit.Minutes)), " min"),
+                    CO: ThisRecord.'Checkout Time',
+                    CI: ThisRecord.'Check-InTime'
                 })
             LayoutMinHeight: =70
             LayoutMinWidth: =575
@@ -45,7 +102,7 @@
             Size: =21
             Template: =ListItemTemplate.Double
             Width: =575
-            ZIndex: =2
+            ZIndex: =5
 
         Button1 As button:
             Height: =70
@@ -56,5 +113,5 @@
             Size: =24
             Text: ="Generate Certificates"
             Width: =280
-            ZIndex: =3
+            ZIndex: =6
 
