@@ -38,7 +38,7 @@
         RadiusTopRight: ='Profile Selected Team Member Profile Picture'.Height
         Width: =145
         X: =247
-        Y: =56
+        Y: =110
         ZIndex: =4
 
     "'Profile Selected Team Member About Container' As groupContainer.manualLayoutContainer":
@@ -58,31 +58,31 @@
             ZIndex: =1
 
         "'Profile Selected Team Member About Me Description' As label":
-            Height: =188
+            Height: =Parent.Height * 0.4
             Overflow: =Overflow.Scroll
             Size: =18
             Text: =_selectedTeamMember.'About Me'
             VerticalAlign: =VerticalAlign.Top
             Width: =App.Width
-            Y: =100
+            Y: =255
             ZIndex: =2
 
         "'Profile Selected Team Member Phone Number' As label":
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.04
             Text: =_selectedTeamMember.'Phone Number'
-            Width: =448
-            X: =133
-            Y: =331
+            Width: =Parent.Width - 80
+            X: =80
+            Y: =Parent.Height * 0.4 + 255
             ZIndex: =3
 
         "'Profile Selected Team Member Email Address' As label":
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.035
             Text: =_selectedTeamMember.'Email Address'
-            Width: =449
-            X: =133
-            Y: =434
+            Width: =Parent.Width - 80
+            X: =80
+            Y: =Parent.Height * 0.5 + 255
             ZIndex: =4
 
         Icon8_2 As icon.Phone:
@@ -90,12 +90,12 @@
             Icon: =Icon.Phone
             Width: =50
             X: =24
-            Y: =341
+            Y: =Parent.Height * 0.4 + 255
             ZIndex: =5
 
         Icon9_2 As icon.Mail:
             Icon: =Icon.Mail
-            X: =24
-            Y: =440
+            X: =17
+            Y: =Parent.Height * 0.5 + 255
             ZIndex: =6
 

@@ -130,30 +130,30 @@
             Visible: =false
             Width: =560
             X: =40
-            Y: =320
+            Y: =290
             ZIndex: =2
 
         "'Profile Edit Full Name Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.03
             Text: |-
                 ="Full Name
                 "
             Width: =560
-            X: =40
-            Y: =80
+            X: =Parent.Width * 0.05
+            Y: =90
             ZIndex: =3
 
         "'Profile Edit Full Name Input' As text":
             Default: =User().FullName
             DisplayMode: =DisplayMode.Disabled
             Font: =Font.Lato
-            Height: =70
+            Height: =Parent.Height* 0.06
             Size: =21
-            Width: =560
-            X: =40
+            Width: =Parent.Width * 0.8
+            X: =Parent.Width * 0.05
             Y: =150
             ZIndex: =4
 
@@ -161,26 +161,26 @@
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.03
             Text: |-
                 ="Phone Number
                 "
             Width: =560
-            X: =40
-            Y: =232
+            X: =Parent.Width * 0.05
+            Y: =220
             ZIndex: =5
 
         "'Profile Edit Profile Picture Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.03
             Text: |-
                 ="Profile Picture
                 "
             Width: =560
-            X: =40
-            Y: =438
+            X: =Parent.Width * 0.05
+            Y: =360
             ZIndex: =6
 
         AddMediaWithImage2 As group:
@@ -195,9 +195,9 @@
                 Height: =198
                 Image: =If(IsBlank(AddMediaButton2.Media), LookUp(Users, 'Email Address' = User().Email, 'Profile Picture').Medium, AddMediaButton2.Media)
                 ImagePosition: =ImagePosition.Fill
-                Width: =268
-                X: =40
-                Y: =559
+                Width: =247
+                X: =38
+                Y: =424
                 ZIndex: =7
 
             AddMediaButton2 As addMedia:
@@ -206,9 +206,9 @@
                 Height: =198
                 Size: =25
                 Text: =""
-                Width: =268
-                X: =40
-                Y: =559
+                Width: =247
+                X: =38
+                Y: =424
                 ZIndex: =8
 
         "'Profile Edit Picture Change Icon' As icon.Camera":
@@ -217,21 +217,21 @@
             Height: =35
             Icon: =Icon.Camera
             Width: =35
-            X: =285
-            Y: =575
+            X: =300
+            Y: =430
             ZIndex: =9
 
         "'Profile Edit About Me Label' As label":
             Font: =Font.'Lato Black'
             FontWeight: =FontWeight.Semibold
             Height: =70
-            Size: =21
+            Size: =Parent.Width * 0.03
             Text: |-
                 ="About Me
                 "
             Width: =560
-            X: =40
-            Y: =757
+            X: =Parent.Width * 0.05
+            Y: =622
             ZIndex: =10
 
         "'Profile Edit About Me Input' As text":
@@ -240,9 +240,9 @@
             Height: =178
             Mode: =TextMode.MultiLine
             Size: =21
-            Width: =560
-            X: =40
-            Y: =849
+            Width: =Parent.Width * 0.9
+            X: =Parent.Width * 0.05
+            Y: =692
             ZIndex: =11
 
         "'Profile Edit Phone Number Input' As text":
@@ -250,11 +250,11 @@
                 =//LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
                 varPhoneNumber
             Font: =Font.Lato
-            Height: =70
+            Height: =Parent.Height* 0.06
             MaxLength: =Len('Profile Edit Phone Number Input Format'.Text)
             Size: =21
-            Width: =560
-            X: =40
-            Y: =320
+            Width: =Parent.Width * 0.8
+            X: =Parent.Width * 0.05
+            Y: =290
             ZIndex: =12
 
