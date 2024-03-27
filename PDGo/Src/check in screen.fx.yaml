@@ -1,7 +1,7 @@
 "'check in screen' As screen":
     OnVisible: |+
         =UpdateContext({MeetingRecord: Blank()});
-        UpdateContext({IsCheckIn: !IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName &&  TrainingID = CheckInRecord.ID && 'Check-In Time' <> Blank() ))});
+        UpdateContext({IsCheckIn: !IsBlank(LookUp(MCLETrainingAttendance, Attendee = User().FullName &&  TrainingID = CheckInRecord.ID && 'Check-InTime' <> Blank() ))});
         UpdateContext({TimerStart: false});
         
 
@@ -89,7 +89,7 @@
                 OnSelect: |+
                     =If(IsCheckIn, Patch(MCLETrainingAttendance, 
                         LookUp(MCLETrainingAttendance, Attendee = User().FullName && CheckInRecord.ID = TrainingID), {'Checkout Time':Now(), Attended: true});                UpdateContext({TimerStart: true})
-                        , If(Value(TextInput2.Text) = CheckInRecord.'Access Code', Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = User().FullName && CheckInRecord.ID = TrainingID), {'Check-In Time': Now()} ); UpdateContext({IsCheckIn: true}), Notify("This is an incorrect Access Code to this meeting") ) 
+                        , If(Value(TextInput2.Text) = CheckInRecord.'Access Code', Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = User().FullName && CheckInRecord.ID = TrainingID), {'Check-InTime': Now()} ); UpdateContext({IsCheckIn: true}), Notify("This is an incorrect Access Code to this meeting") ) 
                     )
                     
                     
@@ -149,7 +149,7 @@
         OnScan: |
             =If(IsCheckIn, Patch(MCLETrainingAttendance, 
                 LookUp(MCLETrainingAttendance, Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID), {'Checkout Time':Now(), Attended: true});                UpdateContext({TimerStart: true})
-                , If(Value(Last(BarcodeReader1.Barcodes).Value) = CheckInRecord.ID, Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID), {'Check-In Time': Now()} ); UpdateContext({IsCheckIn: true}), Notify("This is an incorrect scan to the training you are checking in") ) 
+                , If(Value(Last(BarcodeReader1.Barcodes).Value) = CheckInRecord.ID, Patch(MCLETrainingAttendance, LookUp(MCLETrainingAttendance, Attendee = User().FullName && Value(Last(BarcodeReader1.Barcodes).Value) = TrainingID), {'Check-InTime': Now()} ); UpdateContext({IsCheckIn: true}), Notify("This is an incorrect scan to the training you are checking in") ) 
             )
             
             
