@@ -86,6 +86,7 @@
                     ZIndex: =1
 
                 TextInput1 As text:
+                    AccessibleLabel: ="search keywords for your training"
                     Default: =""
                     Height: =50
                     HintText: ="Search Trainings"
@@ -129,6 +130,8 @@
                     ZIndex: =5
 
                 ComboBox3 As combobox:
+                    AccessibleLabel: |-
+                        ="drop down box to select satus. Options are: In-Progress, Completed. Cancelled."
                     DefaultSelectedItems: =
                     DisplayFields: =["Value"]
                     Height: =57
@@ -146,6 +149,8 @@
                     ZIndex: =6
 
                 ComboBox3_1 As combobox:
+                    AccessibleLabel: |-
+                        ="Format drop box. Options are: In-person, Online, Hybrid "
                     DisplayFields: =["Value"]
                     Height: =57
                     InputTextPlaceholder: =""
@@ -738,6 +743,7 @@
         ZIndex: =2
 
     "'Back Button_13' As icon.ArrowLeft":
+        AccessibleLabel: ="filter icon "
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.Filter
@@ -749,6 +755,7 @@
         ZIndex: =3
 
     "'Back Button_14' As icon.ArrowLeft":
+        AccessibleLabel: ="calendar icon to view the trainings in the calendar. Press it again to see the list view"
         Color: =RGBA(255, 255, 255, 1)
         Height: =43
         Icon: =Icon.CalendarBlank

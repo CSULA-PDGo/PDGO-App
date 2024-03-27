@@ -84,6 +84,7 @@
                             ZIndex: =1
 
                         DataCardValue23 As text:
+                            AccessibleLabel: ="Enter the training title here"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Parent.Default
                             DelayOutput: =true
@@ -157,6 +158,7 @@
                             ZIndex: =1
 
                         DataCardValue21 As combobox:
+                            AccessibleLabel: ="Format drop down box. Options are In-person, Online, Hybrid  "
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultSelectedItems: =Parent.Default
                             DisplayFields: =["Value"]
@@ -229,6 +231,8 @@
                             ZIndex: =1
 
                         DataCardValue22 As combobox:
+                            AccessibleLabel: |-
+                                ="Category drop box. Options are: General MCLE, Legal Ethics, Recognition and Elimination of Bias "
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultSelectedItems: =Parent.Default
                             DisplayFields: =["Value"]
@@ -301,6 +305,7 @@
                             ZIndex: =1
 
                         DateValue3 As datepicker:
+                            AccessibleLabel: ="Select the end date on the calendar"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultDate: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -318,6 +323,7 @@
                             ZIndex: =2
 
                         HourValue3 As dropdown:
+                            AccessibleLabel: ="hour drop down box. From 0 to 23"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Text(Hour(Parent.Default),"00")
                             DisplayMode: =Parent.DisplayMode
@@ -352,6 +358,7 @@
                             ZIndex: =4
 
                         MinuteValue3 As dropdown:
+                            AccessibleLabel: ="minutes drop down box. From 0 to 59 "
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Text(Minute(Parent.Default),"00")
                             DisplayMode: =Parent.DisplayMode
@@ -471,6 +478,7 @@
                             ZIndex: =4
 
                         ComboBox2 As combobox:
+                            AccessibleLabel: ="Drop down box to select the training host"
                             DisplayFields: =["DisplayName","Email","Picture"]
                             Height: =70
                             Items: =Choices(MCLETrainings_1.'Presenter/Host')
@@ -511,6 +519,7 @@
                             ZIndex: =1
 
                         DateValue2 As datepicker:
+                            AccessibleLabel: ="Select the start date"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             DefaultDate: =Parent.Default
                             DisplayMode: =Parent.DisplayMode
@@ -528,6 +537,7 @@
                             ZIndex: =2
 
                         HourValue2 As dropdown:
+                            AccessibleLabel: ="Drop down to select the hour. goes from 0-23"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Text(Hour(Parent.Default),"00")
                             DisplayMode: =Parent.DisplayMode
@@ -562,6 +572,7 @@
                             ZIndex: =4
 
                         MinuteValue2 As dropdown:
+                            AccessibleLabel: ="Drop down box to select the minute. Goes from 0 to 59"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Text(Minute(Parent.Default),"00")
                             DisplayMode: =Parent.DisplayMode
@@ -634,6 +645,7 @@
                             ZIndex: =1
 
                         DataCardValue17 As text:
+                            AccessibleLabel: ="Enter location (optional)"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Parent.Default
                             DelayOutput: =true
@@ -708,6 +720,7 @@
                             ZIndex: =1
 
                         DataCardValue18 As text:
+                            AccessibleLabel: ="Enter adress (optional)"
                             BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                             Default: =Parent.Default
                             DelayOutput: =true
