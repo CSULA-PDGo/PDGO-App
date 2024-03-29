@@ -431,7 +431,7 @@
                 Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisplayFields: =["ComplianceAssetId"]
+                DisplayFields: =["{Name}"]
                 FillPortions: =1
                 FlyoutMaximumHeight: =400
                 Font: =Font.Lato
