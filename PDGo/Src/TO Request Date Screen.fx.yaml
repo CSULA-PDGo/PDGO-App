@@ -1,6 +1,7 @@
 "'TO Request Date Screen' As screen":
 
     "'TO Request Date Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
+        DropShadow: =DropShadow.Bold
         Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
         LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -9,7 +10,8 @@
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowY: =LayoutOverflow.Scroll
         PaddingBottom: =20
-        Width: =Parent.Width
+        Width: =Min(Parent.Width, 1500)
+        X: =(Parent.Width - Self.Width)/2
         ZIndex: =1
 
         "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
@@ -139,7 +141,7 @@
                     PaddingRight: =9
                     PaddingTop: =9
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
-                    Size: =If('TO Request Screen'.Size=1,10.24,20.24)
+                    Size: =If('TO Request Date Screen'.Orientation = "landscape", 10, 20)
                     StartYear: =Year(Today())
                     Width: =400
                     X: =145.00
@@ -200,7 +202,7 @@
                     PaddingRight: =9.00
                     PaddingTop: =9.00
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
-                    Size: =If('TO Request Screen'.Size=1,10.24,20.24)
+                    Size: =If('TO Request Date Screen'.Orientation = "landscape", 10, 20)
                     Width: =290.00
                     X: =145.00
                     ZIndex: =2
@@ -460,7 +462,6 @@
 
             Icon2_2 As icon.Information:
                 AlignInContainer: =AlignInContainer.Stretch
-                FillPortions: =1
                 HoverColor: =ColorFade(Self.Color, 30%)
                 Icon: =Icon.Information
                 LayoutMinWidth: =60
@@ -585,12 +586,14 @@
             ZIndex: =7
 
     "'TO Request Time Code Options' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.Bold
         Height: =Parent.Height
         Visible: |+
             =PopUp
             
             
-        Width: =Parent.Width
+        Width: =Min(Parent.Width, 1500)
+        X: =(Parent.Width - Self.Width)/2
         ZIndex: =2
 
         Rectangle2_11 As rectangle:
