@@ -4,7 +4,7 @@
         BorderStyle: =BorderStyle.None
         Fill: =RGBA(25, 53, 110, 100)
         Height: =111
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
     "'Back Button_4' As icon.ArrowLeft":
@@ -22,11 +22,10 @@
         Font: =Font.Lato
         Height: =70
         Size: =26
-        Text: |-
-            ="Settings
-            "
+        Text: ="Settings"
         Width: =149
-        X: =89
+        X: |
+            =(Parent.Width - Self.Width) / 2
         Y: =20
         ZIndex: =3
 
@@ -47,15 +46,4 @@
         X: =476
         Y: =167
         ZIndex: =5
-
-    Label17 As label:
-        Color: =RGBA(221, 79, 14, 1)
-        Font: =Font.Lato
-        Height: =70
-        Size: =21
-        Text: ="Logout"
-        Width: =120
-        X: =30
-        Y: =216
-        ZIndex: =6
 

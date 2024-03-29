@@ -4,7 +4,7 @@
         BorderStyle: =BorderStyle.None
         Fill: =RGBA(25, 53, 110, 1)
         Height: =296
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =1
 
     "'Back Button_5' As icon.ArrowLeft":
@@ -25,7 +25,7 @@
         Size: =26
         Text: |
             =LookUp(Users, 'Full Name' = _mySupervisor, 'Full Name')
-        Width: =580
+        Width: =Parent.Width - 2*Self.X
         X: =30
         Y: =201
         ZIndex: =4
@@ -38,13 +38,15 @@
         RadiusTopLeft: ='User Profile Picture_1'.Height
         RadiusTopRight: ='User Profile Picture_1'.Height
         Width: =145
-        X: =247
+        X: =(Parent.Width - Self.Width)/2
         Y: =56
         ZIndex: =5
 
     "'About Container_1' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.None
         Height: =716
-        Width: =640
+        Width: =Min(Parent.Width, 1500)
+        X: =(Parent.Width - Self.Width)/2
         Y: =296
         ZIndex: =6
 
@@ -64,7 +66,7 @@
             Size: =18
             Text: =LookUp(Users, 'Full Name' = _mySupervisor, 'About Me')
             VerticalAlign: =VerticalAlign.Top
-            Width: =560
+            Width: =Parent.Width - 2*Self.X
             X: =36
             Y: =110
             ZIndex: =2
