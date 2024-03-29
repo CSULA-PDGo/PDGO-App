@@ -140,7 +140,7 @@
                     Items: =Choices(MCLETrainings_1.TrainingStatus)
                     NoSelectionText: ="All"
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Choices(MCLETrainings_1.TrainingStatus,ComboBox3.SearchText)
                     SelectMultiple: =false
                     Size: =21
                     Width: =Parent.Width / 2.5
@@ -158,7 +158,7 @@
                     Items: =Choices(MCLETrainings_1.TrainingFormat)
                     NoSelectionText: ="All"
                     SearchFields: =["Value"]
-                    SearchItems: =[]
+                    SearchItems: =Choices(MCLETrainings_1.TrainingFormat,ComboBox3_1.SearchText)
                     SelectMultiple: =false
                     Size: =21
                     Width: =Parent.Width / 2.5
@@ -183,11 +183,11 @@
                                 IsBlank(ComboBox3.Selected.Value),
                                 filteredByInputAndFormat, 
                                 ComboBox3.Selected.Value = "In-progress",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "Cancelled" && (Now() >= TrainingStartDate && Now() <= TrainingEndDay)),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "In-Progress" && (Now() >= TrainingStartDate && Now() <= TrainingEndDay)),
                                 ComboBox3.Selected.Value = "Available",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "Cancelled" && Now() < TrainingStartDate),
-                                ComboBox3.Selected.Value = "Ended",
-                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "Cancelled" && Now() > TrainingEndDay),
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "Available" && Now() < TrainingStartDate),
+                                ComboBox3.Selected.Value = "Completed",
+                                Filter(filteredByInputAndFormat, TrainingStatus.Value <> "Completed" && Now() > TrainingEndDay),
                                 ComboBox3.Selected.Value = "Cancelled",
                                 Filter(filteredByInputAndFormat, TrainingStatus.Value = "Cancelled" && Now() < TrainingStartDate)
                             ), Now() >= TrainingStartDate
