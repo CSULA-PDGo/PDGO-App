@@ -494,9 +494,11 @@
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
+                OnSelect: |-
+                    =Navigate('Training Tracker - Attendee List', ScreenTransition.Cover, {Training: _currentSelectedTraining})
                 Size: =24
                 Text: ="Show Attendees"
-                Visible: ="Training Administrator" in UserRecord.Capabilities
+                Visible: ="Training Administrator" in ForAll(UserRecord.Capabilities, Value)
                 Width: =550
                 ZIndex: =7
 
@@ -509,7 +511,7 @@
                     =Navigate('Training Tracker - MCLE Certificate Chooser Single', ScreenTransition.Cover, {Training: _currentSelectedTraining})
                 Size: =24
                 Text: ="Generate Certificates"
-                Visible: =("Training Certificates" in UserRecord.Capabilities) || true
+                Visible: ="Training Certificates" in ForAll(UserRecord.Capabilities, Value)
                 Width: =550
                 ZIndex: =8
 
