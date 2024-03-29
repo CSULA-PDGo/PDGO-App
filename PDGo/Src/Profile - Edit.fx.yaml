@@ -1,8 +1,8 @@
 "'Profile - Edit' As screen":
 
     "'Profile Edit Background' As rectangle":
-        Fill: ='Background Color'.Fill
-        Width: =638
+        Fill: =RGBA(25, 53, 110, 1)
+        Width: =Parent.Width
         ZIndex: =1
 
     "'Profile Edit Confirm Button' As icon.Check":
@@ -18,7 +18,7 @@
             
             Navigate(Profile, ScreenTransition.Cover)
         Width: =35
-        X: =575
+        X: =Parent.Width - 80
         Y: =32
         ZIndex: =3
 
@@ -29,7 +29,7 @@
         Size: =27
         Text: ="Edit"
         Width: =84
-        X: =277
+        X: =(Parent.Width - Self.Width)/2
         Y: =15
         ZIndex: =4
 
@@ -43,6 +43,7 @@
         ZIndex: =5
 
     "'Profile Edit Container' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.None
         Height: =1036
         Width: =640
         Y: =100
