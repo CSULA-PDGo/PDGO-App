@@ -10,7 +10,6 @@ Profile As screen:
 
     "'About Container' As groupContainer.manualLayoutContainer":
         Height: =716
-        Visible: =false
         Width: =640
         Y: =420
         ZIndex: =1
@@ -77,6 +76,7 @@ Profile As screen:
 
         "'Profile Banner Container' As groupContainer.manualLayoutContainer":
             AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(0, 16, 96, 1)
             FillPortions: =0
             Height: =420
             LayoutMinHeight: =112
@@ -301,4 +301,51 @@ Profile As screen:
                         Width: =111
                         Y: =80
                         ZIndex: =3
+
+            "'Profile User Banner Profile Picture' As image":
+                BorderColor: =RGBA(186, 202, 226, 1)
+                BorderThickness: =2
+                Height: =145
+                Image: =UserRecord.'Profile Picture'
+                ImagePosition: =ImagePosition.Fill
+                RadiusBottomLeft: ='Profile User Banner Profile Picture'.Height
+                RadiusBottomRight: ='Profile User Banner Profile Picture'.Height
+                RadiusTopLeft: ='Profile User Banner Profile Picture'.Height
+                RadiusTopRight: ='Profile User Banner Profile Picture'.Height
+                Width: =Self.Height
+                X: =247
+                Y: =40
+                ZIndex: =8
+
+            "'Profile User Banner User Name' As label":
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.Lato
+                Height: =51
+                Size: =26
+                Text: =UserRecord.'Full Name'
+                Width: =Parent.Width - 2*Self.X
+                X: =40
+                Y: =129
+                ZIndex: =9
+
+    "'Profile Back Button' As icon.ArrowLeft":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =43
+        Icon: =Icon.ArrowLeft
+        OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
+        Width: =40
+        X: =40
+        Y: =40
+        ZIndex: =3
+
+    "'Profile User Banner Edit Button' As icon.Edit":
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Icon: =Icon.Edit
+        OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)
+        Width: =40
+        X: =Parent.Width - Self.Width - 20
+        Y: =44
+        ZIndex: =4
 
