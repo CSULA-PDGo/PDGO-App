@@ -839,7 +839,7 @@
       "MetaDataIDKey": "",
       "Name": "End Date Container",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1116,7 +1116,7 @@
       "MetaDataIDKey": "",
       "Name": "End Time Container",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2454,14 +2454,7 @@
         "AutoHeight",
         "Wrap",
         "IsErrorMessage",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "\"Requests\"",
-          "InvariantPropertyName": "Text",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Text",
         "Tooltip",
         "Role",
         "ContentLanguage",
@@ -2489,14 +2482,7 @@
         "PressedFill",
         "HoverFill",
         "Font",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Size",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Size",
         "FontWeight",
         "Italic",
         "Underline",
@@ -4041,7 +4027,7 @@
       "MetaDataIDKey": "",
       "Name": "Start Time Container",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4318,7 +4304,7 @@
       "MetaDataIDKey": "",
       "Name": "StartDate Container",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5055,14 +5041,7 @@
         "LayoutOverflowX",
         "LayoutOverflowY",
         "LayoutWrap",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "PaddingTop",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "PaddingTop",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -5498,25 +5477,11 @@
           "NameMapSourceSchema": "?"
         },
         "Visible",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "VerticalAlign",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "VerticalAlign",
         "X",
         "Y",
         "Width",
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
-          "InvariantPropertyName": "Height",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Height",
         "TabIndex",
         "maximumHeight",
         "maximumWidth",
@@ -5526,14 +5491,7 @@
       ],
       "DynamicProperties": [
         {
-          "ControlPropertyState": {
-            "AFDDataSourceName": "",
-            "AutoRuleBindingEnabled": false,
-            "AutoRuleBindingString": "",
-            "InvariantPropertyName": "FillPortions",
-            "IsLockable": false,
-            "NameMapSourceSchema": "?"
-          },
+          "ControlPropertyState": "FillPortions",
           "Property": {
             "Category": "Design",
             "PropertyName": "FillPortions",
@@ -9206,14 +9164,7 @@
           "PropertyName": "AlignInContainer"
         },
         {
-          "ControlPropertyState": {
-            "AFDDataSourceName": "",
-            "AutoRuleBindingEnabled": false,
-            "AutoRuleBindingString": "",
-            "InvariantPropertyName": "LayoutMinWidth",
-            "IsLockable": false,
-            "NameMapSourceSchema": "?"
-          },
+          "ControlPropertyState": "LayoutMinWidth",
           "Property": {
             "Category": "Design",
             "PropertyName": "LayoutMinWidth",
