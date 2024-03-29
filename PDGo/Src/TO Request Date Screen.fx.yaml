@@ -27,7 +27,7 @@
             ZIndex: =1
 
             Icon2_1 As icon.ArrowLeft:
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: |-
                     =Reset('TO Request Date Screen Start Date Input');
@@ -45,7 +45,7 @@
 
             Label11_1 As label:
                 Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20

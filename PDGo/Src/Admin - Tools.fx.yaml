@@ -31,7 +31,7 @@
             ZIndex: =1
 
             Icon11_2 As icon.ArrowLeft:
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
                 X: =40
@@ -40,7 +40,7 @@
 
             Label15_3 As label:
                 Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Height: =70
                 LayoutMinHeight: =70

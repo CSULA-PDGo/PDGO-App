@@ -19,7 +19,7 @@
             HomeTitle_3 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Height: =74
                 LayoutMinHeight: =70
@@ -510,7 +510,7 @@
                 ZIndex: =10
 
     "'Back Button_16' As icon.ArrowLeft":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Back()

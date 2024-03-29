@@ -25,7 +25,7 @@
             ZIndex: =1
 
             Icon11_4 As icon.ArrowLeft:
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back();
                 X: =40
@@ -34,7 +34,7 @@
 
             Label15_5 As label:
                 Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Height: =70
                 LayoutMinHeight: =70

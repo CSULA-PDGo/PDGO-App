@@ -46,7 +46,7 @@
             HomeTitle_2 As label:
                 Align: =Align.Center
                 AlignInContainer: =AlignInContainer.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Height: =74
                 LayoutMinHeight: =70
@@ -733,7 +733,7 @@
                     ZIndex: =10
 
     "'Back Button_12' As icon.ArrowLeft":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Back() 
@@ -744,7 +744,7 @@
 
     "'Back Button_13' As icon.ArrowLeft":
         AccessibleLabel: ="filter icon "
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.Filter
         OnSelect: |-
@@ -756,7 +756,7 @@
 
     "'Back Button_14' As icon.ArrowLeft":
         AccessibleLabel: ="calendar icon to view the trainings in the calendar. Press it again to see the list view"
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.CalendarBlank
         OnSelect: |-

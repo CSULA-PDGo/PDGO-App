@@ -28,7 +28,7 @@
             ZIndex: =1
 
             "'TO Request Screen Header Back' As icon.ArrowLeft":
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back();
                 Width: =50
@@ -36,7 +36,7 @@
 
             "'TO Request Screen Header Text' As label":
                 Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
