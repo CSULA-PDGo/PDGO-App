@@ -713,7 +713,7 @@ Profile As screen:
                 Size: =21
                 Text: ="About Me"
                 Width: =148
-                X: =36
+                X: =20
                 Y: =10
                 ZIndex: =1
 
@@ -723,26 +723,26 @@ Profile As screen:
                 Size: =18
                 Text: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
                 VerticalAlign: =VerticalAlign.Top
-                Width: =560
-                X: =36
+                Width: =App.Width - 36
+                X: =20
                 Y: =54
                 ZIndex: =2
 
             Label6_2 As label:
                 Height: =70
-                Size: =21
+                Size: =App.Width * 0.035
                 Text: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
                 Width: =448
-                X: =133
+                X: =80
                 Y: ='About Me Description_2'.Y + 'About Me Description_2'.Height
                 ZIndex: =3
 
             Label7_2 As label:
                 Height: =70
-                Size: =App.Width * 0.03
+                Size: =App.Width * 0.035
                 Text: =User().Email
                 Width: =App.Width - 133
-                X: =133
+                X: =80
                 Y: ='Label6_2'.Y + 'Label6_2'.Height
                 ZIndex: =4
 
@@ -750,7 +750,7 @@ Profile As screen:
                 Height: =35
                 Icon: =Icon.Phone
                 Width: =35
-                X: =36
+                X: =20
                 Y: ='About Me Description_2'.Y + 'About Me Description_2'.Height + 17
                 ZIndex: =5
 
@@ -758,7 +758,7 @@ Profile As screen:
                 Height: =35
                 Icon: =Icon.Mail
                 Width: =35
-                X: =36
+                X: =20
                 Y: ='Label7_2'.Y + 17
                 ZIndex: =6
 
