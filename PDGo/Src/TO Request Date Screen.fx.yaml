@@ -17,13 +17,15 @@
         "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
             Fill: =fxTheme.Header.BGColor
             FillPortions: =0
-            Height: =75
+            Height: =100
             LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutJustifyContent: =LayoutJustifyContent.Center
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
+            PaddingLeft: =30
+            PaddingRight: =60
             ZIndex: =1
 
             Icon2_1 As icon.ArrowLeft:
@@ -50,8 +52,8 @@
                 Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
-                Size: =20
-                Text: ="Requests"
+                Size: =26
+                Text: ="Date Range"
                 ZIndex: =2
 
             Label21_1 As label:
@@ -75,7 +77,7 @@
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             PaddingRight: =20
-            PaddingTop: =0.00
+            PaddingTop: =20
             Width: =1326.00
             X: =20.00
             ZIndex: =2
@@ -500,17 +502,18 @@
             RadiusTopRight: =0
             Size: =20.24
             Width: =1326.00
-            X: =20.00
+            X: =20
             Y: =460.5
-            ZIndex: =5
+            ZIndex: =9
 
         "'TO Request Date Screen Error Label' As label":
             Color: =RGBA(168, 0, 0, 1)
             Text: =""
             Visible: =Not(IsBlank(Self.Text))
-            ZIndex: =6
+            ZIndex: =10
 
         "'TO Request Date Screen Add To Request Button' As button":
+            AlignInContainer: =AlignInContainer.Stretch
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =0
@@ -519,7 +522,7 @@
             FocusedBorderColor: =ColorFade(Self.Fill, -75%)
             Font: =Font.Arial
             FontWeight: =FontWeight.Normal
-            Height: =71
+            Height: =80
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
             OnSelect: |
@@ -581,11 +584,10 @@
             RadiusTopRight: =0
             Size: =23.62
             Text: ="Add to Request"
-            VerticalAlign: =VerticalAlign.Top
             Width: =1326.00
-            X: =20.00
+            X: =20
             Y: =841
-            ZIndex: =7
+            ZIndex: =11
 
     "'TO Request Time Code Options' As groupContainer.manualLayoutContainer":
         DropShadow: =DropShadow.Bold

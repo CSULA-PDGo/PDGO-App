@@ -21,7 +21,7 @@
             LayoutMode: =LayoutMode.Auto
             PaddingLeft: =20
             PaddingRight: =20
-            Width: ='Background Color_9'.Width
+            Width: =Parent.Width
             X: =
             Y: =
             ZIndex: =1
@@ -45,14 +45,17 @@
                 Size: =25
                 Text: ="Generate Certificates"
                 Width: =487
-                X: =115
+                X: =(Parent.Width - Self.Width) / 2
                 Y: =15
                 ZIndex: =2
 
         Label19 As label:
+            FontWeight: =FontWeight.Semibold
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =560
+            PaddingLeft: =30
+            PaddingTop: =30
             Size: =21
             Text: |-
                 ="Trainings:"
@@ -60,22 +63,26 @@
             ZIndex: =2
 
         ComboBox5 As combobox:
+            AlignInContainer: =AlignInContainer.Center
             DisplayFields: =["TrainingLocation"]
             Height: =70
             IsSearchable: =false
             Items: =Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE")
             LayoutMinHeight: =70
-            LayoutMinWidth: =575
+            LayoutMinWidth: =500
             SearchFields: =["TrainingLocation"]
             SearchItems: =[]
             Size: =21
-            Width: =575
+            Width: =Parent.Width - 80
             ZIndex: =3
 
         Label20 As label:
+            FontWeight: =FontWeight.Semibold
             Height: =70
             LayoutMinHeight: =70
             LayoutMinWidth: =560
+            PaddingLeft: =30
+            PaddingTop: =30
             Size: =21
             Text: |-
                 ="Attendees:"
@@ -83,10 +90,12 @@
             ZIndex: =4
 
         ComboBox4 As combobox:
+            AlignInContainer: =AlignInContainer.Center
             DefaultSelectedItems: =
             DisplayFields: =["Name","AttendedTime"]
             FillPortions: =1
             Height: =70
+            InputTextPlaceholder: ="Select Attendees"
             Items: |-
                 =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID), 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank()), {
                     Name: ThisRecord.Attendee,
@@ -103,7 +112,7 @@
             SearchItems: =[]
             Size: =21
             Template: =ListItemTemplate.Double
-            Width: =575
+            Width: =Parent.Width - 80
             ZIndex: =5
 
         Button1 As button:

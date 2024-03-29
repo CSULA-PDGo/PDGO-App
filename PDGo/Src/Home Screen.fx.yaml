@@ -11,450 +11,118 @@
         );
         
 
-    buttonsWhole As groupContainer.manualLayoutContainer:
-        BorderThickness: =2
-        Height: =Parent.Height 
+    Container2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
-        Y: =99
-        ZIndex: =1
+        Y: |
+            =0
+        ZIndex: =12
 
-        background As rectangle:
-            BorderColor: =RGBA(0, 89, 178, 1)
-            Fill: =RGBA(237, 237, 237, 1)
-            Height: =Parent.Height
-            Width: =Parent.Width
-            ZIndex: =1
-
-        Container21_1 As groupContainer.verticalAutoLayoutContainer:
-            Height: =Parent.Height+ 'Background Color_7'.Height
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutJustifyContent: =LayoutJustifyContent.End
-            LayoutMode: =LayoutMode.Auto
-            LayoutOverflowY: =LayoutOverflow.Scroll
-            LayoutWrap: =true
-            Width: =Parent.Width
+        Container16 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(0, 18, 107, 1)
+            FillPortions: =0
+            Height: =225
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
             ZIndex: =2
 
-            Container20_8 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                PaddingTop: =275
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
+            Label4_1 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Bold
+                Height: =111
+                Size: =96
+                Text: ="PDGo"
                 Width: =Parent.Width
-                Y: =20
+                Y: =(Parent.Height - Self.Height) / 2
                 ZIndex: =1
 
-                Label18 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =35
-                    Text: ="Profile"
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =1
-
-                Label18_1 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =30
-                    Text: ="Facility Requests"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =2
-
-            Container20_9 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingTop: =275
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
+            Icon3 As icon.Person:
+                Color: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Person
+                OnSelect: =Navigate('Profile', ScreenTransition.Cover);
+                X: =20
                 Y: =20
                 ZIndex: =2
 
-                Label18_2 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =35
-                    Text: ="Settings"
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =1
-
-                Label18_3 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =30
-                    Text: ="Training Tracker"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =2
-
-            Container20_10 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingTop: =100
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
+            Icon5 As icon.Settings:
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =50
+                Icon: =Icon.Settings
+                OnSelect: =Navigate('Profile - Settings', ScreenTransition.Cover)
+                Width: =50
+                X: =Parent.Width - Self.Width - 20
                 Y: =20
                 ZIndex: =3
 
-                Label18_4 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =28
-                    Text: ="Request Time Off"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =1
-
-        Container20_1 As groupContainer.verticalAutoLayoutContainer:
-            Height: =Parent.Height
-            LayoutAlignItems: =LayoutAlignItems.Center
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            LayoutOverflowX: =LayoutOverflow.Scroll
-            LayoutOverflowY: =LayoutOverflow.Scroll
-            Width: =Parent.Width
+        Container17 As groupContainer.manualLayoutContainer:
+            Height: =225
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
             ZIndex: =3
 
-            Container20_2 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: |+
-                    =100
-                    
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingLeft: =10
-                PaddingRight: =10
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =40
-                ZIndex: =1
-
-                Button11_4 As button:
-                    BorderThickness: =3
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =""
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =2
-
-                Button11_5 As button:
-                    BorderThickness: =3
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =""
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =3
-
-            Container20_3 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: |
-                    =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingLeft: =10
-                PaddingRight: =10
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =20
-                ZIndex: =3
-
-                Button10_2 As button:
-                    BorderThickness: =3
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =RGBA(250, 250, 250, 1)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =2
-
-                Button11_2 As button:
-                    BorderThickness: =3
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =""
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =3
-
-            Container20_5 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: |
-                    =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingLeft: =10
-                PaddingRight: =10
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =40
-                ZIndex: =5
-
-                Button10_3 As button:
-                    AlignInContainer: =AlignInContainer.Center
-                    BorderThickness: =3
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =RGBA(250, 250, 250, 1)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =2
-
-        Container21 As groupContainer.verticalAutoLayoutContainer:
-            Height: =Parent.Height
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
-            LayoutMode: =LayoutMode.Auto
-            LayoutOverflowY: =LayoutOverflow.Scroll
-            LayoutWrap: =true
-            Width: =Parent.Width
-            ZIndex: =4
-
-            Container20_4 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =Parent.Height
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =20
-                ZIndex: =1
-
-                Icon12_3 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.Person
-                    OnSelect: =Navigate(Profile,ScreenTransition.Cover)
-                    PaddingLeft: =25
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =6
-
-                Icon12_8 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.Support
-                    OnSelect: =Navigate(FacilityRequest,ScreenTransition.Cover)
-                    PaddingLeft: =65
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =7
-
-            Container20_6 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =Parent.Height/4
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =
-                Y: =20
+            Icon6 As icon.ToolsWrench:
+                Height: =128
+                Icon: =Icon.ToolsWrench
+                Width: =128
+                X: =(Parent.Width - Self.Width) / 2 - 125
+                Y: =137
                 ZIndex: =2
 
-                Icon12_9 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.Settings
-                    OnSelect: =Navigate('Admin - Tools',ScreenTransition.Cover)
-                    PaddingLeft: =15
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =1
-
-                Icon12_5 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.Trending
-                    OnSelect: =Navigate('Training Tracker - Home',ScreenTransition.Cover)
-                    PaddingLeft: =65
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =2
-
-            Container20_7 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =Parent.Height/4
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =
-                Y: =20
+            Label1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                Size: =21
+                Text: ="Facility Requests"
+                Width: =204
+                X: =(Parent.Width - Self.Width) / 2 - 125
+                Y: =274
                 ZIndex: =3
 
-                Icon12_7 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.Clock
-                    OnSelect: =Navigate('TO Request Screen',ScreenTransition.Cover)
-                    PaddingLeft: =15
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =6
+            Icon6_1 As icon.ToolsWrench:
+                Height: =128
+                Icon: =Icon.Airplane
+                OnSelect: =Navigate('TO Request Screen', ScreenTransition.Cover)
+                Rotation: =-45
+                Width: =128
+                X: =(Parent.Width - Self.Width) / 2 + 125
+                Y: =137
+                ZIndex: =4
 
-    "'Background Color_7' As rectangle":
-        BorderStyle: =BorderStyle.None
-        Fill: =fxTheme.Header.BGColor
-        Height: =111
-        Width: =Parent.Width
-        ZIndex: =10
+            Label1_1 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                OnSelect: =Navigate('TO Request Screen', ScreenTransition.Cover)
+                Size: =21
+                Text: ="Time Off Requests"
+                Width: =204
+                X: =(Parent.Width - Self.Width) / 2 + 125
+                Y: =274
+                ZIndex: =5
 
-    Label4_1 As label:
-        Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =111
-        Size: =26
-        Text: ="Home Page"
-        Width: =Parent.Width
-        ZIndex: =11
+            Icon6_2 As icon.ToolsWrench:
+                Height: =128
+                Icon: =Icon.ListWatchlistRemind
+                OnSelect: =Navigate('Training Tracker - Home', ScreenTransition.Cover)
+                Width: =128
+                X: =(Parent.Width - Self.Width) / 2 - 125
+                Y: =447
+                ZIndex: =6
+
+            Label1_2 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                OnSelect: =Navigate('Training Tracker - Home', ScreenTransition.Cover)
+                Size: =21
+                Text: ="Training Tracker"
+                Width: =204
+                X: =(Parent.Width - Self.Width) / 2 - 125
+                Y: =584
+                ZIndex: =7
 

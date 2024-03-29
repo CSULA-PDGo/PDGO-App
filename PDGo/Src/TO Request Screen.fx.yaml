@@ -43,8 +43,9 @@
                 Align: =Align.Center
                 Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
-                Size: =20
-                Text: ="Requests"
+                Size: =26
+                Text: ="Time Off Requests"
+                Width: =300
                 ZIndex: =2
 
             Rectangle1 As rectangle:
@@ -69,17 +70,21 @@
                 Height: =Parent.TemplateHeight
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =If(App.Width > ScreenSize.Medium, LayoutDirection.Horizontal, LayoutDirection.Vertical)
-                LayoutGap: =20
+                LayoutGap: =10
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =20
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =20
                 Width: =Parent.TemplateWidth
                 ZIndex: =1
 
                 "'TO Request Screen Dates Date Range' As label":
-                    FillPortions: =1
+                    FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('TO Request Screen'.Size=1,21,26)
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     Width: |
                         =
@@ -87,10 +92,10 @@
                     ZIndex: =1
 
                 "'TO Request Screen Dates Time Range' As label":
-                    FillPortions: =1
+                    FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('TO Request Screen'.Size=1,21,26)
                     Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                     Width: =Parent.Width*.20
                     ZIndex: =2
@@ -106,12 +111,12 @@
 
                 "'TO Request Screen Dates Edit Button' As button":
                     Fill: =RGBA(39, 67, 125, 1)
-                    FillPortions: =2
+                    FillPortions: =1
                     Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: |-
                         =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
-                    Size: =10
+                    Size: =18
                     Text: ="Edit"
                     Width: =Parent.Width*.20
                     ZIndex: =5
@@ -122,7 +127,7 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =60
                     OnSelect: =Remove(RequestDates, ThisItem)
-                    Size: =10
+                    Size: =18
                     Text: ="Delete"
                     Width: =Parent.Width*.20
                     ZIndex: =6
@@ -145,7 +150,7 @@
             HintText: ="Enter comments here"
             LayoutMinHeight: =150
             Mode: =TextMode.MultiLine
-            Size: =20
+            Size: =26
             Visible: =false
             ZIndex: =5
 
@@ -167,6 +172,10 @@
             LayoutMinHeight: =100
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =30
+            PaddingLeft: =30
+            PaddingRight: =30
+            Width: =Parent.Width
             ZIndex: =7
 
             "'TO Request Screen Add Date Button' As button":
@@ -175,6 +184,7 @@
                 Font: =Font.Lato
                 Height: =80
                 OnSelect: =Navigate('TO Request Date Screen')
+                Size: =21
                 Text: ="Add Date Range"
                 ZIndex: =1
 
@@ -222,6 +232,7 @@
                     Clear(RequestDates);
                     Reset('TO Request Screen Comments Input');
                     Navigate('Success Screen', ScreenTransition.CoverRight);
+                Size: =21
                 Text: ="Submit Request"
                 ZIndex: =2
 

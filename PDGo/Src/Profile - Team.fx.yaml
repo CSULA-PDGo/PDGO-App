@@ -11,7 +11,7 @@
             Navigate('Profile - Selected Team Member', ScreenTransition.CoverRight, {SelectedTeamMember: ThisItem})
         TemplatePadding: =0
         TemplateSize: =177
-        Width: =Min(640, Parent.Width)
+        Width: =Parent.Width
         X: =(Parent.Width - Self.Width)/2
         Y: =100
         ZIndex: =1
