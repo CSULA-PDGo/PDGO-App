@@ -2,6 +2,7 @@
 
     "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
+        Height: =App.Height - 100
         Items: =Filter(Users, 'Team ID'.Value = LookUp(Users, 'Email Address' = User().Email, 'Team ID').Value)
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -36,7 +37,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =20
+            Size: =App.Width * 0.035
             Text: =ThisItem.'Full Name'
             VerticalAlign: =VerticalAlign.Top
             Width: =Parent.TemplateWidth - 173
