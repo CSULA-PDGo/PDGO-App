@@ -575,7 +575,7 @@
                 IsSearchable: =false
                 Items: =Choices(Courses.CourseStatus)
                 SearchFields: =["Value"]
-                SearchItems: =[]
+                SearchItems: =Choices(Courses.CourseStatus,statusDropdown_1.SearchText)
                 SelectionFill: =RGBA(25, 53, 110, 1)
                 SelectMultiple: =false
                 Size: =21

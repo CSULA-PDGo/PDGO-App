@@ -57,14 +57,14 @@
             ZIndex: =2
 
         ComboBox5 As combobox:
-            DisplayFields: =["TrainingLocation"]
+            DisplayFields: =["AccessCode"]
             Height: =70
             IsSearchable: =false
             Items: =Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE")
             LayoutMinHeight: =70
             LayoutMinWidth: =575
             SearchFields: =["AccessCode"]
-            SearchItems: =[]
+            SearchItems: =Search(Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE"),ComboBox5.SearchText,"AccessCode")
             Size: =21
             Width: =575
             ZIndex: =3
