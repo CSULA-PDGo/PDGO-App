@@ -6,7 +6,7 @@
         ZIndex: =1
 
     "'Profile Edit Confirm Button' As icon.Check":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =35
         Icon: =Icon.Check
         OnSelect: |-
@@ -23,7 +23,7 @@
         ZIndex: =3
 
     "'Profile Edit Label' As label":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Font: =Font.Lato
         Height: =70
         Size: =27
@@ -34,7 +34,7 @@
         ZIndex: =4
 
     "'Profile Edit Exit Button' As icon.Cancel":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Icon: =Icon.Cancel
         OnSelect: =Navigate(Profile, ScreenTransition.Cover)
         Width: =35

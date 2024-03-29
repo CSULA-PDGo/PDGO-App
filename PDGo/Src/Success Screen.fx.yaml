@@ -46,7 +46,7 @@
         ZIndex: =5
 
     Icon1 As icon.Home:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Icon: =Icon.Home
         OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); Set(IsSidebarOpen, !IsSidebarOpen)
         X: =30
@@ -54,7 +54,7 @@
         ZIndex: =6
 
     Icon2 As icon.Person:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Icon: =Icon.Person
         OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
         X: =Parent.Width - Self.Width - 32

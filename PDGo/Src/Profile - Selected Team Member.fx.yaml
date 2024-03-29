@@ -8,7 +8,7 @@
         ZIndex: =1
 
     "'Profile Selected Team Member Back Button' As icon.ArrowLeft":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Back();
@@ -19,7 +19,7 @@
 
     "'Profile Selected Team Member Full Name' As label":
         Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Font: =Font.Lato
         Height: =51
         Size: =26

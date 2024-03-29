@@ -323,7 +323,7 @@ Profile As screen:
 
             "'Profile User Banner User Name' As label":
                 Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
+                Color: =fxTheme.Header.TextColor
                 Font: =Font.Lato
                 Height: =51
                 Size: =26
@@ -396,7 +396,7 @@ Profile As screen:
                 ZIndex: =6
 
     "'Profile Back Button' As icon.ArrowLeft":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
@@ -406,7 +406,7 @@ Profile As screen:
         ZIndex: =3
 
     "'Profile User Banner Edit Button' As icon.Edit":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =40
         Icon: =Icon.Edit
         OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)

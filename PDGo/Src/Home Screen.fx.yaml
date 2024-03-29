@@ -501,7 +501,7 @@
 
     NotificationIconHP As icon.Bell:
         BorderColor: =RGBA(255, 255, 255, 1)
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Icon: =Icon.Bell
         OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
         Visible: =!IsNotifGallery
@@ -528,7 +528,7 @@
         ZIndex: =9
 
     OpenSideBar As icon.Hamburger:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =75
         Icon: =Icon.Hamburger
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)

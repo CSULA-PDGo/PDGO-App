@@ -8,7 +8,7 @@
         ZIndex: =1
 
     "'Back Button_4' As icon.ArrowLeft":
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Height: =43
         Icon: =Icon.ArrowLeft
         OnSelect: =Back( ScreenTransition.Cover)
@@ -18,7 +18,7 @@
         ZIndex: =2
 
     Label2_2 As label:
-        Color: =RGBA(255, 255, 255, 1)
+        Color: =fxTheme.Header.TextColor
         Font: =Font.Lato
         Height: =70
         Size: =26
