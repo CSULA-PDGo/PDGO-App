@@ -84,58 +84,6 @@ Profile As screen:
             Width: =Parent.Width
             ZIndex: =1
 
-            "'Background Color_11' As rectangle":
-                BorderStyle: =BorderStyle.None
-                Fill: =RGBA(25, 53, 110, 1)
-                Height: =420
-                Width: =Parent.Width
-                ZIndex: =1
-
-            "'Back Button_6' As icon.ArrowLeft":
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =43
-                Icon: =Icon.ArrowLeft
-                OnSelect: =Navigate('Home Screen', ScreenTransition.Cover)
-                Width: =40
-                X: =30
-                Y: =30
-                ZIndex: =2
-
-            "'Edit Button_2' As icon.Edit":
-                Color: =RGBA(255, 255, 255, 1)
-                Height: =40
-                Icon: =Icon.Edit
-                OnSelect: =Navigate('Profile - Edit', ScreenTransition.CoverRight)
-                Width: =40
-                X: =Parent.Width - Self.Width -30
-                Y: =30
-                ZIndex: =3
-
-            "'User Name_3' As label":
-                Align: =Align.Center
-                Color: =RGBA(255, 255, 255, 1)
-                Font: =Font.Lato
-                Height: =51
-                Size: =26
-                Text: =User().FullName
-                Width: =580
-                X: =(Parent.Width-Self.Width)/2
-                Y: =201
-                ZIndex: =4
-
-            "'User Profile Picture_2' As image":
-                Height: =145
-                Image: =LookUp(Users, 'Email Address' = User().Email, 'Profile Picture')
-                ImagePosition: =ImagePosition.Fill
-                RadiusBottomLeft: ='User Profile Picture_2'.Height
-                RadiusBottomRight: ='User Profile Picture_2'.Height
-                RadiusTopLeft: ='User Profile Picture_2'.Height
-                RadiusTopRight: ='User Profile Picture_2'.Height
-                Width: =145
-                X: =(Parent.Width-Self.Width)/2
-                Y: =56
-                ZIndex: =5
-
             "'Profile User Banner Buttons' As groupContainer.horizontalAutoLayoutContainer":
                 Height: =109
                 LayoutAlignItems: =LayoutAlignItems.Center
@@ -353,38 +301,4 @@ Profile As screen:
                         Width: =111
                         Y: =80
                         ZIndex: =3
-
-        Container19 As groupContainer.verticalAutoLayoutContainer:
-            AlignInContainer: =AlignInContainer.SetByContainer
-            Height: =225
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMinHeight: =112
-            LayoutMinWidth: =250
-            LayoutMode: =LayoutMode.Auto
-            PaddingTop: =40
-            ZIndex: =2
-
-            Label9 As label:
-                FontWeight: =FontWeight.Bold
-                Height: =70
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                PaddingLeft: =40
-                Size: =21
-                Text: ="About Me"
-                Width: =560
-                ZIndex: =1
-
-            Label14 As label:
-                AlignInContainer: =AlignInContainer.Start
-                Height: =188
-                LayoutMinHeight: =70
-                LayoutMinWidth: =560
-                PaddingLeft: =10
-                PaddingRight: =10
-                Size: =18
-                Text: ="     " & LookUp(Users, 'Email Address' = User().Email, 'About Me')
-                VerticalAlign: =VerticalAlign.Top
-                Width: =Parent.Width
-                ZIndex: =2
 
