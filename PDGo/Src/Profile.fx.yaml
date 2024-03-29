@@ -743,7 +743,7 @@ Profile As screen:
                 Text: =User().Email
                 Width: =App.Width - 133
                 X: =80
-                Y: ='Label6_2'.Y + 'Label6_2'.Height
+                Y: =Label6_2.Y + Label6_2.Height
                 ZIndex: =4
 
             Icon8_3 As icon.Phone:
@@ -759,6 +759,6 @@ Profile As screen:
                 Icon: =Icon.Mail
                 Width: =35
                 X: =20
-                Y: ='Label7_2'.Y + 17
+                Y: =Label7_2.Y + 17
                 ZIndex: =6
 
