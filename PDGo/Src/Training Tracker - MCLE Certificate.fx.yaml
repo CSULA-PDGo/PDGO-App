@@ -41,17 +41,9 @@
                 Index: Index + 1
             });
             
-            If(Index > CountRows(AttendanceRecords),
-                Collect(CertificatePDFs,
-                    PDF(MCLE_Certificate_Container, {
-                        Orientation: PaperOrientation.Landscape,
-                        Size: PaperSize.Letter,
-                        Margin: "0"
-                    })
-                );
+            If(Index > CountRows(AttendanceRecords) + 1,
                 UpdateContext({More: false});
                 Navigate('Success Screen');
-                
                 ,
             
                 Collect(CertificatePDFs,
