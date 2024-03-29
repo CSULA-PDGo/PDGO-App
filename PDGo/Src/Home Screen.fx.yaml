@@ -177,21 +177,6 @@
                     Width: =(Parent.Width/2) - (10 * 2)
                     ZIndex: =2
 
-                Button11_3 As button:
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =280
-                    RadiusBottomLeft: =50
-                    RadiusBottomRight: =50
-                    RadiusTopLeft: =50
-                    RadiusTopRight: =50
-                    Size: =24
-                    Text: =""
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =3
-
         Container21 As groupContainer.verticalAutoLayoutContainer:
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -227,6 +212,7 @@
                     Color: =RGBA(0, 89, 178, 1)
                     Height: =(Parent.Height + 100) / 3
                     Icon: =Icon.Person
+                    OnSelect: =Navigate(Profile,ScreenTransition.Cover)
                     Width: =(Parent.Width/2) - (10 * 2)
                     X: =112
                     Y: =55
@@ -237,6 +223,7 @@
                     Color: =RGBA(0, 89, 178, 1)
                     Height: =(Parent.Height + 100) / 3
                     Icon: =Icon.Support
+                    OnSelect: =Navigate(FacilityRequest,ScreenTransition.Cover)
                     PaddingLeft: =90
                     Width: =(Parent.Width/2) - (10 * 2)
                     X: =112
@@ -263,26 +250,28 @@
                 Y: =20
                 ZIndex: =2
 
-                Icon12_4 As icon.Person:
+                Icon12_9 As icon.Person:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 4
-                    Icon: =Icon.CalendarBlank
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.Settings
+                    OnSelect: =Navigate('Admin - Tools',ScreenTransition.Cover)
                     Width: =(Parent.Width/2) - (10 * 2)
                     X: =112
                     Y: =55
-                    ZIndex: =5
+                    ZIndex: =1
 
                 Icon12_5 As icon.Person:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 89, 178, 1)
                     Height: =(Parent.Height + 100) / 3
                     Icon: =Icon.Trending
+                    OnSelect: =Navigate('Training Tracker - Home',ScreenTransition.Cover)
                     PaddingLeft: =90
                     Width: =(Parent.Width/2) - (10 * 2)
                     X: =112
                     Y: =55
-                    ZIndex: =6
+                    ZIndex: =2
 
             Container20_7 As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -304,38 +293,16 @@
                 Y: =20
                 ZIndex: =3
 
-                Icon12_6 As icon.Person:
-                    BorderColor: =RGBA(0, 89, 178, 1)
-                    Color: =RGBA(0, 89, 178, 1)
-                    Height: =(Parent.Height + 100) / 3
-                    Icon: =Icon.ListScrollWatchlist
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    X: =112
-                    Y: =55
-                    ZIndex: =5
-
                 Icon12_7 As icon.Person:
                     BorderColor: =RGBA(0, 89, 178, 1)
                     Color: =RGBA(0, 89, 178, 1)
                     Height: =(Parent.Height + 100) / 3
                     Icon: =Icon.Clock
-                    PaddingLeft: =50
+                    OnSelect: =Navigate('TO Request Screen',ScreenTransition.Cover)
                     Width: =(Parent.Width/2) - (10 * 2)
                     X: =112
                     Y: =55
                     ZIndex: =6
-
-    Label1 As label:
-        Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
-        Height: =481
-        OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
-        Size: =21
-        Text: ="Profile"
-        Width: =516
-        X: =69
-        Y: =69
-        ZIndex: =2
 
     "'Background Color_7' As rectangle":
         BorderStyle: =BorderStyle.None
