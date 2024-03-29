@@ -11,6 +11,320 @@
         );
         
 
+    buttonsWhole As groupContainer.manualLayoutContainer:
+        BorderThickness: =4
+        Height: =703 +Parent.Height/4
+        Width: =Parent.Width
+        Y: =433
+        ZIndex: =1
+
+        background As rectangle:
+            BorderColor: =RGBA(0, 89, 178, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =Parent.Height
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Container20_1 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Width: =Parent.Width
+            ZIndex: =10
+
+            Container20_2 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: |+
+                    =100
+                    
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =1
+
+                Button10_1 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =RGBA(250, 250, 250, 1)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =2
+
+                Button11_1 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =""
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =3
+
+            Container20_3 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: |
+                    =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =20
+                ZIndex: =3
+
+                Button10_2 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =RGBA(250, 250, 250, 1)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =2
+
+                Button11_2 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =""
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =3
+
+            Container20_5 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: |
+                    =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =40
+                ZIndex: =5
+
+                Button10_3 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =RGBA(250, 250, 250, 1)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =2
+
+                Button11_3 As button:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    HoverFill: =ColorFade(RGBA(0, 51, 102, 1), -20%)
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =280
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Size: =24
+                    Text: =""
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =3
+
+        Container21 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            LayoutWrap: =true
+            Width: =Parent.Width
+            ZIndex: =11
+
+            Container20_4 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =20
+                ZIndex: =1
+
+                Icon12_2 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.Person
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =5
+
+                Icon12_3 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.Support
+                    PaddingLeft: =90
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =6
+
+            Container20_6 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =Parent.Height/4
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =
+                Y: =20
+                ZIndex: =2
+
+                Icon12_4 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 4
+                    Icon: =Icon.CalendarBlank
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =5
+
+                Icon12_5 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.Trending
+                    PaddingLeft: =90
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =6
+
+            Container20_7 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =Parent.Height/4
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =
+                Y: =20
+                ZIndex: =3
+
+                Icon12_6 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.ListScrollWatchlist
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =5
+
+                Icon12_7 As icon.Person:
+                    BorderColor: =RGBA(0, 89, 178, 1)
+                    Color: =RGBA(0, 89, 178, 1)
+                    Height: =(Parent.Height + 100) / 3
+                    Icon: =Icon.Clock
+                    PaddingLeft: =50
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    X: =112
+                    Y: =55
+                    ZIndex: =6
+
     Label1 As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
@@ -21,12 +335,12 @@
         Width: =516
         X: =69
         Y: =69
-        ZIndex: =1
+        ZIndex: =2
 
     bannerContainerHomeScreen As groupContainer.manualLayoutContainer:
         Height: =433
         Width: =Parent.Width
-        ZIndex: =2
+        ZIndex: =3
 
         BannerLogoHomeScreen As image:
             Height: =434
@@ -35,153 +349,13 @@
             Width: =Parent.Width
             ZIndex: =1
 
-    UpcomingFeed As groupContainer.manualLayoutContainer:
-        Height: =702
-        Width: =Parent.Width 
-        Y: =BannerLogoHomeScreen.Height
-        ZIndex: =3
-
-        Rectangle2_4 As rectangle:
-            BorderColor: =RGBA(101, 128, 187, 1)
-            DisabledFill: =Rectangle2_4.Fill
-            Fill: =RGBA(221, 224, 227, 1)
-            FocusedBorderColor: =Rectangle2_4.BorderColor
-            FocusedBorderThickness: =0
-            Height: =1
-            HoverFill: =Rectangle2_4.Fill
-            PressedFill: =Rectangle2_4.Fill
-            Width: =544
-            X: =48
-            Y: =66
-            ZIndex: =3
-
-        FeedHeader As button:
-            BorderColor: =ColorFade(FeedHeader.Fill, -15%)
-            Color: =RGBA(255,255,255,1)
-            DisabledBorderColor: =ColorFade(FeedHeader.BorderColor, 70%)
-            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-            DisplayMode: =DisplayMode.View
-            Fill: =RGBA(245, 247, 249, 1)
-            FocusedBorderColor: =FeedHeader.BorderColor
-            FocusedBorderThickness: =0
-            Height: =66
-            HoverBorderColor: =ColorFade(FeedHeader.BorderColor, 20%)
-            HoverColor: =FeedHeader.Color
-            HoverFill: =ColorFade(FeedHeader.Fill, 20%)
-            PressedBorderColor: =FeedHeader.Fill
-            PressedColor: =FeedHeader.Fill
-            PressedFill: =FeedHeader.Color
-            RadiusBottomLeft: =4
-            RadiusBottomRight: =4
-            RadiusTopLeft: =4
-            RadiusTopRight: =4
-            Text: =""
-            Width: =Parent.Width
-            Y: =
-            ZIndex: =4
-
-        Cont4Feeds As groupContainer.horizontalAutoLayoutContainer:
-            Height: =311 + UpcomingFeed.Height
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutMode: =LayoutMode.Auto
-            LayoutOverflowX: =LayoutOverflow.Scroll
-            LayoutOverflowY: =LayoutOverflow.Scroll
-            LayoutWrap: =true
-            Width: =Parent.Width
-            Y: =67
-            ZIndex: =5
-
-            "Feed As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver5.0'":
-                AlignInContainer: =AlignInContainer.Center
-                BorderColor: =RGBA(202, 202, 202, 1)
-                BorderThickness: =5
-                DelayItemLoading: =true
-                FillPortions: =0
-                Height: |
-                    =Parent.Height + 200
-                Layout: =Layout.Vertical
-                LayoutMinHeight: =0
-                LayoutMinWidth: =320
-                LoadingSpinner: =LoadingSpinner.Data
-                TemplatePadding: =0
-                TemplateSize: =92
-                Width: =Parent.Width
-                ZIndex: =1
-
-                Image3 As image:
-                    DisplayMode: =DisplayMode.View
-                    Height: =88
-                    Image: =
-                    OnSelect: =Select(Parent)
-                    RadiusBottomLeft: =8
-                    RadiusBottomRight: =8
-                    RadiusTopLeft: =8
-                    RadiusTopRight: =8
-                    Width: =132
-                    X: =16
-                    Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-                    ZIndex: =1
-
-                Title4 As label:
-                    Align: =Align.Center
-                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                    Height: =59
-                    OnSelect: =Select(Parent)
-                    Overflow: =Overflow.Scroll
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Size: =22
-                    Text: =
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =308
-                    X: =222
-                    Y: =32
-                    ZIndex: =2
-
-                Separator2 As rectangle:
-                    Fill: =RGBA(237, 237, 237, 1)
-                    Height: =4
-                    OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth
-                    Y: =Parent.TemplateHeight - Self.Height
-                    ZIndex: =4
-
-                Rectangle2 As rectangle:
-                    Height: =Parent.TemplateHeight - Separator2.Height
-                    OnSelect: =Select(Parent)
-                    Visible: =ThisItem.IsSelected
-                    Width: =4
-                    ZIndex: =5
-
-        FeedTitle As label:
-            Align: =Align.Center
-            BorderColor: =RGBA(101, 128, 187, 1)
-            Color: =RGBA(41, 40, 55, 1)
-            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-            FocusedBorderColor: =FeedTitle.BorderColor
-            Height: =38
-            HoverBorderColor: =FeedTitle.BorderColor
-            HoverColor: =FeedTitle.Color
-            HoverFill: =FeedTitle.Fill
-            PressedBorderColor: =FeedTitle.BorderColor
-            PressedColor: =FeedTitle.Color
-            PressedFill: =FeedTitle.Fill
-            Size: =18
-            Text: ="Announcements!"
-            Width: =Parent.Width
-            Y: =15
-            ZIndex: =6
-
     NotifPanel As groupContainer.manualLayoutContainer:
         BorderColor: =RGBA(116, 116, 116, 1)
         BorderThickness: =1
         DropShadow: =DropShadow.Bold
         Fill: =RGBA(255, 255, 255, 1)
         Height: =654
-        Visible: =IsNotifGallery
+        Visible: =false
         Width: |-
             =Parent.Width *
             Switch(
@@ -192,7 +366,7 @@
             )
         X: =(Parent.Width - Self.Width) - NotificationIconHP.Width
         Y: =69
-        ZIndex: =5
+        ZIndex: =4
 
         Cont4Bell As groupContainer.verticalAutoLayoutContainer:
             Fill: =RGBA(255, 255, 255, 1)
@@ -250,7 +424,7 @@
         Height: =Parent.Height
         Visible: =IsSidebarOpen
         Width: =Parent.Width/2
-        ZIndex: =6
+        ZIndex: =5
 
         SideBarCont As groupContainer.verticalAutoLayoutContainer:
             Height: =622
@@ -504,10 +678,10 @@
         Color: =fxTheme.Header.TextColor
         Icon: =Icon.Bell
         OnSelect: =Set(IsNotifGallery, !IsNotifGallery)
-        Visible: =!IsNotifGallery
+        Visible: =false
         X: =(Parent.Width - Self.Width)
         Y: =30
-        ZIndex: =7
+        ZIndex: =6
 
     CloseNotifHP As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
@@ -516,7 +690,7 @@
         Visible: =IsNotifGallery
         X: =(Parent.Width - Self.Width) 
         Y: =35
-        ZIndex: =8
+        ZIndex: =7
 
     CloseSideBar As icon.Cancel:
         Color: =RGBA(255, 255, 255, 1)
@@ -525,16 +699,16 @@
         Visible: =IsSidebarOpen
         X: =27
         Y: =14
-        ZIndex: =9
+        ZIndex: =8
 
     OpenSideBar As icon.Hamburger:
         Color: =fxTheme.Header.TextColor
         Height: =75
         Icon: =Icon.Hamburger
         OnSelect: =Set(IsSidebarOpen, !IsSidebarOpen)
-        Visible: =!IsSidebarOpen
+        Visible: =false
         Width: =100
         X: =9
         Y: =8
-        ZIndex: =10
+        ZIndex: =9
 
