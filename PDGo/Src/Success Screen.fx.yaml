@@ -1,10 +1,20 @@
 "'Success Screen' As screen":
 
+    Timer1 As timer:
+        AutoStart: =true
+        Duration: =10000
+        Height: =70
+        OnTimerStart: =Navigate('Home Screen')
+        Width: =280
+        X: =179
+        Y: =12
+        ZIndex: =1
+
     iconCircle1 As circle.Circle:
         Fill: =RGBA(25, 53, 110, 1)
         X: =Parent.Width/2 - Self.Width/2
         Y: =(Parent.Height/2 - Self.Height/2) * .7
-        ZIndex: =1
+        ZIndex: =2
 
     iconCheck1 As icon.Check:
         Height: =iconCircle1.Height
@@ -17,7 +27,7 @@
         Width: =iconCircle1.Width
         X: =Parent.Width/2 - Self.Width/2
         Y: =(Parent.Height/2 - Self.Height/2) * .7
-        ZIndex: =2
+        ZIndex: =3
 
     LblSuccessMsg1 As label:
         Align: =Align.Center
@@ -28,12 +38,12 @@
         Width: =Parent.Width * 0.75
         X: =Parent.Width/2 - Self.Width/2
         Y: =iconCheck1.Y + iconCheck1.Height + 100
-        ZIndex: =3
+        ZIndex: =4
 
     Rectangle4_2 As rectangle:
         Fill: =RGBA(25, 53, 110, 1)
-        Width: =640
-        ZIndex: =4
+        Width: =Parent.Width
+        ZIndex: =5
 
     Icon1 As icon.Home:
         Color: =RGBA(255, 255, 255, 1)
@@ -41,13 +51,13 @@
         OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); Set(IsSidebarOpen, !IsSidebarOpen)
         X: =30
         Y: =18
-        ZIndex: =5
+        ZIndex: =6
 
     Icon2 As icon.Person:
         Color: =RGBA(255, 255, 255, 1)
         Icon: =Icon.Person
         OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
-        X: =544
+        X: =Parent.Width - Self.Width - 32
         Y: =18
-        ZIndex: =6
+        ZIndex: =7
 
