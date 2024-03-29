@@ -313,7 +313,7 @@ Profile As screen:
                 RadiusTopLeft: ='Profile User Banner Profile Picture'.Height
                 RadiusTopRight: ='Profile User Banner Profile Picture'.Height
                 Width: =Self.Height
-                X: =247
+                X: =(Parent.Width - Self.Width)/2
                 Y: =40
                 ZIndex: =8
 
@@ -326,7 +326,7 @@ Profile As screen:
                 Text: =UserRecord.'Full Name'
                 Width: =Parent.Width - 2*Self.X
                 X: =40
-                Y: =129
+                Y: =200
                 ZIndex: =9
 
         "'About Container_2' As groupContainer.manualLayoutContainer":
