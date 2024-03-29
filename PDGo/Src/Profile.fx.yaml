@@ -302,3 +302,65 @@ Profile As screen:
                         Y: =80
                         ZIndex: =3
 
+        "'About Container_2' As groupContainer.manualLayoutContainer":
+            Height: =716
+            LayoutMinHeight: =112
+            LayoutMinWidth: =250
+            Visible: =false
+            Width: =Parent.Width
+            Y: =420
+            ZIndex: =2
+
+            "'About Me Label_2' As label":
+                Font: =Font.'Lato Black'
+                Height: =44
+                Size: =21
+                Text: ="About Me"
+                Width: =148
+                X: =36
+                Y: =66
+                ZIndex: =1
+
+            "'About Me Description_2' As label":
+                Height: =188
+                Overflow: =Overflow.Scroll
+                Size: =18
+                Text: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
+                VerticalAlign: =VerticalAlign.Top
+                Width: =560
+                X: =36
+                Y: =110
+                ZIndex: =2
+
+            Label6_2 As label:
+                Height: =70
+                Size: =21
+                Text: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
+                Width: =448
+                X: =133
+                Y: =331
+                ZIndex: =3
+
+            Label7_2 As label:
+                Height: =70
+                Size: =21
+                Text: =User().Email
+                Width: =449
+                X: =133
+                Y: =434
+                ZIndex: =4
+
+            Icon8_3 As icon.Phone:
+                Height: =50
+                Icon: =Icon.Phone
+                Width: =50
+                X: =56
+                Y: =341
+                ZIndex: =5
+
+            Icon9_3 As icon.Mail:
+                Icon: =Icon.Mail
+                X: =49
+                Y: =440
+                ZIndex: =6
+
