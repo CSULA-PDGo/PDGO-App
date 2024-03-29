@@ -208,7 +208,10 @@
                     ZIndex: =14
 
             Container9 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
                 Height: =Parent.Height
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
                 Visible: =false
                 Width: =Parent.Width
                 ZIndex: =3

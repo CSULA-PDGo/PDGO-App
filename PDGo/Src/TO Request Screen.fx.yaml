@@ -139,7 +139,7 @@
             Visible: =false
             ZIndex: =5
 
-        testing As groupContainer.verticalAutoLayoutContainer:
+        "'TO Request Comments' As groupContainer.verticalAutoLayoutContainer":
             FillPortions: =0
             Height: =Parent.Height/4
             LayoutDirection: =LayoutDirection.Vertical
@@ -149,14 +149,12 @@
             ZIndex: =6
 
             "'TO Request Screen Comments Label_1' As label":
-                AlignInContainer: =AlignInContainer.Stretch
                 AutoHeight: =true
                 LineHeight: =1.3
                 Text: ="Additional Comments (Optional)"
                 ZIndex: =1
 
             "'TO Request Screen Comments Input_1' As text":
-                AlignInContainer: =AlignInContainer.Stretch
                 Default: =If(IsBlank(Edit), "", Edit.Comments)
                 FillPortions: =1
                 Font: =Font.Lato
