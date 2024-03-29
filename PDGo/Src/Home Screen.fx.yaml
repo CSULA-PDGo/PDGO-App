@@ -47,7 +47,7 @@
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
-                PaddingTop: =275
+                PaddingTop: =350
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
@@ -88,7 +88,7 @@
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 LayoutWrap: =true
-                PaddingTop: =275
+                PaddingTop: =350
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
@@ -122,14 +122,14 @@
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =50
                 DropShadow: =DropShadow.None
-                Height: =100
+                Height: =Parent.Height
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 LayoutOverflowY: =LayoutOverflow.Scroll
                 LayoutWrap: =true
-                PaddingTop: =100
+                PaddingTop: =175
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
                 RadiusTopLeft: =0
@@ -277,8 +277,9 @@
                 BorderStyle: =BorderStyle.None
                 BorderThickness: =50
                 DropShadow: =DropShadow.None
-                Height: |
-                    =100
+                Height: |+
+                    =75
+                    
                 LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
                 LayoutMinHeight: =112
