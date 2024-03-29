@@ -4,7 +4,7 @@
         BorderStyle: =BorderStyle.None
         Fill: =RGBA(25, 53, 110, 100)
         Height: =111
-        Width: =640
+        Width: =Parent.Width
         ZIndex: =6
 
     "'Back Button_1' As icon.ArrowLeft":
@@ -18,13 +18,14 @@
         ZIndex: =7
 
     Label2_1 As label:
+        Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
         Font: =Font.Lato
         Height: =70
         Size: =26
         Text: ="Schedule"
         Width: =357
-        X: =91
+        X: =(Parent.Width - Self.Width)/2
         Y: =20
         ZIndex: =8
 
