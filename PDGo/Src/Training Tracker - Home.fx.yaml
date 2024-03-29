@@ -46,7 +46,7 @@
                 AlignInContainer: =AlignInContainer.SetByContainer
                 DropShadow: =DropShadow.None
                 Height: =420
-                LayoutMinHeight: =112
+                LayoutMinHeight: =420
                 LayoutMinWidth: =250
                 Width: =Parent.Width
                 ZIndex: =1
@@ -261,6 +261,7 @@
                     ZIndex: =10
 
                 ChartContainer As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.None
                     Height: =238
                     Visible: =!chartContVar
                     Width: =563
@@ -484,6 +485,7 @@
         Height: =91
         Image: =chart
         OnSelect: =chartContVar
+        Visible: =false
         Width: =109
         X: =531
         Y: =26
