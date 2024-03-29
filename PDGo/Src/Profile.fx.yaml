@@ -757,9 +757,9 @@ Profile As screen:
                             Height: =Parent.Width * 0.25
                             Icon: =Icon.People
                             OnSelect: =Navigate('Profile - Team', ScreenTransition.CoverRight)
-                            Width: ='Circle2_17'.Width * 0.5
-                            X: ='Circle2_17'.Width / 2
-                            Y: ='Circle2_17'.Height / 1.05
+                            Width: =Circle2_17.Width * 0.5
+                            X: =Circle2_17.Width / 2
+                            Y: =Circle2_17.Height / 1.05
                             ZIndex: =2
 
                         Label3_17 As label:
@@ -770,8 +770,8 @@ Profile As screen:
                             Size: =Parent.Width * 0.15
                             Text: ="Team"
                             Width: =Parent.Width * 0.75
-                            X: ='Circle2_17'.Width / 3
-                            Y: ='Circle2_17'.Y + 'Circle2_17'.Height
+                            X: =Circle2_17.Width / 3
+                            Y: =Circle2_17.Y + Circle2_17.Height
                             ZIndex: =3
 
                 Container6_10 As groupContainer.manualLayoutContainer:
@@ -806,9 +806,9 @@ Profile As screen:
                             Height: =Parent.Width * 0.25
                             Icon: =Icon.OfficeBuilding
                             OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
-                            Width: ='Circle2_18'.Width * 0.5
-                            X: ='Circle2_18'.Width / 2
-                            Y: ='Circle2_18'.Height / 1.05
+                            Width: =Circle2_18.Width * 0.5
+                            X: =Circle2_18.Width / 2
+                            Y: =Circle2_18.Height / 1.05
                             ZIndex: =2
 
                         Label3_18 As label:
@@ -816,11 +816,11 @@ Profile As screen:
                             Color: =RGBA(255, 255, 255, 1)
                             Height: =Parent.Width * 0.5
                             OnSelect: =Navigate('Profile - Office', ScreenTransition.CoverRight)
-                            Size: =14
+                            Size: =Parent.Width * 0.15
                             Text: ="Office"
                             Width: =Parent.Width * 0.75
-                            X: ='Circle2_18'.Width / 3
-                            Y: ='Circle2_18'.Y + 'Circle2_18'.Height
+                            X: =Circle2_18.Width / 3
+                            Y: =Circle2_18.Y + Circle2_18.Height
                             ZIndex: =3
 
                 Container6_11 As groupContainer.manualLayoutContainer:
@@ -855,30 +855,30 @@ Profile As screen:
 
                         Icon7_6 As icon.Person:
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =30
+                            Height: =Parent.Width * 0.25
                             Icon: =Icon.Person
                             OnSelect: |-
                                 =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
                                 
                                 Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
-                            Width: =30
-                            X: =81
-                            Y: =66
+                            Width: =Circle2_19.Width * 0.5
+                            X: =Circle2_19.Width / 2
+                            Y: =Circle2_19.Height / 1.05
                             ZIndex: =2
 
                         Label3_19 As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =26
+                            Height: =Parent.Width * 0.5
                             OnSelect: |-
                                 =Navigate('Profile - Supervisor', ScreenTransition.CoverRight);
                                 
                                 Set(_mySupervisor, LookUp(Users, 'Email Address' = User().Email, Supervisor))
-                            Size: =14
+                            Size: =Parent.Width * 0.13
                             Text: ="Supervisor"
-                            Width: =111
-                            X: ='Circle2_19'.Width / 3
-                            Y: ='Circle2_19'.Y + 'Circle2_19'.Height
+                            Width: =Parent.Width * 1
+                            X: =Circle2_19.Width / 15
+                            Y: =Circle2_19.Y + Circle2_19.Height
                             ZIndex: =3
 
                 Container6_12 As groupContainer.manualLayoutContainer:
@@ -910,24 +910,24 @@ Profile As screen:
 
                         Icon6_3 As icon.CalendarBlank:
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =30
+                            Height: =Parent.Width * 0.25
                             Icon: =Icon.CalendarBlank
                             OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
-                            Width: =30
-                            X: =72
-                            Y: =65
+                            Width: =Circle2_19.Width * 0.5
+                            X: =Circle2_19.Width / 2
+                            Y: =Circle2_19.Height / 1.05
                             ZIndex: =2
 
                         Label3_20 As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =26
+                            Height: =Parent.Width * 0.5
                             OnSelect: =Navigate('Profile - Calendar', ScreenTransition.CoverRight)
-                            Size: =14
+                            Size: =Parent.Width * 0.13
                             Text: ="Calendar"
-                            Width: =94
-                            X: =40
-                            Y: =120
+                            Width: =Parent.Width * 1
+                            X: =Circle2_19.Width / 8
+                            Y: =Circle2_19.Y + Circle2_19.Height
                             ZIndex: =3
 
                 Container6_13 As groupContainer.manualLayoutContainer:
@@ -959,26 +959,26 @@ Profile As screen:
 
                         Icon7_7 As icon.Person:
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =30
+                            Height: =Parent.Width * 0.25
                             Icon: =Icon.Settings
                             OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                            Width: =30
-                            X: =81
-                            Y: =66
+                            Width: =Circle2_19.Width * 0.5
+                            X: =Circle2_19.Width / 2
+                            Y: =Circle2_19.Height / 1.05
                             ZIndex: =2
 
                         Label3_21 As label:
                             Align: =Align.Center
                             Color: =RGBA(255, 255, 255, 1)
-                            Height: =26
+                            Height: =Parent.Width * 0.5
                             OnSelect: =Navigate('Profile - Settings', ScreenTransition.CoverRight)
-                            Size: =14
+                            Size: =Parent.Width * 0.15
                             Text: |-
                                 ="Settings
                                 "
-                            Width: =111
-                            X: =40
-                            Y: =121
+                            Width: =Parent.Width * 0.9
+                            X: =Circle2_19.Width / 8
+                            Y: =Circle2_19.Y + Circle2_19.Height
                             ZIndex: =3
 
         "'About Container_2' As groupContainer.manualLayoutContainer":
