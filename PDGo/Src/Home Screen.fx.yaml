@@ -25,6 +25,129 @@
             Width: =Parent.Width
             ZIndex: =1
 
+        Container21_1 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height+ 'Background Color_7'.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.End
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            LayoutWrap: =true
+            Width: =Parent.Width
+            ZIndex: =2
+
+            Container20_8 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingTop: =275
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =20
+                ZIndex: =1
+
+                Label18 As label:
+                    Align: =Align.Center
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =35
+                    Text: ="Profile"
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =1
+
+                Label18_1 As label:
+                    Align: =Align.Center
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =30
+                    Text: ="Facility Requests"
+                    Width: =(Parent.Width/2)
+                    ZIndex: =2
+
+            Container20_9 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                PaddingTop: =275
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =20
+                ZIndex: =2
+
+                Label18_2 As label:
+                    Align: =Align.Center
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =35
+                    Text: ="Settings"
+                    Width: =(Parent.Width/2) - (10 * 2)
+                    ZIndex: =1
+
+                Label18_3 As label:
+                    Align: =Align.Center
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =30
+                    Text: ="Training Tracker"
+                    Width: =(Parent.Width/2)
+                    ZIndex: =2
+
+            Container20_10 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =50
+                DropShadow: =DropShadow.None
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                PaddingTop: =100
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Width: =Parent.Width
+                Y: =20
+                ZIndex: =3
+
+                Label18_4 As label:
+                    Align: =Align.Center
+                    Height: =70
+                    LayoutMinHeight: =70
+                    LayoutMinWidth: =560
+                    Size: =28
+                    Text: ="Request Time Off"
+                    Width: =(Parent.Width/2)
+                    ZIndex: =1
+
         Container20_1 As groupContainer.verticalAutoLayoutContainer:
             Height: =Parent.Height
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -33,7 +156,7 @@
             LayoutOverflowX: =LayoutOverflow.Scroll
             LayoutOverflowY: =LayoutOverflow.Scroll
             Width: =Parent.Width
-            ZIndex: =10
+            ZIndex: =3
 
             Container20_2 As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -198,7 +321,7 @@
             LayoutOverflowY: =LayoutOverflow.Scroll
             LayoutWrap: =true
             Width: =Parent.Width
-            ZIndex: =11
+            ZIndex: =4
 
             Container20_4 As groupContainer.horizontalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
@@ -318,129 +441,6 @@
                     X: =112
                     Y: =55
                     ZIndex: =6
-
-        Container21_1 As groupContainer.verticalAutoLayoutContainer:
-            Height: =Parent.Height+ 'Background Color_7'.Height
-            LayoutAlignItems: =LayoutAlignItems.Stretch
-            LayoutDirection: =LayoutDirection.Vertical
-            LayoutJustifyContent: =LayoutJustifyContent.End
-            LayoutMode: =LayoutMode.Auto
-            LayoutOverflowY: =LayoutOverflow.Scroll
-            LayoutWrap: =true
-            Width: =Parent.Width
-            ZIndex: =12
-
-            Container20_8 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                PaddingTop: =275
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =20
-                ZIndex: =1
-
-                Label18 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =35
-                    Text: ="Profile"
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =1
-
-                Label18_1 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =30
-                    Text: ="Facility Requests"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =2
-
-            Container20_9 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingTop: =275
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =20
-                ZIndex: =2
-
-                Label18_2 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =35
-                    Text: ="Settings"
-                    Width: =(Parent.Width/2) - (10 * 2)
-                    ZIndex: =1
-
-                Label18_3 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =30
-                    Text: ="Training Tracker"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =2
-
-            Container20_10 As groupContainer.horizontalAutoLayoutContainer:
-                AlignInContainer: =AlignInContainer.SetByContainer
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =50
-                DropShadow: =DropShadow.None
-                Height: =100
-                LayoutAlignItems: =LayoutAlignItems.Center
-                LayoutMinHeight: =112
-                LayoutMinWidth: =250
-                LayoutMode: =LayoutMode.Auto
-                LayoutOverflowY: =LayoutOverflow.Scroll
-                LayoutWrap: =true
-                PaddingTop: =100
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Width: =Parent.Width
-                Y: =20
-                ZIndex: =3
-
-                Label18_4 As label:
-                    Align: =Align.Center
-                    Height: =70
-                    LayoutMinHeight: =70
-                    LayoutMinWidth: =560
-                    Size: =28
-                    Text: ="Request Time Off"
-                    Width: =(Parent.Width/2)
-                    ZIndex: =1
 
     "'Background Color_7' As rectangle":
         BorderStyle: =BorderStyle.None
