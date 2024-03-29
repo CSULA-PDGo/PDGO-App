@@ -39,12 +39,179 @@
             LayoutMode: =LayoutMode.Auto
             ZIndex: =2
 
-            Container9 As groupContainer.manualLayoutContainer:
-                Height: =Parent.Height
+            Label8 As label:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: ="Basic Info"
+                Width: =560
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            Container20 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(237, 237, 237, 1)
+                FillPortions: =0
+                Height: =539
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =550
+                ZIndex: =2
+
+                Label10 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Host: "
+                    Width: =154
+                    X: =25
+                    Y: =229
+                    ZIndex: =1
+
+                Label10_2 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Date: "
+                    Width: =154
+                    X: =25
+                    Y: =90
+                    ZIndex: =2
+
+                Label10_3 As label:
+                    Height: =70
+                    LineHeight: =1.5
+                    Size: =17
+                    Text: ="📆 " & _currentSelectedTraining.TrainingStartDate & " - " & "📆 " & _currentSelectedTraining.TrainingEndDay
+                    Width: =262
+                    X: =180
+                    Y: =90
+                    ZIndex: =3
+
+                Label10_4 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Type(s): "
+                    Width: =154
+                    X: =25
+                    Y: =300
+                    ZIndex: =4
+
+                Label10_5 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =Concat(_currentSelectedTraining.MCLE_Category, Value, ", ")
+                    Width: =272
+                    X: =180
+                    Y: =300
+                    ZIndex: =5
+
+                Label10_6 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Format: "
+                    Width: =154
+                    X: =25
+                    Y: =160
+                    ZIndex: =6
+
+                Label10_7 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =_currentSelectedTraining.TrainingFormat.Value
+                    Width: =355
+                    X: =180
+                    Y: =160
+                    ZIndex: =7
+
+                Label10_8 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Location: "
+                    Width: =154
+                    X: =25
+                    Y: =382
+                    ZIndex: =8
+
+                Label10_9 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =If(IsBlank(_currentSelectedTraining.Location), "N/A", _currentSelectedTraining.Location)
+                    Width: =355
+                    X: =180
+                    Y: =382
+                    ZIndex: =9
+
+                Label10_14 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Title: "
+                    Width: =154
+                    X: =25
+                    Y: =20
+                    ZIndex: =10
+
+                Label10_15 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =_currentSelectedTraining.Training
+                    Width: =355
+                    X: =180
+                    Y: =20
+                    ZIndex: =11
+
+                Label10_19 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =If(IsBlank(_currentSelectedTraining.'Presenter/Host'.DisplayName), "N/A", _currentSelectedTraining.'Presenter/Host'.DisplayName)
+                    Width: =355
+                    X: =180
+                    Y: =235
+                    ZIndex: =12
+
+                Label10_10 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Address: "
+                    Width: =154
+                    X: =25
+                    Y: =449
+                    ZIndex: =13
+
+                Label10_11 As label:
+                    Height: =69
+                    Size: =17
+                    Text: =If(IsBlank(_currentSelectedTraining.Address), "N/A", _currentSelectedTraining.Address)
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =272
+                    X: =180
+                    Y: =449
+                    ZIndex: =14
+
+            Container9 As groupContainer.manualLayoutContainer:
+                Height: =Parent.Height
+                Visible: =false
                 Width: =Parent.Width
-                ZIndex: =1
+                ZIndex: =3
 
                 BackgroundHeader_4 As button:
                     BorderColor: =ColorFade(BackgroundHeader_4.Fill, -15%)
@@ -73,162 +240,13 @@
                     Y: =708
                     ZIndex: =1
 
-                BackgroundHeader_3 As button:
-                    BorderColor: =ColorFade(BackgroundHeader_3.Fill, -15%)
-                    Color: =RGBA(255,255,255,1)
-                    DisabledBorderColor: =ColorFade(BackgroundHeader_3.BorderColor, 70%)
-                    DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
-                    DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
-                    DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(245, 247, 249, 1)
-                    FocusedBorderColor: =BackgroundHeader_3.BorderColor
-                    FocusedBorderThickness: =0
-                    Height: =539
-                    HoverBorderColor: =ColorFade(BackgroundHeader_3.BorderColor, 20%)
-                    HoverColor: =BackgroundHeader_3.Color
-                    HoverFill: =ColorFade(BackgroundHeader_3.Fill, 20%)
-                    PressedBorderColor: =BackgroundHeader_3.Fill
-                    PressedColor: =BackgroundHeader_3.Fill
-                    PressedFill: =BackgroundHeader_3.Color
-                    RadiusBottomLeft: =20
-                    RadiusBottomRight: =20
-                    RadiusTopLeft: =20
-                    RadiusTopRight: =20
-                    Text: =""
-                    Width: =Parent.Width - 80
-                    X: =40
-                    Y: =85
-                    ZIndex: =2
-
-                Label10 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Host: "
-                    Width: =165
-                    X: =60
-                    Y: =300
-                    ZIndex: =3
-
-                Label10_1 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =_currentSelectedTraining.'Presenter/Host'.DisplayName
-                    Width: =425
-                    X: =215
-                    Y: =85
-                    ZIndex: =4
-
-                Label10_2 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Date: "
-                    Width: =165
-                    X: =60
-                    Y: =161
-                    ZIndex: =5
-
-                Label10_3 As label:
-                    Height: =70
-                    LineHeight: =1.5
-                    Size: =17
-                    Text: ="📆 " & _currentSelectedTraining.TrainingStartDate & " - " & "📆 " & _currentSelectedTraining.TrainingEndDay
-                    Width: =280
-                    X: =215
-                    Y: =161
-                    ZIndex: =6
-
-                Label10_4 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Type(s): "
-                    Width: =165
-                    X: =60
-                    Y: =371
-                    ZIndex: =7
-
-                Label10_5 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =Concat(_currentSelectedTraining.MCLE_Category, Value, ", ")
-                    Width: =Parent.Width - 260
-                    X: =215
-                    Y: =371
-                    ZIndex: =8
-
-                Label10_6 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Format: "
-                    Width: =165
-                    X: =60
-                    Y: =231
-                    ZIndex: =9
-
-                Label10_7 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =_currentSelectedTraining.TrainingFormat.Value
-                    Width: =425
-                    X: =215
-                    Y: =231
-                    ZIndex: =10
-
-                Label10_8 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Location: "
-                    Width: =165
-                    X: =60
-                    Y: =453
-                    ZIndex: =11
-
-                Label10_9 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =If(IsBlank(_currentSelectedTraining.Location), "N/A", _currentSelectedTraining.Location)
-                    Width: =425
-                    X: =215
-                    Y: =453
-                    ZIndex: =12
-
-                Label10_10 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="Address: "
-                    Width: =165
-                    X: =60
-                    Y: =523
-                    ZIndex: =13
-
-                Label10_11 As label:
-                    Height: =122
-                    Size: =17
-                    Text: =If(IsBlank(_currentSelectedTraining.Address), "N/A", _currentSelectedTraining.Address)
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.Width - 260
-                    X: =215
-                    Y: =536
-                    ZIndex: =14
-
                 Label10_12 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =70
                     Size: =17
                     Text: |-
                         ="Status: "
-                    Width: =165
+                    Width: =141
                     X: =60
                     Y: =714
                     ZIndex: =15
@@ -237,30 +255,127 @@
                     Height: =70
                     Size: =17
                     Text: =_currentSelectedTrainingStatus
-                    Width: =425
+                    Width: =365
                     X: =215
                     Y: =714
                     ZIndex: =16
 
-                Label10_14 As label:
+                Label10_16 As label:
                     FontWeight: =FontWeight.Semibold
                     Height: =70
                     Size: =17
                     Text: |-
-                        ="Title: "
-                    Width: =165
+                        ="RSVP:"
+                    Width: =141
                     X: =60
-                    Y: =91
-                    ZIndex: =17
+                    Y: =772
+                    ZIndex: =21
 
-                Label10_15 As label:
+                Label10_17 As label:
                     Height: =70
                     Size: =17
-                    Text: =_currentSelectedTraining.Training
-                    Width: =425
+                    Text: =If(LookUp(MCLETrainingAttendance, TrainingID = _currentSelectedTraining.ID && Attendee = User().FullName, RSVP), "Yes", "No")
+                    Width: =365
                     X: =215
-                    Y: =91
-                    ZIndex: =18
+                    Y: =772
+                    ZIndex: =22
+
+                Label10_18 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    Size: =21
+                    Text: ="Basic Details"
+                    Width: =191
+                    X: =24
+                    Y: =15
+                    ZIndex: =25
+
+                Label10_20 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =70
+                    Size: =21
+                    Text: ="Meeting Status"
+                    Width: =280
+                    X: =24
+                    Y: =638
+                    ZIndex: =27
+
+            Label8_2 As label:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =560
+                Size: =21
+                Text: ="Meeting Information"
+                Width: =560
+                X: =40
+                Y: =40
+                ZIndex: =4
+
+            Container22 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                Fill: =RGBA(237, 237, 237, 1)
+                FillPortions: =0
+                Height: =225
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                RadiusBottomLeft: =25
+                RadiusBottomRight: =25
+                RadiusTopLeft: =25
+                RadiusTopRight: =25
+                Width: =550
+                ZIndex: =5
+
+                Label10_21 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="Status: "
+                    Width: =141
+                    X: =40
+                    Y: =40
+                    ZIndex: =1
+
+                Label10_22 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =_currentSelectedTrainingStatus
+                    Width: =365
+                    X: =195
+                    Y: =40
+                    ZIndex: =2
+
+                Label10_23 As label:
+                    FontWeight: =FontWeight.Semibold
+                    Height: =70
+                    Size: =17
+                    Text: |-
+                        ="RSVP:"
+                    Width: =141
+                    X: =40
+                    Y: =98
+                    ZIndex: =3
+
+                Label10_24 As label:
+                    Height: =70
+                    Size: =17
+                    Text: =If(LookUp(MCLETrainingAttendance, TrainingID = _currentSelectedTraining.ID && Attendee = User().FullName, RSVP), "Yes", "No")
+                    Width: =365
+                    X: =195
+                    Y: =98
+                    ZIndex: =4
+
+            Container24 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =70
+                LayoutMinHeight: =112
+                LayoutMinWidth: =250
+                Visible: ="Training Administrator" in UserRecord.Capabilities
+                Width: =550
+                ZIndex: =6
 
                 Button7 As button:
                     Height: =70
@@ -274,11 +389,8 @@
                             false
                         )
                     Width: =Parent.Width - 120
-                    X: |+
-                        =60
-                        
-                    Y: =Parent.Height - 120
-                    ZIndex: =19
+                    X: =40
+                    ZIndex: =1
 
                 Button7_2 As button:
                     DisplayMode: =If(Label10_17.Text = "Yes", DisplayMode.Disabled, DisplayMode.Edit)
@@ -325,29 +437,8 @@
                     Text: ="RSVP"
                     Visible: =If(_currentSelectedTrainingStatus = "In-progress" || _currentSelectedTrainingStatus = "Completed", false, true)
                     Width: =Parent.Width - 120
-                    X: =60
-                    Y: =Parent.Height - 120
-                    ZIndex: =20
-
-                Label10_16 As label:
-                    FontWeight: =FontWeight.Semibold
-                    Height: =70
-                    Size: =17
-                    Text: |-
-                        ="RSVP:"
-                    Width: =165
-                    X: =60
-                    Y: =772
-                    ZIndex: =21
-
-                Label10_17 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =If(LookUp(MCLETrainingAttendance, TrainingID = _currentSelectedTraining.ID && Attendee = User().FullName, RSVP), "Yes", "No")
-                    Width: =425
-                    X: =215
-                    Y: =772
-                    ZIndex: =22
+                    X: =40
+                    ZIndex: =2
 
                 Button7_1 As button:
                     DisplayMode: |-
@@ -374,10 +465,8 @@
                             false
                         )
                     Width: =Parent.Width - 120
-                    X: |
-                        =60
-                    Y: =Parent.Height - 120
-                    ZIndex: =23
+                    X: =40
+                    ZIndex: =3
 
                 Button7_4 As button:
                     Height: =70
@@ -396,39 +485,18 @@
                             false
                         )
                     Width: =Parent.Width - 120
-                    X: |
-                        =60
-                    Y: =Parent.Height - 120
-                    ZIndex: =24
+                    X: =40
+                    ZIndex: =4
 
-                Label10_18 As label:
-                    FontWeight: =FontWeight.Bold
-                    Height: =70
-                    Size: =21
-                    Text: ="Basic Details"
-                    Width: =191
-                    X: =24
-                    Y: =15
-                    ZIndex: =25
-
-                Label10_19 As label:
-                    Height: =70
-                    Size: =17
-                    Text: =If(IsBlank(_currentSelectedTraining.'Presenter/Host'.DisplayName), "N/A", _currentSelectedTraining.'Presenter/Host'.DisplayName)
-                    Width: =425
-                    X: =215
-                    Y: =306
-                    ZIndex: =26
-
-                Label10_20 As label:
-                    FontWeight: =FontWeight.Bold
-                    Height: =70
-                    Size: =21
-                    Text: ="Meeting Status"
-                    Width: =280
-                    X: =24
-                    Y: =638
-                    ZIndex: =27
+            Button10 As button:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =70
+                LayoutMinHeight: =70
+                LayoutMinWidth: =280
+                Size: =24
+                Text: ="Show Attendees"
+                Width: =550
+                ZIndex: =7
 
     "'Back Button_16' As icon.ArrowLeft":
         Color: =RGBA(255, 255, 255, 1)
