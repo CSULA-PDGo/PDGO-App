@@ -74,7 +74,14 @@
             OnSelect: |-
                 =UpdateContext({test: Self.SelectedItems})
             SearchFields: =["AttendedTime"]
-            SearchItems: =[]
+            SearchItems: |-
+                =Search(ForAll(Filter(MCLETrainingAttendance, TrainingID = Training.ID, 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank()), {
+                    Name: ThisRecord.Attendee,
+                    ID: ThisRecord.ID,
+                    AttendedTime: Concatenate(Text(DateDiff(ThisRecord.'Check-InTime', ThisRecord.'Checkout Time', TimeUnit.Minutes)), " min"),
+                    CO: ThisRecord.'Checkout Time',
+                    CI: ThisRecord.'Check-InTime'
+                }),ComboBox4_1.SearchText,"AttendedTime")
             Size: =21
             Template: =ListItemTemplate.Double
             Width: =575
