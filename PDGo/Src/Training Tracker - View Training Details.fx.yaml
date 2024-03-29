@@ -477,25 +477,6 @@
                     Width: =Parent.Width
                     ZIndex: =3
 
-                Button7_4 As button:
-                    Height: =70
-                    OnSelect: |
-                        =Navigate('Training Tracker - MCLE Certificate', ScreenTransition.Cover, {MeetingRecord: _currentSelectedTraining })
-                    Size: =24
-                    Text: ="Generate Certificate"
-                    Visible: |-
-                        =If(
-                            Label10_13.Text = "Completed" && LookUp(
-                                MCLETrainingAttendance,
-                                Attendee = User().FullName && TrainingID = _currentSelectedTraining.ID,
-                                Attended
-                            ) = true,
-                            true,
-                            false
-                        )
-                    Width: =Parent.Width
-                    ZIndex: =4
-
             Rectangle4 As rectangle:
                 Fill: =RGBA(0, 0, 0, 0)
                 X: =40
