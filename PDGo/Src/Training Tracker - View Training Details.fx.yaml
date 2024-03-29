@@ -316,7 +316,7 @@
                 AlignInContainer: =AlignInContainer.Center
                 Fill: =RGBA(237, 237, 237, 1)
                 FillPortions: =0
-                Height: =225
+                Height: =180
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
                 RadiusBottomLeft: =25
@@ -333,8 +333,8 @@
                     Text: |-
                         ="Status: "
                     Width: =141
-                    X: =40
-                    Y: =40
+                    X: =30
+                    Y: =25
                     ZIndex: =1
 
                 Label10_22 As label:
@@ -342,8 +342,8 @@
                     Size: =17
                     Text: =_currentSelectedTrainingStatus
                     Width: =365
-                    X: =195
-                    Y: =40
+                    X: =185
+                    Y: =25
                     ZIndex: =2
 
                 Label10_23 As label:
@@ -353,8 +353,8 @@
                     Text: |-
                         ="RSVP:"
                     Width: =141
-                    X: =40
-                    Y: =98
+                    X: =30
+                    Y: =83
                     ZIndex: =3
 
                 Label10_24 As label:
@@ -362,8 +362,8 @@
                     Size: =17
                     Text: =If(LookUp(MCLETrainingAttendance, TrainingID = _currentSelectedTraining.ID && Attendee = User().FullName, RSVP), "Yes", "No")
                     Width: =365
-                    X: =195
-                    Y: =98
+                    X: =185
+                    Y: =83
                     ZIndex: =4
 
             Container24 As groupContainer.manualLayoutContainer:
@@ -373,7 +373,8 @@
                 Height: =70
                 LayoutMinHeight: =112
                 LayoutMinWidth: =250
-                Visible: ="Training Administrator" in UserRecord.Capabilities
+                Visible: |
+                    =true
                 Width: =550
                 ZIndex: =6
 
@@ -495,6 +496,7 @@
                 LayoutMinWidth: =280
                 Size: =24
                 Text: ="Show Attendees"
+                Visible: ="Training Administrator" in UserRecord.Capabilities
                 Width: =550
                 ZIndex: =7
 
