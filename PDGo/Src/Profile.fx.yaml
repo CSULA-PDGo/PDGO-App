@@ -447,7 +447,7 @@ Profile As screen:
                 RadiusTopLeft: ='User Profile Picture_2'.Height
                 RadiusTopRight: ='User Profile Picture_2'.Height
                 Width: =145
-                X: =247
+                X: =App.Width / 2 - 72.5
                 Y: =56
                 ZIndex: =5
 
@@ -459,8 +459,7 @@ Profile As screen:
                 TemplatePadding: =0
                 TemplateSize: =110
                 Visible: =false
-                Width: =706
-                X: =30
+                Width: =App.Width
                 Y: =161
                 ZIndex: =21
 
@@ -715,18 +714,18 @@ Profile As screen:
                 Text: ="About Me"
                 Width: =148
                 X: =36
-                Y: =66
+                Y: =10
                 ZIndex: =1
 
             "'About Me Description_2' As label":
-                Height: =188
+                Height: =App.Height * 0.2
                 Overflow: =Overflow.Scroll
                 Size: =18
                 Text: =LookUp(Users, 'Email Address' = User().Email, 'About Me')
                 VerticalAlign: =VerticalAlign.Top
                 Width: =560
                 X: =36
-                Y: =110
+                Y: =54
                 ZIndex: =2
 
             Label6_2 As label:
@@ -735,29 +734,31 @@ Profile As screen:
                 Text: =LookUp(Users, 'Email Address' = User().Email, 'Phone Number')
                 Width: =448
                 X: =133
-                Y: =331
+                Y: ='About Me Description_2'.Y + 'About Me Description_2'.Height
                 ZIndex: =3
 
             Label7_2 As label:
                 Height: =70
-                Size: =21
+                Size: =App.Width * 0.03
                 Text: =User().Email
-                Width: =449
+                Width: =App.Width - 133
                 X: =133
-                Y: =434
+                Y: ='Label6_2'.Y + 'Label6_2'.Height
                 ZIndex: =4
 
             Icon8_3 As icon.Phone:
-                Height: =50
+                Height: =35
                 Icon: =Icon.Phone
-                Width: =50
-                X: =56
-                Y: =341
+                Width: =35
+                X: =36
+                Y: ='About Me Description_2'.Y + 'About Me Description_2'.Height + 17
                 ZIndex: =5
 
             Icon9_3 As icon.Mail:
+                Height: =35
                 Icon: =Icon.Mail
-                X: =49
-                Y: =440
+                Width: =35
+                X: =36
+                Y: ='Label7_2'.Y + 17
                 ZIndex: =6
 
