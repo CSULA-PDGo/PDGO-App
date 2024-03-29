@@ -25,6 +25,8 @@
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =20
+            PaddingRight: =20
             Width: ='Background Color_9'.Width
             X: =
             Y: =
@@ -32,8 +34,10 @@
 
             Icon11_2 As icon.ArrowLeft:
                 Color: =fxTheme.Header.TextColor
+                Height: =fxTheme.Header.IconSize
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight)
+                Width: =fxTheme.Header.IconSize
                 X: =40
                 Y: =40
                 ZIndex: =1

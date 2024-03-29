@@ -734,10 +734,10 @@
 
     "'Back Button_12' As icon.ArrowLeft":
         Color: =fxTheme.Header.TextColor
-        Height: =43
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.ArrowLeft
         OnSelect: =Back() 
-        Width: =40
+        Width: =fxTheme.Header.IconSize
         X: =30
         Y: =Container3_1.Height / 2 - 21
         ZIndex: =2
@@ -745,11 +745,11 @@
     "'Back Button_13' As icon.ArrowLeft":
         AccessibleLabel: ="filter icon "
         Color: =fxTheme.Header.TextColor
-        Height: =43
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.Filter
         OnSelect: |-
             =UpdateContext({_showFilter: !_showFilter});
-        Width: =40
+        Width: =fxTheme.Header.IconSize
         X: =Parent.Width - 80
         Y: =Container3_1.Height / 2 - 21
         ZIndex: =3
@@ -757,7 +757,7 @@
     "'Back Button_14' As icon.ArrowLeft":
         AccessibleLabel: ="calendar icon to view the trainings in the calendar. Press it again to see the list view"
         Color: =fxTheme.Header.TextColor
-        Height: =43
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.CalendarBlank
         OnSelect: |-
             =Set(trainingsCalendarView, true);
@@ -780,7 +780,7 @@
             UpdateContext({_showLoading: false});         
             Set(_calendarVisible, true)
         Visible: =trainingsListView
-        Width: =40
+        Width: =fxTheme.Header.IconSize
         X: =Parent.Width - 140
         Y: =Container3_1.Height / 2 - 21
         ZIndex: =4
