@@ -7,7 +7,7 @@
 
     "'Profile Edit Confirm Button' As icon.Check":
         Color: =fxTheme.Header.TextColor
-        Height: =35
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.Check
         OnSelect: |-
             =If(Len('Profile Edit Phone Number Input'.Text) = 0, 
@@ -17,9 +17,9 @@
                 Patch(Users, LookUp(Users, 'Email Address' = User().Email),{'Full Name': 'Profile Edit Full Name Input'.Text, 'Phone Number': 'Profile Edit Phone Number Input'.Text, 'Profile Picture': 'Profile Edit Profile Picture Input'.Image, 'About Me': 'Profile Edit About Me Input'.Text}));
             
             Navigate(Profile, ScreenTransition.Cover)
-        Width: =35
+        Width: =fxTheme.Header.IconSize
         X: =Parent.Width - 80
-        Y: =32
+        Y: =('Profile Edit Background'.Height - Self.Height)/2
         ZIndex: =3
 
     "'Profile Edit Label' As label":
@@ -35,11 +35,12 @@
 
     "'Profile Edit Exit Button' As icon.Cancel":
         Color: =fxTheme.Header.TextColor
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.Cancel
         OnSelect: =Navigate(Profile, ScreenTransition.Cover)
-        Width: =35
+        Width: =fxTheme.Header.IconSize
         X: =32
-        Y: =18
+        Y: =('Profile Edit Background'.Height - Self.Height)/2
         ZIndex: =5
 
     "'Profile Edit Container' As groupContainer.manualLayoutContainer":

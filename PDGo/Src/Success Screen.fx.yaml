@@ -47,17 +47,21 @@
 
     Icon1 As icon.Home:
         Color: =fxTheme.Header.TextColor
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.Home
         OnSelect: =Navigate('Home Screen', ScreenTransition.CoverRight); Set(IsSidebarOpen, !IsSidebarOpen)
+        Width: =fxTheme.Header.IconSize
         X: =30
-        Y: =18
+        Y: =(Rectangle4_2.Height - Self.Height) / 2
         ZIndex: =6
 
     Icon2 As icon.Person:
         Color: =fxTheme.Header.TextColor
+        Height: =fxTheme.Header.IconSize
         Icon: =Icon.Person
         OnSelect: =Navigate(Profile, ScreenTransition.CoverRight)
+        Width: =fxTheme.Header.IconSize
         X: =Parent.Width - Self.Width - 32
-        Y: =18
+        Y: =(Rectangle4_2.Height - Self.Height) / 2
         ZIndex: =7
 
