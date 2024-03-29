@@ -310,7 +310,7 @@ Profile As screen:
                 BorderColor: =RGBA(186, 202, 226, 1)
                 BorderThickness: =2
                 Height: =145
-                Image: =UserRecord.'Profile Picture'
+                Image: =LookUp(Users, 'Email Address' = User().Email, 'Profile Picture')
                 ImagePosition: =ImagePosition.Fill
                 RadiusBottomLeft: ='Profile User Banner Profile Picture'.Height
                 RadiusBottomRight: ='Profile User Banner Profile Picture'.Height
@@ -327,7 +327,7 @@ Profile As screen:
                 Font: =Font.Lato
                 Height: =51
                 Size: =26
-                Text: =UserRecord.'Full Name'
+                Text: =LookUp(Users, 'Email Address' = User().Email, 'Full Name')
                 Width: =Parent.Width - 2*Self.X
                 X: =40
                 Y: =200
