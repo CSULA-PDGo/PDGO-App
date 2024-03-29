@@ -15,7 +15,7 @@
         ZIndex: =1
 
         "'TO Request Date Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(39, 67, 125, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -427,7 +427,7 @@
                 Default: =If(IsBlankOrError(Edit), Blank(), LookUp(Choices([@TimeOffRequestDays].Reason), Value = Edit.Reason))
                 DefaultSelectedItems: =[]
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisplayFields: =["ComplianceAssetId"]
+                DisplayFields: =["Title"]
                 FillPortions: =1
                 FlyoutMaximumHeight: =400
                 Font: =Font.Lato
@@ -449,8 +449,8 @@
                 PaddingTop: =13.50
                 PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 PressedFill: =RGBA(0, 120, 212, 1)
-                SearchFields: =["ComplianceAssetId"]
-                SearchItems: =Search(RequestCodes,'TO Request Date Screen Reason Dropdown'.SearchText,"ComplianceAssetId")
+                SearchFields: =["Description"]
+                SearchItems: =Search(RequestCodes,'TO Request Date Screen Reason Dropdown'.SearchText,"Description")
                 SelectMultiple: =false
                 Size: =20.24
                 Tooltip: =

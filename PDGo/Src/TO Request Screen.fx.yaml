@@ -13,7 +13,7 @@
         ZIndex: =1
 
         "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(39, 67, 125, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =100
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -175,7 +175,7 @@
                 OnSelect: |-
                     =If(!IsBlank(Edit),
                         Trace("Cancel Previous TO Request");
-                        Patch(TimeOffRequestDays, LookUp(TimeOffRequestDays, ID = Edit.ID), {
+                        Patch(TimeOffRequests, LookUp(TimeOffRequests, ID = Edit.ID), {
                             Status: { Value: "Cancelled" }
                         });
                     );
