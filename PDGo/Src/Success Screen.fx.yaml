@@ -9,6 +9,7 @@
     iconCheck1 As icon.Check:
         Height: =iconCircle1.Height
         Icon: =Icon.Check
+        OnSelect: =Navigate('Home Screen', ScreenTransition.Fade)
         PaddingBottom: =Self.PaddingTop
         PaddingLeft: =Self.PaddingTop
         PaddingRight: =Self.PaddingTop
