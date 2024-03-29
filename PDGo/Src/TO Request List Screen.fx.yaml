@@ -208,7 +208,9 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =60
                     OnSelect: =
-                    Size: =If('TO Request List Screen'.Size=1,8.24,15)
+                    Size: |-
+                        =If('TO Request List Screen'.Size=1,12
+                        ,15)
                     Text: |-
                         =With({
                             format: If('TO Request List Screen'.Size = 1, "dd mmm", "dd mmm yy")
