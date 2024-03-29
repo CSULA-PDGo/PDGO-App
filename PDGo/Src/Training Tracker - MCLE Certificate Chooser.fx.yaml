@@ -12,7 +12,7 @@
 
         Container14_3 As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =RGBA(50, 86, 160, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: ='Background Color_9'.Height
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -57,14 +57,14 @@
             ZIndex: =2
 
         ComboBox5 As combobox:
-            DisplayFields: =["AccessCode"]
+            DisplayFields: =["TrainingLocation"]
             Height: =70
             IsSearchable: =false
             Items: =Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE")
             LayoutMinHeight: =70
             LayoutMinWidth: =575
-            SearchFields: =["AccessCode"]
-            SearchItems: =Search(Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE"),ComboBox5.SearchText,"AccessCode")
+            SearchFields: =["TrainingLocation"]
+            SearchItems: =Search(Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE"),ComboBox5.SearchText,"TrainingLocation")
             Size: =21
             Width: =575
             ZIndex: =3
