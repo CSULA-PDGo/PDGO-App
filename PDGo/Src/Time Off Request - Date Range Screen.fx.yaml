@@ -1,4 +1,4 @@
-"'TO Request Date Screen' As screen":
+"'Time Off Request - Date Range Screen' As screen":
 
     "'TO Request Date Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
         DropShadow: =DropShadow.Bold
@@ -61,7 +61,7 @@
                 Font: =Font.Lato
                 Size: =15
                 Text: ="Hello, " & User().FullName
-                Visible: ='TO Request Screen'.Size<>1
+                Visible: ='Time Off Request - Main Screen'.Size<>1
                 ZIndex: =4
 
         "'TO Request Date Container' As groupContainer.verticalAutoLayoutContainer":
@@ -145,7 +145,7 @@
                     PaddingRight: =9
                     PaddingTop: =9
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
-                    Size: =If('TO Request Date Screen'.Orientation = "landscape", 10, 20)
+                    Size: =If('Time Off Request - Date Range Screen'.Orientation = "landscape", 10, 20)
                     StartYear: =Year(Today())
                     Width: =400
                     X: =145.00
@@ -206,7 +206,7 @@
                     PaddingRight: =9.00
                     PaddingTop: =9.00
                     SelectedDateFill: =RGBA(0, 120, 212, 1)
-                    Size: =If('TO Request Date Screen'.Orientation = "landscape", 10, 20)
+                    Size: =If('Time Off Request - Date Range Screen'.Orientation = "landscape", 10, 20)
                     Width: =290.00
                     X: =145.00
                     ZIndex: =2
@@ -569,7 +569,7 @@
                     Reset('TO Request Date Screen Comments Input');
                     UpdateContext({Edit: Blank()});
                     
-                    If(!Back(), Navigate('TO Request Screen'));
+                    If(!Back(), Navigate('Time Off Request - Main Screen'));
                 );
             PaddingBottom: =12
             PaddingLeft: =0

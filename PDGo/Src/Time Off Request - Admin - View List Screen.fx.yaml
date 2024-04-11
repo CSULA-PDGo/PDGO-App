@@ -1,4 +1,4 @@
-"'TO Request List Screen' As screen":
+"'Time Off Request - Admin - View List Screen' As screen":
     OnVisible: |-
         =Clear(Subordinates);
         
@@ -181,7 +181,7 @@
             LayoutMinWidth: =Parent.Width
             LoadingSpinner: =LoadingSpinner.Data
             OnSelect: |-
-                =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                =Navigate('Time Off Request - Request Details Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
             TemplatePadding: =20
             TemplateSize: =150
             Width: =Parent.Width
@@ -209,11 +209,11 @@
                     LayoutMinWidth: =60
                     OnSelect: =
                     Size: |-
-                        =If('TO Request List Screen'.Size=1,12
+                        =If('Time Off Request - Admin - View List Screen'.Size=1,12
                         ,15)
                     Text: |-
                         =With({
-                            format: If('TO Request List Screen'.Size = 1, "dd mmm", "dd mmm yy")
+                            format: If('Time Off Request - Admin - View List Screen'.Size = 1, "dd mmm", "dd mmm yy")
                         },
                             Text(Min(Filter(TimeOffRequestDays, Request.Id = ThisItem.ID), StartDate), format)
                             & "-
@@ -239,7 +239,7 @@
                         Font: =Font.Lato
                         LayoutMinWidth: =120
                         OnSelect: =
-                        Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                        Size: =If('Time Off Request - Admin - View List Screen'.Size=1,10.24,13)
                         Text: =ThisItem.'Created By'.DisplayName
                         Width: =Parent.Width*.20
                         ZIndex: =1
@@ -249,7 +249,7 @@
                         Font: =Font.Lato
                         LayoutMinWidth: =Parent.Width*.20
                         OnSelect: =
-                        Size: =If('TO Request List Screen'.Size=1,8.24,13)
+                        Size: =If('Time Off Request - Admin - View List Screen'.Size=1,8.24,13)
                         Text: |-
                             ="Last Modified: " & Text(ThisItem.Modified, DateTimeFormat.ShortDate)
                         Width: =Parent.Width*.20
@@ -286,7 +286,7 @@
                         Font: =Font.Lato
                         LayoutMinWidth: =60
                         OnSelect: =
-                        Size: =If('TO Request List Screen'.Size=1,10.24,13)
+                        Size: =If('Time Off Request - Admin - View List Screen'.Size=1,10.24,13)
                         Text: =ThisItem.Status.Value
                         Width: =Parent.Width*.20
                         ZIndex: =1
@@ -302,7 +302,7 @@
                     FillPortions: =1
                     Icon: =Icon.NextArrow
                     OnSelect: |-
-                        =Navigate('Open Request Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
+                        =Navigate('Time Off Request - Request Details Screen', ScreenTransition.Cover, {ApproveRecord: ThisItem});
                     PaddingBottom: =20
                     PaddingLeft: =20
                     PaddingRight: =20

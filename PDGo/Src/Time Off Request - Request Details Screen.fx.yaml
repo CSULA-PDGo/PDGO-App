@@ -1,4 +1,4 @@
-"'Open Request Screen' As screen":
+"'Time Off Request - Request Details Screen' As screen":
 
     DetailsPage_1 As groupContainer.manualLayoutContainer:
         Height: =Parent.Height
@@ -334,7 +334,7 @@
 
                     Button6_3 As button:
                         OnSelect: |-
-                            =If(Text(ApproveRecord.Requester) = Text(UserRecord.ID), Navigate('TO Request Screen', ScreenTransition.UnCover, {Edit: ApproveRecord}),
+                            =If(Text(ApproveRecord.Requester) = Text(UserRecord.ID), Navigate('Time Off Request - Main Screen', ScreenTransition.UnCover, {Edit: ApproveRecord}),
                                 Switch(ApproveRecord.StatusCode,
                                     "Approved", UpdateContext({PopUpApprove:true}),
                                     "Denied", UpdateContext({PopUpDeny:true}),

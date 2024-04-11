@@ -1,4 +1,4 @@
-"'TO Request Screen' As screen":
+"'Time Off Request - Main Screen' As screen":
 
     "'TO Request Screen Main Container' As groupContainer.verticalAutoLayoutContainer":
         Height: =Parent.Height
@@ -84,7 +84,7 @@
                     FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,21,26)
+                    Size: =If('Time Off Request - Main Screen'.Size=1,21,26)
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     Width: |
                         =
@@ -95,7 +95,7 @@
                     FillPortions: =2
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,21,26)
+                    Size: =If('Time Off Request - Main Screen'.Size=1,21,26)
                     Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                     Width: =Parent.Width*.20
                     ZIndex: =2
@@ -103,7 +103,7 @@
                 "'TO Request Screen Dates Reason' As label":
                     FillPortions: =1
                     LayoutMinWidth: =40
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('Time Off Request - Main Screen'.Size=1,7,12)
                     Text: |
                         =ThisItem.Reason
                     Width: =Parent.Width*.10
@@ -115,7 +115,7 @@
                     Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: |-
-                        =Navigate('TO Request Date Screen', ScreenTransition.Cover, {Edit: ThisItem})
+                        =Navigate('Time Off Request - Date Range Screen', ScreenTransition.Cover, {Edit: ThisItem})
                     Size: =18
                     Text: ="Edit"
                     Width: =Parent.Width*.20
@@ -183,7 +183,7 @@
                 FillPortions: =1
                 Font: =Font.Lato
                 Height: =80
-                OnSelect: =Navigate('TO Request Date Screen')
+                OnSelect: =Navigate('Time Off Request - Date Range Screen')
                 Size: =21
                 Text: ="Add Date Range"
                 ZIndex: =1
@@ -231,7 +231,7 @@
                     
                     Clear(RequestDates);
                     Reset('TO Request Screen Comments Input');
-                    Navigate('Success Screen', ScreenTransition.CoverRight);
+                    Navigate('General Success Screen', ScreenTransition.CoverRight);
                 Size: =21
                 Text: ="Submit Request"
                 ZIndex: =2
