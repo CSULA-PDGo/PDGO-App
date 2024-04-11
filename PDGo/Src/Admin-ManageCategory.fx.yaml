@@ -134,6 +134,7 @@
                     Text: |-
                         =Concatenate("Title: ", ThisItem.'Request Title')
                     Width: =394
+                    X: =168
                     Y: =92
                     ZIndex: =1
 
@@ -149,6 +150,7 @@
                     Size: =18
                     Text: =Text(DateTimeValue(ThisItem.Date), "yyyy")
                     Width: =80
+                    X: =44
                     Y: =99
                     ZIndex: =2
 
@@ -164,6 +166,7 @@
                     Size: =22
                     Text: =Text(DateTimeValue(ThisItem.Date), "mmm")
                     Width: =80
+                    X: =44
                     Y: =69
                     ZIndex: =3
 
@@ -179,6 +182,7 @@
                     Size: =18
                     Text: =Text(DateTimeValue(ThisItem.Date), "dd")
                     Width: =52
+                    X: =58
                     Y: =39
                     ZIndex: =4
 
@@ -195,6 +199,7 @@
                     Text: |-
                         =Concatenate("ID: ", ThisItem.ID)
                     Width: =114
+                    X: =168
                     Y: =22
                     ZIndex: =5
 
@@ -209,6 +214,7 @@
                     Size: =20
                     Text: =ThisItem.'Requester Name'
                     Width: =291
+                    X: =168
                     Y: =61
                     ZIndex: =6
 
@@ -233,6 +239,7 @@
                     Icon: =Icon.NextArrow
                     OnSelect: =Select(Parent)
                     Width: =32
+                    X: =Parent.TemplateWidth - Self.Width - 55
                     Y: =(Parent.TemplateHeight - Self.Height)/2
                     ZIndex: =8
 
@@ -255,7 +262,7 @@
                 LayoutMinWidth: =280
                 OnSelect: |-
                     =Remove('Facility Request Categories', LookUp('Facility Request Categories', ID = _SelectedCategory.ID));
-                    ForAll(Filter('Facility Request', Category.Value = _SelectedCategory.Title), Category.Value = "");
+                    ForAll(Filter('Facility Request_1', Category.Value = _SelectedCategory.Title), Category.Value = "");
                     Back(ScreenTransition.UnCoverRight);
                 Size: =24
                 Text: ="Delete Category"
@@ -270,7 +277,7 @@
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
                 OnSelect: |-
-                    =Patch('Facility Request', LookUp('Facility Request', ID = _SelectedRequest.ID), {'Status (Status0)': {Value:"In Progress"}});
+                    =Patch('Facility Request_1', LookUp('Facility Request_1', ID = _SelectedRequest.ID), {'Status (Status0)': {Value:"In Progress"}});
                     Navigate('Admin-ViewRequests', ScreenTransition.UnCoverRight);
                 Size: =24
                 Text: ="Reopen Request"
