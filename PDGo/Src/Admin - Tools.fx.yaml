@@ -57,7 +57,7 @@
                 ZIndex: =2
 
         Button9 As button:
-            Height: =70
+            Height: =100
             LayoutMinHeight: =70
             LayoutMinWidth: =280
             OnSelect: =Navigate('Training Tracker - MCLE Certificate Chooser', ScreenTransition.Cover)
@@ -66,4 +66,15 @@
             Visible: ="Training Certificates" in ForAll(UserRecord.Capabilities, Value)
             Width: =280
             ZIndex: =2
+
+        Button10 As button:
+            Height: =100
+            LayoutMinHeight: =70
+            LayoutMinWidth: =280
+            OnSelect: =Navigate('Facility Request - Admin - Home', ScreenTransition.Cover);
+            Size: =24
+            Text: ="Facilites Requests"
+            Visible: ="Facilities" in UserRecord.Capabilities
+            Width: =280
+            ZIndex: =3
 

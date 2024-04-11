@@ -126,3 +126,26 @@
                 Y: =584
                 ZIndex: =7
 
+            "'HomeScreen Admin Icon' As icon.ToolsWrench":
+                Height: =128
+                Icon: =Icon.Tools
+                OnSelect: =Navigate('Admin - Tools', ScreenTransition.Cover)
+                Visible: =CountRows(UserRecord.Capabilities) > 0
+                Width: =128
+                X: =381
+                Y: =447
+                ZIndex: =8
+
+            "'HomeScreen Admin Label' As label":
+                Align: =Align.Center
+                FontWeight: =FontWeight.Semibold
+                Height: =70
+                OnSelect: =Navigate('Admin - Tools', ScreenTransition.Cover)
+                Size: =21
+                Text: ="Admin Tools"
+                Visible: =CountRows(UserRecord.Capabilities) > 0
+                Width: =204
+                X: =343
+                Y: =584
+                ZIndex: =9
+
