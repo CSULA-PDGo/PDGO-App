@@ -1,4 +1,4 @@
-"'User-FacilityForm' As screen":
+"'Facility Request - User - Facility Form' As screen":
 
     Container3_13 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -439,7 +439,7 @@
                                 'Requester Email': User().Email
                             }
                         );
-                        Navigate(SubmittedSuccessfully);
+                        Navigate('Facility Request - Submitted Successfully');
                         ResetForm(Form2_1)
                     )
                 Size: =24

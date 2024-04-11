@@ -1,4 +1,4 @@
-"'Admin-EditCategory' As screen":
+"'Facility Request - Admin - Edit Category' As screen":
 
     Container35 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -204,7 +204,7 @@
                                 LookUp('Facility Request Categories', ID = _SelectedCategory.ID),
                                 {Title: 'CategoryTitleDataCard-Value_2'.Text}
                             );
-                            Navigate(SubmittedSuccessfully);
+                            Navigate('Facility Request - Submitted Successfully');
                             ResetForm('CreateNewGroup-Form_2')
                         )
                     Size: =24

@@ -1,4 +1,4 @@
-"'Admin-ManageCategory' As screen":
+"'Facility Request - Admin - Manage Category' As screen":
 
     Container18 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -226,7 +226,7 @@
                     OnSelect: |-
                         =Set(_SelectedRequest, ThisItem);
                         Set(_VisitedManageRequestCategory, false);
-                        Navigate('Admin-ManageRequest', ScreenTransition.Cover)
+                        Navigate('Facility Request - Admin - Manage Request', ScreenTransition.Cover)
                     Width: |-
                         =Parent.Width -45
                         //582
@@ -278,7 +278,7 @@
                 LayoutMinWidth: =280
                 OnSelect: |-
                     =Patch('Facility Request_1', LookUp('Facility Request_1', ID = _SelectedRequest.ID), {'Status (Status0)': {Value:"In Progress"}});
-                    Navigate('Admin-ViewRequests', ScreenTransition.UnCoverRight);
+                    Navigate('Facility Request - Admin - View Requests', ScreenTransition.UnCoverRight);
                 Size: =24
                 Text: ="Reopen Request"
                 Visible: =If(_SelectedRequest.'Status (Status0)'.Value = "Closed", true, false)
@@ -291,7 +291,7 @@
                 Height: =70
                 LayoutMinHeight: =70
                 LayoutMinWidth: =280
-                OnSelect: =Navigate('Admin-EditCategory', ScreenTransition.UnCoverRight);
+                OnSelect: =Navigate('Facility Request - Admin - Edit Category', ScreenTransition.UnCoverRight);
                 Size: =24
                 Text: ="Edit Category"
                 Visible: =If(_SelectedRequest.'Status (Status0)'.Value = "Opened", true, false)

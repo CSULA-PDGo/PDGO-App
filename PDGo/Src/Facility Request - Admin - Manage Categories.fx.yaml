@@ -1,4 +1,4 @@
-"'Admin-ManageCategories' As screen":
+"'Facility Request - Admin - Manage Categories' As screen":
 
     Container25 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -102,7 +102,7 @@
                 HoverFill: =RGBA(0, 0, 0, 0.1)
                 OnSelect: |-
                     =Set(_SelectedCategory, ThisItem);
-                    Navigate('Admin-ManageCategory', ScreenTransition.Cover)
+                    Navigate('Facility Request - Admin - Manage Category', ScreenTransition.Cover)
                 Width: =Parent.Width - 50
                 X: =(Parent.TemplateWidth - Self.Width)/2
                 Y: =(Parent.TemplateHeight - Self.Height)/2 + 10
