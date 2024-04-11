@@ -588,7 +588,7 @@
                                                         AddColumns(
                                                             Filter(
                                                                 Search(
-                                                                    'Facility Request',
+                                                                    'Facility Request_1',
                                                                     'AdminViewRequests-SearchInput_1'.Text,
                                                                     "RequestTitle"
                                                                 ),
@@ -616,7 +616,7 @@
                                                 MyTables: ForAll(
                                                     Filter(
                                                         Search(
-                                                            'Facility Request',
+                                                            'Facility Request_1',
                                                             'AdminViewRequests-SearchInput_1'.Text,
                                                             "RequestTitle"
                                                         ),
@@ -638,7 +638,7 @@
                                     ),
                                     Filter(
                                         Search(
-                                            'Facility Request',
+                                            'Facility Request_1',
                                             'AdminViewRequests-SearchInput_1'.Text,
                                             "RequestTitle"
                                         ),
@@ -678,6 +678,7 @@
                     Size: =16
                     Text: =ThisItem.Priority.Value
                     Width: =87
+                    X: ='RequestListItem-ID_4'.Width + 'RequestListItem-ID_4'.X
                     Y: ='RequestListItem-ID_4'.Y + 10
                     ZIndex: =2
 
@@ -693,6 +694,7 @@
                     Size: =18
                     Text: =If(IsBlank(ThisItem.Category.Value), "N/A", ThisItem.Category.Value)
                     Width: =394
+                    X: =Parent.TemplateWidth - Self.Width - 10
                     Y: |
                         =Parent.TemplateHeight - Self.Height - 10
                     ZIndex: =3
@@ -710,6 +712,7 @@
                     Text: |-
                         =Concatenate("ID: ", ThisItem.ID)
                     Width: =114
+                    X: =(Parent.TemplateWidth - Self.Width)/2  - 103
                     Y: =(Parent.TemplateHeight - Self.Height)/2  - 45
                     ZIndex: =4
 
@@ -724,6 +727,7 @@
                     Size: =20
                     Text: =ThisItem.'Requester Name'
                     Width: =291
+                    X: =(Parent.TemplateWidth - Self.Width)/2  - 14.5
                     Y: =(Parent.TemplateHeight - Self.Height)/2 -  5 
                     ZIndex: =5
 
@@ -740,6 +744,7 @@
                     Size: =16
                     Text: =ThisItem.'Status (Status0)'.Value
                     Width: =173
+                    X: ='RequestListItem-RequesterName_3'.X + 'RequestListItem-RequesterName_3'.Width - 40
                     Y: =(Parent.TemplateHeight - Self.Height)/2 - 1
                     ZIndex: =6
 
@@ -747,6 +752,7 @@
                     Height: =37
                     Icon: =Icon.NextArrow
                     Width: =49
+                    X: =Parent.TemplateWidth - Self.Width - 37
                     Y: =(Parent.TemplateHeight - Self.Height)/2 
                     ZIndex: =7
 
@@ -762,6 +768,7 @@
                     Size: =18
                     Text: =Text(DateTimeValue(ThisItem.Date), "dd")
                     Width: =52
+                    X: =50
                     Y: =(Parent.TemplateHeight - Self.Height)/2 - 29
                     ZIndex: =8
 
@@ -777,6 +784,7 @@
                     Size: =22
                     Text: =Text(DateTimeValue(ThisItem.Date), "mmm")
                     Width: =80
+                    X: =36
                     Y: =(Parent.TemplateHeight - Self.Height)/2 - 1
                     ZIndex: =9
 
@@ -792,6 +800,7 @@
                     Size: =18
                     Text: =Text(DateTimeValue(ThisItem.Date), "yyyy")
                     Width: =80
+                    X: =36
                     Y: =(Parent.TemplateHeight - Self.Height)/2 + 29
                     ZIndex: =10
 
@@ -807,6 +816,7 @@
                     Text: |-
                         =Concatenate("Title: ", ThisItem.'Request Title')
                     Width: =394
+                    X: =(Parent.TemplateWidth - Self.Width)/2  + 37
                     Y: =(Parent.TemplateHeight - Self.Height)/2 + 35
                     ZIndex: =11
 
