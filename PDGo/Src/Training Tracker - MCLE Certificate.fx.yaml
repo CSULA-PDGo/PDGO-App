@@ -43,7 +43,7 @@
             
             If(Index > CountRows(AttendanceRecords) + 1,
                 UpdateContext({More: false});
-                Navigate('Success Screen');
+                Navigate('General Success Screen');
                 ,
             
                 Collect(CertificatePDFs,
