@@ -261,13 +261,13 @@
 
                 CourseFormat As button:
                     Fill: =Switch(ThisItem.TrainingFormat.Value, "Online", Color.LightGreen, "In-person", Color.LightBlue, "Hybrid", Color.DarkSalmon)
-                    Height: =26.65
+                    Height: =30
                     OnSelect: =Select(Parent)
                     PaddingBottom: =3.51
                     PaddingLeft: =3.51
                     PaddingRight: =3.50
                     PaddingTop: =3.50
-                    Size: =12
+                    Size: =16
                     Text: =ThisItem.TrainingFormat.Value
                     Width: =127.31
                     X: =39
