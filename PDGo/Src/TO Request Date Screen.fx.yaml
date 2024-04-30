@@ -409,7 +409,7 @@
                 PaddingTop: =13.50
                 PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
                 PressedFill: =RGBA(0, 120, 212, 1)
-                SearchFields: =["Title", "Description"]
+                SearchFields: =["Title","Description"]
                 SearchItems: =[]
                 SelectionFill: =RGBA(255, 255, 255, 1)
                 SelectMultiple: =false
@@ -624,6 +624,7 @@
                     ZIndex: =1
 
                 "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                    '#CopilotOverlayLabel': ="Filtered"
                     DelayItemLoading: =true
                     Fill: =RGBA(175, 191, 224, 1)
                     Items: =RequestCodes

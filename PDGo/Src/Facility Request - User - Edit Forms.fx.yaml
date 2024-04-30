@@ -145,6 +145,7 @@
             ZIndex: =2
 
             "Request_List_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =1031
                 Items: |-
@@ -152,7 +153,7 @@
                         Search(
                             'Facility Request_1',
                             'AdminViewRequests-SearchInput_3'.Text,
-                            "RequestTitle"
+                            RequestTitle
                         ),
                         Priority.Value = ComboBox1_6.Selected.Value || IsBlank(ComboBox1_6.Selected.Value),
                         If(IsBlank(ComboBox1_7.Selected.Value), 'Status (Status0)'.Value = "Opened" || 'Status (Status0)'.Value = "In Progress", 'Status (Status0)'.Value = ComboBox1_7.Selected.Value),

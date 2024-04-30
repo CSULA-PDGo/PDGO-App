@@ -81,7 +81,7 @@
                     AttendedTime: Concatenate(Text(DateDiff(ThisRecord.'Check-InTime', ThisRecord.'Checkout Time', TimeUnit.Minutes)), " min"),
                     CO: ThisRecord.'Checkout Time',
                     CI: ThisRecord.'Check-InTime'
-                }),ComboBox4_1.SearchText,"AttendedTime")
+                }),ComboBox4_1.SearchText,AttendedTime)
             Size: =21
             Template: =ListItemTemplate.Double
             Width: =575

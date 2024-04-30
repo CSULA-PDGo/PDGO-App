@@ -1,6 +1,7 @@
 "'Facility Request - Admin - View Requests' As screen":
 
     "Request_List As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =1044
         Items: |-
@@ -19,7 +20,7 @@
                                                         Search(
                                                             'Facility Request_1',
                                                             'AdminViewRequests-SearchInput'.Text,
-                                                            "RequestTitle"
+                                                            RequestTitle
                                                         ),
                                                         Priority.Value = ComboBox1.Selected.Value || IsBlank(ComboBox1.Selected.Value),
                                                         If(
@@ -28,11 +29,11 @@
                                                             'Status (Status0)'.Value = ComboBox1_1.Selected.Value || IsBlank(ComboBox1_1.Selected.Value)
                                                         )
                                                     ),
-                                                    "CategoryValue",
+                                                    CategoryValue,
                                                     Category.Value
                                                 ),
-                                                "CategoryValue",
-                                                "CategoryValueGroupBy"
+                                                CategoryValue,
+                                                CategoryValueGroupBy
                                             ) As CategoryGroup,
                                 //First(ThisRecord.CategoryValueGroupBy)
                                             If(
@@ -47,7 +48,7 @@
                                                 Search(
                                                     'Facility Request_1',
                                                     'AdminViewRequests-SearchInput'.Text,
-                                                    "RequestTitle"
+                                                    RequestTitle
                                                 ),
                                                 Priority.Value = ComboBox1.Selected.Value || IsBlank(ComboBox1.Selected.Value),
                                                 If(
@@ -63,13 +64,13 @@
                                         )
                                     }
                                 ),
-                                "MyTables"
+                                MyTables
                             ),
                             Filter(
                                 Search(
                                     'Facility Request_1',
                                     'AdminViewRequests-SearchInput'.Text,
-                                    "RequestTitle"
+                                    RequestTitle
                                 ),
                                 Priority.Value = ComboBox1.Selected.Value || IsBlank(ComboBox1.Selected.Value),
                                 If(
@@ -572,6 +573,7 @@
             ZIndex: =3
 
             "Request_List_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                '#CopilotOverlayLabel': ="Filtered"
                 DelayItemLoading: =true
                 Height: =Parent.Height
                 Items: |-
@@ -590,7 +592,7 @@
                                                                 Search(
                                                                     'Facility Request_1',
                                                                     'AdminViewRequests-SearchInput_1'.Text,
-                                                                    "RequestTitle"
+                                                                    RequestTitle
                                                                 ),
                                                                 Priority.Value = ComboBox1_2.Selected.Value || IsBlank(ComboBox1_2.Selected.Value),
                                                                 If(
@@ -599,11 +601,11 @@
                                                                     'Status (Status0)'.Value = ComboBox1_3.Selected.Value || IsBlank(ComboBox1_3.Selected.Value)
                                                                 )
                                                             ),
-                                                            "CategoryValue",
+                                                            CategoryValue,
                                                             Category.Value
                                                         ),
-                                                        "CategoryValue",
-                                                        "CategoryValueGroupBy"
+                                                        CategoryValue,
+                                                        CategoryValueGroupBy
                                                     ) As CategoryGroup,
                                         //First(ThisRecord.CategoryValueGroupBy)
                                                     If(
@@ -618,7 +620,7 @@
                                                         Search(
                                                             'Facility Request_1',
                                                             'AdminViewRequests-SearchInput_1'.Text,
-                                                            "RequestTitle"
+                                                            RequestTitle
                                                         ),
                                                         Priority.Value = ComboBox1_2.Selected.Value || IsBlank(ComboBox1_2.Selected.Value),
                                                         If(
@@ -634,13 +636,13 @@
                                                 )
                                             }
                                         ),
-                                        "MyTables"
+                                        MyTables
                                     ),
                                     Filter(
                                         Search(
                                             'Facility Request_1',
                                             'AdminViewRequests-SearchInput_1'.Text,
-                                            "RequestTitle"
+                                            RequestTitle
                                         ),
                                         Priority.Value = ComboBox1_2.Selected.Value || IsBlank(ComboBox1_2.Selected.Value),
                                         If(

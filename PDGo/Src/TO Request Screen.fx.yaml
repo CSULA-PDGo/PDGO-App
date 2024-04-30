@@ -53,6 +53,7 @@
                 ZIndex: =4
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             Height: =Parent.Height
             Items: =RequestDates
@@ -148,7 +149,7 @@
                 =With({
                     Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
                         Reason: 'TO Request Screen Comments Input'.Text,
-                        Requestor: UserRecord.ID,
+                        Requester: UserRecord.ID,
                         Status: {Value: "Pending"},
                         Comments: ""
                     })
@@ -181,4 +182,3 @@
             Text: ="Submit Request"
             ZIndex: =6
 
-s

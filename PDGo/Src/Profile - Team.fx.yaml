@@ -1,6 +1,7 @@
 "'Profile - Team' As screen":
 
     "'Profile - Team Member Gallery' As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =Parent.Height - 'Profile - Team Navbar Background'.Height
         Items: =Filter(Users, 'Team ID'.Value = LookUp(Users, 'Email Address' = User().Email, 'Team ID').Value)

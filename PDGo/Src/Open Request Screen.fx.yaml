@@ -199,6 +199,7 @@
                         ZIndex: =3
 
                 "'Dates Gallery_2' As gallery.galleryVertical":
+                    '#CopilotOverlayLabel': ="Filtered"
                     DelayItemLoading: =true
                     Height: =400
                     Items: =Filter(TimeOffRequestDays, Request.Id = ApproveRecord.ID)

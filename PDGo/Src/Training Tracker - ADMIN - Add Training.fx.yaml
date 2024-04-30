@@ -60,10 +60,10 @@
                         DataField: ="TrainingLocation"
                         Default: =ThisItem.Training
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"TrainingLocation")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,Training)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, "TrainingLocation")
+                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, Training)
                         Required: =true
                         Update: =DataCardValue23.Text
                         Width: =637
@@ -135,7 +135,7 @@
                         DataField: ="TrainingFormat"
                         Default: =ThisItem.TrainingFormat
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"TrainingFormat")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,TrainingFormat)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =true
@@ -208,7 +208,7 @@
                         DataField: ="MCLE_Category"
                         Default: =ThisItem.MCLE_Category
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"MCLE_Category")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,MCLE_Category)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =true
@@ -282,7 +282,7 @@
                         DataField: ="TrainingEndDay"
                         Default: =ThisItem.TrainingEndDay
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"TrainingEndDay")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,TrainingEndDay)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =true
@@ -407,10 +407,10 @@
                         DataField: ="TrainingHost"
                         Default: =ThisItem.'Training Host'
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"TrainingHost")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,'Training Host')
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, "TrainingHost")
+                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, 'Training Host')
                         Required: =true
                         Update: =ComboBox2.Selected.DisplayName
                         Width: =637
@@ -496,7 +496,7 @@
                         DataField: ="TrainingDate"
                         Default: =ThisItem.TrainingStartDate
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"TrainingDate")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,TrainingStartDate)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
                         Required: =true
@@ -621,10 +621,10 @@
                         DataField: ="Location"
                         Default: =ThisItem.Location
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"Location")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,Location)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, "Location")
+                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, Location)
                         Required: =false
                         Update: =DataCardValue17.Text
                         Width: =637
@@ -696,10 +696,10 @@
                         DataField: ="Address"
                         Default: =ThisItem.Address
                         DisplayMode: =Parent.DisplayMode
-                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,"Address")
+                        DisplayName: =DataSourceInfo([@MCLETrainings_1],DataSourceInfo.DisplayName,Address)
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =50
-                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, "Address")
+                        MaxLength: =DataSourceInfo([@MCLETrainings_1], DataSourceInfo.MaxLength, Address)
                         Required: =false
                         Update: =DataCardValue18.Text
                         Width: =637
