@@ -11,7 +11,7 @@
         ZIndex: =1
 
         "'TO Request Screen Header' As groupContainer.horizontalAutoLayoutContainer":
-            Fill: =RGBA(136, 160, 209, 1)
+            Fill: =fxTheme.Header.BGColor
             FillPortions: =0
             Height: =75
             LayoutAlignItems: =LayoutAlignItems.Stretch
@@ -26,6 +26,7 @@
             ZIndex: =1
 
             "'TO Request Screen Header Back' As icon.ArrowLeft":
+                Color: =fxTheme.Header.TextColor
                 Icon: =Icon.ArrowLeft
                 OnSelect: =Back();
                 Width: =50
@@ -33,6 +34,7 @@
 
             "'TO Request Screen Header Text' As label":
                 Align: =Align.Center
+                Color: =fxTheme.Header.TextColor
                 FillPortions: =1
                 Font: =Font.Lato
                 Size: =20
@@ -40,7 +42,7 @@
                 ZIndex: =2
 
             "'TO Request Screen Header Profile' As image":
-                Image: =User().Image
+                Image: =
                 ImagePosition: =ImagePosition.Fill
                 LayoutMinHeight: =75
                 ZIndex: =3
@@ -146,8 +148,11 @@
             Font: =Font.Lato
             Height: =80
             OnSelect: |-
-                =With({
-                    Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {
+                =If(!IsBlankOrError(Edit), Patch(TimeOffRequests, Edit, {
+                    Status: {Value: "Cancelled"}
+                });
+                With({
+                    Request: Patch(TimeOffRequests, Defaults(TimeOffRequests), {
                         Reason: 'TO Request Screen Comments Input'.Text,
                         Requester: UserRecord.ID,
                         Status: {Value: "Pending"},
@@ -178,7 +183,7 @@
                 
                 Clear(RequestDates);
                 Reset('TO Request Screen Comments Input');
-                Navigate('Success Screen', ScreenTransition.CoverRight);
+                Navigate('General Success Screen', ScreenTransition.CoverRight);
             Text: ="Submit Request"
             ZIndex: =6
 

@@ -3261,7 +3261,14 @@
     "TO Request Screen Header": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Fill",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(136, 160, 209, 1)",
+          "InvariantPropertyName": "Fill",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Height",
         "LayoutAlignItems",
         "LayoutJustifyContent",
@@ -3540,7 +3547,14 @@
         "Tooltip",
         "ContentLanguage",
         "AutoDisableOnSelect",
-        "Color",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 18, 107, 1)",
+          "InvariantPropertyName": "Color",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledColor",
         "PressedColor",
         "HoverColor",
@@ -3932,7 +3946,7 @@
       "MetaDataIDKey": "",
       "Name": "TO Request Screen Header Name",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4197,7 +4211,14 @@
     "TO Request Screen Header Profile": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Image",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "User().Image",
+          "InvariantPropertyName": "Image",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ImagePosition",
         "ZIndex",
         "Transparency",
@@ -4292,7 +4313,7 @@
       "MetaDataIDKey": "",
       "Name": "TO Request Screen Header Profile",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4541,7 +4562,14 @@
         "Tooltip",
         "Role",
         "ContentLanguage",
-        "Color",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 0, 0, 1)",
+          "InvariantPropertyName": "Color",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledColor",
         "PressedColor",
         "HoverColor",
@@ -4628,7 +4656,7 @@
       "MetaDataIDKey": "",
       "Name": "TO Request Screen Header Text",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5127,7 +5155,14 @@
       "ControlPropertyState": [
         "Font",
         "Height",
-        "OnSelect",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "With({\n    Request: Patch(TimeOffRequests, If(IsBlankOrError(Edit), Defaults(TimeOffRequests), Edit), {\n        Reason: 'TO Request Screen Comments Input'.Text,\n        Requester: UserRecord.ID,\n        Status: {Value: \"Pending\"},\n        Comments: \"\"\n    })\n},\n    ForAll(RequestDates, With({Date: ThisRecord},\n            Patch(TimeOffRequestDays,\n                If(IsBlankOrError(ID),\n                    Defaults(TimeOffRequestDays),\n                    LookUp(TimeOffRequestDays, ID = Date.ID)\n                ),\n                {\n                    Request: {Id: Request.ID, Value: Request.ID},\n                    StartDate: Date.StartDate,\n                    EndDate: Date.EndDate,\n                    EntireDay: Date.EntireDay,\n                    StartTime: Date.StartTime,\n                    EndTime: Date.EndTime,\n                    Reason: { Id: LookUp(RequestCodes, Title = Date.Reason).ID, Value: Date.Reason },\n                    AdditionalComments: Date.Comments,\n                    ITEquipment: Date.ITEquipment\n                }\n            )\n        );\n    );\n);\n\nClear(RequestDates);\nReset('TO Request Screen Comments Input');\nNavigate('Success Screen', ScreenTransition.CoverRight);",
+          "InvariantPropertyName": "OnSelect",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Text",
         "ZIndex",
         "AutoDisableOnSelect",
