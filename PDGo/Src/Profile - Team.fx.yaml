@@ -1,6 +1,7 @@
 "'Profile - Team' As screen":
 
     "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        '#CopilotOverlayLabel': ="Filtered"
         DelayItemLoading: =true
         Height: =App.Height - 100
         Items: =Filter(Users, 'Team ID'.Value = LookUp(Users, 'Email Address' = User().Email, 'Team ID').Value)

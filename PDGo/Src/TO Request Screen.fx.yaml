@@ -67,6 +67,7 @@
                 ZIndex: =2
 
         "'TO Request Screen Dates Gallery' As gallery.galleryVertical":
+            '#CopilotOverlayLabel': ="Filtered"
             DelayItemLoading: =true
             FillPortions: =0
             Height: =(Self.TemplateHeight + Self.TemplatePadding) * Self.AllItemsCount
@@ -93,7 +94,7 @@
                     FillPortions: =1
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('TO Request Screen'.Size=1,8,17)
                     Text: =ThisItem.StartDate & "-" & ThisItem.EndDate
                     Width: |
                         =
@@ -104,7 +105,7 @@
                     FillPortions: =1
                     Font: =Font.Lato
                     LayoutMinWidth: =60
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('TO Request Screen'.Size=1,8,15)
                     Text: =If(ThisItem.EntireDay, "Entire Day", ThisItem.StartTime & "-" & ThisItem.EndTime)
                     Width: =Parent.Width*.20
                     ZIndex: =2
@@ -112,7 +113,7 @@
                 "'TO Request Screen Dates Reason' As label":
                     FillPortions: =1
                     LayoutMinWidth: =40
-                    Size: =If('TO Request Screen'.Size=1,7,12)
+                    Size: =If('TO Request Screen'.Size=1,10,15)
                     Text: |
                         =ThisItem.Reason
                     Width: =Parent.Width*.10
@@ -120,7 +121,7 @@
 
                 "'TO Request Screen Dates Edit Button' As button":
                     Fill: =RGBA(39, 67, 125, 1)
-                    FillPortions: =2
+                    FillPortions: =1
                     Font: =Font.Lato
                     LayoutMinWidth: =50
                     OnSelect: |-

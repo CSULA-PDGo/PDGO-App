@@ -160,6 +160,7 @@
                 ZIndex: =8
 
         "'TO Request List Screen Gallery' As gallery.galleryVertical":
+            '#CopilotOverlayLabel': ="Filtered"
             AlignInContainer: =AlignInContainer.SetByContainer
             DelayItemLoading: =true
             Height: =Parent.Height
@@ -169,7 +170,7 @@
                     Statuses: Status_ComboBox.SelectedItems
                 },
                     Filter(TimeOffRequests, StatusCode in Statuses, Or("Time Off Requests" in ForAll(UserRecord.Capabilities, Value), Requester in SubordinateIDs))
-                ), search_input.Text, "Reason", "Comments")
+                ), search_input.Text, Reason, Comments)
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
             LayoutMinWidth: =Parent.Width

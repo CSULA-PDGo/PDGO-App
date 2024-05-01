@@ -26,7 +26,7 @@
             DataField: ="Title"
             Default: =ThisItem.Title
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"Title")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,Title)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false
@@ -64,7 +64,7 @@
             DataField: ="FullName"
             Default: =ThisItem.'Full Name'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"FullName")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Full Name')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -136,7 +136,7 @@
             DataField: ="PhoneNumber"
             Default: =ThisItem.'Phone Number'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"PhoneNumber")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Phone Number')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false
@@ -174,7 +174,7 @@
             DataField: ="EmailAddress"
             Default: =ThisItem.'Email Address'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"EmailAddress")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Email Address')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false
@@ -212,7 +212,7 @@
             DataField: ="ProfilePicture"
             Default: =ThisItem.'Profile Picture'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"ProfilePicture")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Profile Picture')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -246,7 +246,7 @@
             DataField: ="AboutMe"
             Default: =ThisItem.'About Me'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"AboutMe")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'About Me')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false
@@ -284,7 +284,7 @@
             DataField: ="TeamID"
             Default: =ThisItem.'Team ID'
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"TeamID")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Team ID')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -355,7 +355,7 @@
             DataField: ="Supervisor"
             Default: =ThisItem.Supervisor
             DisplayMode: =DisplayMode.View
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"Supervisor")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,Supervisor)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =40
             Required: =false

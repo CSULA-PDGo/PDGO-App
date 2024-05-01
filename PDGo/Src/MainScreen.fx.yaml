@@ -26,7 +26,7 @@ MainScreen As screen:
             DataField: ="FullName"
             Default: =ThisItem.'Full Name'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"FullName")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Full Name')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =140
             Required: =false
@@ -118,10 +118,10 @@ MainScreen As screen:
             DataField: ="PhoneNumber"
             Default: =ThisItem.'Phone Number'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"PhoneNumber")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Phone Number')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, "PhoneNumber")
+            MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, 'Phone Number')
             Required: =false
             Update: =DataCardValue33.Text
             Width: =213
@@ -191,7 +191,7 @@ MainScreen As screen:
             DataField: ="ProfilePicture"
             Default: =ThisItem.'Profile Picture'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"ProfilePicture")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Profile Picture')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =388
             Required: =false
@@ -270,10 +270,10 @@ MainScreen As screen:
             DataField: ="AboutMe"
             Default: =ThisItem.'About Me'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"AboutMe")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'About Me')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =357
-            MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, "AboutMe")
+            MaxLength: =DataSourceInfo([@Users], DataSourceInfo.MaxLength, 'About Me')
             Required: =false
             Update: =DataCardValue35.Text
             Width: =213
@@ -344,7 +344,7 @@ MainScreen As screen:
             DataField: ="TeamID"
             Default: =ThisItem.'Team ID'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,"TeamID")
+            DisplayName: =DataSourceInfo([@Users],DataSourceInfo.DisplayName,'Team ID')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
