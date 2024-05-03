@@ -70,6 +70,8 @@
             Items: =Filter(MCLETrainings_1, TrainingEndDay <= Now(), TrainingType = "MCLE")
             LayoutMinHeight: =70
             LayoutMinWidth: =500
+            OnSelect: |-
+                =UpdateContext({test2:Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID), 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank())})
             SearchFields: =["TrainingLocation"]
             SearchItems: =[]
             Size: =21
@@ -96,6 +98,7 @@
             FillPortions: =1
             Height: =70
             InputTextPlaceholder: ="Select Attendees"
+            IsSearchable: =false
             Items: |-
                 =ForAll(Filter(MCLETrainingAttendance, TrainingID in ForAll(ComboBox5.SelectedItems, ID), 'Check-InTime' <> Blank(), 'Checkout Time' <> Blank()), {
                     Name: ThisRecord.Attendee,
@@ -108,7 +111,7 @@
             LayoutMinWidth: =575
             OnSelect: |-
                 =UpdateContext({test: Self.SelectedItems})
-            SearchFields: =["AttendedTime"]
+            SearchFields: =[""]
             SearchItems: =[]
             Size: =21
             Template: =ListItemTemplate.Double
