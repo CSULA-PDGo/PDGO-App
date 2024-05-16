@@ -153,7 +153,7 @@
                         Search(
                             'Facility Request_1',
                             'AdminViewRequests-SearchInput_3'.Text,
-                            RequestTitle
+                            'Request Title'
                         ),
                         Priority.Value = ComboBox1_6.Selected.Value || IsBlank(ComboBox1_6.Selected.Value),
                         If(IsBlank(ComboBox1_7.Selected.Value), 'Status (Status0)'.Value = "Opened" || 'Status (Status0)'.Value = "In Progress", 'Status (Status0)'.Value = ComboBox1_7.Selected.Value),

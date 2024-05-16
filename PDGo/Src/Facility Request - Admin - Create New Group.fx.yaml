@@ -231,10 +231,10 @@
                         DataField: ="Title"
                         Default: =ThisItem.'Requester Name'
                         DisplayMode: =Parent.DisplayMode.View
-                        DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,Title)
+                        DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,'Requester Name')
                         Fill: =RGBA(0, 0, 0, 0)
                         Height: =101
-                        MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, Title)
+                        MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, 'Requester Name')
                         Required: =false
                         Update: =DataCardValue1_4.Text
                         Width: =640

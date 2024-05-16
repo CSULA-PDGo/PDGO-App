@@ -169,10 +169,10 @@
                     DataField: ="Title"
                     Default: =ThisItem.'Requester Name'
                     DisplayMode: =Parent.DisplayMode.View
-                    DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,Title)
+                    DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,'Requester Name')
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =101
-                    MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, Title)
+                    MaxLength: =DataSourceInfo([@'Facility Request_1'], DataSourceInfo.MaxLength, 'Requester Name')
                     Required: =false
                     Update: =DataCardValue1_1.Text
                     Width: =Parent.Width
@@ -348,7 +348,7 @@
                     DataField: ="Status"
                     Default: =ThisItem.Priority
                     DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,Status)
+                    DisplayName: =DataSourceInfo([@'Facility Request_1'],DataSourceInfo.DisplayName,Priority)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =105
                     Required: =false
